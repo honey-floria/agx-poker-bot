@@ -4,6 +4,7 @@ __pycache__/
 *.tgz
 benchmark-output/
 .venv/
+.nodeenv/
 .env.local
 neural/artifacts/*
 !neural/artifacts/.gitkeep
