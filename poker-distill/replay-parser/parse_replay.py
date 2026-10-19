@@ -162,6 +162,7 @@ def parse_match(match: dict) -> tuple[list[dict], dict]:
         )
         hand_number = int(hand_data.get("hand", parsed_hands + 1))
         rotation = int(hand_data.get("rotation", (hand_number - 1) // 40))
+        rotation_hand = int(hand_data.get("rotation_hand", (hand_number - 1) % 40 + 1))
         for event in hand_data.get("events", []):
             kind = event.get("type")
             if kind in ("flop", "turn", "river"):
@@ -182,6 +183,9 @@ def parse_match(match: dict) -> tuple[list[dict], dict]:
                     "match_id": match_id,
                     "hand": hand_number,
                     "rotation": rotation,
+                    "rotation_hand": rotation_hand,
+                    "seat": seat,
+                    "button": view["button"],
                     "player": names[seat],
                     "position": view["me"]["position"],
                     "hole": view["me"]["cards"],
@@ -189,11 +193,14 @@ def parse_match(match: dict) -> tuple[list[dict], dict]:
                     "street": view["street"],
                     "pot": view["pot"],
                     "stack": view["me"]["stack"],
+                    "me_bet": view["me"]["bet"],
+                    "invested": view["me"]["invested"],
                     "to_call": view["toCall"],
                     "legal": view["legal"],
                     "min_raise_to": view["minRaiseTo"],
                     "max_raise_to": view["maxRaiseTo"],
                     "history": view["actions"],
+                    "players": view["players"],
                     "action": actual,
                     "final_net": None,
                 }
