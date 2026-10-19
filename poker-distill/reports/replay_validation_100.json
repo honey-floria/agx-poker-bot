@@ -1,0 +1,3415 @@
+{
+  "schema": "agx.replay-validation.v1",
+  "rules": "rsi-poker-4.1",
+  "simulation": "rsi-poker-4.0",
+  "required_matches": 100,
+  "verified_matches": 100,
+  "failed_matches": 0,
+  "hands": 24000,
+  "decisions": 202480,
+  "zero_sum_verified": true,
+  "failures": [],
+  "matches": [
+    {
+      "match_id": "2c43aebe-486a-4dc6-ab0c-75caf18a66fa",
+      "hands": 240,
+      "decisions": 1636,
+      "ranking": [
+        [
+          "anon_3",
+          12878
+        ],
+        [
+          "anon_1",
+          6143
+        ],
+        [
+          "anon_6",
+          1770
+        ],
+        [
+          "anon_5",
+          -374
+        ],
+        [
+          "anon_2",
+          -8116
+        ],
+        [
+          "anon_4",
+          -12301
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-2c43aebe-486a-4dc6-ab0c-75caf18a66fa.json",
+      "source_sha256": "7a82d092ceb9a6040bede50f787e7f9db5ec7812e7cc5bc66af0ea85039a6b2a"
+    },
+    {
+      "match_id": "30953350-bdb2-4c1a-bccf-2452b93acbdd",
+      "hands": 240,
+      "decisions": 2056,
+      "ranking": [
+        [
+          "anon_1",
+          27623
+        ],
+        [
+          "anon_3",
+          8929
+        ],
+        [
+          "anon_6",
+          1714
+        ],
+        [
+          "anon_4",
+          -10420
+        ],
+        [
+          "anon_2",
+          -11815
+        ],
+        [
+          "anon_5",
+          -16031
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-30953350-bdb2-4c1a-bccf-2452b93acbdd.json",
+      "source_sha256": "cb42d0982f5de2bdce68cf6eae4c22d647954fb4b97a91f98269892f5c923a85"
+    },
+    {
+      "match_id": "3faa71e3-111d-4688-878d-bb375c94bda7",
+      "hands": 240,
+      "decisions": 1635,
+      "ranking": [
+        [
+          "anon_2",
+          8110
+        ],
+        [
+          "anon_1",
+          4108
+        ],
+        [
+          "anon_6",
+          3187
+        ],
+        [
+          "anon_5",
+          -3359
+        ],
+        [
+          "anon_3",
+          -4568
+        ],
+        [
+          "anon_4",
+          -7478
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-3faa71e3-111d-4688-878d-bb375c94bda7.json",
+      "source_sha256": "544955728a49b70ad883e8b2682e1dd9529c6c5fcea38c50fc6ddd84a583541b"
+    },
+    {
+      "match_id": "7b58721e-9c74-4f3b-8346-3cc7305b905c",
+      "hands": 240,
+      "decisions": 1805,
+      "ranking": [
+        [
+          "anon_1",
+          10230
+        ],
+        [
+          "anon_5",
+          7617
+        ],
+        [
+          "anon_2",
+          -915
+        ],
+        [
+          "anon_4",
+          -3168
+        ],
+        [
+          "anon_3",
+          -4147
+        ],
+        [
+          "anon_6",
+          -9617
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-7b58721e-9c74-4f3b-8346-3cc7305b905c.json",
+      "source_sha256": "0298e5daa4c1772dece211c362c0cedd08b1914d9a37683be2acfeec4c467612"
+    },
+    {
+      "match_id": "99ad578c-9c55-4f44-bedb-66639868fc33",
+      "hands": 240,
+      "decisions": 1689,
+      "ranking": [
+        [
+          "anon_4",
+          10417
+        ],
+        [
+          "anon_3",
+          2774
+        ],
+        [
+          "anon_6",
+          324
+        ],
+        [
+          "anon_5",
+          23
+        ],
+        [
+          "anon_1",
+          -4465
+        ],
+        [
+          "anon_2",
+          -9073
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-99ad578c-9c55-4f44-bedb-66639868fc33.json",
+      "source_sha256": "c54fd7fc1f946095455e84394141a07a47e3af528c0db7659cd8f7c6d0838e13"
+    },
+    {
+      "match_id": "9a289ac1-f83d-45e1-ac35-8eb4e1b984cd",
+      "hands": 240,
+      "decisions": 1954,
+      "ranking": [
+        [
+          "anon_2",
+          17778
+        ],
+        [
+          "anon_3",
+          10176
+        ],
+        [
+          "anon_4",
+          651
+        ],
+        [
+          "anon_1",
+          -2857
+        ],
+        [
+          "anon_5",
+          -11900
+        ],
+        [
+          "anon_6",
+          -13848
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-9a289ac1-f83d-45e1-ac35-8eb4e1b984cd.json",
+      "source_sha256": "3e2b64234270c3e8cad703a787ad6ea24ce025aaae5ec15467bc67d7b76e26aa"
+    },
+    {
+      "match_id": "b821e119-18cd-4746-8eba-1e4b3860f21a",
+      "hands": 240,
+      "decisions": 1888,
+      "ranking": [
+        [
+          "anon_2",
+          2431
+        ],
+        [
+          "anon_4",
+          2088
+        ],
+        [
+          "anon_3",
+          1821
+        ],
+        [
+          "anon_5",
+          1675
+        ],
+        [
+          "anon_6",
+          -1591
+        ],
+        [
+          "anon_1",
+          -6424
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-b821e119-18cd-4746-8eba-1e4b3860f21a.json",
+      "source_sha256": "f41e9e2c46b820aae65b4b79a52027d64ee47c398640b68ae19078d2ec85ac43"
+    },
+    {
+      "match_id": "c9495861-c759-4d35-a46e-a0e255542eff",
+      "hands": 240,
+      "decisions": 1857,
+      "ranking": [
+        [
+          "anon_1",
+          21540
+        ],
+        [
+          "anon_4",
+          6940
+        ],
+        [
+          "anon_6",
+          1786
+        ],
+        [
+          "anon_5",
+          -6814
+        ],
+        [
+          "anon_3",
+          -10104
+        ],
+        [
+          "anon_2",
+          -13348
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c9495861-c759-4d35-a46e-a0e255542eff.json",
+      "source_sha256": "d6beb00ab6de7250c281847dc48edc1242c6caa1cbd0b91e6f7541a4e81ed94f"
+    },
+    {
+      "match_id": "e86bed2b-d752-440a-8c6c-f6460c4c5233",
+      "hands": 240,
+      "decisions": 1922,
+      "ranking": [
+        [
+          "anon_1",
+          17744
+        ],
+        [
+          "anon_6",
+          10098
+        ],
+        [
+          "anon_2",
+          -2660
+        ],
+        [
+          "anon_4",
+          -6363
+        ],
+        [
+          "anon_3",
+          -8800
+        ],
+        [
+          "anon_5",
+          -10019
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-e86bed2b-d752-440a-8c6c-f6460c4c5233.json",
+      "source_sha256": "2946594e4ec6db7614d1b26a2f7b0891f294dc8356ee4171bda0d85f41c75a5a"
+    },
+    {
+      "match_id": "efeb9881-4453-497a-944a-3165145660e6",
+      "hands": 240,
+      "decisions": 1705,
+      "ranking": [
+        [
+          "anon_1",
+          6333
+        ],
+        [
+          "anon_5",
+          4055
+        ],
+        [
+          "anon_2",
+          2448
+        ],
+        [
+          "anon_6",
+          -1182
+        ],
+        [
+          "anon_3",
+          -4465
+        ],
+        [
+          "anon_4",
+          -7189
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-efeb9881-4453-497a-944a-3165145660e6.json",
+      "source_sha256": "3f441887973903c0df3175ea351cac47bf0519e38186de75176985759534a652"
+    },
+    {
+      "match_id": "166fcb03-2d1d-45c3-8b4e-c6484b8f2ebf",
+      "hands": 240,
+      "decisions": 1766,
+      "ranking": [
+        [
+          "anon_2",
+          24241
+        ],
+        [
+          "anon_5",
+          13430
+        ],
+        [
+          "anon_1",
+          1250
+        ],
+        [
+          "anon_6",
+          -5455
+        ],
+        [
+          "anon_3",
+          -15716
+        ],
+        [
+          "anon_4",
+          -17750
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-166fcb03-2d1d-45c3-8b4e-c6484b8f2ebf.json",
+      "source_sha256": "dc748f0aaed1bfafd6928cb2d7723575f0de9b25cc60ad626bfae2838c3e7439"
+    },
+    {
+      "match_id": "1f88fa9f-527b-4042-9222-bfcd61af7d44",
+      "hands": 240,
+      "decisions": 2495,
+      "ranking": [
+        [
+          "anon_1",
+          83555
+        ],
+        [
+          "anon_3",
+          77396
+        ],
+        [
+          "anon_6",
+          36314
+        ],
+        [
+          "anon_4",
+          26846
+        ],
+        [
+          "anon_2",
+          -13410
+        ],
+        [
+          "anon_5",
+          -210701
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-1f88fa9f-527b-4042-9222-bfcd61af7d44.json",
+      "source_sha256": "f99a494bed13dbfadd068e7eabca36f3c6ca6d885320d661e0ad9f991e299f4c"
+    },
+    {
+      "match_id": "3e8ef228-a319-4d33-9d29-3e224cb82b08",
+      "hands": 240,
+      "decisions": 1656,
+      "ranking": [
+        [
+          "anon_5",
+          12777
+        ],
+        [
+          "anon_6",
+          1220
+        ],
+        [
+          "anon_4",
+          -650
+        ],
+        [
+          "anon_1",
+          -1037
+        ],
+        [
+          "anon_3",
+          -1950
+        ],
+        [
+          "anon_2",
+          -10360
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-3e8ef228-a319-4d33-9d29-3e224cb82b08.json",
+      "source_sha256": "4012dd67eca27dff32f323ff736f4bc33509229557c32f72447a605b98ff949d"
+    },
+    {
+      "match_id": "45cb46c4-58a2-48b1-98ac-95b4d8195021",
+      "hands": 240,
+      "decisions": 1708,
+      "ranking": [
+        [
+          "anon_2",
+          6674
+        ],
+        [
+          "anon_4",
+          6209
+        ],
+        [
+          "anon_6",
+          2249
+        ],
+        [
+          "anon_3",
+          -1863
+        ],
+        [
+          "anon_1",
+          -2566
+        ],
+        [
+          "anon_5",
+          -10703
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-45cb46c4-58a2-48b1-98ac-95b4d8195021.json",
+      "source_sha256": "85c313cce58c84d2160cc80272103dcdf44ce1402001ff68a7c34e7ad13f2d7a"
+    },
+    {
+      "match_id": "6d1e189b-8c58-4e1f-84b3-e44938010c23",
+      "hands": 240,
+      "decisions": 3606,
+      "ranking": [
+        [
+          "anon_3",
+          6937
+        ],
+        [
+          "anon_6",
+          764
+        ],
+        [
+          "anon_5",
+          -489
+        ],
+        [
+          "anon_2",
+          -599
+        ],
+        [
+          "anon_4",
+          -1550
+        ],
+        [
+          "anon_1",
+          -5063
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-6d1e189b-8c58-4e1f-84b3-e44938010c23.json",
+      "source_sha256": "47de77848e1f788d71e1a88b36d5bae0afe545c68a8f62cc0fd975cbb5cc3f33"
+    },
+    {
+      "match_id": "720379fa-4ce2-4ee7-b65b-1a7ec753c527",
+      "hands": 240,
+      "decisions": 2779,
+      "ranking": [
+        [
+          "anon_3",
+          218956
+        ],
+        [
+          "anon_2",
+          42476
+        ],
+        [
+          "anon_5",
+          191
+        ],
+        [
+          "anon_4",
+          -5138
+        ],
+        [
+          "anon_6",
+          -45717
+        ],
+        [
+          "anon_1",
+          -210768
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-720379fa-4ce2-4ee7-b65b-1a7ec753c527.json",
+      "source_sha256": "5c638a92be6da44139f72c0c4d300f73cacc867440845eeef000662156e30c7a"
+    },
+    {
+      "match_id": "75c5d607-12c0-4b81-9331-fb2f5210afe1",
+      "hands": 240,
+      "decisions": 1589,
+      "ranking": [
+        [
+          "anon_4",
+          23340
+        ],
+        [
+          "anon_1",
+          10483
+        ],
+        [
+          "anon_3",
+          -3400
+        ],
+        [
+          "anon_2",
+          -3650
+        ],
+        [
+          "anon_5",
+          -4225
+        ],
+        [
+          "anon_6",
+          -22548
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-75c5d607-12c0-4b81-9331-fb2f5210afe1.json",
+      "source_sha256": "89d8aad15d22a19fe52984ae0d02b1240df5e1785fa37d0915070eb1b26edcbe"
+    },
+    {
+      "match_id": "c0b38780-bd60-4234-ae47-aee91a413eec",
+      "hands": 240,
+      "decisions": 1766,
+      "ranking": [
+        [
+          "anon_3",
+          34176
+        ],
+        [
+          "anon_6",
+          16456
+        ],
+        [
+          "anon_5",
+          12565
+        ],
+        [
+          "anon_2",
+          -9050
+        ],
+        [
+          "anon_4",
+          -16789
+        ],
+        [
+          "anon_1",
+          -37358
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c0b38780-bd60-4234-ae47-aee91a413eec.json",
+      "source_sha256": "4db1b1788b582013c6ff7197ae7d7ca62f8924c83a74c85fd3604e7cd566c193"
+    },
+    {
+      "match_id": "cccf6787-d5d6-47bf-af54-60b8c012a995",
+      "hands": 240,
+      "decisions": 2868,
+      "ranking": [
+        [
+          "anon_4",
+          48730
+        ],
+        [
+          "anon_3",
+          1313
+        ],
+        [
+          "anon_1",
+          54
+        ],
+        [
+          "anon_2",
+          -6491
+        ],
+        [
+          "anon_5",
+          -10479
+        ],
+        [
+          "anon_6",
+          -33127
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-cccf6787-d5d6-47bf-af54-60b8c012a995.json",
+      "source_sha256": "191ebed730d6762b176859403c926e4d809873604936b4573786b3ceb63179e7"
+    },
+    {
+      "match_id": "ce531d9d-0f73-4c57-adf1-0b400d2a8700",
+      "hands": 240,
+      "decisions": 3280,
+      "ranking": [
+        [
+          "anon_1",
+          36650
+        ],
+        [
+          "anon_2",
+          31273
+        ],
+        [
+          "anon_6",
+          -1100
+        ],
+        [
+          "anon_5",
+          -5800
+        ],
+        [
+          "anon_4",
+          -6000
+        ],
+        [
+          "anon_3",
+          -55023
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-ce531d9d-0f73-4c57-adf1-0b400d2a8700.json",
+      "source_sha256": "2163e3b089d1a11a8e195f6668108dabb1c55f8ade41f48320b5347e0ccdf8ab"
+    },
+    {
+      "match_id": "e99987bf-e5bc-4224-8f83-e23264d0ac0a",
+      "hands": 240,
+      "decisions": 1608,
+      "ranking": [
+        [
+          "anon_4",
+          13385
+        ],
+        [
+          "anon_3",
+          8838
+        ],
+        [
+          "anon_2",
+          1918
+        ],
+        [
+          "anon_6",
+          -1565
+        ],
+        [
+          "anon_5",
+          -10526
+        ],
+        [
+          "anon_1",
+          -12050
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-e99987bf-e5bc-4224-8f83-e23264d0ac0a.json",
+      "source_sha256": "071625be740c0e684072b7410b9d38a8a6f073f0e306c3f81416c62f4eeb0cd0"
+    },
+    {
+      "match_id": "ffd5202f-0aeb-414e-b728-7c8a200e80cf",
+      "hands": 240,
+      "decisions": 1890,
+      "ranking": [
+        [
+          "anon_3",
+          16393
+        ],
+        [
+          "anon_1",
+          3702
+        ],
+        [
+          "anon_5",
+          1688
+        ],
+        [
+          "anon_6",
+          -977
+        ],
+        [
+          "anon_4",
+          -8508
+        ],
+        [
+          "anon_2",
+          -12298
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-ffd5202f-0aeb-414e-b728-7c8a200e80cf.json",
+      "source_sha256": "633676fe19b1138d8a62c6dfd07dd29110d5f4b619ede848d02e75e38003e1d3"
+    },
+    {
+      "match_id": "86604e2e-bf6e-490c-9017-bd63142a5e05",
+      "hands": 240,
+      "decisions": 1736,
+      "ranking": [
+        [
+          "anon_1",
+          22956
+        ],
+        [
+          "anon_2",
+          20066
+        ],
+        [
+          "anon_5",
+          -6322
+        ],
+        [
+          "anon_4",
+          -6842
+        ],
+        [
+          "anon_3",
+          -8441
+        ],
+        [
+          "anon_6",
+          -21417
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-86604e2e-bf6e-490c-9017-bd63142a5e05.json",
+      "source_sha256": "622e2c43bc7590734d5592ae688712c9ce4bb1b7cab731463ef5f08befcd4cfc"
+    },
+    {
+      "match_id": "a2288bad-21c8-47c0-b1e0-ee0329f7f5be",
+      "hands": 240,
+      "decisions": 1697,
+      "ranking": [
+        [
+          "anon_3",
+          27365
+        ],
+        [
+          "anon_4",
+          1827
+        ],
+        [
+          "anon_2",
+          751
+        ],
+        [
+          "anon_6",
+          -5409
+        ],
+        [
+          "anon_1",
+          -8520
+        ],
+        [
+          "anon_5",
+          -16014
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-a2288bad-21c8-47c0-b1e0-ee0329f7f5be.json",
+      "source_sha256": "529cc352d5c44a98dc8cef10bb60345135ebabe2ddd678a37d25c01d710bc4aa"
+    },
+    {
+      "match_id": "a8607ceb-c8c6-4059-a461-6aec6e3432b7",
+      "hands": 240,
+      "decisions": 1707,
+      "ranking": [
+        [
+          "anon_1",
+          9302
+        ],
+        [
+          "anon_4",
+          8123
+        ],
+        [
+          "anon_2",
+          4855
+        ],
+        [
+          "anon_6",
+          2887
+        ],
+        [
+          "anon_3",
+          -9313
+        ],
+        [
+          "anon_5",
+          -15854
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-a8607ceb-c8c6-4059-a461-6aec6e3432b7.json",
+      "source_sha256": "72937fbcdfa1704f12cadbf9a96ee2f61e6c373b67f3f8c3a23380021899e553"
+    },
+    {
+      "match_id": "b388e0d0-a2cd-4071-92ad-c0ddafb71376",
+      "hands": 240,
+      "decisions": 1733,
+      "ranking": [
+        [
+          "anon_1",
+          13837
+        ],
+        [
+          "anon_5",
+          3858
+        ],
+        [
+          "anon_2",
+          -2959
+        ],
+        [
+          "anon_6",
+          -3824
+        ],
+        [
+          "anon_4",
+          -4999
+        ],
+        [
+          "anon_3",
+          -5913
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-b388e0d0-a2cd-4071-92ad-c0ddafb71376.json",
+      "source_sha256": "a7977b61de7d3e14421f0b22f770b90801933c1e61094067b2c2cd23278094ea"
+    },
+    {
+      "match_id": "bc1f9533-9c4b-451b-a5dc-f7920daf8425",
+      "hands": 240,
+      "decisions": 1812,
+      "ranking": [
+        [
+          "anon_3",
+          24305
+        ],
+        [
+          "anon_2",
+          3527
+        ],
+        [
+          "anon_6",
+          -1553
+        ],
+        [
+          "anon_5",
+          -2612
+        ],
+        [
+          "anon_4",
+          -4489
+        ],
+        [
+          "anon_1",
+          -19178
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-bc1f9533-9c4b-451b-a5dc-f7920daf8425.json",
+      "source_sha256": "b70c566ea5f680ab835c2303f24b371ffa251fcd62931c205394c3d49d5fa7ed"
+    },
+    {
+      "match_id": "cd6b3084-1cd0-42bf-aea3-505cf9ebd77f",
+      "hands": 240,
+      "decisions": 1671,
+      "ranking": [
+        [
+          "anon_2",
+          7774
+        ],
+        [
+          "anon_4",
+          1587
+        ],
+        [
+          "anon_6",
+          218
+        ],
+        [
+          "anon_1",
+          -200
+        ],
+        [
+          "anon_5",
+          -1967
+        ],
+        [
+          "anon_3",
+          -7412
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-cd6b3084-1cd0-42bf-aea3-505cf9ebd77f.json",
+      "source_sha256": "5b19a321f5f6a41820c1414c1e8245324f241132ca14f5d5161d2018ecafcd50"
+    },
+    {
+      "match_id": "d2ff6c79-95c9-49ff-9331-6b9fff632b27",
+      "hands": 240,
+      "decisions": 1771,
+      "ranking": [
+        [
+          "anon_6",
+          18197
+        ],
+        [
+          "anon_1",
+          13256
+        ],
+        [
+          "anon_2",
+          -1654
+        ],
+        [
+          "anon_3",
+          -3393
+        ],
+        [
+          "anon_5",
+          -10010
+        ],
+        [
+          "anon_4",
+          -16396
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-d2ff6c79-95c9-49ff-9331-6b9fff632b27.json",
+      "source_sha256": "6e90aea6ca7119aa089bdb14110ec9f01b92d4248bfdda9d7b433ef404473fa9"
+    },
+    {
+      "match_id": "d9e02986-7f7a-49a4-ba46-7de28648f405",
+      "hands": 240,
+      "decisions": 1932,
+      "ranking": [
+        [
+          "anon_3",
+          18571
+        ],
+        [
+          "anon_6",
+          12875
+        ],
+        [
+          "anon_2",
+          4040
+        ],
+        [
+          "anon_5",
+          -7279
+        ],
+        [
+          "anon_4",
+          -9611
+        ],
+        [
+          "anon_1",
+          -18596
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-d9e02986-7f7a-49a4-ba46-7de28648f405.json",
+      "source_sha256": "e68a19dd1305f6b091f8615c1caa1f2c887c413dd704b2c92e8b1fdebb5190a7"
+    },
+    {
+      "match_id": "e0e73e60-b776-46dd-9be0-9408f78ebcde",
+      "hands": 240,
+      "decisions": 1581,
+      "ranking": [
+        [
+          "anon_1",
+          7442
+        ],
+        [
+          "anon_6",
+          2550
+        ],
+        [
+          "anon_4",
+          628
+        ],
+        [
+          "anon_2",
+          -801
+        ],
+        [
+          "anon_5",
+          -4897
+        ],
+        [
+          "anon_3",
+          -4922
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-e0e73e60-b776-46dd-9be0-9408f78ebcde.json",
+      "source_sha256": "27a412885f28479449494a29cb5829fae627eb0a1fd8a5eb121bb23578d890ba"
+    },
+    {
+      "match_id": "eb0cb6e9-fc01-4a22-b6d0-f1a22e47ad14",
+      "hands": 240,
+      "decisions": 2079,
+      "ranking": [
+        [
+          "anon_5",
+          11987
+        ],
+        [
+          "anon_3",
+          3811
+        ],
+        [
+          "anon_6",
+          -2305
+        ],
+        [
+          "anon_1",
+          -2734
+        ],
+        [
+          "anon_2",
+          -3903
+        ],
+        [
+          "anon_4",
+          -6856
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-eb0cb6e9-fc01-4a22-b6d0-f1a22e47ad14.json",
+      "source_sha256": "f1866d79ed4719aa9bbd9466271af1f6c9f663a335bc1af6859ae7f3ef3badf3"
+    },
+    {
+      "match_id": "0cdb9838-c906-47fd-a3eb-fe1b19f3ce95",
+      "hands": 240,
+      "decisions": 2425,
+      "ranking": [
+        [
+          "anon_4",
+          38808
+        ],
+        [
+          "anon_3",
+          18055
+        ],
+        [
+          "anon_6",
+          10164
+        ],
+        [
+          "anon_2",
+          -5100
+        ],
+        [
+          "anon_1",
+          -13031
+        ],
+        [
+          "anon_5",
+          -48896
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-0cdb9838-c906-47fd-a3eb-fe1b19f3ce95.json",
+      "source_sha256": "04c0a5de2f83fbc3fe0fe7455ef3fc8f174062c1cdbbddf27c6f473931e2e266"
+    },
+    {
+      "match_id": "1b70d240-0c3b-4b4a-b746-78d217feb030",
+      "hands": 240,
+      "decisions": 3747,
+      "ranking": [
+        [
+          "anon_2",
+          73318
+        ],
+        [
+          "anon_3",
+          39266
+        ],
+        [
+          "anon_5",
+          13939
+        ],
+        [
+          "anon_1",
+          1726
+        ],
+        [
+          "anon_4",
+          -6000
+        ],
+        [
+          "anon_6",
+          -122249
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-1b70d240-0c3b-4b4a-b746-78d217feb030.json",
+      "source_sha256": "baca3df4b630a0b888f0e6a774a993002cec75e06999c726b8f8a56cdc652827"
+    },
+    {
+      "match_id": "27273d2c-4b59-4a39-911a-7f06e9b42009",
+      "hands": 240,
+      "decisions": 1820,
+      "ranking": [
+        [
+          "anon_3",
+          17948
+        ],
+        [
+          "anon_4",
+          11786
+        ],
+        [
+          "anon_1",
+          3831
+        ],
+        [
+          "anon_2",
+          3106
+        ],
+        [
+          "anon_5",
+          -13295
+        ],
+        [
+          "anon_6",
+          -23376
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-27273d2c-4b59-4a39-911a-7f06e9b42009.json",
+      "source_sha256": "916276b2d6452394e5d0a886772346cd46a8503c9c26cbeea4e805d39b6b6705"
+    },
+    {
+      "match_id": "2f0515ff-2885-4ee9-a317-b2adb0dafe22",
+      "hands": 240,
+      "decisions": 1553,
+      "ranking": [
+        [
+          "anon_2",
+          9665
+        ],
+        [
+          "anon_1",
+          9656
+        ],
+        [
+          "anon_4",
+          4633
+        ],
+        [
+          "anon_3",
+          936
+        ],
+        [
+          "anon_6",
+          -7886
+        ],
+        [
+          "anon_5",
+          -17004
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-2f0515ff-2885-4ee9-a317-b2adb0dafe22.json",
+      "source_sha256": "2c0afe57070d59066e9cb007c626b4ca6329f8c0c1c34b425dd384c3cfd3552a"
+    },
+    {
+      "match_id": "4c3e6fe1-5676-45d5-9a37-08dfa00ec08f",
+      "hands": 240,
+      "decisions": 2255,
+      "ranking": [
+        [
+          "anon_1",
+          39562
+        ],
+        [
+          "anon_2",
+          26230
+        ],
+        [
+          "anon_5",
+          25859
+        ],
+        [
+          "anon_4",
+          -5009
+        ],
+        [
+          "anon_3",
+          -5625
+        ],
+        [
+          "anon_6",
+          -81017
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-4c3e6fe1-5676-45d5-9a37-08dfa00ec08f.json",
+      "source_sha256": "e6da0f221ecdc087ccf964d4f0fe4ad7bfe975de7e3ccef8a2cdcfe908e3f87f"
+    },
+    {
+      "match_id": "4e9b1aa6-a1cf-4420-be85-96081323601e",
+      "hands": 240,
+      "decisions": 2384,
+      "ranking": [
+        [
+          "anon_4",
+          224575
+        ],
+        [
+          "anon_3",
+          -5650
+        ],
+        [
+          "anon_2",
+          -5660
+        ],
+        [
+          "anon_1",
+          -9000
+        ],
+        [
+          "anon_5",
+          -77815
+        ],
+        [
+          "anon_6",
+          -126450
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-4e9b1aa6-a1cf-4420-be85-96081323601e.json",
+      "source_sha256": "bb66ac99e20ede0620878e75e4eecf5b10f87aa0f581fde5f964d53c8096d6a5"
+    },
+    {
+      "match_id": "91279491-d833-49cd-84b3-11bd25e2ce10",
+      "hands": 240,
+      "decisions": 1911,
+      "ranking": [
+        [
+          "anon_1",
+          7275
+        ],
+        [
+          "anon_6",
+          7219
+        ],
+        [
+          "anon_4",
+          2769
+        ],
+        [
+          "anon_3",
+          2672
+        ],
+        [
+          "anon_2",
+          -2225
+        ],
+        [
+          "anon_5",
+          -17710
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-91279491-d833-49cd-84b3-11bd25e2ce10.json",
+      "source_sha256": "0818f3d61eb087b150ed248668a9aa29c061fba9459e2039c23cc991dad2c31a"
+    },
+    {
+      "match_id": "aaf94099-63e6-4e50-afb7-fa3f978750bb",
+      "hands": 240,
+      "decisions": 3208,
+      "ranking": [
+        [
+          "anon_2",
+          35982
+        ],
+        [
+          "anon_5",
+          27085
+        ],
+        [
+          "anon_4",
+          25224
+        ],
+        [
+          "anon_1",
+          -590
+        ],
+        [
+          "anon_3",
+          -3150
+        ],
+        [
+          "anon_6",
+          -84551
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-aaf94099-63e6-4e50-afb7-fa3f978750bb.json",
+      "source_sha256": "04301f0c63dcfe5b7e80f30f7a63661e30e2017b2efbdda734ec9e48955d6ef9"
+    },
+    {
+      "match_id": "b64bb497-cdee-4016-b0be-035f58bd425e",
+      "hands": 240,
+      "decisions": 1849,
+      "ranking": [
+        [
+          "anon_2",
+          16500
+        ],
+        [
+          "anon_1",
+          9280
+        ],
+        [
+          "anon_5",
+          1525
+        ],
+        [
+          "anon_3",
+          -6276
+        ],
+        [
+          "anon_4",
+          -8551
+        ],
+        [
+          "anon_6",
+          -12478
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-b64bb497-cdee-4016-b0be-035f58bd425e.json",
+      "source_sha256": "29e84e6ab058710fbf2410f968e7297e9e15ce1d032e1d0f633ed51f6b6201bc"
+    },
+    {
+      "match_id": "b8caa1e1-930e-440c-bcde-f46367ce6995",
+      "hands": 240,
+      "decisions": 1549,
+      "ranking": [
+        [
+          "anon_2",
+          11278
+        ],
+        [
+          "anon_3",
+          7828
+        ],
+        [
+          "anon_5",
+          991
+        ],
+        [
+          "anon_6",
+          738
+        ],
+        [
+          "anon_1",
+          -4800
+        ],
+        [
+          "anon_4",
+          -16035
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-b8caa1e1-930e-440c-bcde-f46367ce6995.json",
+      "source_sha256": "fafbc477b8cb3da81bdc25085c72f19729ad95f2f2be3b6b6f41b1b2dd0646d2"
+    },
+    {
+      "match_id": "c6c13d6f-d931-4ada-a08c-10d29c719fea",
+      "hands": 240,
+      "decisions": 2181,
+      "ranking": [
+        [
+          "anon_6",
+          33581
+        ],
+        [
+          "anon_3",
+          17817
+        ],
+        [
+          "anon_4",
+          -9416
+        ],
+        [
+          "anon_1",
+          -9990
+        ],
+        [
+          "anon_5",
+          -12132
+        ],
+        [
+          "anon_2",
+          -19860
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c6c13d6f-d931-4ada-a08c-10d29c719fea.json",
+      "source_sha256": "10abbbaec97c3486727fbb9a1d908c1e602dee4bc6c54bf41cb3e3ead8060316"
+    },
+    {
+      "match_id": "f883bb93-5fe3-491a-9065-97e19351b153",
+      "hands": 240,
+      "decisions": 2874,
+      "ranking": [
+        [
+          "anon_6",
+          46814
+        ],
+        [
+          "anon_4",
+          24337
+        ],
+        [
+          "anon_3",
+          8678
+        ],
+        [
+          "anon_5",
+          7650
+        ],
+        [
+          "anon_2",
+          -29541
+        ],
+        [
+          "anon_1",
+          -57938
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-f883bb93-5fe3-491a-9065-97e19351b153.json",
+      "source_sha256": "26ad26edf92aa3ffe6b20b37ed64df4ae1bea581a12b726096b761fed747ad0f"
+    },
+    {
+      "match_id": "1f1bd335-e6ba-498d-ad9c-392dee570cbb",
+      "hands": 240,
+      "decisions": 1643,
+      "ranking": [
+        [
+          "anon_1",
+          14118
+        ],
+        [
+          "anon_6",
+          4133
+        ],
+        [
+          "anon_3",
+          345
+        ],
+        [
+          "anon_5",
+          -1100
+        ],
+        [
+          "anon_4",
+          -6385
+        ],
+        [
+          "anon_2",
+          -11111
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-1f1bd335-e6ba-498d-ad9c-392dee570cbb.json",
+      "source_sha256": "e4558bb4536961995f6fbef647e3c3695827cdd7473217a4da1833865580e355"
+    },
+    {
+      "match_id": "696dabc7-7959-4aec-ac22-8f04b4917090",
+      "hands": 240,
+      "decisions": 1648,
+      "ranking": [
+        [
+          "anon_5",
+          8408
+        ],
+        [
+          "anon_2",
+          -422
+        ],
+        [
+          "anon_1",
+          -644
+        ],
+        [
+          "anon_6",
+          -1387
+        ],
+        [
+          "anon_3",
+          -2418
+        ],
+        [
+          "anon_4",
+          -3537
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-696dabc7-7959-4aec-ac22-8f04b4917090.json",
+      "source_sha256": "9c2eae7712b94d133559f4b0c228bc5769ebb567cd85747c9e5bebd5cdd60dd4"
+    },
+    {
+      "match_id": "6b740a9c-2f0f-4cd0-a64a-303019b1d1aa",
+      "hands": 240,
+      "decisions": 1623,
+      "ranking": [
+        [
+          "anon_5",
+          5745
+        ],
+        [
+          "anon_6",
+          2223
+        ],
+        [
+          "anon_4",
+          1701
+        ],
+        [
+          "anon_3",
+          -1480
+        ],
+        [
+          "anon_1",
+          -3217
+        ],
+        [
+          "anon_2",
+          -4972
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-6b740a9c-2f0f-4cd0-a64a-303019b1d1aa.json",
+      "source_sha256": "16e8f144969d71fdbc82b6d54e3292ccc4b73a5078572afce9bd584df1a722e9"
+    },
+    {
+      "match_id": "91938f04-a627-45bd-b72f-87dfdf0e4755",
+      "hands": 240,
+      "decisions": 1986,
+      "ranking": [
+        [
+          "anon_3",
+          12289
+        ],
+        [
+          "anon_2",
+          9990
+        ],
+        [
+          "anon_1",
+          1555
+        ],
+        [
+          "anon_4",
+          322
+        ],
+        [
+          "anon_6",
+          -10843
+        ],
+        [
+          "anon_5",
+          -13313
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-91938f04-a627-45bd-b72f-87dfdf0e4755.json",
+      "source_sha256": "9a3c4fab9f1096f58657b5ba26b16fc16dc555910882311699d44e560c9009ad"
+    },
+    {
+      "match_id": "a123cab5-25cf-44dd-bf67-be65f051b5a1",
+      "hands": 240,
+      "decisions": 1762,
+      "ranking": [
+        [
+          "anon_5",
+          13831
+        ],
+        [
+          "anon_2",
+          5527
+        ],
+        [
+          "anon_6",
+          -1248
+        ],
+        [
+          "anon_1",
+          -2832
+        ],
+        [
+          "anon_3",
+          -5224
+        ],
+        [
+          "anon_4",
+          -10054
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-a123cab5-25cf-44dd-bf67-be65f051b5a1.json",
+      "source_sha256": "b4c9ad9e6e4de2adc8bd4ef0ef6453fbd0a01d800e715d2976e0d9dbb60066ab"
+    },
+    {
+      "match_id": "a3acb6e0-d05d-4970-a6f5-c3ad2a66c4a0",
+      "hands": 240,
+      "decisions": 1900,
+      "ranking": [
+        [
+          "anon_5",
+          6453
+        ],
+        [
+          "anon_4",
+          5417
+        ],
+        [
+          "anon_1",
+          4573
+        ],
+        [
+          "anon_3",
+          -1099
+        ],
+        [
+          "anon_6",
+          -6180
+        ],
+        [
+          "anon_2",
+          -9164
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-a3acb6e0-d05d-4970-a6f5-c3ad2a66c4a0.json",
+      "source_sha256": "8d86e89320c8ecced9c80b0497b12eb90134d261a14ef6e2b71b8e47f2586461"
+    },
+    {
+      "match_id": "abefbf93-6a16-4240-8cac-e808d3ad50a5",
+      "hands": 240,
+      "decisions": 1783,
+      "ranking": [
+        [
+          "anon_2",
+          13293
+        ],
+        [
+          "anon_3",
+          5906
+        ],
+        [
+          "anon_6",
+          3282
+        ],
+        [
+          "anon_5",
+          -3726
+        ],
+        [
+          "anon_4",
+          -4481
+        ],
+        [
+          "anon_1",
+          -14274
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-abefbf93-6a16-4240-8cac-e808d3ad50a5.json",
+      "source_sha256": "10f61c04953ec852010d12174c14528d29ed5f8529df59b7c8f3bdb675d8a0d2"
+    },
+    {
+      "match_id": "c809f3b4-77e8-4d20-a8b9-20fd72d80206",
+      "hands": 240,
+      "decisions": 1746,
+      "ranking": [
+        [
+          "anon_1",
+          12437
+        ],
+        [
+          "anon_3",
+          -801
+        ],
+        [
+          "anon_6",
+          -1164
+        ],
+        [
+          "anon_2",
+          -1443
+        ],
+        [
+          "anon_4",
+          -4069
+        ],
+        [
+          "anon_5",
+          -4960
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c809f3b4-77e8-4d20-a8b9-20fd72d80206.json",
+      "source_sha256": "38be20c3f0387637338e46e3bb743851b80e48593311b1879c05c483533a7bb1"
+    },
+    {
+      "match_id": "edbe75bb-622c-4211-952b-eedd451b62fb",
+      "hands": 240,
+      "decisions": 2013,
+      "ranking": [
+        [
+          "anon_3",
+          11347
+        ],
+        [
+          "anon_4",
+          7576
+        ],
+        [
+          "anon_1",
+          4510
+        ],
+        [
+          "anon_6",
+          -4360
+        ],
+        [
+          "anon_2",
+          -7710
+        ],
+        [
+          "anon_5",
+          -11363
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-edbe75bb-622c-4211-952b-eedd451b62fb.json",
+      "source_sha256": "1722808c79b5f1b309f6cad23bbc5cda1eaebd1a0ce9e94f4ee7e4735c11ef79"
+    },
+    {
+      "match_id": "f80825c7-b494-4016-9ca5-436c38d13c06",
+      "hands": 240,
+      "decisions": 1668,
+      "ranking": [
+        [
+          "anon_3",
+          31780
+        ],
+        [
+          "anon_5",
+          9267
+        ],
+        [
+          "anon_1",
+          219
+        ],
+        [
+          "anon_4",
+          -6464
+        ],
+        [
+          "anon_6",
+          -12995
+        ],
+        [
+          "anon_2",
+          -21807
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-f80825c7-b494-4016-9ca5-436c38d13c06.json",
+      "source_sha256": "ff59ffffaec81f0156917cf89b8767fb9a2459221ee23d5c56e974388c91642e"
+    },
+    {
+      "match_id": "192caee6-347c-4cf5-a151-433c9d66f24d",
+      "hands": 240,
+      "decisions": 3668,
+      "ranking": [
+        [
+          "anon_6",
+          57288
+        ],
+        [
+          "anon_3",
+          25527
+        ],
+        [
+          "anon_1",
+          -5090
+        ],
+        [
+          "anon_5",
+          -5300
+        ],
+        [
+          "anon_2",
+          -34645
+        ],
+        [
+          "anon_4",
+          -37780
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-192caee6-347c-4cf5-a151-433c9d66f24d.json",
+      "source_sha256": "fd8198116fb729c9bc4e20ba7882530fe2100c7333248476c60ce9aee04d5b96"
+    },
+    {
+      "match_id": "2c84954e-a380-4a12-87da-44e7ccf99750",
+      "hands": 240,
+      "decisions": 1872,
+      "ranking": [
+        [
+          "anon_2",
+          18252
+        ],
+        [
+          "anon_6",
+          9820
+        ],
+        [
+          "anon_1",
+          -1529
+        ],
+        [
+          "anon_4",
+          -5050
+        ],
+        [
+          "anon_5",
+          -8502
+        ],
+        [
+          "anon_3",
+          -12991
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-2c84954e-a380-4a12-87da-44e7ccf99750.json",
+      "source_sha256": "76de6bc3a9e44124967b864f588bf8427403c018e885031d8d1ac72a5f65ae42"
+    },
+    {
+      "match_id": "5866dbac-ada7-40eb-b89a-5c332e3c1a5e",
+      "hands": 240,
+      "decisions": 4062,
+      "ranking": [
+        [
+          "anon_4",
+          281330
+        ],
+        [
+          "anon_5",
+          176272
+        ],
+        [
+          "anon_3",
+          -26562
+        ],
+        [
+          "anon_2",
+          -46496
+        ],
+        [
+          "anon_1",
+          -131799
+        ],
+        [
+          "anon_6",
+          -252745
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-5866dbac-ada7-40eb-b89a-5c332e3c1a5e.json",
+      "source_sha256": "dd62a54656cf00bd75835b5a920ebb185d775942103e1e8ddfdf74bc8c04b74a"
+    },
+    {
+      "match_id": "599b434a-58be-4987-933f-bcf5203e4ac9",
+      "hands": 240,
+      "decisions": 1708,
+      "ranking": [
+        [
+          "anon_6",
+          29249
+        ],
+        [
+          "anon_3",
+          18241
+        ],
+        [
+          "anon_1",
+          6045
+        ],
+        [
+          "anon_4",
+          -4111
+        ],
+        [
+          "anon_2",
+          -22500
+        ],
+        [
+          "anon_5",
+          -26924
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-599b434a-58be-4987-933f-bcf5203e4ac9.json",
+      "source_sha256": "881d2ff284035c1f2a1878724aeb18d52b5ab0f73bdee34ed68fe765ad92d003"
+    },
+    {
+      "match_id": "63e9ba51-ac14-4e48-9d56-649a283a7884",
+      "hands": 240,
+      "decisions": 1628,
+      "ranking": [
+        [
+          "anon_2",
+          8159
+        ],
+        [
+          "anon_6",
+          7704
+        ],
+        [
+          "anon_5",
+          2897
+        ],
+        [
+          "anon_3",
+          -794
+        ],
+        [
+          "anon_1",
+          -8898
+        ],
+        [
+          "anon_4",
+          -9068
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-63e9ba51-ac14-4e48-9d56-649a283a7884.json",
+      "source_sha256": "a02c26de7a5039c02a2f37cb01bd5d0bbd4024fd78a7fd5e724f34eaa93c61a3"
+    },
+    {
+      "match_id": "8b76a69e-275f-4f06-8bac-203d8a7e8c19",
+      "hands": 240,
+      "decisions": 1889,
+      "ranking": [
+        [
+          "anon_5",
+          13015
+        ],
+        [
+          "anon_2",
+          5632
+        ],
+        [
+          "anon_4",
+          2780
+        ],
+        [
+          "anon_6",
+          1804
+        ],
+        [
+          "anon_1",
+          -8838
+        ],
+        [
+          "anon_3",
+          -14393
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-8b76a69e-275f-4f06-8bac-203d8a7e8c19.json",
+      "source_sha256": "4c7d1d628dad1f8221d2af16bd10b74cf5c4ee1e913521a1cdf7086d59916ba2"
+    },
+    {
+      "match_id": "a07dde8c-fc20-4816-8216-8643b8f27fe9",
+      "hands": 240,
+      "decisions": 2081,
+      "ranking": [
+        [
+          "anon_4",
+          14554
+        ],
+        [
+          "anon_1",
+          9273
+        ],
+        [
+          "anon_2",
+          2464
+        ],
+        [
+          "anon_5",
+          -3389
+        ],
+        [
+          "anon_6",
+          -5200
+        ],
+        [
+          "anon_3",
+          -17702
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-a07dde8c-fc20-4816-8216-8643b8f27fe9.json",
+      "source_sha256": "55a72fdd1ecb8d99ddd287b35180a3f974e81c29bd7d68b1638f883f79f31bd9"
+    },
+    {
+      "match_id": "aab63623-f0cf-480a-8cd5-ef4bf3bedd75",
+      "hands": 240,
+      "decisions": 3015,
+      "ranking": [
+        [
+          "anon_3",
+          38667
+        ],
+        [
+          "anon_4",
+          24100
+        ],
+        [
+          "anon_1",
+          -3100
+        ],
+        [
+          "anon_6",
+          -5940
+        ],
+        [
+          "anon_5",
+          -6010
+        ],
+        [
+          "anon_2",
+          -47717
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-aab63623-f0cf-480a-8cd5-ef4bf3bedd75.json",
+      "source_sha256": "c29d2e950e02dde754376eec6aec8faf6204fe6b93ad37199d26fe15b8e08a91"
+    },
+    {
+      "match_id": "b604b274-410a-4272-857e-bfe7aaec1ae1",
+      "hands": 240,
+      "decisions": 2759,
+      "ranking": [
+        [
+          "anon_5",
+          144650
+        ],
+        [
+          "anon_4",
+          57185
+        ],
+        [
+          "anon_6",
+          18070
+        ],
+        [
+          "anon_2",
+          -5175
+        ],
+        [
+          "anon_1",
+          -5620
+        ],
+        [
+          "anon_3",
+          -209110
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-b604b274-410a-4272-857e-bfe7aaec1ae1.json",
+      "source_sha256": "6f06d078d087c68f81a68901e9fcb2468284c97c7871a48119bdd014201b5f1f"
+    },
+    {
+      "match_id": "c3adf1f6-7163-4c11-b93a-86276edee405",
+      "hands": 240,
+      "decisions": 1993,
+      "ranking": [
+        [
+          "anon_6",
+          48288
+        ],
+        [
+          "anon_5",
+          40094
+        ],
+        [
+          "anon_2",
+          16267
+        ],
+        [
+          "anon_4",
+          -6000
+        ],
+        [
+          "anon_3",
+          -31400
+        ],
+        [
+          "anon_1",
+          -67249
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c3adf1f6-7163-4c11-b93a-86276edee405.json",
+      "source_sha256": "2f83e838612132283cf63d5b28393bc367e53e6a8122acedb6f40aa98853530d"
+    },
+    {
+      "match_id": "da8ef62e-f4d7-4502-9295-f7fff5f2212e",
+      "hands": 240,
+      "decisions": 1681,
+      "ranking": [
+        [
+          "anon_4",
+          5435
+        ],
+        [
+          "anon_6",
+          4555
+        ],
+        [
+          "anon_1",
+          2690
+        ],
+        [
+          "anon_3",
+          -343
+        ],
+        [
+          "anon_5",
+          -3098
+        ],
+        [
+          "anon_2",
+          -9239
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-da8ef62e-f4d7-4502-9295-f7fff5f2212e.json",
+      "source_sha256": "e27e66679a7bd27facda08699d0211fc046c6fb728e9369e11aff2c9379c545e"
+    },
+    {
+      "match_id": "dbd7dd09-57a9-49c6-a91f-50bf752acc3e",
+      "hands": 240,
+      "decisions": 1892,
+      "ranking": [
+        [
+          "anon_5",
+          15685
+        ],
+        [
+          "anon_2",
+          6788
+        ],
+        [
+          "anon_3",
+          3642
+        ],
+        [
+          "anon_4",
+          -2616
+        ],
+        [
+          "anon_1",
+          -7479
+        ],
+        [
+          "anon_6",
+          -16020
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-dbd7dd09-57a9-49c6-a91f-50bf752acc3e.json",
+      "source_sha256": "d4fce33f798fd5bb362811737fb2efc44bd5c16b96f69cdc90c99f9e01f170bf"
+    },
+    {
+      "match_id": "1fd9d1f6-858b-4826-acd2-c339f71c0199",
+      "hands": 240,
+      "decisions": 1944,
+      "ranking": [
+        [
+          "anon_6",
+          16619
+        ],
+        [
+          "anon_2",
+          5235
+        ],
+        [
+          "anon_3",
+          4466
+        ],
+        [
+          "anon_5",
+          -1542
+        ],
+        [
+          "anon_4",
+          -9163
+        ],
+        [
+          "anon_1",
+          -15615
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-1fd9d1f6-858b-4826-acd2-c339f71c0199.json",
+      "source_sha256": "ee7491d6fbec2f6b3a13e407ee38f3b8837c7da86111c91b24c0988631f9c8fd"
+    },
+    {
+      "match_id": "495c8433-4452-451e-b147-ff05afcdc52b",
+      "hands": 240,
+      "decisions": 1728,
+      "ranking": [
+        [
+          "anon_6",
+          12789
+        ],
+        [
+          "anon_4",
+          6496
+        ],
+        [
+          "anon_5",
+          2984
+        ],
+        [
+          "anon_2",
+          -140
+        ],
+        [
+          "anon_1",
+          -8611
+        ],
+        [
+          "anon_3",
+          -13518
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-495c8433-4452-451e-b147-ff05afcdc52b.json",
+      "source_sha256": "91981c3d9f25046702841bcb459d4b55353653cc29bdc9832270db37bff3d579"
+    },
+    {
+      "match_id": "5700180d-19fd-40af-94a1-a1286943c201",
+      "hands": 240,
+      "decisions": 1790,
+      "ranking": [
+        [
+          "anon_4",
+          6567
+        ],
+        [
+          "anon_3",
+          6074
+        ],
+        [
+          "anon_1",
+          3300
+        ],
+        [
+          "anon_6",
+          -1890
+        ],
+        [
+          "anon_5",
+          -6892
+        ],
+        [
+          "anon_2",
+          -7159
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-5700180d-19fd-40af-94a1-a1286943c201.json",
+      "source_sha256": "bdd88b27d05e79e87acc8b4d95ac590888f3074b06404dd50548d010b43930d9"
+    },
+    {
+      "match_id": "6c2eedaa-91a1-4e6a-b178-7bbd3fa2897b",
+      "hands": 240,
+      "decisions": 1672,
+      "ranking": [
+        [
+          "anon_1",
+          5467
+        ],
+        [
+          "anon_5",
+          3454
+        ],
+        [
+          "anon_6",
+          -381
+        ],
+        [
+          "anon_2",
+          -841
+        ],
+        [
+          "anon_4",
+          -3578
+        ],
+        [
+          "anon_3",
+          -4121
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-6c2eedaa-91a1-4e6a-b178-7bbd3fa2897b.json",
+      "source_sha256": "0eb13e8f560ec8a8c6d849d0d3dd09181c3cbebf8c7dcbbdd29aadc235a7df06"
+    },
+    {
+      "match_id": "856b5ca2-6878-401e-be59-f713f4d504c9",
+      "hands": 240,
+      "decisions": 1910,
+      "ranking": [
+        [
+          "anon_3",
+          24099
+        ],
+        [
+          "anon_4",
+          1658
+        ],
+        [
+          "anon_2",
+          -4358
+        ],
+        [
+          "anon_5",
+          -5796
+        ],
+        [
+          "anon_6",
+          -7559
+        ],
+        [
+          "anon_1",
+          -8044
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-856b5ca2-6878-401e-be59-f713f4d504c9.json",
+      "source_sha256": "487ab588751cb8faf27a43cfd4ba1975129bf654192969098e9c2ce6f68035b6"
+    },
+    {
+      "match_id": "ba7b8b49-157f-4d8d-b559-b5f88f681d3d",
+      "hands": 240,
+      "decisions": 1617,
+      "ranking": [
+        [
+          "anon_6",
+          7502
+        ],
+        [
+          "anon_1",
+          2711
+        ],
+        [
+          "anon_5",
+          1937
+        ],
+        [
+          "anon_4",
+          -338
+        ],
+        [
+          "anon_3",
+          -4720
+        ],
+        [
+          "anon_2",
+          -7092
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-ba7b8b49-157f-4d8d-b559-b5f88f681d3d.json",
+      "source_sha256": "2ad74372fa331cb7889903ea30a66fef7066c9e0d3f4836e3d17221d3f8f1928"
+    },
+    {
+      "match_id": "ba8b6957-f0d7-41e3-b19c-c684c347b879",
+      "hands": 240,
+      "decisions": 1864,
+      "ranking": [
+        [
+          "anon_2",
+          6281
+        ],
+        [
+          "anon_1",
+          5028
+        ],
+        [
+          "anon_4",
+          1770
+        ],
+        [
+          "anon_6",
+          -3127
+        ],
+        [
+          "anon_3",
+          -4319
+        ],
+        [
+          "anon_5",
+          -5633
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-ba8b6957-f0d7-41e3-b19c-c684c347b879.json",
+      "source_sha256": "12ee9cce42404ff5b336f537562b42b8495e2ac18b4e7d74c8bbab9576783968"
+    },
+    {
+      "match_id": "bef6df74-0d5b-4b4c-9bba-d9a438b68129",
+      "hands": 240,
+      "decisions": 1748,
+      "ranking": [
+        [
+          "anon_1",
+          5879
+        ],
+        [
+          "anon_4",
+          2752
+        ],
+        [
+          "anon_2",
+          2318
+        ],
+        [
+          "anon_5",
+          808
+        ],
+        [
+          "anon_3",
+          -4950
+        ],
+        [
+          "anon_6",
+          -6807
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-bef6df74-0d5b-4b4c-9bba-d9a438b68129.json",
+      "source_sha256": "dd13e916acffb5e8f0c333049c12a348b3c44653b0ce617eab73b97d59a668c0"
+    },
+    {
+      "match_id": "ca5892aa-5f0f-461d-893c-587cc9169496",
+      "hands": 240,
+      "decisions": 1738,
+      "ranking": [
+        [
+          "anon_5",
+          15433
+        ],
+        [
+          "anon_3",
+          5525
+        ],
+        [
+          "anon_6",
+          5388
+        ],
+        [
+          "anon_2",
+          1590
+        ],
+        [
+          "anon_1",
+          -4101
+        ],
+        [
+          "anon_4",
+          -23835
+        ]
+      ],
+      "split": "test",
+      "source_file": "replay-ca5892aa-5f0f-461d-893c-587cc9169496.json",
+      "source_sha256": "556c94f3b17297bfcaf5dbf636aacba54ff0c94ba467c09ca6d8911b2aa188a6"
+    },
+    {
+      "match_id": "ccfb574a-2f20-4d8d-9b85-48abe17014a8",
+      "hands": 240,
+      "decisions": 1797,
+      "ranking": [
+        [
+          "anon_4",
+          8987
+        ],
+        [
+          "anon_1",
+          8380
+        ],
+        [
+          "anon_5",
+          5630
+        ],
+        [
+          "anon_3",
+          2273
+        ],
+        [
+          "anon_6",
+          -6201
+        ],
+        [
+          "anon_2",
+          -19069
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-ccfb574a-2f20-4d8d-9b85-48abe17014a8.json",
+      "source_sha256": "9be54b5f9c9ec6dd8e19e171772fdeecaa7d16965a200bb7399996b1db2c0f9b"
+    },
+    {
+      "match_id": "034aac47-d95c-4659-a8fc-2abaec86e99c",
+      "hands": 240,
+      "decisions": 1795,
+      "ranking": [
+        [
+          "anon_4",
+          11348
+        ],
+        [
+          "anon_5",
+          2512
+        ],
+        [
+          "anon_2",
+          -657
+        ],
+        [
+          "anon_3",
+          -730
+        ],
+        [
+          "anon_6",
+          -4970
+        ],
+        [
+          "anon_1",
+          -7503
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-034aac47-d95c-4659-a8fc-2abaec86e99c.json",
+      "source_sha256": "27ef695f49671f21611f1f18481cf9834bda5b67548a06c0ac9234adb88bc09d"
+    },
+    {
+      "match_id": "048f956d-4e5f-42a9-b75d-ad3f7bb54b74",
+      "hands": 240,
+      "decisions": 2748,
+      "ranking": [
+        [
+          "anon_5",
+          208555
+        ],
+        [
+          "anon_1",
+          135211
+        ],
+        [
+          "anon_4",
+          -11100
+        ],
+        [
+          "anon_3",
+          -11117
+        ],
+        [
+          "anon_2",
+          -49222
+        ],
+        [
+          "anon_6",
+          -272327
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-048f956d-4e5f-42a9-b75d-ad3f7bb54b74.json",
+      "source_sha256": "a81723d2f46f11835a0be2ff7aa6ea20055db7247b8ca7d88560ec5ab791fe89"
+    },
+    {
+      "match_id": "34ac7a70-4c9c-4b01-abd7-3754ef51df60",
+      "hands": 240,
+      "decisions": 4424,
+      "ranking": [
+        [
+          "anon_5",
+          81137
+        ],
+        [
+          "anon_4",
+          43903
+        ],
+        [
+          "anon_2",
+          43235
+        ],
+        [
+          "anon_6",
+          7356
+        ],
+        [
+          "anon_3",
+          -78200
+        ],
+        [
+          "anon_1",
+          -97431
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-34ac7a70-4c9c-4b01-abd7-3754ef51df60.json",
+      "source_sha256": "929325816d10ef7cd2e68084d43fbb061cc9e6ab415dbd3cbe836002f99d7138"
+    },
+    {
+      "match_id": "4532cb14-df45-4667-abdc-50eedd65c627",
+      "hands": 240,
+      "decisions": 1823,
+      "ranking": [
+        [
+          "anon_6",
+          18971
+        ],
+        [
+          "anon_3",
+          13878
+        ],
+        [
+          "anon_1",
+          12355
+        ],
+        [
+          "anon_2",
+          -13679
+        ],
+        [
+          "anon_5",
+          -15002
+        ],
+        [
+          "anon_4",
+          -16523
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-4532cb14-df45-4667-abdc-50eedd65c627.json",
+      "source_sha256": "f6a00dcd2b2bbdc450a895c2742b66314bf428bf73966b8dec2128484ee5aceb"
+    },
+    {
+      "match_id": "546239d4-2233-4632-922f-c4e43aedaeee",
+      "hands": 240,
+      "decisions": 1555,
+      "ranking": [
+        [
+          "anon_1",
+          3447
+        ],
+        [
+          "anon_2",
+          3106
+        ],
+        [
+          "anon_5",
+          707
+        ],
+        [
+          "anon_6",
+          -1013
+        ],
+        [
+          "anon_3",
+          -1897
+        ],
+        [
+          "anon_4",
+          -4350
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-546239d4-2233-4632-922f-c4e43aedaeee.json",
+      "source_sha256": "780e9de87638f5d272e4d93f5ea0a85fc6cda8774e21de64e911169f8c2cdc8d"
+    },
+    {
+      "match_id": "5bbfef80-90ad-46a6-9760-4eeb23b00abb",
+      "hands": 240,
+      "decisions": 2598,
+      "ranking": [
+        [
+          "anon_2",
+          28829
+        ],
+        [
+          "anon_4",
+          -414
+        ],
+        [
+          "anon_1",
+          -3455
+        ],
+        [
+          "anon_6",
+          -3800
+        ],
+        [
+          "anon_3",
+          -4010
+        ],
+        [
+          "anon_5",
+          -17150
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-5bbfef80-90ad-46a6-9760-4eeb23b00abb.json",
+      "source_sha256": "51e4e43663799dfeaefd0304df76f8e14b7ad4920953e57d0a7f47cd49dbf959"
+    },
+    {
+      "match_id": "6c0bd38b-159c-46cd-8045-9bc23f1fd578",
+      "hands": 240,
+      "decisions": 1711,
+      "ranking": [
+        [
+          "anon_6",
+          17478
+        ],
+        [
+          "anon_2",
+          15304
+        ],
+        [
+          "anon_3",
+          2399
+        ],
+        [
+          "anon_4",
+          -1892
+        ],
+        [
+          "anon_5",
+          -15855
+        ],
+        [
+          "anon_1",
+          -17434
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-6c0bd38b-159c-46cd-8045-9bc23f1fd578.json",
+      "source_sha256": "3167261a9412c5e96e8458b2b9a765bf2afb714190e9a8f5c506a12b1df89925"
+    },
+    {
+      "match_id": "8a4fc781-5201-47e5-996e-6c25c7660d06",
+      "hands": 240,
+      "decisions": 1823,
+      "ranking": [
+        [
+          "anon_3",
+          20647
+        ],
+        [
+          "anon_4",
+          7981
+        ],
+        [
+          "anon_2",
+          3286
+        ],
+        [
+          "anon_5",
+          155
+        ],
+        [
+          "anon_1",
+          -2693
+        ],
+        [
+          "anon_6",
+          -29376
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-8a4fc781-5201-47e5-996e-6c25c7660d06.json",
+      "source_sha256": "dd2dbdc2905477e7afe252d147039a58b48e831ff2b90ff3edc8d6cd7f2749f8"
+    },
+    {
+      "match_id": "a3f1173a-656a-4277-91f1-2627dd08f1ee",
+      "hands": 240,
+      "decisions": 1863,
+      "ranking": [
+        [
+          "anon_5",
+          39984
+        ],
+        [
+          "anon_4",
+          857
+        ],
+        [
+          "anon_3",
+          181
+        ],
+        [
+          "anon_6",
+          -643
+        ],
+        [
+          "anon_2",
+          -10933
+        ],
+        [
+          "anon_1",
+          -29446
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-a3f1173a-656a-4277-91f1-2627dd08f1ee.json",
+      "source_sha256": "ada73879695377a709e3bc1416c2a8e3db528ccb68f9b690a03e517db5a0f337"
+    },
+    {
+      "match_id": "c2d0f339-e3e0-401f-9766-c75147839b01",
+      "hands": 240,
+      "decisions": 1948,
+      "ranking": [
+        [
+          "anon_6",
+          55431
+        ],
+        [
+          "anon_5",
+          33171
+        ],
+        [
+          "anon_1",
+          -5850
+        ],
+        [
+          "anon_3",
+          -12948
+        ],
+        [
+          "anon_2",
+          -28798
+        ],
+        [
+          "anon_4",
+          -41006
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c2d0f339-e3e0-401f-9766-c75147839b01.json",
+      "source_sha256": "da92b41a0f6441a7870344c34940d83b50f5af3a8cdb47417eabe9c66490fa78"
+    },
+    {
+      "match_id": "c871d016-cb74-4eec-bf43-9c66bf25d875",
+      "hands": 240,
+      "decisions": 1851,
+      "ranking": [
+        [
+          "anon_1",
+          18663
+        ],
+        [
+          "anon_2",
+          1750
+        ],
+        [
+          "anon_4",
+          379
+        ],
+        [
+          "anon_3",
+          -3440
+        ],
+        [
+          "anon_6",
+          -4261
+        ],
+        [
+          "anon_5",
+          -13091
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c871d016-cb74-4eec-bf43-9c66bf25d875.json",
+      "source_sha256": "f05b8b4cfe471b39373ffa004cdd8a2e882661150c0116af6d7505ccfd00aed1"
+    },
+    {
+      "match_id": "ca3d64d5-1c57-4f31-acff-e1d07666e01c",
+      "hands": 240,
+      "decisions": 2184,
+      "ranking": [
+        [
+          "anon_4",
+          11010
+        ],
+        [
+          "anon_1",
+          3537
+        ],
+        [
+          "anon_2",
+          1489
+        ],
+        [
+          "anon_5",
+          281
+        ],
+        [
+          "anon_3",
+          -5850
+        ],
+        [
+          "anon_6",
+          -10467
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-ca3d64d5-1c57-4f31-acff-e1d07666e01c.json",
+      "source_sha256": "945c16c2a3450533b4efcc88ff1e45325d8590d7cf899757873acb8c2ec0077f"
+    },
+    {
+      "match_id": "4692fdfa-8dd3-48ce-be08-74101e4d7662",
+      "hands": 240,
+      "decisions": 1717,
+      "ranking": [
+        [
+          "anon_4",
+          22537
+        ],
+        [
+          "anon_2",
+          16687
+        ],
+        [
+          "anon_3",
+          -966
+        ],
+        [
+          "anon_6",
+          -6128
+        ],
+        [
+          "anon_5",
+          -10417
+        ],
+        [
+          "anon_1",
+          -21713
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-4692fdfa-8dd3-48ce-be08-74101e4d7662.json",
+      "source_sha256": "b2a1cbd1d548d944328e77d3865ed5f8003a0870725d621a02091c1ab1d055b4"
+    },
+    {
+      "match_id": "5f4b9fc1-c142-44a6-a84d-906c2a3e4b55",
+      "hands": 240,
+      "decisions": 1863,
+      "ranking": [
+        [
+          "anon_5",
+          19487
+        ],
+        [
+          "anon_2",
+          1809
+        ],
+        [
+          "anon_1",
+          400
+        ],
+        [
+          "anon_3",
+          -1218
+        ],
+        [
+          "anon_6",
+          -7004
+        ],
+        [
+          "anon_4",
+          -13474
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-5f4b9fc1-c142-44a6-a84d-906c2a3e4b55.json",
+      "source_sha256": "09cffd3299b329cf8e99adb1b9f6409c7833bee498c72fa756b3bc1891780879"
+    },
+    {
+      "match_id": "72aa93ab-76ec-464a-b7a6-12b3094093fa",
+      "hands": 240,
+      "decisions": 1798,
+      "ranking": [
+        [
+          "anon_4",
+          10983
+        ],
+        [
+          "anon_1",
+          10838
+        ],
+        [
+          "anon_6",
+          5950
+        ],
+        [
+          "anon_5",
+          965
+        ],
+        [
+          "anon_3",
+          -8313
+        ],
+        [
+          "anon_2",
+          -20423
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-72aa93ab-76ec-464a-b7a6-12b3094093fa.json",
+      "source_sha256": "5d4b52e1895c8dc68eb71f484c8e4035a5f1c2130df671e45b2dd81b9b65934f"
+    },
+    {
+      "match_id": "8de82688-df34-4419-940e-1d5060d02cf8",
+      "hands": 240,
+      "decisions": 1821,
+      "ranking": [
+        [
+          "anon_2",
+          12734
+        ],
+        [
+          "anon_6",
+          10320
+        ],
+        [
+          "anon_5",
+          6931
+        ],
+        [
+          "anon_1",
+          1288
+        ],
+        [
+          "anon_4",
+          -3099
+        ],
+        [
+          "anon_3",
+          -28174
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-8de82688-df34-4419-940e-1d5060d02cf8.json",
+      "source_sha256": "41fa71c46b4695278fbc814c5d9267b11d73c72a58290330b4915dc784bcca67"
+    },
+    {
+      "match_id": "965b05d4-b120-4b75-9f0b-6e9abdfc5b81",
+      "hands": 240,
+      "decisions": 1819,
+      "ranking": [
+        [
+          "anon_1",
+          16129
+        ],
+        [
+          "anon_5",
+          14973
+        ],
+        [
+          "anon_3",
+          5125
+        ],
+        [
+          "anon_6",
+          -1042
+        ],
+        [
+          "anon_4",
+          -2167
+        ],
+        [
+          "anon_2",
+          -33018
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-965b05d4-b120-4b75-9f0b-6e9abdfc5b81.json",
+      "source_sha256": "cd4a45f299d6340fae5be4d4389fe140b152338e82060e20744a0ada880f449e"
+    },
+    {
+      "match_id": "9949418e-c79b-479f-904c-54ca2063d1fe",
+      "hands": 240,
+      "decisions": 1991,
+      "ranking": [
+        [
+          "anon_6",
+          14061
+        ],
+        [
+          "anon_2",
+          5861
+        ],
+        [
+          "anon_3",
+          -727
+        ],
+        [
+          "anon_5",
+          -2121
+        ],
+        [
+          "anon_4",
+          -7680
+        ],
+        [
+          "anon_1",
+          -9394
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-9949418e-c79b-479f-904c-54ca2063d1fe.json",
+      "source_sha256": "b6b61039738d8fe6a7b122aafcee80506cff1e0a0a15452e0015d04b0d141575"
+    },
+    {
+      "match_id": "b62f807b-2b4a-47b9-ad76-dd0bec874c8a",
+      "hands": 240,
+      "decisions": 1704,
+      "ranking": [
+        [
+          "anon_1",
+          27438
+        ],
+        [
+          "anon_6",
+          12341
+        ],
+        [
+          "anon_5",
+          5870
+        ],
+        [
+          "anon_2",
+          2693
+        ],
+        [
+          "anon_4",
+          -11558
+        ],
+        [
+          "anon_3",
+          -36784
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-b62f807b-2b4a-47b9-ad76-dd0bec874c8a.json",
+      "source_sha256": "9e75880f93aa11f0b2a923b22f9c3772ab3350b6ae24cff32ccb9e4c0bd70a0c"
+    },
+    {
+      "match_id": "c83e024d-c304-4858-a411-41665a1dc9cd",
+      "hands": 240,
+      "decisions": 1758,
+      "ranking": [
+        [
+          "anon_5",
+          11700
+        ],
+        [
+          "anon_1",
+          6758
+        ],
+        [
+          "anon_6",
+          -163
+        ],
+        [
+          "anon_4",
+          -4977
+        ],
+        [
+          "anon_3",
+          -5803
+        ],
+        [
+          "anon_2",
+          -7515
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-c83e024d-c304-4858-a411-41665a1dc9cd.json",
+      "source_sha256": "f512e2d01534c79077a59a5b1eab8c1a88f109a5172accb149fc9ca0908d3504"
+    },
+    {
+      "match_id": "d7149be6-f8d9-4b58-a36b-397a19212743",
+      "hands": 240,
+      "decisions": 1866,
+      "ranking": [
+        [
+          "anon_4",
+          8015
+        ],
+        [
+          "anon_6",
+          2260
+        ],
+        [
+          "anon_3",
+          1825
+        ],
+        [
+          "anon_2",
+          492
+        ],
+        [
+          "anon_5",
+          -5452
+        ],
+        [
+          "anon_1",
+          -7140
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-d7149be6-f8d9-4b58-a36b-397a19212743.json",
+      "source_sha256": "cf8ea626870d25e88c6170af03bff81188dca9ba5dfa4bea79b47efa2258af50"
+    },
+    {
+      "match_id": "da52562f-8439-4245-a70e-a2978b347dfd",
+      "hands": 240,
+      "decisions": 1901,
+      "ranking": [
+        [
+          "anon_3",
+          12661
+        ],
+        [
+          "anon_4",
+          -236
+        ],
+        [
+          "anon_6",
+          -923
+        ],
+        [
+          "anon_2",
+          -1890
+        ],
+        [
+          "anon_5",
+          -4376
+        ],
+        [
+          "anon_1",
+          -5236
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-da52562f-8439-4245-a70e-a2978b347dfd.json",
+      "source_sha256": "d6fbc5e6f9e73b955cbda9bf095696908e87d746cdd32a8678c075e162a2b931"
+    },
+    {
+      "match_id": "0071c355-4a9e-4713-bc01-335749ab7b32",
+      "hands": 240,
+      "decisions": 1678,
+      "ranking": [
+        [
+          "anon_5",
+          12247
+        ],
+        [
+          "anon_1",
+          7898
+        ],
+        [
+          "anon_2",
+          -387
+        ],
+        [
+          "anon_6",
+          -1711
+        ],
+        [
+          "anon_4",
+          -4750
+        ],
+        [
+          "anon_3",
+          -13297
+        ]
+      ],
+      "split": "validation",
+      "source_file": "replay-0071c355-4a9e-4713-bc01-335749ab7b32.json",
+      "source_sha256": "437a30b0a855224456f296d65d8e32752f1619169e2d049a84449a62ef809bb4"
+    },
+    {
+      "match_id": "011fcf84-6f12-43d0-a2f3-7a93138b7135",
+      "hands": 240,
+      "decisions": 1780,
+      "ranking": [
+        [
+          "anon_6",
+          18725
+        ],
+        [
+          "anon_3",
+          6621
+        ],
+        [
+          "anon_4",
+          4826
+        ],
+        [
+          "anon_5",
+          769
+        ],
+        [
+          "anon_2",
+          -4400
+        ],
+        [
+          "anon_1",
+          -26541
+        ]
+      ],
+      "split": "train",
+      "source_file": "replay-011fcf84-6f12-43d0-a2f3-7a93138b7135.json",
+      "source_sha256": "c7fc105c3e7d003488dac45e1869e6229c174d0d5211944ea6c9b6b0f990285c"
+    }
+  ],
+  "elapsed_seconds": 234.843
+}
