@@ -339,11 +339,20 @@ class PokerHand:
             if len(self.board) != 5:
                 raise ValueError("多人摊牌必须有5张公共牌")
             scores = {seat.seat: evaluate(seat.hole + self.board) for seat in active}
+            # The official simulator coalesces pot layers that resolve to the
+            # same winner set before dividing chips.  Dividing every layer
+            # independently can manufacture offsetting odd chips when folded
+            # dead money creates several layers (for example 250 + 200 + 1686
+            # split by the same three winners must pay 712 each).
+            awards_by_winners: dict[tuple[int, ...], int] = {}
             for side_pot in self.side_pots():
                 best = max(scores[index] for index in side_pot["eligible"])
                 winners = [index for index in side_pot["eligible"] if scores[index] == best]
                 winners.sort(key=lambda index: (index - self.button - 1) % PLAYERS)
-                share, remainder = divmod(side_pot["amount"], len(winners))
+                key = tuple(winners)
+                awards_by_winners[key] = awards_by_winners.get(key, 0) + side_pot["amount"]
+            for winners, amount in awards_by_winners.items():
+                share, remainder = divmod(amount, len(winners))
                 for position, winner in enumerate(winners):
                     self.seats[winner].stack += share + (1 if position < remainder else 0)
         self.settled = True

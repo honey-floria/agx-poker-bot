@@ -113,6 +113,24 @@ hand.pending.clear()
 net = hand.settle()
 assert net[0] == 51 and net[1] == 50
 
+# Pot layers with the same tied winner set are coalesced before rounding.
+# This is the exact shape observed in public replay hand 143 of
+# a07dde8c-fc20-4816-8216-8643b8f27fe9: folded blind/dead money creates
+# 250, 200 and 1686-chip layers, but the three tied winners receive 712 each.
+tie_holes = [["5s", "5c"], ["Ks", "3h"], ["2h", "Ad"], ["6h", "3c"], ["Ah", "8h"], ["9s", "As"]]
+hand = PokerHand(0, tie_holes)
+contributions = [100, 50, 662, 0, 662, 662]
+for index, contribution in enumerate(contributions):
+    seat = hand.seats[index]
+    seat.invested = contribution
+    seat.street_bet = contribution
+    seat.stack = 10_000 - contribution
+    seat.folded = index in (0, 1, 3)
+hand.board = ["Td", "Th", "4c", "Qs", "Ac"]
+hand.pending.clear()
+net = hand.settle()
+assert net == [-100, -50, 50, 0, 50, 50]
+
 # Six rotations reuse 40 physical deals/buttons and visit all seats.
 schedule = duplicate_schedule([index % 6 for index in range(40)])
 assert len(schedule) == 240
