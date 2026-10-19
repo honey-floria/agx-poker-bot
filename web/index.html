@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071b17">
+  <title>AGX Poker Lab</title>
+  <meta name="description" content="按 AGX 规则与五个 AI 对手进行 240 手、六阶段换座的无限注德州扑克比赛。">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./match.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <div class="brand"><span class="mark">A</span><div><strong>AGX Poker Lab</strong><small>HUMAN vs. FIVE AGENTS</small></div></div>
+    <div class="top-actions"><span class="status-dot"></span><span id="gameStatus">等待开局</span><button id="newHandTop" class="ghost">重新发牌</button></div>
+  </header>
+
+  <main>
+    <section class="hero-copy">
+      <div><p class="eyebrow">SIX-MAX · 100 BB · 240-HAND MATCH</p><h1>坐上牌桌，<em>读懂机器。</em></h1></div>
+      <p>你与五个策略代理完成六阶段复式比赛。每阶段40手、每手恢复100BB，六次换座后按累计真实净额排名。</p>
+    </section>
+
+    <section class="game-shell">
+      <aside class="panel left-panel">
+        <div class="panel-head"><span>对手档案</span><span class="muted">5 AGENTS</span></div>
+        <div class="match-progress"><div><span>比赛进度</span><b id="matchProgressText">0 / 240</b></div><div class="progress-track"><i id="progressBar"></i></div><div class="stage-grid"><span>阶段 <b id="rotationValue">—</b></span><span>阶段内 <b id="rotationHandValue">—</b></span></div></div>
+        <div id="agentProfiles" class="profiles"></div>
+        <div class="legend"><div><i class="tight"></i>紧</div><div><i class="balanced"></i>均衡</div><div><i class="loose"></i>松</div></div>
+      </aside>
+
+      <div class="table-wrap">
+        <div class="table-rim">
+          <div class="felt">
+            <div class="table-brand">AGX <span>POKER LAB</span></div>
+            <div id="seats" class="seats"></div>
+            <div class="board-zone">
+              <div class="pot-label">底池 <strong id="pot">0</strong></div>
+              <div id="board" class="cards board"></div>
+              <div id="streetLabel" class="street">PRE-FLOP</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="controls" class="controls">
+          <div class="turn-message"><span id="turnTitle">准备好了吗？</span><small id="turnHint">点击“开始新一手”加入牌桌</small></div>
+          <div class="action-row">
+            <button id="foldBtn" class="action danger" disabled>弃牌 <kbd>F</kbd></button>
+            <button id="callBtn" class="action neutral" disabled>过牌 <kbd>C</kbd></button>
+            <div class="raise-box">
+              <input id="raiseRange" type="range" min="200" max="10000" step="50" value="300" disabled>
+              <div class="raise-meta"><span>加注至</span><strong id="raiseValue">300</strong></div>
+              <div class="quick"><button data-pot=".5" disabled>½池</button><button data-pot=".75" disabled>¾池</button><button data-pot="1" disabled>满池</button></div>
+            </div>
+            <button id="raiseBtn" class="action primary" disabled>加注 <kbd>R</kbd></button>
+            <button id="allinBtn" class="action allin" disabled>全下</button>
+          </div>
+          <button id="startBtn" class="start">开始 240 手比赛</button>
+        </div>
+      </div>
+
+      <aside class="panel log-panel">
+        <div class="panel-head"><span>行动记录</span><button id="clearLog" class="text-btn">清空</button></div>
+        <div id="actionLog" class="action-log"><div class="empty-log">新的一手将在这里记录</div></div>
+        <div class="hand-facts"><div><span>赛制</span><b>6 × 40 手</b></div><div><span>盲注</span><b>50 / 100</b></div><div><span>每手筹码</span><b>10,000</b></div><div><span>按钮位</span><b id="buttonSeat">—</b></div></div>
+      </aside>
+    </section>
+
+    <section class="model-note">
+      <span class="line"></span><p><strong>AGX 复式赛制</strong>　每阶段复用同一组40个物理牌序和按钮位置，六名参赛者依次坐遍六个物理位；每手重新获得10,000筹码，最终按240手累计净额排名。AI 使用固定预算同步策略和故障兜底，不会向网络发送牌局数据。</p>
+    </section>
+  </main>
+
+  <div id="resultModal" class="modal" aria-hidden="true"><div class="modal-card"><p id="resultEyebrow" class="eyebrow">HAND COMPLETE</p><h2 id="resultTitle">本手结束</h2><div id="resultCards" class="result-cards"></div><p id="resultText"></p><div id="modalStandings" class="modal-standings"></div><button id="playAgain" class="start">继续下一手</button></div></div>
+  <script src="./app.js"></script>
+</body>
+</html>

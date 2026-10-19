@@ -1,0 +1,56 @@
+.match-progress {
+  padding: 12px 0 6px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4px;
+}
+.match-progress > div:first-child,
+.stage-grid {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 9px;
+}
+.match-progress b { color: var(--ink); }
+.progress-track {
+  height: 4px;
+  background: #142c26;
+  border-radius: 4px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+.progress-track i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), #f0d79f);
+  transition: width .35s;
+}
+.stage-grid { gap: 8px; }
+.profile-net { font-size: 9px !important; }
+.positive { color: #79d4ac !important; }
+.negative { color: #df827a !important; }
+.profile.current-player {
+  background: rgba(221,182,106,.07);
+  border-radius: 7px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.modal-standings {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 15px 0;
+  text-align: left;
+  max-height: 210px;
+  overflow: auto;
+}
+.standing-row {
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  gap: 8px;
+  padding: 6px 9px;
+  background: rgba(255,255,255,.04);
+  border-radius: 6px;
+  font-size: 11px;
+}
+.standing-row.you { border: 1px solid rgba(221,182,106,.3); }

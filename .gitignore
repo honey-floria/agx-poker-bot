@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+*.tgz
+benchmark-output/
+.venv/
+neural/artifacts/*
+!neural/artifacts/.gitkeep
+
+.idea
