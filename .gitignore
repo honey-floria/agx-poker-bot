@@ -10,6 +10,8 @@ neural/artifacts/*
 poker-distill/data/raw-replays/*
 !poker-distill/data/raw-replays/.gitkeep
 !poker-distill/data/raw-replays/manifest.json
+# Full replay archives, including generated manifests and logs, stay local.
+poker-distill/data/raw-replays/
 poker-distill/data/parsed-decisions/*
 !poker-distill/data/parsed-decisions/.gitkeep
 poker-distill/data/solver-labels/*
