@@ -1,6 +1,8 @@
 {
   "schemaVersion": 1,
   "rulesVersion": "rsi-poker-4.1",
+  "simulationVersion": "rsi-poker-4.0",
+  "observationRules": "rsi-poker-4.0",
   "auditStatus": "confirmed",
   "table": {
     "players": 6,

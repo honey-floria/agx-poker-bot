@@ -4,14 +4,14 @@
 from __future__ import annotations
 
 import argparse
-import out
+import json
 from pathlib import Path
 import sys
 
 
 DISTILL_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(DISTILL_ROOT / "simulator"))
-from engine import PokerHand, RULES_VERSION
+from engine import PokerHand, RULES_VERSION, SIMULATION_VERSION
 
 
 def load_documents(path: Path) -> list[dict]:
@@ -19,12 +19,12 @@ def load_documents(path: Path) -> list[dict]:
     if not text:
         return []
     if text.startswith("["):
-        value = out.loads(text)
+        value = json.loads(text)
         return value if isinstance(value, list) else [value]
     if text.startswith("{"):
-        value = out.loads(text)
+        value = json.loads(text)
         return value.get("matches", [value])
-    return [out.loads(line) for line in text.splitlines() if line.strip()]
+    return [json.loads(line) for line in text.splitlines() if line.strip()]
 
 
 def validate_snapshot(engine: PokerHand, snapshot: dict, hand_number: int) -> None:
@@ -40,7 +40,94 @@ def validate_snapshot(engine: PokerHand, snapshot: dict, hand_number: int) -> No
             raise ValueError(f"第{hand_number}手动作前 {field} 不一致：计算{expected[field]}，回放{actual}")
 
 
+def normalize_public_replay(document: dict) -> dict:
+    """Convert an official agx.public-replay.v1 aggregate into parser input."""
+    descriptor = document.get("descriptor", {})
+    if document.get("complete") is not True or descriptor.get("complete") is not True:
+        raise ValueError("公开回放尚未完整生成")
+    if descriptor.get("rules_version") != RULES_VERSION:
+        raise ValueError(f"未审计的规则版本：{descriptor.get('rules_version')}")
+    if descriptor.get("simulation_version") != SIMULATION_VERSION:
+        raise ValueError(f"未验证的模拟器版本：{descriptor.get('simulation_version')}")
+    events = document.get("streams", {}).get("public_events")
+    if not isinstance(events, list):
+        raise ValueError("公开回放缺少 public_events 流")
+
+    hands = []
+    current = None
+    board_size = 0
+    ignored = {
+        "rotation_start", "blind", "deal", "uncalled", "award",
+        "table", "show", "muck", "match_end", "final",
+    }
+    for event in events:
+        kind = event.get("event")
+        if kind == "hand_start":
+            if current is not None:
+                raise ValueError("上一手缺少 hand_end")
+            mapping = event.get("A")
+            holes = event.get("holes")
+            stacks = event.get("start_stacks")
+            if not all(isinstance(value, list) and len(value) == 6 for value in (mapping, holes, stacks)):
+                raise ValueError("hand_start 缺少六座映射、底牌或起始筹码")
+            current = {
+                "hand": int(event["hand"]),
+                "rotation": int(event["rotation"]),
+                "button": int(event["button"]),
+                "starting_stacks": [int(value) for value in stacks],
+                "players": [
+                    {"seat": seat, "player": mapping[seat], "hole": holes[seat]}
+                    for seat in range(6)
+                ],
+                "events": [],
+            }
+            board_size = 0
+        elif kind == "act":
+            if current is None:
+                raise ValueError("act 出现在 hand_start 之前")
+            # Strategy observations expose a single `raise` action for both
+            # opening a street and re-raising. Broadcast events call the first
+            # case `bet`, so restore the strategy vocabulary here.
+            action = "raise" if event.get("action") == "bet" else str(event.get("action"))
+            normalized = {"type": "action", "seat": int(event["seat"]), "action": action}
+            if action == "raise":
+                normalized["to"] = int(event["to"])
+            current["events"].append(normalized)
+        elif kind == "street":
+            if current is None:
+                raise ValueError("street 出现在 hand_start 之前")
+            board = list(event.get("board", []))
+            added = board[board_size:]
+            current["events"].append({"type": str(event["street"]), "cards": added})
+            board_size = len(board)
+        elif kind == "hand_end":
+            if current is None:
+                raise ValueError("hand_end 出现在 hand_start 之前")
+            end = [int(value) for value in event.get("end_stacks", [])]
+            start = current["starting_stacks"]
+            if len(end) != 6:
+                raise ValueError("hand_end 缺少六座结束筹码")
+            current["final_net"] = [end[index] - start[index] for index in range(6)]
+            hands.append(current)
+            current = None
+        elif kind not in ignored:
+            raise ValueError(f"未知公开回放事件：{kind!r}")
+    if current is not None:
+        raise ValueError("最后一手缺少 hand_end")
+    expected_hands = descriptor.get("result", {}).get("hands")
+    if expected_hands is not None and len(hands) != int(expected_hands):
+        raise ValueError(f"公开回放手数不一致：解析{len(hands)}，描述{expected_hands}")
+    return {
+        "rules": RULES_VERSION,
+        "simulation_version": SIMULATION_VERSION,
+        "match_id": str(descriptor.get("job_id", "")),
+        "hands": hands,
+    }
+
+
 def parse_match(match: dict) -> tuple[list[dict], dict]:
+    if match.get("schema") == "agx.public-replay.v1":
+        match = normalize_public_replay(match)
     if match.get("rules", RULES_VERSION) != RULES_VERSION:
         raise ValueError(f"未审计的规则版本：{match.get('rules')}")
     match_id = str(match.get("match_id", ""))
@@ -71,6 +158,7 @@ def parse_match(match: dict) -> tuple[list[dict], dict]:
             button=int(hand_data["button"]),
             holes=[item["hole"] for item in seats_data],
             players=names,
+            starting_stacks=hand_data.get("starting_stacks"),
         )
         hand_number = int(hand_data.get("hand", parsed_hands + 1))
         rotation = int(hand_data.get("rotation", (hand_number - 1) // 40))
@@ -142,14 +230,14 @@ def main() -> None:
         reports.append(report)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
-        "".join(out.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n" for row in all_decisions),
+        "".join(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n" for row in all_decisions),
         encoding="utf-8",
     )
-    summary = {"rules": RULES_VERSION, "matches": len(reports), "hands": sum(r["hands"] for r in reports), "decisions": len(all_decisions), "details": reports}
+    summary = {"rules": RULES_VERSION, "simulation": SIMULATION_VERSION, "matches": len(reports), "hands": sum(r["hands"] for r in reports), "decisions": len(all_decisions), "details": reports}
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
-        args.report.write_text(out.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(out.dumps(summary, ensure_ascii=False))
+        args.report.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(summary, ensure_ascii=False))
 
 
 if __name__ == "__main__":

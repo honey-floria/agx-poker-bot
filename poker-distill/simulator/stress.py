@@ -2,12 +2,12 @@
 """Random legal-action stress test for the exact poker engine."""
 
 import argparse
-import out
+import json
 from pathlib import Path
 import random
 import time
 
-from engine import PLAYERS, RANKS, RULES_VERSION, STARTING_STACK, SUITS, PokerHand
+from engine import PLAYERS, RANKS, RULES_VERSION, SIMULATION_VERSION, STARTING_STACK, SUITS, PokerHand
 
 
 def play_random_hand(rng: random.Random, hand_number: int) -> None:
@@ -56,6 +56,7 @@ def main() -> None:
         play_random_hand(rng, hand_number)
     report = {
         "rules": RULES_VERSION,
+        "simulation": SIMULATION_VERSION,
         "hands": args.hands,
         "seed": args.seed,
         "illegal_states": 0,
@@ -65,8 +66,8 @@ def main() -> None:
     }
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
-        args.report.write_text(out.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(out.dumps(report, ensure_ascii=False))
+        args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=False))
 
 
 if __name__ == "__main__":

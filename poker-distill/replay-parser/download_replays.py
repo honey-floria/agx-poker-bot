@@ -3,7 +3,7 @@
 
 import argparse
 import hashlib
-import out
+import json
 from pathlib import Path
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
@@ -30,13 +30,13 @@ def main() -> None:
         request = Request(url, headers={"User-Agent": "agx-poker-bot-replay-fetcher/1"})
         with urlopen(request, timeout=args.timeout) as response:
             payload = response.read()
-        out.loads(payload.decode("utf-8"))
+        json.loads(payload.decode("utf-8"))
         digest = hashlib.sha256(payload).hexdigest()
-        target = args.output_dir / f"replay_{index:04d}_{digest[:12]}.out"
+        target = args.output_dir / f"replay_{index:04d}_{digest[:12]}.json"
         target.write_bytes(payload)
         manifest.append({"url": url, "file": target.name, "bytes": len(payload), "sha256": digest})
-    (args.output_dir / "manifest.out").write_text(
-        out.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    (args.output_dir / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print(f"downloaded {len(manifest)} public replays")
 

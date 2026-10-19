@@ -2,7 +2,7 @@
 
 import csv
 import hashlib
-import out
+import json
 from pathlib import Path
 import subprocess
 import tempfile
@@ -29,7 +29,7 @@ def run(root: Path, *arguments: str, succeeds: bool = True) -> subprocess.Comple
 with tempfile.TemporaryDirectory(prefix="agx-experiments-") as temporary:
     temporary_path = Path(temporary)
     registry_root = temporary_path / "poker-distill"
-    config = temporary_path / "config.out"
+    config = temporary_path / "config.json"
     model = temporary_path / "model.bin"
     config.write_text('{"epochs":3,"seed":7607}\n', encoding="utf-8")
     model.write_bytes(b"deterministic-model-payload")
@@ -87,11 +87,11 @@ with tempfile.TemporaryDirectory(prefix="agx-experiments-") as temporary:
     assert row["random_seed"] == "7607"
     assert row["online_version"] == "agx-v17"
     assert row["model_sha256"] == hashlib.sha256(model.read_bytes()).hexdigest()
-    assert out.loads(row["offline_results"])["mbb_per_hand"] == 12.5
+    assert json.loads(row["offline_results"])["mbb_per_hand"] == 12.5
 
     experiment_dir = registry_root / "experiments" / "E03_solver_mix_v2"
-    assert (experiment_dir / "config.out").read_bytes() == config.read_bytes()
-    manifest = out.loads((experiment_dir / "manifest.out").read_text(encoding="utf-8"))
+    assert (experiment_dir / "config.json").read_bytes() == config.read_bytes()
+    manifest = json.loads((experiment_dir / "manifest.json").read_text(encoding="utf-8"))
     assert manifest == row
 
 print("experiment registry test: ok")

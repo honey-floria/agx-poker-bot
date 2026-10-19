@@ -2,7 +2,7 @@
 """Generate oracle-labelled poker states and train a compact CUDA MLP."""
 
 import argparse
-import out
+import json
 import os
 import random
 import sys
@@ -105,7 +105,7 @@ def export_json(model, args, output):
         "w3": linears[2].weight.detach().cpu().tolist(),
         "b3": linears[2].bias.detach().cpu().tolist(),
     }
-    output.write_text(out.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    output.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
 def main():
@@ -233,7 +233,7 @@ def main():
         "seed": args.seed,
     }
     torch.save(checkpoint, args.output_dir / "model.pt")
-    export_json(model, args, args.output_dir / "model.out")
+    export_json(model, args, args.output_dir / "model.json")
     report = {
         "device": str(device),
         "gpu": torch.cuda.get_device_name(0) if device.type == "cuda" else None,
@@ -246,13 +246,13 @@ def main():
         "elapsed_seconds": time.perf_counter() - started,
         "history": history,
     }
-    (args.output_dir / "training_report.out").write_text(
-        out.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
+    (args.output_dir / "training_report.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print(f"最佳验证准确率：{final_accuracy:.2%}")
     print(f"混淆矩阵（行=真实，列=预测）：{confusion}")
     print(f"模型已保存：{args.output_dir / 'model.pt'}")
-    print(f"导出权重：{args.output_dir / 'model.out'}")
+    print(f"导出权重：{args.output_dir / 'model.json'}")
 
 
 if __name__ == "__main__":

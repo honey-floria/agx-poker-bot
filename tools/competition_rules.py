@@ -3,22 +3,29 @@
 
 from __future__ import annotations
 
-import out
+import json
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST = ROOT / "config" / "competition.out"
+MANIFEST = ROOT / "config" / "competition.json"
 AUDITED_RULES_VERSION = "rsi-poker-4.1"
+AUDITED_SIMULATION_VERSION = "rsi-poker-4.0"
 
 
 def load_and_check_rules() -> dict:
-    rules = out.loads(MANIFEST.read_text(encoding="utf-8"))
+    rules = json.loads(MANIFEST.read_text(encoding="utf-8"))
     errors = []
     if rules.get("rulesVersion") != AUDITED_RULES_VERSION:
         errors.append(
             f"规则版本为 {rules.get('rulesVersion')!r}，已审计版本为 {AUDITED_RULES_VERSION!r}"
         )
+    if rules.get("simulationVersion") != AUDITED_SIMULATION_VERSION:
+        errors.append(
+            f"模拟器版本为 {rules.get('simulationVersion')!r}，已验证版本为 {AUDITED_SIMULATION_VERSION!r}"
+        )
+    if rules.get("observationRules") != AUDITED_SIMULATION_VERSION:
+        errors.append("策略 observation.rules 与已验证模拟器版本不一致")
     if rules.get("auditStatus") != "confirmed":
         errors.append("规则审计状态不是 confirmed")
 

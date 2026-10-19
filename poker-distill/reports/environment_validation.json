@@ -1,10 +1,20 @@
 {
   "rules": "rsi-poker-4.1",
+  "simulation": "rsi-poker-4.0",
   "exact_engine_tests": "passed",
   "random_stress_hands": 100000,
   "random_stress_seed": 7607,
-  "public_replay_matches_verified": 0,
+  "public_replay_matches_verified": 1,
   "required_public_replay_matches": 100,
   "ready_for_large_scale_distillation": false,
-  "block_reason": "AGX public replay data is not yet locally available for 100-match event-by-event verification"
+  "verified_replays": [
+    {
+      "job_id": "1fd9d1f6-858b-4826-acd2-c339f71c0199",
+      "hands": 240,
+      "decisions": 1944,
+      "file_sha256": "ee7491d6fbec2f6b3a13e407ee38f3b8837c7da86111c91b24c0988631f9c8fd",
+      "public_events_sha256": "b3ee3df3b23716d69b4c7e98f8813047227238249e4d3b7199bc9c809b3e8c10"
+    }
+  ],
+  "block_reason": "99 more public replay matches must pass event-by-event verification"
 }

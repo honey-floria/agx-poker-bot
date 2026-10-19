@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic six-player no-limit Hold'em engine for rsi-poker-4.1."""
+"""Deterministic six-player NLHE engine for rules 4.1 / simulation 4.0."""
 
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ from typing import Optional
 
 
 RULES_VERSION = "rsi-poker-4.1"
+SIMULATION_VERSION = "rsi-poker-4.0"
 PLAYERS = 6
 STARTING_STACK = 10_000
 SB = 50
@@ -162,7 +163,10 @@ class PokerHand:
         can_raise = reopened and maximum >= minimum
         legal = ["check"] if to_call == 0 else ["fold", "call"]
         if can_raise:
-            legal.append("bet" if self.current_bet == 0 else "raise")
+            # The strategy API uses `raise` for both opening a street and
+            # raising an existing wager. Public replay events project the
+            # former as `bet`; the replay adapter maps it back to `raise`.
+            legal.append("raise")
         if seat.stack > 0 and (maximum <= self.current_bet or reopened):
             legal.append("allin")
         return {
@@ -177,7 +181,7 @@ class PokerHand:
         legal = self.legal_state(seat_index)
         seat = self.seats[seat_index]
         return {
-            "rules": RULES_VERSION,
+            "rules": SIMULATION_VERSION,
             "street": self.street,
             "board": list(self.board),
             "button": self.button,
@@ -214,7 +218,17 @@ class PokerHand:
         seat = self.seats[seat_index]
         before_bet = self.current_bet
         to_call = state["to_call"]
-        if action_type not in state["legal"]:
+        # The public/training streams record an `allin` request that raises
+        # for less than the minimum as the applied action `raise`. Accept that
+        # normalized applied form when (and only when) it targets maxRaiseTo.
+        normalized_allin_raise = (
+            action_type == "raise"
+            and "allin" in state["legal"]
+            and to is not None
+            and int(to) == state["max_raise_to"]
+            and state["max_raise_to"] > self.current_bet
+        )
+        if action_type not in state["legal"] and not normalized_allin_raise:
             raise ValueError(f"非法动作 {action_type}，合法动作：{state['legal']}")
 
         record = {"seat": seat_index, "player": seat.player, "street": self.street, "type": action_type}

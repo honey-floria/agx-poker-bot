@@ -84,7 +84,7 @@ python3 simulator/simulate.py --hands 30000 --seed 7607 --candidate tag --oppone
 
 ```bash
 python3 poker-distill/simulator/stress.py --hands 100000 --seed 7607 \
-  --report poker-distill/reports/engine_stress_100k.out
+  --report poker-distill/reports/engine_stress_100k.json
 ```
 
 `simulate.py` 是快速的 Python 近似基准，不直接执行正式提交文件。

@@ -9,6 +9,8 @@ const root = path.resolve(__dirname, "..");
 const rules = require("../config/competition.json");
 
 assert.strictEqual(rules.rulesVersion, "rsi-poker-4.1");
+assert.strictEqual(rules.simulationVersion, "rsi-poker-4.0");
+assert.strictEqual(rules.observationRules, "rsi-poker-4.0");
 assert.deepStrictEqual(rules.table, {
   players: 6,
   game: "no-limit-holdem",

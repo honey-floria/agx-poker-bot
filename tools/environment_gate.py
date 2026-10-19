@@ -2,17 +2,17 @@
 """Prevent large training runs before the competition environment is validated."""
 
 import argparse
-import out
+import json
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-STATUS = ROOT / "poker-distill" / "reports" / "environment_validation.out"
+STATUS = ROOT / "poker-distill" / "reports" / "environment_validation.json"
 SMOKE_SAMPLE_LIMIT = 10_000
 
 
 def load_status() -> dict:
-    status = out.loads(STATUS.read_text(encoding="utf-8"))
+    status = json.loads(STATUS.read_text(encoding="utf-8"))
     if status.get("random_stress_hands", 0) < 100_000:
         raise RuntimeError("随机压力测试不足100,000手")
     verified = status.get("public_replay_matches_verified", 0)
@@ -40,7 +40,7 @@ def main() -> None:
     parser.add_argument("mode", choices=("status", "require"), nargs="?", default="status")
     args = parser.parse_args()
     status = load_status()
-    print(out.dumps(status, ensure_ascii=False))
+    print(json.dumps(status, ensure_ascii=False))
     if args.mode == "require" and not status["ready_for_large_scale_distillation"]:
         raise SystemExit(1)
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import out
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -51,6 +51,15 @@ hand.act(2, "call")
 assert hand.legal_state(3)["can_raise"] is False
 hand.act(3, "call")
 assert hand.next_to_act() is None
+
+# The official applied-action stream normalizes a short all-in raise to
+# `raise`, even though the pre-action legal vocabulary offers `allin`.
+hand = PokerHand(5, HOLES, starting_stacks=[10000, 10000, 10000, 10000, 350, 10000])
+hand.act(2, "raise", 300)
+hand.act(3, "call")
+assert hand.legal_state(4)["legal"] == ["fold", "call", "allin"]
+hand.act(4, "raise", 350)
+assert hand.seats[4].all_in and hand.seats[4].street_bet == 350
 
 # Multiple short all-ins whose cumulative increase reaches a full raise reopen action.
 hand = PokerHand(5, HOLES, starting_stacks=[10000, 10000, 10000, 10000, 350, 500])
@@ -144,19 +153,19 @@ replay = {
 }
 with tempfile.TemporaryDirectory(prefix="agx-replay-") as temporary:
     folder = Path(temporary)
-    source, output, report = folder / "replay.out", folder / "decisions.jsonl", folder / "report.out"
-    source.write_text(out.dumps(replay), encoding="utf-8")
+    source, output, report = folder / "replay.json", folder / "decisions.jsonl", folder / "report.json"
+    source.write_text(json.dumps(replay), encoding="utf-8")
     result = subprocess.run(
         ["python3", str(ROOT / "poker-distill" / "replay-parser" / "parse_replay.py"), str(source), str(output), "--report", str(report)],
         cwd=ROOT, text=True, capture_output=True,
     )
     assert result.returncode == 0, result.stderr
-    decisions = [out.loads(line) for line in output.read_text(encoding="utf-8").splitlines()]
+    decisions = [json.loads(line) for line in output.read_text(encoding="utf-8").splitlines()]
     assert len(decisions) == 6
     assert decisions[0]["player"] == "anon_3"
     assert decisions[0]["pot"] == 150 and decisions[0]["action"] == {"type": "raise", "to": 300}
     assert decisions[-1]["final_net"] == -100
     assert decisions[0]["match_net"] == 150 and decisions[0]["final_rank"] == 1
-    assert out.loads(report.read_text(encoding="utf-8"))["hands"] == 1
+    assert json.loads(report.read_text(encoding="utf-8"))["hands"] == 1
 
 print("exact engine and replay parser tests: ok")

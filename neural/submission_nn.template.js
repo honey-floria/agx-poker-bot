@@ -2,7 +2,8 @@
 
 var MODEL = __MODEL_JSON__;
 var RANKS = "23456789TJQKA";
-var RULES_VERSION = "rsi-poker-4.1";
+var COMPETITION_RULES_VERSION = "rsi-poker-4.1";
+var OBSERVATION_RULES = "rsi-poker-4.0";
 var POSITIONS = ["BTN","SB","BB","UTG","HJ","CO"];
 
 function rankValue(card) { return RANKS.indexOf(card.charAt(0))+2; }
@@ -172,7 +173,7 @@ function decide(view) {
 function act(view) {
   try {
     if(!view||!view.me||!Array.isArray(view.legal)||view.legal.length===0)throw new Error("bad view");
-    if(view.rules&&view.rules!==RULES_VERSION)return safePassive(view,false);
+    if(view.rules&&view.rules!==OBSERVATION_RULES)return safePassive(view,false);
     var action=decide(view);
     if(!action||!has(view.legal,action.type))return safePassive(view,false);
     return action;

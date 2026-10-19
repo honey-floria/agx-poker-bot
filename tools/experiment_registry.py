@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
-import out
+import json
 import os
 from pathlib import Path
 import re
@@ -133,12 +133,12 @@ class Registry:
             raise
 
     def _manifest_path(self, experiment_id: str) -> Path:
-        return self.experiments_dir / experiment_id / "manifest.out"
+        return self.experiments_dir / experiment_id / "manifest.json"
 
     def _write_manifest(self, row: dict[str, str]) -> None:
         path = self._manifest_path(row["experiment_id"])
         path.write_text(
-            out.dumps(row, ensure_ascii=False, indent=2, sort_keys=False) + "\n",
+            json.dumps(row, ensure_ascii=False, indent=2, sort_keys=False) + "\n",
             encoding="utf-8",
         )
 
@@ -202,7 +202,7 @@ class Registry:
         if not model.is_file():
             raise RuntimeError(f"模型文件不存在：{model}")
         try:
-            parsed_results = out.loads(offline_results)
+            parsed_results = json.loads(offline_results)
         except out.JSONDecodeError as error:
             raise RuntimeError(f"offline-results 必须是合法 JSON：{error}") from error
         if not isinstance(parsed_results, dict) or not parsed_results:
@@ -218,7 +218,7 @@ class Registry:
                 "status": "completed",
                 "model_path": display_path(model),
                 "model_sha256": sha256_file(model),
-                "offline_results": out.dumps(parsed_results, ensure_ascii=False, separators=(",", ":")),
+                "offline_results": json.dumps(parsed_results, ensure_ascii=False, separators=(",", ":")),
             }
         )
         self._write_manifest(row)
@@ -265,10 +265,10 @@ class Registry:
                     if not row.get(field):
                         errors.append(f"{prefix}：已完成实验缺少 {field}")
                 try:
-                    result = out.loads(row.get("offline_results", ""))
+                    result = json.loads(row.get("offline_results", ""))
                     if not isinstance(result, dict) or not result:
                         raise ValueError
-                except (out.JSONDecodeError, ValueError):
+                except (json.JSONDecodeError, ValueError):
                     errors.append(f"{prefix}：offline_results 不是非空 JSON 对象")
 
             config_path = Path(row.get("config_path", ""))
@@ -281,14 +281,14 @@ class Registry:
 
             manifest = self._manifest_path(experiment_id)
             if not manifest.is_file():
-                errors.append(f"{prefix}：缺少 manifest.out")
+                errors.append(f"{prefix}：缺少 manifest.json")
             else:
                 try:
-                    manifest_row = out.loads(manifest.read_text(encoding="utf-8"))
+                    manifest_row = json.loads(manifest.read_text(encoding="utf-8"))
                     if manifest_row != row:
-                        errors.append(f"{prefix}：manifest.out 与 CSV 不一致")
-                except out.JSONDecodeError:
-                    errors.append(f"{prefix}：manifest.out 无法解析")
+                        errors.append(f"{prefix}：manifest.json 与 CSV 不一致")
+                except json.JSONDecodeError:
+                    errors.append(f"{prefix}：manifest.json 无法解析")
 
         if errors:
             raise RuntimeError("实验登记检查失败：\n- " + "\n- ".join(errors))

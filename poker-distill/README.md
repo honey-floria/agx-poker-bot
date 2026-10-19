@@ -7,10 +7,10 @@
 从模板复制并填写配置，然后创建实验：
 
 ```bash
-cp poker-distill/experiments/config.template.out /tmp/E01_config.out
+cp poker-distill/experiments/config.template.json /tmp/E01_config.json
 python3 tools/experiment_registry.py create \
   --id E01_baseline \
-  --config /tmp/E01_config.out \
+  --config /tmp/E01_config.json \
   --training-data synthetic-v1 \
   --data-version solver-mix-v1 \
   --seed 7607 \
@@ -25,7 +25,7 @@ python3 tools/experiment_registry.py create \
 ```bash
 python3 tools/experiment_registry.py complete \
   --id E01_baseline \
-  --model neural/artifacts/model.out \
+  --model neural/artifacts/model.json \
   --offline-results '{"validation_accuracy":0.71,"mbb_per_hand":12.3}'
 ```
 

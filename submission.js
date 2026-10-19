@@ -2,7 +2,8 @@
 
 var RANKS = "23456789TJQKA";
 var SUITS = "cdhs";
-var RULES_VERSION = "rsi-poker-4.1";
+var COMPETITION_RULES_VERSION = "rsi-poker-4.1";
+var OBSERVATION_RULES = "rsi-poker-4.0";
 var POSITION_OPEN = {UTG:0.64,HJ:0.59,CO:0.53,BTN:0.46,SB:0.50,BB:0.70};
 var OPEN_RANGES = {
   UTG:"55 66 77 88 99 TT JJ QQ KK AA ATs AJs AQs AKs KJs KQs QJs JTs T9s 98s AQo AKo KQo",
@@ -310,7 +311,7 @@ function decide(view) {
 function act(view) {
   try {
     if(!view||!view.me||!Array.isArray(view.legal)||view.legal.length===0) throw new Error("bad view");
-    if(view.rules&&view.rules!==RULES_VERSION) return safePassive(view,false);
+    if(view.rules&&view.rules!==OBSERVATION_RULES) return safePassive(view,false);
     var action=decide(view);
     if(!action||!has(view.legal,action.type)) return safePassive(view,false);
     return action;

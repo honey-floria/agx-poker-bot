@@ -4,7 +4,7 @@ const bot = require("../submission.js");
 
 function baseView(overrides={}) {
   const players=Array.from({length:6},(_,i)=>({seat:i,player:i,stack:i===0?9950:9900,bet:i===0?50:100,invested:i===0?50:100,state:"in",position:["SB","BB","UTG","HJ","CO","BTN"][i]}));
-  return Object.assign({rules:"rsi-poker-4.1",hand:1,rotation:0,rotationHand:1,handsPerRotation:40,seat:0,player:0,street:"preflop",board:[],button:5,pot:150,level:{sb:50,bb:100},me:{seat:0,player:0,cards:["As","Ks"],stack:9950,bet:50,invested:50,position:"SB"},players,actions:[],recent:[],toCall:50,minRaiseTo:200,maxRaiseTo:10000,canRaise:true,legal:["fold","call","raise","allin"],startingStack:10000},overrides);
+  return Object.assign({rules:"rsi-poker-4.0",hand:1,rotation:0,rotationHand:1,handsPerRotation:40,seat:0,player:0,street:"preflop",board:[],button:5,pot:150,level:{sb:50,bb:100},me:{seat:0,player:0,cards:["As","Ks"],stack:9950,bet:50,invested:50,position:"SB"},players,actions:[],recent:[],toCall:50,minRaiseTo:200,maxRaiseTo:10000,canRaise:true,legal:["fold","call","raise","allin"],startingStack:10000},overrides);
 }
 
 assert(bot.compareScore(bot.evaluate(["As","Ks","Qs","Js","Ts","2c","3d"]),bot.evaluate(["Ah","Ad","Ac","As","2c","3d","4h"]))>0);
@@ -34,14 +34,14 @@ changedRules.actions=[{player:2,street:"preflop",type:"raise"}];
 changedRules.toCall=250;changedRules.pot=450;changedRules.minRaiseTo=700;
 assert.notStrictEqual(bot.act(changedRules).type,"raise");
 
-const nuts=baseView({street:"river",board:["Qs","Js","Ts","2d","3c"],pot:1800,toCall:0,minRaiseTo:100,maxRaiseTo:9950,legal:["check","bet","allin"]});
+const nuts=baseView({street:"river",board:["Qs","Js","Ts","2d","3c"],pot:1800,toCall:0,minRaiseTo:100,maxRaiseTo:9950,legal:["check","raise","allin"]});
 nuts.me.cards=["As","Ks"];
-assert(["bet","allin"].includes(bot.act(nuts).type));
+assert(["raise","allin"].includes(bot.act(nuts).type));
 
 const started=Date.now();
 for(let i=0;i<300;i++) {
   const v=baseView();
-  if(i%3===1) Object.assign(v,{street:"flop",board:["Qh","Jh","2c"],pot:550,toCall:0,minRaiseTo:100,maxRaiseTo:9950,legal:["check","bet","allin"]});
+  if(i%3===1) Object.assign(v,{street:"flop",board:["Qh","Jh","2c"],pot:550,toCall:0,minRaiseTo:100,maxRaiseTo:9950,legal:["check","raise","allin"]});
   if(i%3===2) Object.assign(v,{street:"river",board:["Qh","Jh","2c","7s","3d"],pot:1400,toCall:400,minRaiseTo:1200,maxRaiseTo:9550,legal:["fold","call","raise","allin"]});
   const a=bot.act(v);
   assert(a&&typeof a==="object");
