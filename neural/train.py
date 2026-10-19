@@ -2,9 +2,10 @@
 """Generate oracle-labelled poker states and train a compact CUDA MLP."""
 
 import argparse
-import json
+import out
 import os
 import random
+import sys
 import time
 from collections import Counter
 from pathlib import Path
@@ -14,6 +15,11 @@ from torch import nn
 from torch.utils.data import DataLoader, TensorDataset, random_split
 
 from data import INPUT_SIZE, LABELS, OUTPUT_SIZE, generate_dataset, load_dataset, save_dataset
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from competition_rules import load_and_check_rules
+from environment_gate import require_training_allowed
 
 
 class PokerMLP(nn.Module):
@@ -49,6 +55,7 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=7607)
     parser.add_argument("--device", choices=("auto", "cuda", "cpu"), default="auto")
     parser.add_argument("--reuse-data", action="store_true", help="若数据集存在则直接复用")
+    parser.add_argument("--pipeline-smoke", action="store_true", help="环境验收前仅运行不超过1万样本的流程冒烟")
     parser.add_argument("--output-dir", type=Path, default=root / "artifacts")
     return parser.parse_args()
 
@@ -98,11 +105,13 @@ def export_json(model, args, output):
         "w3": linears[2].weight.detach().cpu().tolist(),
         "b3": linears[2].bias.detach().cpu().tolist(),
     }
-    output.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    output.write_text(out.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
 def main():
+    rules = load_and_check_rules()
     args = parse_args()
+    require_training_allowed(args.samples, args.pipeline_smoke)
     if args.samples < 100 or args.mc_samples < 1:
         raise SystemExit("samples 至少为100，mc-samples 至少为1")
     if not 0.01 <= args.validation_ratio <= 0.5:
@@ -116,6 +125,7 @@ def main():
     args.output_dir.mkdir(parents=True, exist_ok=True)
     dataset_path = args.output_dir / "dataset.jsonl"
 
+    print(f"比赛规则：{rules['rulesVersion']}（已确认）")
     print(f"PyTorch：{torch.__version__}")
     print(f"训练设备：{device}")
     if device.type == "cuda":
@@ -223,7 +233,7 @@ def main():
         "seed": args.seed,
     }
     torch.save(checkpoint, args.output_dir / "model.pt")
-    export_json(model, args, args.output_dir / "model.json")
+    export_json(model, args, args.output_dir / "model.out")
     report = {
         "device": str(device),
         "gpu": torch.cuda.get_device_name(0) if device.type == "cuda" else None,
@@ -236,13 +246,13 @@ def main():
         "elapsed_seconds": time.perf_counter() - started,
         "history": history,
     }
-    (args.output_dir / "training_report.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
+    (args.output_dir / "training_report.out").write_text(
+        out.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print(f"最佳验证准确率：{final_accuracy:.2%}")
     print(f"混淆矩阵（行=真实，列=预测）：{confusion}")
     print(f"模型已保存：{args.output_dir / 'model.pt'}")
-    print(f"导出权重：{args.output_dir / 'model.json'}")
+    print(f"导出权重：{args.output_dir / 'model.out'}")
 
 
 if __name__ == "__main__":

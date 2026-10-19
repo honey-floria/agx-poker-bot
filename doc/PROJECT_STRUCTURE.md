@@ -6,8 +6,12 @@
 agx-poker-bot/
 ├── .gitignore
 ├── README.md
-├── PROJECT_STRUCTURE.md
-├── TODO.md
+├── config/
+│   └── competition.json
+├── doc/
+│   ├── PROJECT_STRUCTURE.md
+│   ├── TODO.md
+│   └── 蒸馏TODO.md
 ├── submission.js
 ├── submission_nn.js                 # 训练并导出后生成，不提交大权重产物
 ├── baselines/
@@ -20,13 +24,45 @@ agx-poker-bot/
 │   ├── submission_nn.template.js
 │   └── artifacts/
 │       └── .gitkeep
+├── poker-distill/
+│   ├── README.md
+│   ├── data/
+│   │   ├── raw-replays/
+│   │   ├── parsed-decisions/
+│   │   ├── solver-labels/
+│   │   └── dagger/
+│   ├── simulator/
+│   │   ├── README.md
+│   │   ├── engine.py
+│   │   └── stress.py
+│   ├── replay-parser/
+│   │   ├── README.md
+│   │   ├── download_replays.py
+│   │   └── parse_replay.py
+│   ├── teachers/
+│   ├── student/
+│   ├── runtime-js/
+│   ├── evaluation/
+│   ├── experiments/
+│   │   ├── config.template.json
+│   │   └── experiments.csv
+│   ├── submissions/
+│   └── reports/
 ├── simulator/
 │   ├── simulate.py
 │   └── simulate_submission.js
 ├── tests/
+│   ├── fixtures/
+│   │   └── slow_submission.js
+│   ├── test_competition_constraints.js
+│   ├── test_exact_engine.py
+│   ├── test_experiment_registry.py
 │   ├── test_submission.js
 │   └── test_simulator.js
 ├── tools/
+│   ├── competition_rules.py
+│   ├── environment_gate.py
+│   ├── experiment_registry.py
 │   └── validate.py
 └── web/
     ├── README.md
@@ -46,13 +82,23 @@ agx-poker-bot/
 
 项目入口文档，说明项目目标、当前 AI 策略、环境要求、运行命令、提交流程和相关文档链接。
 
-### `PROJECT_STRUCTURE.md`
+### `config/competition.json`
+
+唯一的比赛约束清单，冻结规则版本、桌型、盲注、初始筹码、换座阶段、上下文重置点、动作金额语义、资源限制、计分口径和部署依赖限制。
+
+## `doc/`
+
+### `doc/PROJECT_STRUCTURE.md`
 
 当前文档。用树形结构维护项目文件清单，并解释各文件职责。
 
-### `TODO.md`
+### `doc/TODO.md`
 
 记录已经完成的功能、已知限制、后续任务、优先级和验收标准。开发完成一项任务后，应同步更新其中的复选框和说明。
+
+### `doc/蒸馏TODO.md`
+
+记录蒸馏与冲榜路线。第 0 节与 `config/competition.json` 对齐，并注明代码化约束的实现边界。
 
 ### `submission.js`
 
@@ -107,6 +153,22 @@ PyTorch训练入口。模型为两层隐藏层的多层感知机，支持 CUDA �
 
 第一轮范围和EV优化之前的正式 AI 快照，仅用于回归测试和同牌序对照。该文件不作为当前提交版本继续开发。
 
+## `poker-distill/`
+
+蒸馏工作的统一目录树，分开放置回放、解析决策、求解器标签、DAgger 数据、教师、学生模型、JavaScript 运行时、评测、提交和报告。大型数据与提交产物默认被 Git 忽略。
+
+### `poker-distill/experiments/`
+
+保存每个唯一实验编号的配置快照和 `manifest.json`。`experiments.csv` 汇总 Git commit、数据版本、随机种子、教师、模型结构、损失权重、量化、模型哈希、离线结果和线上版本。
+
+### `poker-distill/simulator/`
+
+冻结到 `rsi-poker-4.1` 的精确规则状态机与十万手随机压力测试入口，覆盖累计下注目标、加注重开、退筹、边池、余数筹码和复式赛程。
+
+### `poker-distill/replay-parser/`
+
+包含公开回放下载器和完整轨迹解析器。解析器逐动作恢复状态、验证可选状态快照与最终净额、匿名化参与者，并输出统一 JSONL；缺少私有底牌时明确拒绝生成伪造标签。
+
 ## `simulator/`
 
 ### `simulator/simulate.py`
@@ -136,6 +198,18 @@ PyTorch训练入口。模型为两层隐藏层的多层感知机，支持 CUDA �
 
 ## `tests/`
 
+### `tests/test_experiment_registry.py`
+
+在临时目录中覆盖实验创建、重复编号拒绝、完成、线上版本登记、哈希计算以及 CSV/manifest 一致性检查。
+
+### `tests/test_exact_engine.py`
+
+覆盖本街累计 `to`、短全下与累计重开、退筹、主池/边池、平分余数、六阶段复式赛程，以及回放解析、状态快照、匿名化和收益核对。
+
+### `tests/test_competition_constraints.js`
+
+验证比赛约束清单中的冻结值、阶段重置点、资源上限和部署限制，并调用 Python 规则守卫确认审计版本没有漂移。
+
 ### `tests/test_submission.js`
 
 正式 AI 的 Node.js 测试文件，覆盖：
@@ -160,6 +234,18 @@ PyTorch训练入口。模型为两层隐藏层的多层感知机，支持 CUDA �
 - 正式 AI 可以被独立运行环境正常加载。
 
 ## `tools/`
+
+### `tools/competition_rules.py`
+
+加载并严格检查冻结的比赛约束。规则版本、审计状态或关键赛制参数发生变化时，训练、导出和校验会停止，等待重新审计。
+
+### `tools/experiment_registry.py`
+
+管理实验生命周期。创建实验时保存 Git 状态和配置快照，完成时计算模型 SHA-256 并登记结构化离线结果，上线后补充版本号；`check` 命令验证必填字段、唯一编号、配置哈希以及 CSV/manifest 一致性。
+
+### `tools/environment_gate.py`
+
+读取环境验收报告并阻止未经100局公开回放验证的大规模训练。验收前只允许显式添加 `--pipeline-smoke` 的不超过10,000样本流程测试。
 
 ### `tools/validate.py`
 

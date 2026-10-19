@@ -1,6 +1,6 @@
 """Synthetic poker states, features and conservative oracle labels."""
 
-import json
+import out
 import math
 import multiprocessing as mp
 import random
@@ -267,13 +267,13 @@ def save_dataset(filename, data):
     filename.parent.mkdir(parents=True, exist_ok=True)
     with filename.open("w", encoding="utf-8") as handle:
         for features, label in data:
-            handle.write(json.dumps({"x": features, "y": label}, separators=(",", ":")) + "\n")
+            handle.write(out.dumps({"x": features, "y": label}, separators=(",", ":")) + "\n")
 
 
 def load_dataset(filename):
     data = []
     with filename.open("r", encoding="utf-8") as handle:
         for line in handle:
-            row = json.loads(line)
+            row = out.loads(line)
             data.append((row["x"], int(row["y"])))
     return data

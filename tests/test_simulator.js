@@ -17,8 +17,24 @@ const result = spawnSync(process.execPath, [
 
 assert.strictEqual(result.status, 0, result.stderr || result.stdout);
 assert.match(result.stdout, /完整比赛：1/);
-assert.match(result.stdout, /非法\/异常：0；超预算：0/);
+assert.match(result.stdout, /规则：rsi-poker-4\.1；6人；50\/100；100BB；6×40手/);
+assert.match(result.stdout, /非法\/异常：0；超预算：0；整局CPU超限：0/);
+assert.match(result.stdout, /候选上下文初始化：6（每局6次）/);
 assert.match(result.stdout, /mbb\/手：-?\d+\.\d{3}/);
 assert.match(result.stdout, /第一名份额：\d+\.\d{2}%/);
+
+const slow = spawnSync(process.execPath, [
+  path.join(root, "simulator", "simulate_submission.js"),
+  "--matches", "1",
+  "--seed", "99173",
+  "--budget-ms", "5",
+  "--candidate", path.join(root, "tests", "fixtures", "slow_submission.js"),
+], {
+  cwd: root,
+  encoding: "utf8",
+  timeout: 30000,
+});
+assert.strictEqual(slow.status, 0, slow.stderr || slow.stdout);
+assert.match(slow.stdout, /超预算：[1-9]\d*/);
 
 console.log("direct submission simulator test: ok");

@@ -1,0 +1,9 @@
+{
+  "rules": "rsi-poker-4.1",
+  "hands": 100000,
+  "seed": 7607,
+  "illegal_states": 0,
+  "deadlocks": 0,
+  "zero_sum_failures": 0,
+  "elapsed_seconds": 40.691
+}

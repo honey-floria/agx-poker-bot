@@ -1,0 +1,10 @@
+{
+  "rules": "rsi-poker-4.1",
+  "exact_engine_tests": "passed",
+  "random_stress_hands": 100000,
+  "random_stress_seed": 7607,
+  "public_replay_matches_verified": 0,
+  "required_public_replay_matches": 100,
+  "ready_for_large_scale_distillation": false,
+  "block_reason": "AGX public replay data is not yet locally available for 100-match event-by-event verification"
+}

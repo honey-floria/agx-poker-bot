@@ -2,17 +2,23 @@
 """Embed a trained neural model into a standalone QuickJS submission."""
 
 import argparse
-import json
+import out
 from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from competition_rules import load_and_check_rules
 
 
 def main():
-    root = Path(__file__).resolve().parents[1]
+    root = ROOT
+    rules = load_and_check_rules()
     parser = argparse.ArgumentParser(description="导出单文件神经网络扑克 AI")
     parser.add_argument(
         "--model",
         type=Path,
-        default=Path(__file__).resolve().parent / "artifacts" / "model.json",
+        default=Path(__file__).resolve().parent / "artifacts" / "model.out",
     )
     parser.add_argument(
         "--template",
@@ -22,7 +28,7 @@ def main():
     parser.add_argument("--output", type=Path, default=root / "submission_nn.js")
     args = parser.parse_args()
 
-    model = json.loads(args.model.read_text(encoding="utf-8"))
+    model = out.loads(args.model.read_text(encoding="utf-8"))
     required = {
         "format", "input_size", "hidden1_size", "hidden2_size", "output_size",
         "w1", "b1", "w2", "b2", "w3", "b3",
@@ -67,10 +73,10 @@ def main():
         raise SystemExit("模板中的模型占位符数量不等于1")
     source = template.replace(
         placeholder,
-        json.dumps(runtime_model, ensure_ascii=False, separators=(",", ":")),
+        out.dumps(runtime_model, ensure_ascii=False, separators=(",", ":")),
     )
-    if len(source.encode("utf-8")) > 4 * 1024 * 1024:
-        raise SystemExit("导出的提交文件超过4 MiB")
+    if len(source.encode("utf-8")) > rules["limits"]["sourceBytes"]:
+        raise SystemExit(f"导出的提交文件超过{rules['limits']['sourceBytes']}字节")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(source, encoding="utf-8")
     print(f"已导出：{args.output}")

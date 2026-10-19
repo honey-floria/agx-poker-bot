@@ -8,13 +8,17 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const RULES = require("../config/competition.json");
 
-const START = 10000;
-const SB = 50;
-const BB = 100;
-const HANDS_PER_ROTATION = 40;
-const ROTATIONS = 6;
+const START = RULES.table.startingStack;
+const SB = RULES.table.smallBlind;
+const BB = RULES.table.bigBlind;
+const HANDS_PER_ROTATION = RULES.match.handsPerRotation;
+const ROTATIONS = RULES.match.rotations;
 const HANDS_PER_MATCH = HANDS_PER_ROTATION * ROTATIONS;
+const ACTION_BUDGET_MS = RULES.limits.actionMs;
+const INITIALIZATION_BUDGET_MS = RULES.limits.initializationMs;
+const SEAT_CPU_BUDGET_MS = RULES.limits.seatCpuMsPerMatch;
 const RANKS = "23456789TJQKA";
 const SUITS = "cdhs";
 const STREETS = ["preflop", "flop", "turn", "river"];
@@ -30,7 +34,7 @@ const root = path.resolve(__dirname, "..");
 const options = {
   matches: Math.max(1, Number(argument("--matches", "10")) || 10),
   seed: Number(argument("--seed", "7607")) || 7607,
-  budgetMs: Math.max(1, Number(argument("--budget-ms", "200")) || 200),
+  budgetMs: Math.min(ACTION_BUDGET_MS, Math.max(1, Math.floor(Number(argument("--budget-ms", String(ACTION_BUDGET_MS)))) || ACTION_BUDGET_MS)),
   candidate: path.resolve(process.cwd(), argument("--candidate", path.join(root, "submission.js"))),
   opponent: path.resolve(process.cwd(), argument("--opponent", path.join(root, "baselines/submission_v1.js"))),
 };
@@ -56,6 +60,8 @@ function shuffledDeck(random) {
 }
 
 function loadPolicy(filename, seed) {
+  const started = process.hrtime.bigint();
+  const cpuStarted = process.cpuUsage();
   const source = fs.readFileSync(filename, "utf8");
   const math = Object.create(Math);
   math.random = mulberry32(seed);
@@ -63,12 +69,21 @@ function loadPolicy(filename, seed) {
   vm.createContext(sandbox);
   vm.runInContext(source + "\nthis.__agxAct = act;", sandbox, {
     filename,
-    timeout: 1000,
+    timeout: INITIALIZATION_BUDGET_MS,
   });
   if (typeof sandbox.__agxAct !== "function") throw new Error(`${filename} 没有提供 act(view)`);
+  const initializationMs = Number(process.hrtime.bigint() - started) / 1e6;
+  const initializationCpu = process.cpuUsage(cpuStarted);
+  const initializationCpuMs = (initializationCpu.user + initializationCpu.system) / 1000;
+  if (initializationMs > INITIALIZATION_BUDGET_MS) {
+    throw new Error(`${filename} 初始化耗时 ${initializationMs.toFixed(3)}ms，超过 ${INITIALIZATION_BUDGET_MS}ms`);
+  }
   return {
-    act(view) {
-      return sandbox.__agxAct(view);
+    initializationMs,
+    initializationCpuMs,
+    act(view, timeoutMs) {
+      sandbox.__agxView = view;
+      return vm.runInContext("__agxAct(__agxView)", sandbox, { timeout: timeoutMs });
     },
   };
 }
@@ -187,7 +202,7 @@ function publicView(game, seat) {
   const player = game.players[seat];
   const legal = legalState(game, seat);
   return {
-    rules: "poker-v4",
+    rules: RULES.rulesVersion,
     hand: game.globalHand,
     rotation: game.rotation,
     rotationHand: game.rotationHand + 1,
@@ -315,21 +330,36 @@ function runBettingRound(game, bots, metrics, startSeat, budgetMs) {
     const participant = game.players[seat].id;
     let action;
     let failed = false;
+    let hardTimeout = false;
+    if (metrics.cpuMs[participant] >= SEAT_CPU_BUDGET_MS) {
+      metrics.cpuExceeded[participant]++;
+      action = fallbackAction(view);
+      metrics.actionTypes[participant][action.type] = (metrics.actionTypes[participant][action.type] || 0) + 1;
+      applyAction(game, seat, action);
+      cursor = (seat + 1) % 6;
+      continue;
+    }
     const started = process.hrtime.bigint();
+    const cpuStarted = process.cpuUsage();
     try {
-      action = bots[participant].act(view);
-    } catch (_) {
+      action = bots[participant].act(view, budgetMs);
+    } catch (error) {
       failed = true;
+      hardTimeout = Boolean(error && error.code === "ERR_SCRIPT_EXECUTION_TIMEOUT");
       action = fallbackAction(view);
     }
     const elapsedMs = Number(process.hrtime.bigint() - started) / 1e6;
+    const cpuUsed = process.cpuUsage(cpuStarted);
+    const cpuMs = (cpuUsed.user + cpuUsed.system) / 1000;
     metrics.latencies[participant].push(elapsedMs);
+    metrics.cpuMs[participant] += cpuMs;
     if (failed || !action || typeof action !== "object" || !view.legal.includes(action.type)) {
       metrics.invalid[participant]++;
       action = fallbackAction(view);
     }
-    if (elapsedMs > budgetMs) {
+    if (hardTimeout || elapsedMs > budgetMs || metrics.cpuMs[participant] > SEAT_CPU_BUDGET_MS) {
       metrics.timeouts[participant]++;
+      if (metrics.cpuMs[participant] > SEAT_CPU_BUDGET_MS) metrics.cpuExceeded[participant]++;
       action = fallbackAction(view);
     }
     metrics.actionTypes[participant][action.type] = (metrics.actionTypes[participant][action.type] || 0) + 1;
@@ -439,17 +469,30 @@ function percentile(values, fraction) {
 }
 
 function runMatch(matchIndex, deals, buttons) {
-  const bots = Array.from({ length: 6 }, (_, id) =>
-    loadPolicy(id === 0 ? options.candidate : options.opponent, options.seed + matchIndex * 1009 + id * 97)
-  );
   const metrics = {
     latencies: Array.from({ length: 6 }, () => []),
     invalid: Array(6).fill(0),
     timeouts: Array(6).fill(0),
+    cpuMs: Array(6).fill(0),
+    cpuExceeded: Array(6).fill(0),
+    initializationMs: Array.from({ length: 6 }, () => []),
+    contextInitializations: Array(6).fill(0),
     actionTypes: Array.from({ length: 6 }, () => ({})),
   };
   const totals = Array(6).fill(0);
   for (let rotation = 0; rotation < ROTATIONS; rotation++) {
+    // The platform destroys policy state at every 40-hand boundary. Reloading all
+    // policies here prevents accidental cross-rotation opponent statistics.
+    const bots = Array.from({ length: 6 }, (_, id) => {
+      const policy = loadPolicy(
+        id === 0 ? options.candidate : options.opponent,
+        options.seed + matchIndex * 1009 + rotation * 193 + id * 97
+      );
+      metrics.initializationMs[id].push(policy.initializationMs);
+      metrics.cpuMs[id] += policy.initializationCpuMs;
+      metrics.contextInitializations[id]++;
+      return policy;
+    });
     for (let hand = 0; hand < HANDS_PER_ROTATION; hand++) {
       const net = playHand({
         deck: deals[hand],
@@ -479,6 +522,10 @@ function main() {
   const candidateLatencies = [];
   let invalid = 0;
   let timeouts = 0;
+  let cpuExceeded = 0;
+  let candidateCpuMs = 0;
+  const initializationLatencies = [];
+  let contextInitializations = 0;
   const actionTypes = {};
 
   for (let match = 0; match < options.matches; match++) {
@@ -498,6 +545,10 @@ function main() {
     candidateLatencies.push(...result.metrics.latencies[0]);
     invalid += result.metrics.invalid[0];
     timeouts += result.metrics.timeouts[0];
+    cpuExceeded += result.metrics.cpuExceeded[0];
+    candidateCpuMs += result.metrics.cpuMs[0];
+    initializationLatencies.push(...result.metrics.initializationMs[0]);
+    contextInitializations += result.metrics.contextInitializations[0];
     for (const [type, count] of Object.entries(result.metrics.actionTypes[0])) actionTypes[type] = (actionTypes[type] || 0) + count;
     process.stdout.write(`比赛 ${match + 1}/${options.matches}：候选净额 ${net >= 0 ? "+" : ""}${net}，名次 ${1 + result.totals.filter((value) => value > net).length}\n`);
   }
@@ -507,6 +558,7 @@ function main() {
   const variance = matchNets.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / Math.max(1, matchNets.length - 1);
   const standardError = Math.sqrt(variance / options.matches);
   console.log("\n=== 汇总 ===");
+  console.log(`规则：${RULES.rulesVersion}；${RULES.table.players}人；${SB}/${BB}；${START / BB}BB；${ROTATIONS}×${HANDS_PER_ROTATION}手`);
   console.log(`候选：${options.candidate}`);
   console.log(`对手：${options.opponent}`);
   console.log(`完整比赛：${options.matches}；候选手数：${hands}`);
@@ -514,7 +566,9 @@ function main() {
   console.log(`平均每局净额：${mean.toFixed(2)}；近似95%区间：[ ${(mean - 1.96 * standardError).toFixed(2)}, ${(mean + 1.96 * standardError).toFixed(2)} ]`);
   console.log(`mbb/手：${(10 * candidateNet / hands).toFixed(3)}`);
   console.log(`第一名份额：${(100 * winShare / options.matches).toFixed(2)}%；单独第一：${outrightWins}/${options.matches}`);
-  console.log(`候选动作数：${candidateLatencies.length}；非法/异常：${invalid}；超预算：${timeouts}`);
+  console.log(`候选动作数：${candidateLatencies.length}；非法/异常：${invalid}；超预算：${timeouts}；整局CPU超限：${cpuExceeded}`);
+  console.log(`候选上下文初始化：${contextInitializations}（每局${ROTATIONS}次）；初始化最大耗时：${Math.max(0, ...initializationLatencies).toFixed(3)}ms`);
+  console.log(`候选累计CPU：${candidateCpuMs.toFixed(3)}ms；每局上限：${SEAT_CPU_BUDGET_MS}ms`);
   console.log(`候选动作分布：${Object.entries(actionTypes).map(([type, count]) => `${type}=${count}`).join("，")}`);
   const averageLatency = candidateLatencies.reduce((sum, value) => sum + value, 0) / Math.max(1, candidateLatencies.length);
   console.log(`耗时ms 平均/P50/P95/P99/最大：${averageLatency.toFixed(3)} / ${percentile(candidateLatencies, 0.50).toFixed(3)} / ${percentile(candidateLatencies, 0.95).toFixed(3)} / ${percentile(candidateLatencies, 0.99).toFixed(3)} / ${Math.max(0, ...candidateLatencies).toFixed(3)}`);

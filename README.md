@@ -4,8 +4,9 @@
 
 ## 文档
 
-- [项目结构说明](PROJECT_STRUCTURE.md)：用树形结构说明每个目录和文件的用途。
-- [完成情况与待办事项](TODO.md)：记录已经完成的工作、当前限制和后续开发顺序。
+- [项目结构说明](doc/PROJECT_STRUCTURE.md)：用树形结构说明每个目录和文件的用途。
+- [完成情况与待办事项](doc/TODO.md)：记录已经完成的工作、当前限制和后续开发顺序。
+- [蒸馏与冲榜计划](doc/蒸馏TODO.md)：记录冻结的比赛约束和蒸馏路线。
 - [网页牌桌说明](web/README.md)：介绍本地启动方法和当前网页能力。
 - [神经网络训练说明](neural/README.md)：介绍 GPU 训练、导出、校验和对战命令。
 
@@ -46,6 +47,7 @@ function act(view) { /* 返回一个平台允许的动作对象 */ }
 
 ```bash
 python3 tools/validate.py
+python3 tools/competition_rules.py
 
 # 训练并导出后校验神经网络版本
 python3 tools/validate.py submission_nn.js
@@ -55,7 +57,20 @@ python3 tools/validate.py submission_nn.js
 
 ```bash
 node tests/test_submission.js
+node tests/test_competition_constraints.js
 node tests/test_simulator.js
+python3 tests/test_experiment_registry.py
+python3 tests/test_exact_engine.py
+```
+
+## 实验登记
+
+蒸馏实验使用唯一编号和固定字段登记。创建、完成、上线与一致性检查命令见 [扑克蒸馏工作区说明](poker-distill/README.md)。空登记表可直接检查：
+
+```bash
+python3 tools/experiment_registry.py check
+python3 tools/experiment_registry.py list
+python3 tools/environment_gate.py status
 ```
 
 ## 运行离线模拟器
@@ -63,6 +78,13 @@ node tests/test_simulator.js
 ```bash
 python3 simulator/simulate.py --hands 6000 --seed 7607
 python3 simulator/simulate.py --hands 30000 --seed 7607 --candidate tag --opponents mixed
+```
+
+运行精确规则引擎的随机状态机压力测试：
+
+```bash
+python3 poker-distill/simulator/stress.py --hands 100000 --seed 7607 \
+  --report poker-distill/reports/engine_stress_100k.out
 ```
 
 `simulate.py` 是快速的 Python 近似基准，不直接执行正式提交文件。

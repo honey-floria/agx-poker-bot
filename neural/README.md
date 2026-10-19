@@ -59,6 +59,7 @@ uv pip install --python .venv/bin/python torch numpy
 
 ```bash
 .venv/bin/python neural/train.py \
+  --pipeline-smoke \
   --samples 10000 \
   --mc-samples 12 \
   --epochs 5 \
@@ -69,7 +70,7 @@ uv pip install --python .venv/bin/python torch numpy
 .venv/bin/python tools/validate.py submission_nn.js
 ```
 
-确认全链路正常后运行正式训练：
+只有 `poker-distill/reports/environment_validation.json` 已记录至少100局公开回放逐动作验证并将门禁标记为通过后，才能运行正式训练：
 
 ```bash
 .venv/bin/python neural/train.py \

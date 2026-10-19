@@ -2,6 +2,7 @@
 
 var RANKS = "23456789TJQKA";
 var SUITS = "cdhs";
+var RULES_VERSION = "rsi-poker-4.1";
 var POSITION_OPEN = {UTG:0.64,HJ:0.59,CO:0.53,BTN:0.46,SB:0.50,BB:0.70};
 var OPEN_RANGES = {
   UTG:"55 66 77 88 99 TT JJ QQ KK AA ATs AJs AQs AKs KJs KQs QJs JTs T9s 98s AQo AKo KQo",
@@ -16,7 +17,7 @@ var DEFEND_LATE = "22 33 44 55 66 77 88 99 TT JJ QQ KK AA A8s A9s ATs AJs AQs AK
 var THREEBET_VALUE = "JJ QQ KK AA AQs AKs AKo";
 var FOURBET_VALUE = "QQ KK AA AKs AKo";
 var THREEBET_BLUFF = "A5s A4s KTs QTs";
-var memory = { handKey:"", actionCount:0, players:{}, flags:{} };
+var memory = { rotation:null, handKey:"", actionCount:0, players:{}, flags:{} };
 
 function rankValue(card) { return RANKS.indexOf(card.charAt(0)) + 2; }
 function suitValue(card) { return card.charAt(1); }
@@ -165,6 +166,9 @@ function getStat(player) {
 }
 
 function updateMemory(view) {
+  if(memory.rotation!==view.rotation) {
+    memory={rotation:view.rotation,handKey:"",actionCount:0,players:{},flags:{}};
+  }
   var key=String(view.rotation)+":"+String(view.hand);
   if(key!==memory.handKey) {
     memory.handKey=key;memory.actionCount=0;memory.flags={};
@@ -306,6 +310,7 @@ function decide(view) {
 function act(view) {
   try {
     if(!view||!view.me||!Array.isArray(view.legal)||view.legal.length===0) throw new Error("bad view");
+    if(view.rules&&view.rules!==RULES_VERSION) return safePassive(view,false);
     var action=decide(view);
     if(!action||!has(view.legal,action.type)) return safePassive(view,false);
     return action;
