@@ -4,6 +4,7 @@ import hashlib
 import json
 from copy import deepcopy
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -94,16 +95,17 @@ with tempfile.TemporaryDirectory(prefix="agx-bc-v2-runtime-") as temporary:
                "stack": BASE["stack"], "bet": BASE["me_bet"], "invested": BASE["invested"]},
         "players": BASE["players"], "actions": BASE["history"],
     }
-    script = (
-        f"const policy=require({json.dumps(str(output_path))});"
-        f"const view={json.dumps(runtime_view)};"
-        "console.log(JSON.stringify({features:policy.features(view),action:policy.act(view)}));"
-    )
-    runtime = subprocess.run(["node", "-e", script], cwd=ROOT, text=True, capture_output=True)
-    assert runtime.returncode == 0, runtime.stderr
-    runtime_result = json.loads(runtime.stdout)
-    assert max(abs(left - right) for left, right in zip(runtime_result["features"], features_v2)) < 1e-12
-    assert runtime_result["action"] == {"type": "check"}
+    if shutil.which("node"):
+        script = (
+            f"const policy=require({json.dumps(str(output_path))});"
+            f"const view={json.dumps(runtime_view)};"
+            "console.log(JSON.stringify({features:policy.features(view),action:policy.act(view)}));"
+        )
+        runtime = subprocess.run(["node", "-e", script], cwd=ROOT, text=True, capture_output=True)
+        assert runtime.returncode == 0, runtime.stderr
+        runtime_result = json.loads(runtime.stdout)
+        assert max(abs(left - right) for left, right in zip(runtime_result["features"], features_v2)) < 1e-12
+        assert runtime_result["action"] == {"type": "check"}
 
 label, projection = action_bucket(BASE)
 assert ACTIONS[label] == "raise_0.50" and projection["error"] == 0
