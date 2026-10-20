@@ -1,0 +1,3811 @@
+{
+  "schema": "agx.top-teacher-replay-validation.v1",
+  "competition_id": "b70f410e-2e0b-5136-8883-2e81f340cb7e",
+  "leaderboard_selected_at_unix": 1792482582,
+  "top_k": 20,
+  "required_matches": 300,
+  "verified_matches": 300,
+  "failed_matches": 0,
+  "hands": 72000,
+  "teacher_decisions": 151570,
+  "failures": [],
+  "matches": [
+    {
+      "match_id": "3e6a4ad5-5f26-4e61-a1e7-0b021db1ec1a",
+      "hands": 240,
+      "all_decisions": 1821,
+      "teacher_decisions": 360,
+      "teacher_ranks": [
+        5
+      ],
+      "split": "train",
+      "source_file": "replay-3e6a4ad5-5f26-4e61-a1e7-0b021db1ec1a.json",
+      "source_sha256": "1bc6deab231aaa3798ca85ec2f6b2faa433e8dd91f71d92e65ce957d8a9b56f5"
+    },
+    {
+      "match_id": "6dc1258b-4d78-4bb8-8c9c-1c3349cdb73d",
+      "hands": 240,
+      "all_decisions": 1796,
+      "teacher_decisions": 345,
+      "teacher_ranks": [
+        1
+      ],
+      "split": "validation",
+      "source_file": "replay-6dc1258b-4d78-4bb8-8c9c-1c3349cdb73d.json",
+      "source_sha256": "e6006670a94a51fe32ec85f671dbddb2a4c734424022c5d72be525616386d44e"
+    },
+    {
+      "match_id": "78185700-3b58-4af4-bd03-55256c24c3cd",
+      "hands": 240,
+      "all_decisions": 1673,
+      "teacher_decisions": 848,
+      "teacher_ranks": [
+        6,
+        9,
+        20
+      ],
+      "split": "test",
+      "source_file": "replay-78185700-3b58-4af4-bd03-55256c24c3cd.json",
+      "source_sha256": "903790eafdd72cb85525bd32127ee10dbe4528fae9b1b19e3136803457ad2765"
+    },
+    {
+      "match_id": "a020cb64-9cb5-4857-b205-48a1f972c78f",
+      "hands": 240,
+      "all_decisions": 1623,
+      "teacher_decisions": 819,
+      "teacher_ranks": [
+        8,
+        11,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-a020cb64-9cb5-4857-b205-48a1f972c78f.json",
+      "source_sha256": "dfed676504e95ae5e0b3d771fe98478ff2b319078e9d84a6db99de0ccfd6b624"
+    },
+    {
+      "match_id": "a5c6c0a0-88ce-4404-9780-fc3af200c097",
+      "hands": 240,
+      "all_decisions": 1825,
+      "teacher_decisions": 578,
+      "teacher_ranks": [
+        14,
+        18
+      ],
+      "split": "test",
+      "source_file": "replay-a5c6c0a0-88ce-4404-9780-fc3af200c097.json",
+      "source_sha256": "472b312252ba5572f230157441bf9040ca1d932cb4c8f8a9fa03402f07c30a14"
+    },
+    {
+      "match_id": "a6dfb124-2e7a-4cb5-bcb2-449052f6b87c",
+      "hands": 240,
+      "all_decisions": 1766,
+      "teacher_decisions": 1473,
+      "teacher_ranks": [
+        3,
+        10,
+        13,
+        15,
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-a6dfb124-2e7a-4cb5-bcb2-449052f6b87c.json",
+      "source_sha256": "9a17458ff23c2370687a1a0a325713f4a6533f2323fe5fdeb8c6e5da0b019cb2"
+    },
+    {
+      "match_id": "b2c12859-8ab3-4875-8295-7bbaee897d12",
+      "hands": 240,
+      "all_decisions": 1760,
+      "teacher_decisions": 1473,
+      "teacher_ranks": [
+        2,
+        4,
+        7,
+        12,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-b2c12859-8ab3-4875-8295-7bbaee897d12.json",
+      "source_sha256": "557acbd6c70e87b14a8be2075c6bc3e1824485a7cf8cebf3c4da22baafcdad0d"
+    },
+    {
+      "match_id": "ba9fa96c-2342-41fb-bf25-208702b45e2c",
+      "hands": 240,
+      "all_decisions": 1901,
+      "teacher_decisions": 326,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-ba9fa96c-2342-41fb-bf25-208702b45e2c.json",
+      "source_sha256": "152eb4d029b7a10f407d1def377b54f67513ecabff541df93e9eef118699bf7d"
+    },
+    {
+      "match_id": "e560cfa0-7012-4d9d-b947-f3495b3195dd",
+      "hands": 240,
+      "all_decisions": 1733,
+      "teacher_decisions": 297,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-e560cfa0-7012-4d9d-b947-f3495b3195dd.json",
+      "source_sha256": "c9fab8c44a5b161d0077ebf70a6ff9d7b589b1966972b892de628b90bbb5a911"
+    },
+    {
+      "match_id": "ec8b3053-9a7e-441a-ab3f-65771c84ae05",
+      "hands": 240,
+      "all_decisions": 1951,
+      "teacher_decisions": 337,
+      "teacher_ranks": [
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-ec8b3053-9a7e-441a-ab3f-65771c84ae05.json",
+      "source_sha256": "6797cedbee509589f6f8c1c28e022eb465230876d55a30015f17b782f4e4f385"
+    },
+    {
+      "match_id": "93363a3f-b7ad-448d-90e7-caef34d89a33",
+      "hands": 240,
+      "all_decisions": 1649,
+      "teacher_decisions": 273,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-93363a3f-b7ad-448d-90e7-caef34d89a33.json",
+      "source_sha256": "8a5904d8425c6401e86db6d57c1fd4842d2c351ef4c62622871409a678b36234"
+    },
+    {
+      "match_id": "ab8242f0-bef2-44d3-bc57-19f878a42c69",
+      "hands": 240,
+      "all_decisions": 1736,
+      "teacher_decisions": 301,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-ab8242f0-bef2-44d3-bc57-19f878a42c69.json",
+      "source_sha256": "ba008c2e81621f5ab29b63115ea054a871c8b53513f06c4c3cdac6b9c09a6ceb"
+    },
+    {
+      "match_id": "e8bd8d4f-9413-4aad-a4fd-f9cc859332eb",
+      "hands": 240,
+      "all_decisions": 1815,
+      "teacher_decisions": 313,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-e8bd8d4f-9413-4aad-a4fd-f9cc859332eb.json",
+      "source_sha256": "01e85c17180c3b1d9a79538275e45e3b7f26b88658500d500c590946e42dbd48"
+    },
+    {
+      "match_id": "2088c173-461e-49ef-940a-c94ddb214612",
+      "hands": 240,
+      "all_decisions": 1811,
+      "teacher_decisions": 334,
+      "teacher_ranks": [
+        5
+      ],
+      "split": "train",
+      "source_file": "replay-2088c173-461e-49ef-940a-c94ddb214612.json",
+      "source_sha256": "6fdc2ada61238882e58f740ac445dcc8245f55161d30297d23ad1a918e198b9c"
+    },
+    {
+      "match_id": "3db7e7be-a24e-4d87-800d-335fa638645c",
+      "hands": 240,
+      "all_decisions": 1769,
+      "teacher_decisions": 290,
+      "teacher_ranks": [
+        8
+      ],
+      "split": "train",
+      "source_file": "replay-3db7e7be-a24e-4d87-800d-335fa638645c.json",
+      "source_sha256": "8b48b277a3360cdbb160b96264cf39f5cd02523087f2a2743299812c8802855d"
+    },
+    {
+      "match_id": "5bbd3d35-cf8f-4a96-a064-d0c28c0f07fd",
+      "hands": 240,
+      "all_decisions": 1671,
+      "teacher_decisions": 299,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-5bbd3d35-cf8f-4a96-a064-d0c28c0f07fd.json",
+      "source_sha256": "d1baebc155ddb9638f2a9bd956079358ed4b2f02dd111f25b8bbed4a827ecfbf"
+    },
+    {
+      "match_id": "fbd4bce7-0733-4eba-a8c6-a69402bc6c2b",
+      "hands": 240,
+      "all_decisions": 1719,
+      "teacher_decisions": 310,
+      "teacher_ranks": [
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-fbd4bce7-0733-4eba-a8c6-a69402bc6c2b.json",
+      "source_sha256": "a64bc85afef3330d50c7ea0612ea46945d876529f86e6c4433d2de778782c2b9"
+    },
+    {
+      "match_id": "66e41e03-96f2-4360-9121-3ef41878d3dc",
+      "hands": 240,
+      "all_decisions": 1586,
+      "teacher_decisions": 272,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-66e41e03-96f2-4360-9121-3ef41878d3dc.json",
+      "source_sha256": "c1ed3e257ec08c45f4fcf64521d3ea9972d539e88c8ceee0e70e4e3501e4aab6"
+    },
+    {
+      "match_id": "8811bf65-3943-4daa-8bf8-c588b0ff1802",
+      "hands": 240,
+      "all_decisions": 1683,
+      "teacher_decisions": 270,
+      "teacher_ranks": [
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-8811bf65-3943-4daa-8bf8-c588b0ff1802.json",
+      "source_sha256": "2d02de07e51c30435360312271cfd4751af36e3ff9cd3fb67a2bafa9d084095e"
+    },
+    {
+      "match_id": "b3431339-abe6-45d0-8c03-1d46867a4bc3",
+      "hands": 240,
+      "all_decisions": 1744,
+      "teacher_decisions": 272,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "test",
+      "source_file": "replay-b3431339-abe6-45d0-8c03-1d46867a4bc3.json",
+      "source_sha256": "e69f67c199a5dff92692b227b90753859fa9dd91209e8188faab87f8322efa63"
+    },
+    {
+      "match_id": "fe09ba2e-eb3d-4a74-93ba-295e83123b41",
+      "hands": 240,
+      "all_decisions": 1746,
+      "teacher_decisions": 295,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "train",
+      "source_file": "replay-fe09ba2e-eb3d-4a74-93ba-295e83123b41.json",
+      "source_sha256": "7797bd16e0a0840027de34e592e01f27a0ed779fb217103cf3a459f591254e80"
+    },
+    {
+      "match_id": "2f7ccd93-e626-4721-82ec-376d3533cbdc",
+      "hands": 240,
+      "all_decisions": 1731,
+      "teacher_decisions": 280,
+      "teacher_ranks": [
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-2f7ccd93-e626-4721-82ec-376d3533cbdc.json",
+      "source_sha256": "6575c87bd5e2ca746b44061a1d6e250c14219c3068333ed8500c500bf9b00b67"
+    },
+    {
+      "match_id": "4f1267c2-4c6c-47db-930d-3c292c31c4aa",
+      "hands": 240,
+      "all_decisions": 1817,
+      "teacher_decisions": 303,
+      "teacher_ranks": [
+        3
+      ],
+      "split": "train",
+      "source_file": "replay-4f1267c2-4c6c-47db-930d-3c292c31c4aa.json",
+      "source_sha256": "75f2a5235e559d5ed0c4bc935209f97746a44fd02179c373d1007a38a179830f"
+    },
+    {
+      "match_id": "aebc613d-ba6f-43ed-8973-f0e5b54a604a",
+      "hands": 240,
+      "all_decisions": 1713,
+      "teacher_decisions": 298,
+      "teacher_ranks": [
+        6
+      ],
+      "split": "train",
+      "source_file": "replay-aebc613d-ba6f-43ed-8973-f0e5b54a604a.json",
+      "source_sha256": "e986f2f74d1709b4f15210cc6edb9be2b36d93c813c75a32fc64fafda579f0fe"
+    },
+    {
+      "match_id": "5cbb9f28-16f4-43ed-8b74-a0694e08f7a7",
+      "hands": 240,
+      "all_decisions": 1805,
+      "teacher_decisions": 294,
+      "teacher_ranks": [
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-5cbb9f28-16f4-43ed-8b74-a0694e08f7a7.json",
+      "source_sha256": "530e98889736c08ed84a9ae7001d0b95eeaae183003ec564fc8e1966f84087d8"
+    },
+    {
+      "match_id": "5c7ec078-aa5e-4d48-8ddd-c87359dab2b5",
+      "hands": 240,
+      "all_decisions": 2019,
+      "teacher_decisions": 339,
+      "teacher_ranks": [
+        4
+      ],
+      "split": "train",
+      "source_file": "replay-5c7ec078-aa5e-4d48-8ddd-c87359dab2b5.json",
+      "source_sha256": "3aca391f329d06244db35b635ca29cd5a4f4b48a714b0c8385cce23ac45fdc2d"
+    },
+    {
+      "match_id": "86d57e94-3638-4c8c-8f34-2702851b565d",
+      "hands": 240,
+      "all_decisions": 1813,
+      "teacher_decisions": 335,
+      "teacher_ranks": [
+        1
+      ],
+      "split": "validation",
+      "source_file": "replay-86d57e94-3638-4c8c-8f34-2702851b565d.json",
+      "source_sha256": "d4a0e87197c567c2bc32faef4ac0677abd29e7957b7df79ab86f87e0a24265c5"
+    },
+    {
+      "match_id": "0767949f-9e1f-48b1-8972-b20640b4c6eb",
+      "hands": 240,
+      "all_decisions": 1771,
+      "teacher_decisions": 296,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "test",
+      "source_file": "replay-0767949f-9e1f-48b1-8972-b20640b4c6eb.json",
+      "source_sha256": "b4ef72e877eab0e0c6ee5696c630e826ca89c32c2b359953b2aa507e0b71331f"
+    },
+    {
+      "match_id": "166e1817-7650-41a9-ae49-be996fd69113",
+      "hands": 240,
+      "all_decisions": 1817,
+      "teacher_decisions": 320,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-166e1817-7650-41a9-ae49-be996fd69113.json",
+      "source_sha256": "8c4dea41382d56e92c0358510dfa5975c2e6d1ab3872653b7a9eb4d9ad918fa2"
+    },
+    {
+      "match_id": "7f704d97-b194-473a-aeb5-da405bbc3581",
+      "hands": 240,
+      "all_decisions": 1839,
+      "teacher_decisions": 280,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-7f704d97-b194-473a-aeb5-da405bbc3581.json",
+      "source_sha256": "2b8edc8b974bd21d74cd69ee834dc9a83a2969a82b27f46333688d1c8e960ebd"
+    },
+    {
+      "match_id": "8ac8d325-5d23-47af-bbc0-c02fcef4a82d",
+      "hands": 240,
+      "all_decisions": 1827,
+      "teacher_decisions": 329,
+      "teacher_ranks": [
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-8ac8d325-5d23-47af-bbc0-c02fcef4a82d.json",
+      "source_sha256": "423befd6d6ddaf8208a6dffe9027a25a67a90bf80bc7ecb220ee9d829c44110a"
+    },
+    {
+      "match_id": "d1435527-2356-4f2b-946d-c088dfc5d911",
+      "hands": 240,
+      "all_decisions": 1759,
+      "teacher_decisions": 307,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-d1435527-2356-4f2b-946d-c088dfc5d911.json",
+      "source_sha256": "d0c415cb43f92e39c96aaca6224bdc5030ad8318925efb108e020af653e4499a"
+    },
+    {
+      "match_id": "b52ae0a5-e4e1-4be9-9084-74d79deefd37",
+      "hands": 240,
+      "all_decisions": 1797,
+      "teacher_decisions": 283,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "validation",
+      "source_file": "replay-b52ae0a5-e4e1-4be9-9084-74d79deefd37.json",
+      "source_sha256": "180fefd08b1f6c5e0e9cd8c38b7355c91cdba5450c87115aae60ef200039a327"
+    },
+    {
+      "match_id": "99bb6456-5c20-4556-90ed-697633256aa5",
+      "hands": 240,
+      "all_decisions": 1652,
+      "teacher_decisions": 288,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "train",
+      "source_file": "replay-99bb6456-5c20-4556-90ed-697633256aa5.json",
+      "source_sha256": "7f177496f8bed506b17a753789da71c862349a1abc0afce77dd5b538e81709a1"
+    },
+    {
+      "match_id": "c07affdd-6a74-4b3f-a92d-58110d2c2998",
+      "hands": 240,
+      "all_decisions": 1665,
+      "teacher_decisions": 297,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-c07affdd-6a74-4b3f-a92d-58110d2c2998.json",
+      "source_sha256": "4fa118e0a7965e56f8e3f195384214daf33f600aaecebc9ce5f6bcb05f4ead73"
+    },
+    {
+      "match_id": "43b66f39-cc4f-499f-b1a6-fb13bbdf90a1",
+      "hands": 240,
+      "all_decisions": 1857,
+      "teacher_decisions": 295,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "test",
+      "source_file": "replay-43b66f39-cc4f-499f-b1a6-fb13bbdf90a1.json",
+      "source_sha256": "b77b0e39e7b01a85060398008d6a803425cb5b9e63a64e9ec6e438d8dcaf9795"
+    },
+    {
+      "match_id": "4076c8f2-945a-4b5e-a8d8-a7657b6f0135",
+      "hands": 240,
+      "all_decisions": 1741,
+      "teacher_decisions": 316,
+      "teacher_ranks": [
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-4076c8f2-945a-4b5e-a8d8-a7657b6f0135.json",
+      "source_sha256": "444e994b4b37d419fac528136975920dfeee037e582a1f5ba5afbba1170a431d"
+    },
+    {
+      "match_id": "292f9a63-7550-46c2-870e-ead248ea1fe6",
+      "hands": 240,
+      "all_decisions": 1776,
+      "teacher_decisions": 273,
+      "teacher_ranks": [
+        11
+      ],
+      "split": "test",
+      "source_file": "replay-292f9a63-7550-46c2-870e-ead248ea1fe6.json",
+      "source_sha256": "95dc91d87e8b9cfb9ecfacb87d62fe17889d1286eee2b7648427e2dc7095ba3c"
+    },
+    {
+      "match_id": "bc83cab6-7c4b-49f1-a94a-a5bba74c4261",
+      "hands": 240,
+      "all_decisions": 1690,
+      "teacher_decisions": 296,
+      "teacher_ranks": [
+        6
+      ],
+      "split": "train",
+      "source_file": "replay-bc83cab6-7c4b-49f1-a94a-a5bba74c4261.json",
+      "source_sha256": "e8fe37aa05678733acd9ccc49163faed1e7ad6b2ef6c365d87564918d1f0747f"
+    },
+    {
+      "match_id": "26706b3a-f884-4c82-aed8-a4ed07dd8c08",
+      "hands": 240,
+      "all_decisions": 1830,
+      "teacher_decisions": 306,
+      "teacher_ranks": [
+        8
+      ],
+      "split": "test",
+      "source_file": "replay-26706b3a-f884-4c82-aed8-a4ed07dd8c08.json",
+      "source_sha256": "b66a8f284fa706dfc5e6fce17e86ca74fe56cab8f226e57b2b7e3796e7c6ece6"
+    },
+    {
+      "match_id": "b99c1b9c-43f1-4ff6-98fa-072a3a47eaa9",
+      "hands": 240,
+      "all_decisions": 1699,
+      "teacher_decisions": 280,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-b99c1b9c-43f1-4ff6-98fa-072a3a47eaa9.json",
+      "source_sha256": "846377f5b450d1b4340b4265ca4f49d7a5f41b93f714d31cf9c720f8e1d7b816"
+    },
+    {
+      "match_id": "57f54dd7-e089-40bc-b1a5-44acccfd5621",
+      "hands": 240,
+      "all_decisions": 1586,
+      "teacher_decisions": 267,
+      "teacher_ranks": [
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-57f54dd7-e089-40bc-b1a5-44acccfd5621.json",
+      "source_sha256": "a288a9642637e67b1aed2e50277b192562951fce7fac57e0fd9fdc30de15489f"
+    },
+    {
+      "match_id": "f94d9d28-6edc-4123-b1cb-7fc52785fd79",
+      "hands": 240,
+      "all_decisions": 1672,
+      "teacher_decisions": 276,
+      "teacher_ranks": [
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-f94d9d28-6edc-4123-b1cb-7fc52785fd79.json",
+      "source_sha256": "a6f8f779cf8c7c2cbfdc2f515af07809bb5d1033798fa3e619be91fdbd72e307"
+    },
+    {
+      "match_id": "3d636f2b-b347-4061-b4db-8bf9d3588fb4",
+      "hands": 240,
+      "all_decisions": 1862,
+      "teacher_decisions": 338,
+      "teacher_ranks": [
+        1
+      ],
+      "split": "train",
+      "source_file": "replay-3d636f2b-b347-4061-b4db-8bf9d3588fb4.json",
+      "source_sha256": "97acad0754dbe00b416cc64f8066ff6a7a3bcfad0a8cd6a66ad867e463302950"
+    },
+    {
+      "match_id": "ea9f79a1-d98b-4ac6-96ea-5f12a9ef5b96",
+      "hands": 240,
+      "all_decisions": 1825,
+      "teacher_decisions": 296,
+      "teacher_ranks": [
+        3
+      ],
+      "split": "train",
+      "source_file": "replay-ea9f79a1-d98b-4ac6-96ea-5f12a9ef5b96.json",
+      "source_sha256": "0214f42a9cdd33b56ede12a50deaab68f46465455704fdf45154494e372a46e2"
+    },
+    {
+      "match_id": "098c42fb-321d-4f82-8a1d-b92b462fbabc",
+      "hands": 240,
+      "all_decisions": 1756,
+      "teacher_decisions": 342,
+      "teacher_ranks": [
+        5
+      ],
+      "split": "train",
+      "source_file": "replay-098c42fb-321d-4f82-8a1d-b92b462fbabc.json",
+      "source_sha256": "48d90941f19356662a1b8efdff9e5acde6e1f1ed214dc0230b01ea81af0d267f"
+    },
+    {
+      "match_id": "10e0700d-92e0-4b73-b91c-65758b10365e",
+      "hands": 240,
+      "all_decisions": 1671,
+      "teacher_decisions": 301,
+      "teacher_ranks": [
+        4
+      ],
+      "split": "train",
+      "source_file": "replay-10e0700d-92e0-4b73-b91c-65758b10365e.json",
+      "source_sha256": "0d5eb5c6c17919b4e6bf7c16a8b324048b77e32cdc9e62ad7a0991c98410e14c"
+    },
+    {
+      "match_id": "37021f15-9918-4a2b-afd3-86f3c80d0971",
+      "hands": 240,
+      "all_decisions": 1834,
+      "teacher_decisions": 308,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-37021f15-9918-4a2b-afd3-86f3c80d0971.json",
+      "source_sha256": "762857bc3ace3eb59f8d2f5cd6b56b802f07587f99ecded3aaa84e19dd791e8d"
+    },
+    {
+      "match_id": "3e0e7aab-7cf0-4920-8c8a-623918a5a371",
+      "hands": 240,
+      "all_decisions": 1812,
+      "teacher_decisions": 296,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-3e0e7aab-7cf0-4920-8c8a-623918a5a371.json",
+      "source_sha256": "a539d910f09ee81fe510495078cc62283f9065086df87ec3b5b547a536940d5f"
+    },
+    {
+      "match_id": "75a3bfff-5f04-4452-9f31-4b1cad0e7236",
+      "hands": 240,
+      "all_decisions": 1875,
+      "teacher_decisions": 328,
+      "teacher_ranks": [
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-75a3bfff-5f04-4452-9f31-4b1cad0e7236.json",
+      "source_sha256": "2b183261f91c57af382513edbe8613ed34455c5e08be4e20f713ddc1fde1a3bb"
+    },
+    {
+      "match_id": "16bf66c8-27aa-428a-a2f5-18e7193efb19",
+      "hands": 240,
+      "all_decisions": 1769,
+      "teacher_decisions": 301,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-16bf66c8-27aa-428a-a2f5-18e7193efb19.json",
+      "source_sha256": "c855b525e83b65dd69390093b19bfd95b634775c8b855d9b3adc09d8871451f9"
+    },
+    {
+      "match_id": "a38df82f-81ff-4c8c-8b90-5d1152946428",
+      "hands": 240,
+      "all_decisions": 1582,
+      "teacher_decisions": 260,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-a38df82f-81ff-4c8c-8b90-5d1152946428.json",
+      "source_sha256": "824b3c8cc7340822f27cce2ac342f3830c4a271903f0b99b1c62ca8035eec1b5"
+    },
+    {
+      "match_id": "f44e0873-5691-4099-8eb4-ee5331686971",
+      "hands": 240,
+      "all_decisions": 1865,
+      "teacher_decisions": 309,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-f44e0873-5691-4099-8eb4-ee5331686971.json",
+      "source_sha256": "387e154e7d09cad03cb3059d7aa9eea3389832a1ad880751d629ed623441b3f8"
+    },
+    {
+      "match_id": "d64bd64e-cd1a-42ce-ae75-93a48000d364",
+      "hands": 240,
+      "all_decisions": 1785,
+      "teacher_decisions": 300,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "validation",
+      "source_file": "replay-d64bd64e-cd1a-42ce-ae75-93a48000d364.json",
+      "source_sha256": "a4ca3f785ad3d26bcbfdc77c0a6541839203abde10abadf2042af27c67b1005e"
+    },
+    {
+      "match_id": "17fa560a-0716-4e63-8ab6-bcb281e8e791",
+      "hands": 240,
+      "all_decisions": 1743,
+      "teacher_decisions": 266,
+      "teacher_ranks": [
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-17fa560a-0716-4e63-8ab6-bcb281e8e791.json",
+      "source_sha256": "944d4e2a813d143b2ce4b9a5b8c58ee0c64cd493f187553619ce614d50951cb9"
+    },
+    {
+      "match_id": "87722fb9-b528-449a-9062-972ab9c82192",
+      "hands": 240,
+      "all_decisions": 1666,
+      "teacher_decisions": 278,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "test",
+      "source_file": "replay-87722fb9-b528-449a-9062-972ab9c82192.json",
+      "source_sha256": "ba97aa65b5e14b758039909688c401f74bb1f86acfef5e787f204436f95a0e73"
+    },
+    {
+      "match_id": "0ad91939-c9f3-452d-9dad-b279a98cd7cf",
+      "hands": 240,
+      "all_decisions": 1774,
+      "teacher_decisions": 281,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "validation",
+      "source_file": "replay-0ad91939-c9f3-452d-9dad-b279a98cd7cf.json",
+      "source_sha256": "2d491f4604af28e077d6f8ae7c4cf420245bc840b3eb297c21ba9e17f2779e6f"
+    },
+    {
+      "match_id": "15d82e3b-0295-4faf-b933-309d9acc6675",
+      "hands": 240,
+      "all_decisions": 1797,
+      "teacher_decisions": 302,
+      "teacher_ranks": [
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-15d82e3b-0295-4faf-b933-309d9acc6675.json",
+      "source_sha256": "f32f048e8dccef3c4d74df8b3f8b336f5dc06c060fa07099dc0ef557e9296fa9"
+    },
+    {
+      "match_id": "fb0db0ad-7c23-4f28-9d4d-2d1aa5750137",
+      "hands": 240,
+      "all_decisions": 1746,
+      "teacher_decisions": 274,
+      "teacher_ranks": [
+        6
+      ],
+      "split": "test",
+      "source_file": "replay-fb0db0ad-7c23-4f28-9d4d-2d1aa5750137.json",
+      "source_sha256": "d270928988a2888f9444cef5d755e86c510c3ecb6a64580de0c5f6c102ef1770"
+    },
+    {
+      "match_id": "69140a4e-4e72-4dea-b520-3bfeded342fe",
+      "hands": 240,
+      "all_decisions": 1653,
+      "teacher_decisions": 282,
+      "teacher_ranks": [
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-69140a4e-4e72-4dea-b520-3bfeded342fe.json",
+      "source_sha256": "3212065f26e7b59f454d436c4b05c40b4c2b49e2851ed9272ddbad2f5da68621"
+    },
+    {
+      "match_id": "85cd12b9-dd9b-4438-a232-90553beb07d6",
+      "hands": 240,
+      "all_decisions": 1851,
+      "teacher_decisions": 294,
+      "teacher_ranks": [
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-85cd12b9-dd9b-4438-a232-90553beb07d6.json",
+      "source_sha256": "31194cb161ff93c50c5e4404cfabe8d606ea853f4b025ce198c9770050bbd849"
+    },
+    {
+      "match_id": "02d31c91-6ea6-4eb5-be0e-c93f271f1d85",
+      "hands": 240,
+      "all_decisions": 1631,
+      "teacher_decisions": 272,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-02d31c91-6ea6-4eb5-be0e-c93f271f1d85.json",
+      "source_sha256": "b6533c644f4443c2fa9f0b1ad301a2a49e68c2b49ee8245609913e30974971bc"
+    },
+    {
+      "match_id": "463b3f63-117e-418e-9fc4-77cc95d704af",
+      "hands": 240,
+      "all_decisions": 1895,
+      "teacher_decisions": 313,
+      "teacher_ranks": [
+        8
+      ],
+      "split": "validation",
+      "source_file": "replay-463b3f63-117e-418e-9fc4-77cc95d704af.json",
+      "source_sha256": "7b7edf2a6174afc53e2cceb0d1321a7937de78064145842484fe72023eec35ad"
+    },
+    {
+      "match_id": "ac4aa7b6-6f4f-40c5-9e12-09058e44e45d",
+      "hands": 240,
+      "all_decisions": 1705,
+      "teacher_decisions": 282,
+      "teacher_ranks": [
+        3
+      ],
+      "split": "test",
+      "source_file": "replay-ac4aa7b6-6f4f-40c5-9e12-09058e44e45d.json",
+      "source_sha256": "9124d58ed0440060310c39f4e5f5efe45cc56703315d7fb3f7d9fff98c921506"
+    },
+    {
+      "match_id": "f9b87c06-6e7e-43ff-a527-04ad1fdd2487",
+      "hands": 240,
+      "all_decisions": 1770,
+      "teacher_decisions": 338,
+      "teacher_ranks": [
+        5
+      ],
+      "split": "train",
+      "source_file": "replay-f9b87c06-6e7e-43ff-a527-04ad1fdd2487.json",
+      "source_sha256": "2c0b3102f102672e012d8e6a2393eb79cd81e391447ed37eb8f3b12517225bcc"
+    },
+    {
+      "match_id": "795c91fa-066d-4762-bcee-77baa89b3ace",
+      "hands": 240,
+      "all_decisions": 1788,
+      "teacher_decisions": 327,
+      "teacher_ranks": [
+        1
+      ],
+      "split": "train",
+      "source_file": "replay-795c91fa-066d-4762-bcee-77baa89b3ace.json",
+      "source_sha256": "3c37a8dd372b41e25775d85ab88ba93e6d02102a11de172a4d81f064d79046e4"
+    },
+    {
+      "match_id": "1ae7fc80-5d0a-4fb4-90c8-26f35679b315",
+      "hands": 240,
+      "all_decisions": 2001,
+      "teacher_decisions": 675,
+      "teacher_ranks": [
+        4,
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-1ae7fc80-5d0a-4fb4-90c8-26f35679b315.json",
+      "source_sha256": "9eea62a6d796d251d1317d34952f6c954de6cb0347194b70e7e6fd8f7082e1ac"
+    },
+    {
+      "match_id": "b302474b-5de1-4323-aea0-2a30eaadc1c9",
+      "hands": 240,
+      "all_decisions": 1794,
+      "teacher_decisions": 313,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "test",
+      "source_file": "replay-b302474b-5de1-4323-aea0-2a30eaadc1c9.json",
+      "source_sha256": "7a86d3d6d6f5f18db70494b264fe4f9bf75811faa8de9c93be2ab5ed406f2e9f"
+    },
+    {
+      "match_id": "caab7ebd-470b-4327-a75d-664fade8979b",
+      "hands": 240,
+      "all_decisions": 1778,
+      "teacher_decisions": 323,
+      "teacher_ranks": [
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-caab7ebd-470b-4327-a75d-664fade8979b.json",
+      "source_sha256": "07a112a75a639c1df104873e075a988c6e6e6a92deaa777d780298cfadd9876f"
+    },
+    {
+      "match_id": "6ca1eba3-3112-4b99-8f31-a7e82dbb8c8e",
+      "hands": 240,
+      "all_decisions": 1744,
+      "teacher_decisions": 281,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-6ca1eba3-3112-4b99-8f31-a7e82dbb8c8e.json",
+      "source_sha256": "d905c18508b2aa5a39187038599c4954d3ffc9a5ee2ffe8b32536454688d8509"
+    },
+    {
+      "match_id": "4a42292c-88ca-4014-9697-24191892e188",
+      "hands": 240,
+      "all_decisions": 1837,
+      "teacher_decisions": 315,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-4a42292c-88ca-4014-9697-24191892e188.json",
+      "source_sha256": "3ee36b139c34744c57488f38e3493d3f408e5fb17a5c19647d280f4f88ea6e22"
+    },
+    {
+      "match_id": "b64cae76-8ecc-4816-8512-2aacef38fd98",
+      "hands": 240,
+      "all_decisions": 1777,
+      "teacher_decisions": 313,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "validation",
+      "source_file": "replay-b64cae76-8ecc-4816-8512-2aacef38fd98.json",
+      "source_sha256": "6555dd92b3d9ef1933788b7a3a3acf4b34d5c49eb2612e67ac7dadae96364af3"
+    },
+    {
+      "match_id": "14e3f732-abd9-411c-9e5a-002785d539d5",
+      "hands": 240,
+      "all_decisions": 1627,
+      "teacher_decisions": 265,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-14e3f732-abd9-411c-9e5a-002785d539d5.json",
+      "source_sha256": "d5ca6c949208a299efb8b19b254d701a0aed7c20e15590e09626543d6f3be434"
+    },
+    {
+      "match_id": "8bdcb085-32cf-49c3-8d41-a862dd1d8286",
+      "hands": 240,
+      "all_decisions": 1733,
+      "teacher_decisions": 299,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-8bdcb085-32cf-49c3-8d41-a862dd1d8286.json",
+      "source_sha256": "9b3bdaf32ee4eb161801ea4e0f6f26d1274e6ee17d9649ed689ae836f88bf054"
+    },
+    {
+      "match_id": "a4f49867-05ca-4201-991d-951745bf0768",
+      "hands": 240,
+      "all_decisions": 1904,
+      "teacher_decisions": 306,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-a4f49867-05ca-4201-991d-951745bf0768.json",
+      "source_sha256": "50f0eb9075bfd68a63ccab7d61e326ca3cf5e6a6a1b0a2efa64d364fbff92a50"
+    },
+    {
+      "match_id": "b821e119-18cd-4746-8eba-1e4b3860f21a",
+      "hands": 240,
+      "all_decisions": 1888,
+      "teacher_decisions": 337,
+      "teacher_ranks": [
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-b821e119-18cd-4746-8eba-1e4b3860f21a.json",
+      "source_sha256": "f41e9e2c46b820aae65b4b79a52027d64ee47c398640b68ae19078d2ec85ac43"
+    },
+    {
+      "match_id": "abefbf93-6a16-4240-8cac-e808d3ad50a5",
+      "hands": 240,
+      "all_decisions": 1783,
+      "teacher_decisions": 283,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "validation",
+      "source_file": "replay-abefbf93-6a16-4240-8cac-e808d3ad50a5.json",
+      "source_sha256": "10f61c04953ec852010d12174c14528d29ed5f8529df59b7c8f3bdb675d8a0d2"
+    },
+    {
+      "match_id": "7598a34c-42e3-4db6-9460-9b422a50f22c",
+      "hands": 240,
+      "all_decisions": 1653,
+      "teacher_decisions": 281,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-7598a34c-42e3-4db6-9460-9b422a50f22c.json",
+      "source_sha256": "19039a0735fe2f982b9c4065b2b774f8b385467fe86bfd3b68474fe392ccc4db"
+    },
+    {
+      "match_id": "0c72d1fd-9342-457c-99f8-2c8688ee0f0c",
+      "hands": 240,
+      "all_decisions": 1840,
+      "teacher_decisions": 297,
+      "teacher_ranks": [
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-0c72d1fd-9342-457c-99f8-2c8688ee0f0c.json",
+      "source_sha256": "42dbfd9c7e626104b12edeaee7d6bbacdef563d64d853eebb1e0e40595cb7233"
+    },
+    {
+      "match_id": "e6d81b89-575a-4d06-8e3b-1e3019b44755",
+      "hands": 240,
+      "all_decisions": 1698,
+      "teacher_decisions": 252,
+      "teacher_ranks": [
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-e6d81b89-575a-4d06-8e3b-1e3019b44755.json",
+      "source_sha256": "0dda1a63ed7e633e34527d5dcdd452b4e184ed494c025ffc2b30ca06bce43307"
+    },
+    {
+      "match_id": "917652f4-6a43-4454-9af9-c9bef0907b78",
+      "hands": 240,
+      "all_decisions": 1596,
+      "teacher_decisions": 273,
+      "teacher_ranks": [
+        6
+      ],
+      "split": "test",
+      "source_file": "replay-917652f4-6a43-4454-9af9-c9bef0907b78.json",
+      "source_sha256": "24efbb7b7872e0818a51947871346be02a860a3a6844595b91c2563ed9041d73"
+    },
+    {
+      "match_id": "26067b2b-5ec6-4c84-9b67-db8fee6a51c9",
+      "hands": 240,
+      "all_decisions": 1812,
+      "teacher_decisions": 322,
+      "teacher_ranks": [
+        1
+      ],
+      "split": "train",
+      "source_file": "replay-26067b2b-5ec6-4c84-9b67-db8fee6a51c9.json",
+      "source_sha256": "6f7537ff67b85418d80ca7157e899893664a59f23248f4ae988bbc9811d9ac1a"
+    },
+    {
+      "match_id": "4212cacb-cad0-47d8-9b18-55d2e9bf2ef8",
+      "hands": 240,
+      "all_decisions": 1926,
+      "teacher_decisions": 651,
+      "teacher_ranks": [
+        3,
+        4
+      ],
+      "split": "train",
+      "source_file": "replay-4212cacb-cad0-47d8-9b18-55d2e9bf2ef8.json",
+      "source_sha256": "2d527c2dd280909ff91554becccbfb7e2bc61f7e2fa84b661d1588222c2ba598"
+    },
+    {
+      "match_id": "26d84028-4704-4ca6-891b-ba646f385f28",
+      "hands": 240,
+      "all_decisions": 1844,
+      "teacher_decisions": 605,
+      "teacher_ranks": [
+        8,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-26d84028-4704-4ca6-891b-ba646f385f28.json",
+      "source_sha256": "d18bfb76fe2c80c787572fcc0e61b7ff211a02bee44e79298beeda75345e09e3"
+    },
+    {
+      "match_id": "3002cce3-bc03-4121-a1d4-af8b1a5c58f5",
+      "hands": 240,
+      "all_decisions": 1863,
+      "teacher_decisions": 660,
+      "teacher_ranks": [
+        5,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-3002cce3-bc03-4121-a1d4-af8b1a5c58f5.json",
+      "source_sha256": "39b37beaf63572155f1bfe8e3b6b097a9a3aa22c7746fce395170165c9914aca"
+    },
+    {
+      "match_id": "4155d6de-1109-432d-bfe4-7bd7e0922f44",
+      "hands": 240,
+      "all_decisions": 1780,
+      "teacher_decisions": 304,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-4155d6de-1109-432d-bfe4-7bd7e0922f44.json",
+      "source_sha256": "5a14cb66ee4303c18b84fd388559c7d9697933e53e034d1a9b6b90481d651b59"
+    },
+    {
+      "match_id": "c2fb7c78-cd61-4db0-ac99-8e403dd97be3",
+      "hands": 240,
+      "all_decisions": 1940,
+      "teacher_decisions": 325,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-c2fb7c78-cd61-4db0-ac99-8e403dd97be3.json",
+      "source_sha256": "b69d854b7bc67c626797d607479133c96ce3b00d38e96baa2fc53d1838219332"
+    },
+    {
+      "match_id": "1a5f5304-8b0c-48a2-8c85-b157dca76aab",
+      "hands": 240,
+      "all_decisions": 1851,
+      "teacher_decisions": 290,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-1a5f5304-8b0c-48a2-8c85-b157dca76aab.json",
+      "source_sha256": "b2a49a09868a8747cbba9b0e07e7ba7836c737d29fefa077c3bf1fc67aaf6bd4"
+    },
+    {
+      "match_id": "54fd8e3b-4215-4c64-9cdd-fc3c2deba841",
+      "hands": 240,
+      "all_decisions": 1833,
+      "teacher_decisions": 264,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "test",
+      "source_file": "replay-54fd8e3b-4215-4c64-9cdd-fc3c2deba841.json",
+      "source_sha256": "72a132094af15fcdf57671d5bcc72bc414320a51cd850113fb38a9b3842b8086"
+    },
+    {
+      "match_id": "c01856a8-6c80-44fb-8b32-42f9b2c89296",
+      "hands": 240,
+      "all_decisions": 1785,
+      "teacher_decisions": 302,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-c01856a8-6c80-44fb-8b32-42f9b2c89296.json",
+      "source_sha256": "4c5425282354751da7f07b44e43ad26d5fed363d1f0081249d3e67ab389237d1"
+    },
+    {
+      "match_id": "baa1c950-3c12-4afb-adf6-62bf94956f36",
+      "hands": 240,
+      "all_decisions": 1731,
+      "teacher_decisions": 298,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-baa1c950-3c12-4afb-adf6-62bf94956f36.json",
+      "source_sha256": "c53e2d485f62942b1e4b01c9c6e458e769bdce9f44b0b77050c5baa02e77f1aa"
+    },
+    {
+      "match_id": "40e97318-a07e-4df8-aba8-67611b7e809d",
+      "hands": 240,
+      "all_decisions": 1679,
+      "teacher_decisions": 286,
+      "teacher_ranks": [
+        9
+      ],
+      "split": "validation",
+      "source_file": "replay-40e97318-a07e-4df8-aba8-67611b7e809d.json",
+      "source_sha256": "b9bdfd692c3ad30bca24fb33665fc54f756c1dc990158b7cd5e1f5d4f62371b3"
+    },
+    {
+      "match_id": "41bda13d-f99e-47f9-8876-f5b9057b2815",
+      "hands": 240,
+      "all_decisions": 1736,
+      "teacher_decisions": 271,
+      "teacher_ranks": [
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-41bda13d-f99e-47f9-8876-f5b9057b2815.json",
+      "source_sha256": "af3744ede93344d3dba63810eb2a999196e0f37aa1a3e565a4ab084dfd60df33"
+    },
+    {
+      "match_id": "8e82c75d-206d-4c3f-bce9-165f096a33ca",
+      "hands": 240,
+      "all_decisions": 1819,
+      "teacher_decisions": 292,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "train",
+      "source_file": "replay-8e82c75d-206d-4c3f-bce9-165f096a33ca.json",
+      "source_sha256": "ed0aae10769ac9a664fc02936174a949a9ae4daaeb1d09bd65e1086cc2638d73"
+    },
+    {
+      "match_id": "2981930e-6495-4b7a-a52e-c1523199dce2",
+      "hands": 240,
+      "all_decisions": 1776,
+      "teacher_decisions": 290,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-2981930e-6495-4b7a-a52e-c1523199dce2.json",
+      "source_sha256": "05edfd289e16969af91a64ba2e7085f1e29c3f2c6386f0475c5252bf1500d769"
+    },
+    {
+      "match_id": "f8429c46-14c8-4b4a-9a96-44e50e157229",
+      "hands": 240,
+      "all_decisions": 1831,
+      "teacher_decisions": 311,
+      "teacher_ranks": [
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-f8429c46-14c8-4b4a-9a96-44e50e157229.json",
+      "source_sha256": "61ca2e095f1d2425d96f8a669df51580da2640eab390cafbe85005b23aada04f"
+    },
+    {
+      "match_id": "6e873812-3a19-489f-bb02-df0a86d68c72",
+      "hands": 240,
+      "all_decisions": 1945,
+      "teacher_decisions": 316,
+      "teacher_ranks": [
+        6
+      ],
+      "split": "train",
+      "source_file": "replay-6e873812-3a19-489f-bb02-df0a86d68c72.json",
+      "source_sha256": "e5e4cce6c3a4a0b5cf1f601ee8c45f0e06e0774149b4132c0bd9e5c51ad73a1e"
+    },
+    {
+      "match_id": "9bd461de-ce2c-41c4-a2e5-dc5cfc288e61",
+      "hands": 240,
+      "all_decisions": 1752,
+      "teacher_decisions": 278,
+      "teacher_ranks": [
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-9bd461de-ce2c-41c4-a2e5-dc5cfc288e61.json",
+      "source_sha256": "3d8aefc6e4552decef27f9f57e2e4479eca63a8c098d79f37db9cafe573744af"
+    },
+    {
+      "match_id": "8a8f4e6f-1aa1-4e71-baa5-ea499b424b22",
+      "hands": 240,
+      "all_decisions": 1866,
+      "teacher_decisions": 662,
+      "teacher_ranks": [
+        1,
+        8
+      ],
+      "split": "train",
+      "source_file": "replay-8a8f4e6f-1aa1-4e71-baa5-ea499b424b22.json",
+      "source_sha256": "37f0d62e2ec0b5915d063ce6644bedc609d9101a3a040b2e2ccd6b1edab6fe69"
+    },
+    {
+      "match_id": "2c42ac67-0172-4a83-abfc-d0ef2b88b5ea",
+      "hands": 240,
+      "all_decisions": 1763,
+      "teacher_decisions": 584,
+      "teacher_ranks": [
+        3,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-2c42ac67-0172-4a83-abfc-d0ef2b88b5ea.json",
+      "source_sha256": "cb0229222dd2f78c3420462065a4ba8ae231f6b9276b0f879cc5679d078957c5"
+    },
+    {
+      "match_id": "ba66db84-929a-4cc7-93fd-a87af0584daa",
+      "hands": 240,
+      "all_decisions": 1930,
+      "teacher_decisions": 655,
+      "teacher_ranks": [
+        4,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-ba66db84-929a-4cc7-93fd-a87af0584daa.json",
+      "source_sha256": "fdc5f94305b562e4101b784a97bb175fd1fe7caf11e701aab6e4096af03b9e69"
+    },
+    {
+      "match_id": "a5449c00-08f7-486d-89ba-f0b312eeb4e1",
+      "hands": 240,
+      "all_decisions": 2040,
+      "teacher_decisions": 755,
+      "teacher_ranks": [
+        5,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-a5449c00-08f7-486d-89ba-f0b312eeb4e1.json",
+      "source_sha256": "6fbf98a2ed7b026ed914ec26d7b67cc675c9eed5c3cd799d5b5fa5ac191c3a89"
+    },
+    {
+      "match_id": "874f84a4-a0c8-4488-8472-9c6f6a8f8f60",
+      "hands": 240,
+      "all_decisions": 1678,
+      "teacher_decisions": 290,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-874f84a4-a0c8-4488-8472-9c6f6a8f8f60.json",
+      "source_sha256": "a3ff8ab44d8523e216b33d9f5c98e9c52910c5351e553c4a13f0f6ed89c2bf74"
+    },
+    {
+      "match_id": "071f769f-6af0-417f-8475-986988f8b5f1",
+      "hands": 240,
+      "all_decisions": 1840,
+      "teacher_decisions": 325,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-071f769f-6af0-417f-8475-986988f8b5f1.json",
+      "source_sha256": "c3f66fe698330f4b086fab00caa2bb1a1a3787d914381d9f16a561392d17b79b"
+    },
+    {
+      "match_id": "be67dd8d-1d29-4026-8d9a-337eb1c14eae",
+      "hands": 240,
+      "all_decisions": 1877,
+      "teacher_decisions": 291,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-be67dd8d-1d29-4026-8d9a-337eb1c14eae.json",
+      "source_sha256": "25ca97359d86e491bfd1c5d10b178836503683becbc42f0c464b912de47dae62"
+    },
+    {
+      "match_id": "9e45af92-221d-421b-86bc-df03c8dd8fc2",
+      "hands": 240,
+      "all_decisions": 1712,
+      "teacher_decisions": 274,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-9e45af92-221d-421b-86bc-df03c8dd8fc2.json",
+      "source_sha256": "64f55dd66ce8f598f755c541f082fa3b000bb7a86fdf9d851f63e3d82ac36440"
+    },
+    {
+      "match_id": "2e546094-b8ba-4047-bc06-0747c7de1c04",
+      "hands": 240,
+      "all_decisions": 1751,
+      "teacher_decisions": 277,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "test",
+      "source_file": "replay-2e546094-b8ba-4047-bc06-0747c7de1c04.json",
+      "source_sha256": "92b6c0809f11d2cd5dedd13f7f48998b778fa87e402bd9dd57509a568e4afc82"
+    },
+    {
+      "match_id": "ad193934-98fb-466e-be1e-669a9f31e92b",
+      "hands": 240,
+      "all_decisions": 1723,
+      "teacher_decisions": 300,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "train",
+      "source_file": "replay-ad193934-98fb-466e-be1e-669a9f31e92b.json",
+      "source_sha256": "758e173673b13ab0a4373715ec4df3b5252f40716728abde66c7314ebed66964"
+    },
+    {
+      "match_id": "e989af96-7b38-4225-a9eb-3f743370c568",
+      "hands": 240,
+      "all_decisions": 1867,
+      "teacher_decisions": 295,
+      "teacher_ranks": [
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-e989af96-7b38-4225-a9eb-3f743370c568.json",
+      "source_sha256": "6f825a33d8fef7203a2bdc5ba33dac9663eca7255788920c072b409ca5eadc01"
+    },
+    {
+      "match_id": "f5847b7a-94d3-4fb3-ba21-a9a8924a945a",
+      "hands": 240,
+      "all_decisions": 1651,
+      "teacher_decisions": 280,
+      "teacher_ranks": [
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-f5847b7a-94d3-4fb3-ba21-a9a8924a945a.json",
+      "source_sha256": "b64a753a1fae9c51a53a53b36bd39f43764b42c14f2af3e85d2dc3267c3f8ee5"
+    },
+    {
+      "match_id": "fd1a1104-a003-4dbb-919d-0d51dafd689a",
+      "hands": 240,
+      "all_decisions": 1844,
+      "teacher_decisions": 597,
+      "teacher_ranks": [
+        6,
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-fd1a1104-a003-4dbb-919d-0d51dafd689a.json",
+      "source_sha256": "2751b074b3a7b073f7f12e5ecf49c4aeec2b087c1b623d8318b7c5fbf573abfe"
+    },
+    {
+      "match_id": "b5df6759-56ea-46bb-bda6-6d5f06c4122b",
+      "hands": 240,
+      "all_decisions": 1974,
+      "teacher_decisions": 726,
+      "teacher_ranks": [
+        4,
+        9
+      ],
+      "split": "validation",
+      "source_file": "replay-b5df6759-56ea-46bb-bda6-6d5f06c4122b.json",
+      "source_sha256": "99fd280dd4f4ba9d0040a79ee7f24155d85f7e1b6ad5980652b57778035ca0ef"
+    },
+    {
+      "match_id": "c73fab68-3444-4479-b851-3ce22cd889e3",
+      "hands": 240,
+      "all_decisions": 1892,
+      "teacher_decisions": 656,
+      "teacher_ranks": [
+        1,
+        8
+      ],
+      "split": "train",
+      "source_file": "replay-c73fab68-3444-4479-b851-3ce22cd889e3.json",
+      "source_sha256": "1b0fe52bafd5780779f32c7ad34ad326dc896af3e435a3a9a3aad8b4924f8afa"
+    },
+    {
+      "match_id": "dec9e388-a059-4219-90ef-c3ac61e5e260",
+      "hands": 240,
+      "all_decisions": 1643,
+      "teacher_decisions": 566,
+      "teacher_ranks": [
+        3,
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-dec9e388-a059-4219-90ef-c3ac61e5e260.json",
+      "source_sha256": "57d101e4022408315da402e95c815937145a4b6b8d1bc6eba0328f0b66c9eefb"
+    },
+    {
+      "match_id": "f4d4da5e-f946-4dda-ab00-7286673695ec",
+      "hands": 240,
+      "all_decisions": 1927,
+      "teacher_decisions": 698,
+      "teacher_ranks": [
+        5,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-f4d4da5e-f946-4dda-ab00-7286673695ec.json",
+      "source_sha256": "48ff8ba5dc94275a6c03d816d75c0be745c3f2acbe8737ca7a75042faa11c151"
+    },
+    {
+      "match_id": "9126965b-a664-42ac-997d-ce8c0c3c412b",
+      "hands": 240,
+      "all_decisions": 1661,
+      "teacher_decisions": 289,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-9126965b-a664-42ac-997d-ce8c0c3c412b.json",
+      "source_sha256": "94d020781dba64b28983f58279849876b25ad83861e3b431b0731da8854a035b"
+    },
+    {
+      "match_id": "148d46f4-7872-4826-b600-e5132573a32c",
+      "hands": 240,
+      "all_decisions": 1803,
+      "teacher_decisions": 305,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-148d46f4-7872-4826-b600-e5132573a32c.json",
+      "source_sha256": "cfb99e80f027f032901fcdd8824675380e2f54baf68d847849a8c13f04ebb098"
+    },
+    {
+      "match_id": "459935a4-2e3b-4958-bbf8-930d9f74427a",
+      "hands": 240,
+      "all_decisions": 1683,
+      "teacher_decisions": 292,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-459935a4-2e3b-4958-bbf8-930d9f74427a.json",
+      "source_sha256": "a5c013611e1c062578bead842a7e204c47ecfe0dce73e620c8e96c47ccc49f66"
+    },
+    {
+      "match_id": "202c585b-8fc0-4bf7-bb93-dd456bb07946",
+      "hands": 240,
+      "all_decisions": 1753,
+      "teacher_decisions": 283,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-202c585b-8fc0-4bf7-bb93-dd456bb07946.json",
+      "source_sha256": "0038ca5993ea16ed958c06e0166f39b17fea1c2cadc89207b0ba44139fc935b1"
+    },
+    {
+      "match_id": "bbc4bf78-8715-4345-95b2-59c04ad84a3e",
+      "hands": 240,
+      "all_decisions": 1749,
+      "teacher_decisions": 292,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-bbc4bf78-8715-4345-95b2-59c04ad84a3e.json",
+      "source_sha256": "8fd7f73b3375300f392c8a3f0438feb57ba3e43d8cfb85f900192c3564b7adfa"
+    },
+    {
+      "match_id": "0fd5977d-9484-4a6a-8abc-1758bee9cfc1",
+      "hands": 240,
+      "all_decisions": 1654,
+      "teacher_decisions": 264,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-0fd5977d-9484-4a6a-8abc-1758bee9cfc1.json",
+      "source_sha256": "7dfb2e6711c7979a0b42a9c3d5e7cf1e6e17d0fa82fccc5801ae4985e8eb5682"
+    },
+    {
+      "match_id": "b62f807b-2b4a-47b9-ad76-dd0bec874c8a",
+      "hands": 240,
+      "all_decisions": 1704,
+      "teacher_decisions": 298,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-b62f807b-2b4a-47b9-ad76-dd0bec874c8a.json",
+      "source_sha256": "9e75880f93aa11f0b2a923b22f9c3772ab3350b6ae24cff32ccb9e4c0bd70a0c"
+    },
+    {
+      "match_id": "c3ca92a2-ff46-4fa3-a703-771445ca420d",
+      "hands": 240,
+      "all_decisions": 1710,
+      "teacher_decisions": 289,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "train",
+      "source_file": "replay-c3ca92a2-ff46-4fa3-a703-771445ca420d.json",
+      "source_sha256": "c24e3881a67d9608a4b4ef6a906e9cf387c82bfca40b20f0da55b7e4373197da"
+    },
+    {
+      "match_id": "f45efa22-d8e9-425f-8247-ff92fb38fedc",
+      "hands": 240,
+      "all_decisions": 1583,
+      "teacher_decisions": 247,
+      "teacher_ranks": [
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-f45efa22-d8e9-425f-8247-ff92fb38fedc.json",
+      "source_sha256": "88efe5c6cfd021f7e3b7c8ec666f1a04bfcbb88ce1384aedba56c39ca9e64f2b"
+    },
+    {
+      "match_id": "ee933c00-3b00-4e2f-b95d-136d1d480bb6",
+      "hands": 240,
+      "all_decisions": 1912,
+      "teacher_decisions": 619,
+      "teacher_ranks": [
+        7,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-ee933c00-3b00-4e2f-b95d-136d1d480bb6.json",
+      "source_sha256": "c5b157a0ca0adede62969325b2500b7b295c96a2a7d1bed395f3eacc12fd5189"
+    },
+    {
+      "match_id": "dbf239b1-95f7-42d5-838c-a1f432fb8c22",
+      "hands": 240,
+      "all_decisions": 1794,
+      "teacher_decisions": 637,
+      "teacher_ranks": [
+        9,
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-dbf239b1-95f7-42d5-838c-a1f432fb8c22.json",
+      "source_sha256": "de5f419aac2cad554a01c138872894334caef11eef3b495654573d0600c63b95"
+    },
+    {
+      "match_id": "69ee53a8-31ef-4240-a596-8cc7aec1e2f0",
+      "hands": 240,
+      "all_decisions": 1805,
+      "teacher_decisions": 599,
+      "teacher_ranks": [
+        6,
+        8
+      ],
+      "split": "train",
+      "source_file": "replay-69ee53a8-31ef-4240-a596-8cc7aec1e2f0.json",
+      "source_sha256": "0c17e1fb6bc3143b5f029fec4a8ecd5948c92e2b19f382558a5b6f29032cdc90"
+    },
+    {
+      "match_id": "eb0cb6e9-fc01-4a22-b6d0-f1a22e47ad14",
+      "hands": 240,
+      "all_decisions": 2079,
+      "teacher_decisions": 792,
+      "teacher_ranks": [
+        1,
+        5
+      ],
+      "split": "train",
+      "source_file": "replay-eb0cb6e9-fc01-4a22-b6d0-f1a22e47ad14.json",
+      "source_sha256": "f1866d79ed4719aa9bbd9466271af1f6c9f663a335bc1af6859ae7f3ef3badf3"
+    },
+    {
+      "match_id": "13f4a4b4-eea7-4696-81c6-81322d31aab1",
+      "hands": 240,
+      "all_decisions": 1747,
+      "teacher_decisions": 603,
+      "teacher_ranks": [
+        4,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-13f4a4b4-eea7-4696-81c6-81322d31aab1.json",
+      "source_sha256": "c070929860504d831a1749289c26af5195019dd72e063bca39cbf8baa852817e"
+    },
+    {
+      "match_id": "5cba04d9-f005-482f-a124-32a5dbb5d1c8",
+      "hands": 240,
+      "all_decisions": 1922,
+      "teacher_decisions": 675,
+      "teacher_ranks": [
+        3,
+        18
+      ],
+      "split": "validation",
+      "source_file": "replay-5cba04d9-f005-482f-a124-32a5dbb5d1c8.json",
+      "source_sha256": "bfc6fd98473db8c561763b556da977123f7c478b32131bf6f98efe6f60057698"
+    },
+    {
+      "match_id": "57d7b58b-a2e3-4a2c-bb45-82382416f49a",
+      "hands": 240,
+      "all_decisions": 1826,
+      "teacher_decisions": 308,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-57d7b58b-a2e3-4a2c-bb45-82382416f49a.json",
+      "source_sha256": "31b9f985d001763ffe3ce02bb30be8507c16dd2ba2fefa8d7452219b1d7a82dc"
+    },
+    {
+      "match_id": "57b95355-82d6-41a2-91d9-f21e321d1c74",
+      "hands": 240,
+      "all_decisions": 1695,
+      "teacher_decisions": 300,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-57b95355-82d6-41a2-91d9-f21e321d1c74.json",
+      "source_sha256": "7cf9fa5d4db00422b0d35177406d90613799d20504ef4460b3318a1f50ab500d"
+    },
+    {
+      "match_id": "b14468d9-335e-4c71-9abc-8cca9c03f3c7",
+      "hands": 240,
+      "all_decisions": 1728,
+      "teacher_decisions": 296,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "test",
+      "source_file": "replay-b14468d9-335e-4c71-9abc-8cca9c03f3c7.json",
+      "source_sha256": "cffd400c22c312164e60932332eb84459ee294672828ef4d9f3459cda7109a26"
+    },
+    {
+      "match_id": "3faa71e3-111d-4688-878d-bb375c94bda7",
+      "hands": 240,
+      "all_decisions": 1635,
+      "teacher_decisions": 292,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-3faa71e3-111d-4688-878d-bb375c94bda7.json",
+      "source_sha256": "544955728a49b70ad883e8b2682e1dd9529c6c5fcea38c50fc6ddd84a583541b"
+    },
+    {
+      "match_id": "302c2ffa-c1c4-46dc-855d-13c626ed04bd",
+      "hands": 240,
+      "all_decisions": 1756,
+      "teacher_decisions": 295,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-302c2ffa-c1c4-46dc-855d-13c626ed04bd.json",
+      "source_sha256": "a02e20812a6d996bab0190450a8b5854154efc4aec7d4b415e30c412b40e4b41"
+    },
+    {
+      "match_id": "ee52dfb8-7973-4cb5-af5f-96cb16f10e71",
+      "hands": 240,
+      "all_decisions": 1902,
+      "teacher_decisions": 331,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-ee52dfb8-7973-4cb5-af5f-96cb16f10e71.json",
+      "source_sha256": "69e5fbe7a848fc4d8f9698871bdf18b4ab2b9842dedd6738bc8c8e1f553cf40b"
+    },
+    {
+      "match_id": "4d046dbe-dab7-4484-bbde-df93a7304562",
+      "hands": 240,
+      "all_decisions": 1688,
+      "teacher_decisions": 286,
+      "teacher_ranks": [
+        2
+      ],
+      "split": "train",
+      "source_file": "replay-4d046dbe-dab7-4484-bbde-df93a7304562.json",
+      "source_sha256": "dc05d6cc1b2289f1bdc5ad2f390f4df8e8b97ccc15cdda3548f512bc2458b545"
+    },
+    {
+      "match_id": "cf9b6347-74f1-4755-8c45-9eeafed8862e",
+      "hands": 240,
+      "all_decisions": 1714,
+      "teacher_decisions": 619,
+      "teacher_ranks": [
+        1,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-cf9b6347-74f1-4755-8c45-9eeafed8862e.json",
+      "source_sha256": "f2ff89fdf290dabdc862d52d0c6b1ffde3b3467bb3bfaa28279b34b4851c5f17"
+    },
+    {
+      "match_id": "987d3db4-81d1-4b50-9f0d-6ed02115fd59",
+      "hands": 240,
+      "all_decisions": 1659,
+      "teacher_decisions": 547,
+      "teacher_ranks": [
+        6,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-987d3db4-81d1-4b50-9f0d-6ed02115fd59.json",
+      "source_sha256": "08fc5bf263dc7da5c51b71a0566826d61c8c743c0d5d0be66f923d43341b3639"
+    },
+    {
+      "match_id": "b815a0df-f78d-491b-898f-6054af4a069d",
+      "hands": 240,
+      "all_decisions": 2012,
+      "teacher_decisions": 697,
+      "teacher_ranks": [
+        4,
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-b815a0df-f78d-491b-898f-6054af4a069d.json",
+      "source_sha256": "fa403bccef562932b3ad1958657594170c4184af71f62b431e0c6a364086a29c"
+    },
+    {
+      "match_id": "37bda676-8b5a-42fe-8c0b-0d69111297b2",
+      "hands": 240,
+      "all_decisions": 1817,
+      "teacher_decisions": 631,
+      "teacher_ranks": [
+        8,
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-37bda676-8b5a-42fe-8c0b-0d69111297b2.json",
+      "source_sha256": "3558afe045aa5075229683a29b227fc18f305072bee259e85806624cd99253a7"
+    },
+    {
+      "match_id": "9302ab36-7bba-45da-9e96-c4185939a047",
+      "hands": 240,
+      "all_decisions": 1917,
+      "teacher_decisions": 625,
+      "teacher_ranks": [
+        10,
+        14
+      ],
+      "split": "test",
+      "source_file": "replay-9302ab36-7bba-45da-9e96-c4185939a047.json",
+      "source_sha256": "89a88770c28ef15f0ecabcdd77c867c8b4bcc53704495faa13328637774ac66d"
+    },
+    {
+      "match_id": "1a4c3135-4424-445b-8aa8-1009f4d9b5fd",
+      "hands": 240,
+      "all_decisions": 1743,
+      "teacher_decisions": 594,
+      "teacher_ranks": [
+        3,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-1a4c3135-4424-445b-8aa8-1009f4d9b5fd.json",
+      "source_sha256": "e024e0b280aa2d5cbb534b4e15dbaad8bf37802e3833e0fde45427b1c9c4330d"
+    },
+    {
+      "match_id": "856b5ca2-6878-401e-be59-f713f4d504c9",
+      "hands": 240,
+      "all_decisions": 1910,
+      "teacher_decisions": 685,
+      "teacher_ranks": [
+        5,
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-856b5ca2-6878-401e-be59-f713f4d504c9.json",
+      "source_sha256": "487ab588751cb8faf27a43cfd4ba1975129bf654192969098e9c2ce6f68035b6"
+    },
+    {
+      "match_id": "f1ad0e2d-eaed-40a6-a5a1-d5b167ae5006",
+      "hands": 240,
+      "all_decisions": 1920,
+      "teacher_decisions": 318,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "test",
+      "source_file": "replay-f1ad0e2d-eaed-40a6-a5a1-d5b167ae5006.json",
+      "source_sha256": "ec43914e9f896c4d0039baa9ef427537e6b09425a42d07f8339dabcd96869117"
+    },
+    {
+      "match_id": "ba311759-25de-47df-ae38-ee7de650edc3",
+      "hands": 240,
+      "all_decisions": 1881,
+      "teacher_decisions": 315,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-ba311759-25de-47df-ae38-ee7de650edc3.json",
+      "source_sha256": "89048c7a18f804cb5d8fa3ca5a84951c630977c96fe1a9bd5d71e3d93e5bc4a7"
+    },
+    {
+      "match_id": "ca5892aa-5f0f-461d-893c-587cc9169496",
+      "hands": 240,
+      "all_decisions": 1738,
+      "teacher_decisions": 293,
+      "teacher_ranks": [
+        13
+      ],
+      "split": "test",
+      "source_file": "replay-ca5892aa-5f0f-461d-893c-587cc9169496.json",
+      "source_sha256": "556c94f3b17297bfcaf5dbf636aacba54ff0c94ba467c09ca6d8911b2aa188a6"
+    },
+    {
+      "match_id": "9949418e-c79b-479f-904c-54ca2063d1fe",
+      "hands": 240,
+      "all_decisions": 1991,
+      "teacher_decisions": 329,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-9949418e-c79b-479f-904c-54ca2063d1fe.json",
+      "source_sha256": "b6b61039738d8fe6a7b122aafcee80506cff1e0a0a15452e0015d04b0d141575"
+    },
+    {
+      "match_id": "3b30a4db-b95f-4b3b-8b4d-5a4f627e1a25",
+      "hands": 240,
+      "all_decisions": 1831,
+      "teacher_decisions": 314,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-3b30a4db-b95f-4b3b-8b4d-5a4f627e1a25.json",
+      "source_sha256": "f1c29701b9ceca8d11712c9dfab457afaf969e526fa245e8afd44baf2394b1c1"
+    },
+    {
+      "match_id": "8422eea2-f86c-4be2-ba3a-55987621736b",
+      "hands": 240,
+      "all_decisions": 1744,
+      "teacher_decisions": 583,
+      "teacher_ranks": [
+        2,
+        10
+      ],
+      "split": "validation",
+      "source_file": "replay-8422eea2-f86c-4be2-ba3a-55987621736b.json",
+      "source_sha256": "fe08c51a5a2fe0111e0d4e12d12219aa185d6781026d79eec3c8a9527cbdc6bb"
+    },
+    {
+      "match_id": "1c7f8f77-9304-4ef3-b4bc-607d65110c0b",
+      "hands": 240,
+      "all_decisions": 2044,
+      "teacher_decisions": 705,
+      "teacher_ranks": [
+        4,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-1c7f8f77-9304-4ef3-b4bc-607d65110c0b.json",
+      "source_sha256": "bf93287ed2749dce7612174493a86826ea88f8c97cf75c05c95f4e0b8cb59b73"
+    },
+    {
+      "match_id": "aac23a90-f58e-4be4-a8f4-b7a99eda9a93",
+      "hands": 240,
+      "all_decisions": 1734,
+      "teacher_decisions": 597,
+      "teacher_ranks": [
+        6,
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-aac23a90-f58e-4be4-a8f4-b7a99eda9a93.json",
+      "source_sha256": "328bb3125ba4f53483e22a255f0fcb53c8643b831e184469becb71cb2f8e1137"
+    },
+    {
+      "match_id": "6b740a9c-2f0f-4cd0-a64a-303019b1d1aa",
+      "hands": 240,
+      "all_decisions": 1623,
+      "teacher_decisions": 544,
+      "teacher_ranks": [
+        8,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-6b740a9c-2f0f-4cd0-a64a-303019b1d1aa.json",
+      "source_sha256": "16e8f144969d71fdbc82b6d54e3292ccc4b73a5078572afce9bd584df1a722e9"
+    },
+    {
+      "match_id": "3f420b2e-dedc-4e0a-b1f8-a0153d9481d4",
+      "hands": 240,
+      "all_decisions": 1914,
+      "teacher_decisions": 676,
+      "teacher_ranks": [
+        7,
+        18
+      ],
+      "split": "validation",
+      "source_file": "replay-3f420b2e-dedc-4e0a-b1f8-a0153d9481d4.json",
+      "source_sha256": "b62cd5a5d03e8ae68387e7b4b0c563b5fa7beb1e57e0939978a2838f5f655f22"
+    },
+    {
+      "match_id": "5e140419-50ea-4f88-bff8-1ba30f681e60",
+      "hands": 240,
+      "all_decisions": 1801,
+      "teacher_decisions": 633,
+      "teacher_ranks": [
+        1,
+        15
+      ],
+      "split": "validation",
+      "source_file": "replay-5e140419-50ea-4f88-bff8-1ba30f681e60.json",
+      "source_sha256": "5f945ba338af5d56fc7d8c77426d9d9459fe2ce671285f4763f851b4f724c65e"
+    },
+    {
+      "match_id": "f3698595-eae7-479f-8714-01980817957d",
+      "hands": 240,
+      "all_decisions": 1837,
+      "teacher_decisions": 603,
+      "teacher_ranks": [
+        3,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-f3698595-eae7-479f-8714-01980817957d.json",
+      "source_sha256": "c0a550e5765fafa24fd41c1f00bde0cb3c81de5de15db1382d6d8efa56a3c55a"
+    },
+    {
+      "match_id": "7a41492a-ff16-4172-955c-6e83f8ecc0ca",
+      "hands": 240,
+      "all_decisions": 1904,
+      "teacher_decisions": 659,
+      "teacher_ranks": [
+        5,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-7a41492a-ff16-4172-955c-6e83f8ecc0ca.json",
+      "source_sha256": "fdabb8adf1e9298a027f852597894ef5ae39183ec5b0014e188305ddce6a4626"
+    },
+    {
+      "match_id": "cc0cc004-c9af-460c-9c00-fbd9d0f15b24",
+      "hands": 240,
+      "all_decisions": 1717,
+      "teacher_decisions": 302,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-cc0cc004-c9af-460c-9c00-fbd9d0f15b24.json",
+      "source_sha256": "2352488331769785b5c6d4a81e78efc88722e08642db9ac2076111a4be03404a"
+    },
+    {
+      "match_id": "281576cb-c33a-4934-8583-30618475f0ea",
+      "hands": 240,
+      "all_decisions": 1814,
+      "teacher_decisions": 301,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-281576cb-c33a-4934-8583-30618475f0ea.json",
+      "source_sha256": "b46247a3ef95670ab9076701d4c2e68cba02505b0e08ed10656ff0b6e169069a"
+    },
+    {
+      "match_id": "a5a76c5e-ed23-4869-a15f-3e80013d2db3",
+      "hands": 240,
+      "all_decisions": 1663,
+      "teacher_decisions": 278,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-a5a76c5e-ed23-4869-a15f-3e80013d2db3.json",
+      "source_sha256": "ba062764e5d8e46d27d03e2498a9229749c41cda8ccec952c67c1d01e135e6cd"
+    },
+    {
+      "match_id": "39e9e2d3-7c77-4c80-bbae-972751460655",
+      "hands": 240,
+      "all_decisions": 1720,
+      "teacher_decisions": 563,
+      "teacher_ranks": [
+        11,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-39e9e2d3-7c77-4c80-bbae-972751460655.json",
+      "source_sha256": "26cd1daafb6ec2f1abba74094b81849c91b05a1767dff1f871295cff6db03be2"
+    },
+    {
+      "match_id": "01139f12-6969-4151-a17e-788be9017011",
+      "hands": 240,
+      "all_decisions": 1875,
+      "teacher_decisions": 616,
+      "teacher_ranks": [
+        2,
+        4
+      ],
+      "split": "train",
+      "source_file": "replay-01139f12-6969-4151-a17e-788be9017011.json",
+      "source_sha256": "263d37c07cc59bce24798ff3eb3005c51ca9e138f1500c93ccff5d3451966eb0"
+    },
+    {
+      "match_id": "745d9679-61d3-474b-b0c7-4428a254c4f2",
+      "hands": 240,
+      "all_decisions": 1929,
+      "teacher_decisions": 658,
+      "teacher_ranks": [
+        1,
+        8
+      ],
+      "split": "train",
+      "source_file": "replay-745d9679-61d3-474b-b0c7-4428a254c4f2.json",
+      "source_sha256": "a4b9afa0fdb8bfd623a76f1921525f66e66427364b8f372803df7c88741debdd"
+    },
+    {
+      "match_id": "d73674a5-097c-4070-befa-257d6683a152",
+      "hands": 240,
+      "all_decisions": 1772,
+      "teacher_decisions": 590,
+      "teacher_ranks": [
+        6,
+        9
+      ],
+      "split": "validation",
+      "source_file": "replay-d73674a5-097c-4070-befa-257d6683a152.json",
+      "source_sha256": "03aca61c64e7a21ba29ecfd6eaefd98df302f2e306ccddd2376e3e6444174b14"
+    },
+    {
+      "match_id": "2c2e5ff2-a524-4092-b22a-1b433b12fbbe",
+      "hands": 240,
+      "all_decisions": 1944,
+      "teacher_decisions": 638,
+      "teacher_ranks": [
+        7,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-2c2e5ff2-a524-4092-b22a-1b433b12fbbe.json",
+      "source_sha256": "0ca0d1f09d8df95209fcf0f1bed6485ad272c8e72656e83f3414136050b45235"
+    },
+    {
+      "match_id": "779543e3-fb85-4d4f-9fa7-3b7a303709cd",
+      "hands": 240,
+      "all_decisions": 1674,
+      "teacher_decisions": 555,
+      "teacher_ranks": [
+        19,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-779543e3-fb85-4d4f-9fa7-3b7a303709cd.json",
+      "source_sha256": "aab319670f0a7ca53e34e963c7b62517608d9ef5d19ddb5db5881ac9e5acc5c6"
+    },
+    {
+      "match_id": "f33a808c-0f73-41be-9994-ac1575bfaa4d",
+      "hands": 240,
+      "all_decisions": 1684,
+      "teacher_decisions": 555,
+      "teacher_ranks": [
+        10,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-f33a808c-0f73-41be-9994-ac1575bfaa4d.json",
+      "source_sha256": "ae1d83e2b250ceff5a66522c9d3918bb4e0d90489bca3e28e2e322b316d7c1a2"
+    },
+    {
+      "match_id": "7b58721e-9c74-4f3b-8346-3cc7305b905c",
+      "hands": 240,
+      "all_decisions": 1805,
+      "teacher_decisions": 586,
+      "teacher_ranks": [
+        3,
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-7b58721e-9c74-4f3b-8346-3cc7305b905c.json",
+      "source_sha256": "0298e5daa4c1772dece211c362c0cedd08b1914d9a37683be2acfeec4c467612"
+    },
+    {
+      "match_id": "c85d7192-857e-4f8f-949d-b29ceedea2e8",
+      "hands": 240,
+      "all_decisions": 1720,
+      "teacher_decisions": 605,
+      "teacher_ranks": [
+        5,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-c85d7192-857e-4f8f-949d-b29ceedea2e8.json",
+      "source_sha256": "a0f008b96d7a57e396262e59742b56769ce06022b5fe5e19be485eba74b50d6c"
+    },
+    {
+      "match_id": "d80a41df-9791-43f9-a7a3-0c09f7d398a2",
+      "hands": 240,
+      "all_decisions": 1873,
+      "teacher_decisions": 318,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-d80a41df-9791-43f9-a7a3-0c09f7d398a2.json",
+      "source_sha256": "50eb3eaf681a1f38c42f7509d29f6c3acff64d340ac919e46d73730e4dc8d6c5"
+    },
+    {
+      "match_id": "4a7cd517-30e3-43d4-b5dc-bd485c35832d",
+      "hands": 240,
+      "all_decisions": 1740,
+      "teacher_decisions": 310,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-4a7cd517-30e3-43d4-b5dc-bd485c35832d.json",
+      "source_sha256": "662dc724500e785fb6e518119475e38c3fa1bce527fb239ddba8ad6b5d2a175e"
+    },
+    {
+      "match_id": "30f7a030-e90f-46b6-9d27-fbdb58a47d07",
+      "hands": 240,
+      "all_decisions": 1772,
+      "teacher_decisions": 290,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-30f7a030-e90f-46b6-9d27-fbdb58a47d07.json",
+      "source_sha256": "64e806d59001f0e78218df7fa6fc5737ae163589402e9f0d4a51bde6d73abba8"
+    },
+    {
+      "match_id": "059b4c86-3c3f-486d-a514-7c32a5d648a6",
+      "hands": 240,
+      "all_decisions": 1733,
+      "teacher_decisions": 289,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "test",
+      "source_file": "replay-059b4c86-3c3f-486d-a514-7c32a5d648a6.json",
+      "source_sha256": "3c83e8cc7f6ef3eb391f9b6b5448fb9f8125f903372955ebef1ec9d51da2b825"
+    },
+    {
+      "match_id": "073fa34a-fcc6-4a33-bdbb-f8e28463a1be",
+      "hands": 240,
+      "all_decisions": 1864,
+      "teacher_decisions": 598,
+      "teacher_ranks": [
+        2,
+        8
+      ],
+      "split": "validation",
+      "source_file": "replay-073fa34a-fcc6-4a33-bdbb-f8e28463a1be.json",
+      "source_sha256": "e7953c38cd666546db51dab2590173d3df6f3b15888ee2c9f66df718964ccfea"
+    },
+    {
+      "match_id": "2bd86545-0123-4423-888c-9c5e8c68914d",
+      "hands": 240,
+      "all_decisions": 1920,
+      "teacher_decisions": 655,
+      "teacher_ranks": [
+        4,
+        20
+      ],
+      "split": "test",
+      "source_file": "replay-2bd86545-0123-4423-888c-9c5e8c68914d.json",
+      "source_sha256": "82f8498fb73cfc0677fdeeee7b3381850ec36fd94dacdc6e56f8f29c5e7c889e"
+    },
+    {
+      "match_id": "81880474-b5e5-46f6-80b2-540d98c3b713",
+      "hands": 240,
+      "all_decisions": 1845,
+      "teacher_decisions": 641,
+      "teacher_ranks": [
+        1,
+        9
+      ],
+      "split": "test",
+      "source_file": "replay-81880474-b5e5-46f6-80b2-540d98c3b713.json",
+      "source_sha256": "107c1751f43837092cd84b97271ce193ce81634cc8fc6e205e35359c8f7e42e9"
+    },
+    {
+      "match_id": "101aadb7-f1c4-4215-a284-cb967883ae9f",
+      "hands": 240,
+      "all_decisions": 1778,
+      "teacher_decisions": 576,
+      "teacher_ranks": [
+        6,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-101aadb7-f1c4-4215-a284-cb967883ae9f.json",
+      "source_sha256": "41a31f5ced308dc50532c9a737d9d6312678dd23f87daafeebf0c445347f2e93"
+    },
+    {
+      "match_id": "666fff04-f035-44dc-bd9c-c0e6e605754b",
+      "hands": 240,
+      "all_decisions": 1867,
+      "teacher_decisions": 632,
+      "teacher_ranks": [
+        7,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-666fff04-f035-44dc-bd9c-c0e6e605754b.json",
+      "source_sha256": "3fc76f4441a394f7251a39bea05c7cf076a676c2dcf73c9d2492eb1a7be65c2e"
+    },
+    {
+      "match_id": "258f9079-8363-41f3-945d-9458b390f7ac",
+      "hands": 240,
+      "all_decisions": 1796,
+      "teacher_decisions": 621,
+      "teacher_ranks": [
+        10,
+        19
+      ],
+      "split": "validation",
+      "source_file": "replay-258f9079-8363-41f3-945d-9458b390f7ac.json",
+      "source_sha256": "95ca39ed5c2180d702eef15d2e82f8d9500a1cd57da037512d3685e502dc92bc"
+    },
+    {
+      "match_id": "e2370645-6d5d-4369-94e6-7c48e72450cd",
+      "hands": 240,
+      "all_decisions": 1766,
+      "teacher_decisions": 602,
+      "teacher_ranks": [
+        3,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-e2370645-6d5d-4369-94e6-7c48e72450cd.json",
+      "source_sha256": "4abd20b669ed131251fb465ee06d950ec98843217e6a4a97a12735dec384b05e"
+    },
+    {
+      "match_id": "4207765c-ddce-4701-82a3-90fb9fa2c2a0",
+      "hands": 240,
+      "all_decisions": 1724,
+      "teacher_decisions": 892,
+      "teacher_ranks": [
+        5,
+        6,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-4207765c-ddce-4701-82a3-90fb9fa2c2a0.json",
+      "source_sha256": "a59452746d45dec06d0f28dc46e394272e7cd99af2775ed99fb40e9bba6ca3fc"
+    },
+    {
+      "match_id": "e1018e79-9352-4416-b6b0-fa89e77b32ea",
+      "hands": 240,
+      "all_decisions": 1831,
+      "teacher_decisions": 327,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-e1018e79-9352-4416-b6b0-fa89e77b32ea.json",
+      "source_sha256": "97db50e6437769dc078ecd03f8310f8d6e1939eeba83b83c1039d0d8baa65c00"
+    },
+    {
+      "match_id": "a3c3b662-a1a3-40ea-bf67-b2be5ce35037",
+      "hands": 240,
+      "all_decisions": 1816,
+      "teacher_decisions": 308,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-a3c3b662-a1a3-40ea-bf67-b2be5ce35037.json",
+      "source_sha256": "52b1df90af293bb9ba43b120fbb9aeea27667415a4d35b3efef8895e3722700c"
+    },
+    {
+      "match_id": "b016a764-de2d-43f6-a6d1-6ed4b3f7d522",
+      "hands": 240,
+      "all_decisions": 1617,
+      "teacher_decisions": 288,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-b016a764-de2d-43f6-a6d1-6ed4b3f7d522.json",
+      "source_sha256": "590784686942b03c619200dca52c44e77d4490c99869e9a80237ab62a6b5662f"
+    },
+    {
+      "match_id": "c517053e-02f8-474b-8d23-d19c44fdf865",
+      "hands": 240,
+      "all_decisions": 1725,
+      "teacher_decisions": 297,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "test",
+      "source_file": "replay-c517053e-02f8-474b-8d23-d19c44fdf865.json",
+      "source_sha256": "313868ec8b4e4bd8f224b3d8cd04d9c96e345df5c06a6eab2a4366a40237bff0"
+    },
+    {
+      "match_id": "97db29d7-df58-47e7-a1ae-28dfb4b5ab43",
+      "hands": 240,
+      "all_decisions": 1687,
+      "teacher_decisions": 575,
+      "teacher_ranks": [
+        2,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-97db29d7-df58-47e7-a1ae-28dfb4b5ab43.json",
+      "source_sha256": "60ea356676a268641065e54ee8c23b90b689c1ed248bc73e96a35da686d82fd6"
+    },
+    {
+      "match_id": "3485c790-1a90-41d3-84d1-a8f755096f8e",
+      "hands": 240,
+      "all_decisions": 1820,
+      "teacher_decisions": 619,
+      "teacher_ranks": [
+        4,
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-3485c790-1a90-41d3-84d1-a8f755096f8e.json",
+      "source_sha256": "73ff0be8907e6197d64215e7d3d13b8cfa3d57f425ac588299f52a85718e8628"
+    },
+    {
+      "match_id": "20d8cdc8-90cf-4714-932e-8a862dca7f30",
+      "hands": 240,
+      "all_decisions": 1759,
+      "teacher_decisions": 602,
+      "teacher_ranks": [
+        8,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-20d8cdc8-90cf-4714-932e-8a862dca7f30.json",
+      "source_sha256": "57f36b3d19820bb19598db3992eb323a9f9616aaeeeb307f68887ffbef2ab824"
+    },
+    {
+      "match_id": "28e52abc-0cff-4184-b160-4e59a9edab04",
+      "hands": 240,
+      "all_decisions": 1809,
+      "teacher_decisions": 639,
+      "teacher_ranks": [
+        7,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-28e52abc-0cff-4184-b160-4e59a9edab04.json",
+      "source_sha256": "b12eb29f4e69055bc318605130475cead307b3c075108738ee9eb2930f309741"
+    },
+    {
+      "match_id": "90153437-52af-404d-bda7-3a671a120273",
+      "hands": 240,
+      "all_decisions": 1685,
+      "teacher_decisions": 558,
+      "teacher_ranks": [
+        10,
+        11
+      ],
+      "split": "test",
+      "source_file": "replay-90153437-52af-404d-bda7-3a671a120273.json",
+      "source_sha256": "21ae19570582118fab864b6583bfb980eb3f61c8b7a4bd56f72c6746a95ca175"
+    },
+    {
+      "match_id": "07cbd7b5-554f-4e0e-adb4-80b00576ff7f",
+      "hands": 240,
+      "all_decisions": 1827,
+      "teacher_decisions": 621,
+      "teacher_ranks": [
+        1,
+        13
+      ],
+      "split": "validation",
+      "source_file": "replay-07cbd7b5-554f-4e0e-adb4-80b00576ff7f.json",
+      "source_sha256": "39e8431c8022f6b5861e573ae66623c827a4096f381c33c203bffdfc47c5b764"
+    },
+    {
+      "match_id": "63639c1f-338b-4a65-813c-e0da84cc907f",
+      "hands": 240,
+      "all_decisions": 1618,
+      "teacher_decisions": 541,
+      "teacher_ranks": [
+        3,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-63639c1f-338b-4a65-813c-e0da84cc907f.json",
+      "source_sha256": "ccfa131fb849b8cd1717db0224e6335e918e8e411564098c7ef5bb51cec57672"
+    },
+    {
+      "match_id": "785d772c-9aee-4d8b-bda0-30db65a83e8e",
+      "hands": 240,
+      "all_decisions": 1817,
+      "teacher_decisions": 951,
+      "teacher_ranks": [
+        2,
+        5,
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-785d772c-9aee-4d8b-bda0-30db65a83e8e.json",
+      "source_sha256": "3fb2717e18de7cf3f44a2a9098ac1055c5513f65400ec83b2b70a22d63c49c65"
+    },
+    {
+      "match_id": "6ff2a551-be47-4679-9095-8bb9a4078093",
+      "hands": 240,
+      "all_decisions": 1631,
+      "teacher_decisions": 278,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "test",
+      "source_file": "replay-6ff2a551-be47-4679-9095-8bb9a4078093.json",
+      "source_sha256": "3481a8a5a4fb395825c8ab183e750f18d0d72eef669806879e6796571490f0f7"
+    },
+    {
+      "match_id": "483e71c5-9524-40dd-beae-b0e082709d5b",
+      "hands": 240,
+      "all_decisions": 1755,
+      "teacher_decisions": 307,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-483e71c5-9524-40dd-beae-b0e082709d5b.json",
+      "source_sha256": "8e11bed6e46de2235a69114d6c72cb36b0944376ed31ba2481bf08f88b09e477"
+    },
+    {
+      "match_id": "a1604e9e-c1e3-44c3-a5e0-9a736053f7fa",
+      "hands": 240,
+      "all_decisions": 1770,
+      "teacher_decisions": 279,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-a1604e9e-c1e3-44c3-a5e0-9a736053f7fa.json",
+      "source_sha256": "91bfca922eea694a641b9ce8ad140a96f741dec7f25bcf1595b0ac42eab9dc50"
+    },
+    {
+      "match_id": "666cb0e4-4526-4589-a038-dfbcc29f1da0",
+      "hands": 240,
+      "all_decisions": 1776,
+      "teacher_decisions": 291,
+      "teacher_ranks": [
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-666cb0e4-4526-4589-a038-dfbcc29f1da0.json",
+      "source_sha256": "1f5d1fc723358b657f9071da37f8a9413008bbb8cd2ae0e271499a75df6a8f45"
+    },
+    {
+      "match_id": "ec435548-af65-4480-9cb7-eeafdb2609aa",
+      "hands": 240,
+      "all_decisions": 1826,
+      "teacher_decisions": 296,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "validation",
+      "source_file": "replay-ec435548-af65-4480-9cb7-eeafdb2609aa.json",
+      "source_sha256": "5e799dc423d34af1c1fe975c28c414da23008af0971d076948e17f2c10a3c37d"
+    },
+    {
+      "match_id": "73d59bcc-55ca-4be4-8fc3-8f11077949fb",
+      "hands": 240,
+      "all_decisions": 1873,
+      "teacher_decisions": 629,
+      "teacher_ranks": [
+        4,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-73d59bcc-55ca-4be4-8fc3-8f11077949fb.json",
+      "source_sha256": "7365706fe12b64bcc9f3e0cc23c51e28c41805cfa9c48b75166ef5956e55e8ae"
+    },
+    {
+      "match_id": "840026cd-7534-43d0-a9f6-7896952c35f5",
+      "hands": 240,
+      "all_decisions": 1825,
+      "teacher_decisions": 583,
+      "teacher_ranks": [
+        8,
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-840026cd-7534-43d0-a9f6-7896952c35f5.json",
+      "source_sha256": "7fb7fd5455b14e57effa38ca3f84b2f5a927a6cc0febdcc419de5d98a4c5408b"
+    },
+    {
+      "match_id": "069f0891-3318-465f-939d-48b647dec8e4",
+      "hands": 240,
+      "all_decisions": 1759,
+      "teacher_decisions": 581,
+      "teacher_ranks": [
+        10,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-069f0891-3318-465f-939d-48b647dec8e4.json",
+      "source_sha256": "1a2fb51a2ba30449a24a6975e00cd1f4a5bda848941fedd2f99d6be6f14dcec2"
+    },
+    {
+      "match_id": "5919435d-a4a2-407d-81d7-de9cbfa95396",
+      "hands": 240,
+      "all_decisions": 1643,
+      "teacher_decisions": 574,
+      "teacher_ranks": [
+        7,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-5919435d-a4a2-407d-81d7-de9cbfa95396.json",
+      "source_sha256": "21d09bd9bf5682c3af76382db5e0c1ecca5ccbe814d28cd2c3882c58998222b4"
+    },
+    {
+      "match_id": "ab3e653f-4a93-48b8-a6a5-5bbda57e3217",
+      "hands": 240,
+      "all_decisions": 1696,
+      "teacher_decisions": 541,
+      "teacher_ranks": [
+        6,
+        11
+      ],
+      "split": "validation",
+      "source_file": "replay-ab3e653f-4a93-48b8-a6a5-5bbda57e3217.json",
+      "source_sha256": "968c9f0dfb7bcc252e65ad89782e548da530b74c682e9628af40f8295fd6618d"
+    },
+    {
+      "match_id": "7c9e6010-65e6-4344-8664-21a9f0265d1f",
+      "hands": 240,
+      "all_decisions": 1688,
+      "teacher_decisions": 576,
+      "teacher_ranks": [
+        3,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-7c9e6010-65e6-4344-8664-21a9f0265d1f.json",
+      "source_sha256": "e38b47e5a4a05aa4ebc552fb19959cb50a6a61ca7b03734363bc0cc3f0dc97a6"
+    },
+    {
+      "match_id": "d493bb74-d8cd-47b2-9dab-0e8f5a869c71",
+      "hands": 240,
+      "all_decisions": 1877,
+      "teacher_decisions": 640,
+      "teacher_ranks": [
+        1,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-d493bb74-d8cd-47b2-9dab-0e8f5a869c71.json",
+      "source_sha256": "93f73187b115506f1355718a17931520183489002612ebec2c700bf9f4bf4254"
+    },
+    {
+      "match_id": "1946ac15-bb81-4cb2-9f03-427d11bd7a0b",
+      "hands": 240,
+      "all_decisions": 1797,
+      "teacher_decisions": 923,
+      "teacher_ranks": [
+        5,
+        6,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-1946ac15-bb81-4cb2-9f03-427d11bd7a0b.json",
+      "source_sha256": "62be5de382263a3d0b76f1c33a45fee2e21ca15abf2a49dc4d41258daaaf1049"
+    },
+    {
+      "match_id": "64edcd5c-56c4-4d3b-9140-5f384d87b41d",
+      "hands": 240,
+      "all_decisions": 1747,
+      "teacher_decisions": 294,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-64edcd5c-56c4-4d3b-9140-5f384d87b41d.json",
+      "source_sha256": "6101b941d9f09da170fb2527624f403a1bcec8d9123b318dd61de7beb410663f"
+    },
+    {
+      "match_id": "f082b88e-bb90-4df6-a836-59a65d474c90",
+      "hands": 240,
+      "all_decisions": 1884,
+      "teacher_decisions": 299,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-f082b88e-bb90-4df6-a836-59a65d474c90.json",
+      "source_sha256": "6a7677069f461cac584847361a9f2ed48c7f2499891a85917c1f2f30bc7e6b34"
+    },
+    {
+      "match_id": "1b70a0d2-aec7-49b8-8571-7e661d5211b6",
+      "hands": 240,
+      "all_decisions": 1777,
+      "teacher_decisions": 311,
+      "teacher_ranks": [
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-1b70a0d2-aec7-49b8-8571-7e661d5211b6.json",
+      "source_sha256": "14dcdeec671d8d7ba4d0fa7880800ed02b98a98d3083ae481512a76a59808b72"
+    },
+    {
+      "match_id": "30f2e94e-ebfc-4e92-8b06-83ec054139c8",
+      "hands": 240,
+      "all_decisions": 1934,
+      "teacher_decisions": 650,
+      "teacher_ranks": [
+        2,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-30f2e94e-ebfc-4e92-8b06-83ec054139c8.json",
+      "source_sha256": "090e40829ad361a8dd57eb0650cd2f85f83f1164df23594bd319eb9a3c6f62f1"
+    },
+    {
+      "match_id": "c588b721-b537-45a7-ab42-364137878034",
+      "hands": 240,
+      "all_decisions": 1522,
+      "teacher_decisions": 507,
+      "teacher_ranks": [
+        14,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-c588b721-b537-45a7-ab42-364137878034.json",
+      "source_sha256": "1d842437cc0119414adf3865ff0c704ff9efabfd6c47eb192214021b43ef1b0f"
+    },
+    {
+      "match_id": "01da09d5-9bfb-453c-b3e6-32f900d4404a",
+      "hands": 240,
+      "all_decisions": 1930,
+      "teacher_decisions": 663,
+      "teacher_ranks": [
+        4,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-01da09d5-9bfb-453c-b3e6-32f900d4404a.json",
+      "source_sha256": "d68c3e68842beb52fac4c5f21e5b3fd80d23293a97f5fe00a37201d549c3a0c3"
+    },
+    {
+      "match_id": "0a207ee1-fd45-4963-9859-1ce91343b14f",
+      "hands": 240,
+      "all_decisions": 1611,
+      "teacher_decisions": 556,
+      "teacher_ranks": [
+        8,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-0a207ee1-fd45-4963-9859-1ce91343b14f.json",
+      "source_sha256": "f1151f5de6ec6d0779d679c57d8ae2c016e73b8a63567ae3d940a86dc1905d31"
+    },
+    {
+      "match_id": "903edb6c-1d9f-4f06-bfee-7a5feec5a0d0",
+      "hands": 240,
+      "all_decisions": 1825,
+      "teacher_decisions": 635,
+      "teacher_ranks": [
+        9,
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-903edb6c-1d9f-4f06-bfee-7a5feec5a0d0.json",
+      "source_sha256": "09d1d1a3a7317d1b01dd73bb1c6ba35dfe869ca5bab3d7909fe9d61e6129fef4"
+    },
+    {
+      "match_id": "415b0914-a9d2-4a77-85d8-6b86c6ea1342",
+      "hands": 240,
+      "all_decisions": 1882,
+      "teacher_decisions": 625,
+      "teacher_ranks": [
+        7,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-415b0914-a9d2-4a77-85d8-6b86c6ea1342.json",
+      "source_sha256": "d4a23c1d5b9b39e618b4030d2f5625b32fc7736f0730c785c9961475c4e34406"
+    },
+    {
+      "match_id": "0cb5fb6e-a356-46af-a2db-f326eb132490",
+      "hands": 240,
+      "all_decisions": 1915,
+      "teacher_decisions": 598,
+      "teacher_ranks": [
+        3,
+        19
+      ],
+      "split": "validation",
+      "source_file": "replay-0cb5fb6e-a356-46af-a2db-f326eb132490.json",
+      "source_sha256": "fb3e67269dfbe558c5f51af1dbe5453108df913f74af75c018a2f5fe4e6c19bd"
+    },
+    {
+      "match_id": "ba26301f-a828-4099-ab28-8da9fc739ad0",
+      "hands": 240,
+      "all_decisions": 1956,
+      "teacher_decisions": 1053,
+      "teacher_ranks": [
+        1,
+        4,
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-ba26301f-a828-4099-ab28-8da9fc739ad0.json",
+      "source_sha256": "edc2ba31c5a79a60e3266cfafa02195e07a3fcc6fee9a45afb659f1e6148718f"
+    },
+    {
+      "match_id": "fea8ed5a-197e-4d37-aa9d-a2327c0ae7eb",
+      "hands": 240,
+      "all_decisions": 1806,
+      "teacher_decisions": 925,
+      "teacher_ranks": [
+        3,
+        5,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-fea8ed5a-197e-4d37-aa9d-a2327c0ae7eb.json",
+      "source_sha256": "19c62701f23339271aad5aaa1afb9180dfaeda689e083b43b12657ea0543e949"
+    },
+    {
+      "match_id": "d665c8f0-bd41-4473-9147-4b2b04f58819",
+      "hands": 240,
+      "all_decisions": 1732,
+      "teacher_decisions": 277,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "validation",
+      "source_file": "replay-d665c8f0-bd41-4473-9147-4b2b04f58819.json",
+      "source_sha256": "2032f4953cac70dd3a213db5165ef6b829284c13087054e3e73ac2d2e3a6e568"
+    },
+    {
+      "match_id": "1bc47023-bbb8-4197-88e3-64060cb6da1a",
+      "hands": 240,
+      "all_decisions": 1798,
+      "teacher_decisions": 617,
+      "teacher_ranks": [
+        16,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-1bc47023-bbb8-4197-88e3-64060cb6da1a.json",
+      "source_sha256": "925a9bf8e428ee14011926bf5e62836473578e4a9d73548fa35e688a5ee99422"
+    },
+    {
+      "match_id": "ff598bb0-9e02-47f0-be0b-6bb6fc6784be",
+      "hands": 240,
+      "all_decisions": 1935,
+      "teacher_decisions": 651,
+      "teacher_ranks": [
+        9,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-ff598bb0-9e02-47f0-be0b-6bb6fc6784be.json",
+      "source_sha256": "5561d1d1c790405b732edb918bd6751106085c72d3e60659f1394792ddf0bb17"
+    },
+    {
+      "match_id": "21b7c2e4-1240-4d55-8e08-302322063534",
+      "hands": 240,
+      "all_decisions": 1813,
+      "teacher_decisions": 609,
+      "teacher_ranks": [
+        2,
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-21b7c2e4-1240-4d55-8e08-302322063534.json",
+      "source_sha256": "d86ccde85daa2ac0321e0d698c4b9f7cd4d3855115c1cd458711440c9067e632"
+    },
+    {
+      "match_id": "c83e024d-c304-4858-a411-41665a1dc9cd",
+      "hands": 240,
+      "all_decisions": 1758,
+      "teacher_decisions": 587,
+      "teacher_ranks": [
+        8,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-c83e024d-c304-4858-a411-41665a1dc9cd.json",
+      "source_sha256": "f512e2d01534c79077a59a5b1eab8c1a88f109a5172accb149fc9ca0908d3504"
+    },
+    {
+      "match_id": "a52893c1-bcdd-4976-9319-b52de01f51d6",
+      "hands": 240,
+      "all_decisions": 1759,
+      "teacher_decisions": 575,
+      "teacher_ranks": [
+        6,
+        13
+      ],
+      "split": "test",
+      "source_file": "replay-a52893c1-bcdd-4976-9319-b52de01f51d6.json",
+      "source_sha256": "c19b009e2ec95273afd41453440f38fc9a932cf46ef66961e6125ddabeb88058"
+    },
+    {
+      "match_id": "a3acb6e0-d05d-4970-a6f5-c3ad2a66c4a0",
+      "hands": 240,
+      "all_decisions": 1900,
+      "teacher_decisions": 647,
+      "teacher_ranks": [
+        7,
+        19
+      ],
+      "split": "validation",
+      "source_file": "replay-a3acb6e0-d05d-4970-a6f5-c3ad2a66c4a0.json",
+      "source_sha256": "8d86e89320c8ecced9c80b0497b12eb90134d261a14ef6e2b71b8e47f2586461"
+    },
+    {
+      "match_id": "44819242-3ddc-40c3-9fd3-091554acb830",
+      "hands": 240,
+      "all_decisions": 2094,
+      "teacher_decisions": 1022,
+      "teacher_ranks": [
+        4,
+        5,
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-44819242-3ddc-40c3-9fd3-091554acb830.json",
+      "source_sha256": "f48dc91796ab2abd18e3b940c5caa0509c5ea2a5b8b683defefd7eb3c2a7e74a"
+    },
+    {
+      "match_id": "94a45755-79df-441f-b8a8-04a773064895",
+      "hands": 240,
+      "all_decisions": 1757,
+      "teacher_decisions": 913,
+      "teacher_ranks": [
+        1,
+        3,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-94a45755-79df-441f-b8a8-04a773064895.json",
+      "source_sha256": "7c12704150da5e2bc16340d7201a0a2cb7f687f4887bec34cbe53bf9231688ca"
+    },
+    {
+      "match_id": "b478cbcf-64da-48f5-87c4-14d441b8825a",
+      "hands": 240,
+      "all_decisions": 1905,
+      "teacher_decisions": 632,
+      "teacher_ranks": [
+        12,
+        20
+      ],
+      "split": "validation",
+      "source_file": "replay-b478cbcf-64da-48f5-87c4-14d441b8825a.json",
+      "source_sha256": "7aee52a8c70af9f13785e42638b16acee5d755c04e27b27673e5e8e64bb9e974"
+    },
+    {
+      "match_id": "72020a2d-7c05-496a-bea3-540c3047db9d",
+      "hands": 240,
+      "all_decisions": 1718,
+      "teacher_decisions": 588,
+      "teacher_ranks": [
+        11,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-72020a2d-7c05-496a-bea3-540c3047db9d.json",
+      "source_sha256": "2a160c7ce5f7bd4d702c4a56c0203556fc4c95ef09c71003d58a17e2f76a75f4"
+    },
+    {
+      "match_id": "3371cbe9-7fe3-43c0-be7c-a412d85b4d83",
+      "hands": 240,
+      "all_decisions": 1903,
+      "teacher_decisions": 622,
+      "teacher_ranks": [
+        9,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-3371cbe9-7fe3-43c0-be7c-a412d85b4d83.json",
+      "source_sha256": "a0247f2f2602c7d988c80054659fca07efdd661f8e988ca85276664b9568e6db"
+    },
+    {
+      "match_id": "3c558fda-6eff-4555-b74b-c2fbdfb6af2a",
+      "hands": 240,
+      "all_decisions": 1936,
+      "teacher_decisions": 605,
+      "teacher_ranks": [
+        2,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-3c558fda-6eff-4555-b74b-c2fbdfb6af2a.json",
+      "source_sha256": "4d0b8bc6c72ca503e7e5173c936618d6d6e0226e43edf342d23b500c7c7a2e85"
+    },
+    {
+      "match_id": "f367cc9c-0719-4849-947e-7af2b4503a7e",
+      "hands": 240,
+      "all_decisions": 1788,
+      "teacher_decisions": 600,
+      "teacher_ranks": [
+        6,
+        18
+      ],
+      "split": "validation",
+      "source_file": "replay-f367cc9c-0719-4849-947e-7af2b4503a7e.json",
+      "source_sha256": "71920ea090c25dfa2921f7026bee066d1ab807bb639b17bf402e553b17dd01fb"
+    },
+    {
+      "match_id": "30a152e0-a916-4ec1-944c-ce0be401cd95",
+      "hands": 240,
+      "all_decisions": 1779,
+      "teacher_decisions": 594,
+      "teacher_ranks": [
+        8,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-30a152e0-a916-4ec1-944c-ce0be401cd95.json",
+      "source_sha256": "e8d09d28bbf2f7c1a882fc02ff18a53baf8519694983e9d83691ec993cf8e24d"
+    },
+    {
+      "match_id": "a44dd400-8a36-4505-bfe9-4cc4c972edb3",
+      "hands": 240,
+      "all_decisions": 2073,
+      "teacher_decisions": 1053,
+      "teacher_ranks": [
+        1,
+        7,
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-a44dd400-8a36-4505-bfe9-4cc4c972edb3.json",
+      "source_sha256": "96dd5df8cd3e15bf949e4b582e6b5f13c3fc76a4c292e9877764e659408a42d3"
+    },
+    {
+      "match_id": "0cf7af15-22b7-4b4d-a584-e10622674e18",
+      "hands": 240,
+      "all_decisions": 1915,
+      "teacher_decisions": 980,
+      "teacher_ranks": [
+        4,
+        5,
+        6
+      ],
+      "split": "train",
+      "source_file": "replay-0cf7af15-22b7-4b4d-a584-e10622674e18.json",
+      "source_sha256": "20820de747299a4d2616894f530d9c9d574a94be0e7baac6b5e065c28b97f47e"
+    },
+    {
+      "match_id": "823ca023-9cda-4212-8ef3-f026fa71e98f",
+      "hands": 240,
+      "all_decisions": 1847,
+      "teacher_decisions": 909,
+      "teacher_ranks": [
+        8,
+        10,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-823ca023-9cda-4212-8ef3-f026fa71e98f.json",
+      "source_sha256": "38f8ca450220111ad15addb8ac598245749f57940d7a841004b57b59162bc3cd"
+    },
+    {
+      "match_id": "292d2ee9-060f-472b-918c-9aacb6ad17b5",
+      "hands": 240,
+      "all_decisions": 1639,
+      "teacher_decisions": 277,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "test",
+      "source_file": "replay-292d2ee9-060f-472b-918c-9aacb6ad17b5.json",
+      "source_sha256": "b8dc459d4f8fd25198679f784d62c0c2e2e53d9358ba250c666e888244d6c8d4"
+    },
+    {
+      "match_id": "0556f760-66ce-4019-a879-514f60d6d5f7",
+      "hands": 240,
+      "all_decisions": 1832,
+      "teacher_decisions": 589,
+      "teacher_ranks": [
+        11,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-0556f760-66ce-4019-a879-514f60d6d5f7.json",
+      "source_sha256": "6ca20da8387d7516a1da481dc50d2bb461c9a3106eb0f8a03bbf70c4ed5b5ca4"
+    },
+    {
+      "match_id": "b030c563-d2c2-4e95-8130-1d07f3705c74",
+      "hands": 240,
+      "all_decisions": 1782,
+      "teacher_decisions": 589,
+      "teacher_ranks": [
+        2,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-b030c563-d2c2-4e95-8130-1d07f3705c74.json",
+      "source_sha256": "21f8ec5d9c781bd1fc1a050dd851e3eca521e4abad5f7074cbad02b0c35a6b71"
+    },
+    {
+      "match_id": "65ec8283-849e-4838-9cc2-4babaeabc22f",
+      "hands": 240,
+      "all_decisions": 1923,
+      "teacher_decisions": 1098,
+      "teacher_ranks": [
+        3,
+        5,
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-65ec8283-849e-4838-9cc2-4babaeabc22f.json",
+      "source_sha256": "96e5ce735b62e054de90a56c5f26afb54e0f93bc160464ba135ee96300b719f5"
+    },
+    {
+      "match_id": "6f3b208f-a20a-44a3-8616-6839e4e1ab0d",
+      "hands": 240,
+      "all_decisions": 1847,
+      "teacher_decisions": 953,
+      "teacher_ranks": [
+        1,
+        6,
+        8
+      ],
+      "split": "train",
+      "source_file": "replay-6f3b208f-a20a-44a3-8616-6839e4e1ab0d.json",
+      "source_sha256": "e1d232ce78d7aaf1af25403c1b9e5782f3ddb16c981455cc682c730332857c1c"
+    },
+    {
+      "match_id": "e1a72c6b-b705-4d78-a903-a906c270a7f9",
+      "hands": 240,
+      "all_decisions": 1727,
+      "teacher_decisions": 876,
+      "teacher_ranks": [
+        2,
+        9,
+        10
+      ],
+      "split": "train",
+      "source_file": "replay-e1a72c6b-b705-4d78-a903-a906c270a7f9.json",
+      "source_sha256": "1fe186df8866582eb631ee799ad4e9c6d71dffded5a62ef28c0d3f191a27e15b"
+    },
+    {
+      "match_id": "bc1f9533-9c4b-451b-a5dc-f7920daf8425",
+      "hands": 240,
+      "all_decisions": 1812,
+      "teacher_decisions": 312,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-bc1f9533-9c4b-451b-a5dc-f7920daf8425.json",
+      "source_sha256": "b70c566ea5f680ab835c2303f24b371ffa251fcd62931c205394c3d49d5fa7ed"
+    },
+    {
+      "match_id": "e0e73e60-b776-46dd-9be0-9408f78ebcde",
+      "hands": 240,
+      "all_decisions": 1581,
+      "teacher_decisions": 283,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-e0e73e60-b776-46dd-9be0-9408f78ebcde.json",
+      "source_sha256": "27a412885f28479449494a29cb5829fae627eb0a1fd8a5eb121bb23578d890ba"
+    },
+    {
+      "match_id": "f9d68b1f-3209-48fb-89bd-834f64b15a6a",
+      "hands": 240,
+      "all_decisions": 1794,
+      "teacher_decisions": 322,
+      "teacher_ranks": [
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-f9d68b1f-3209-48fb-89bd-834f64b15a6a.json",
+      "source_sha256": "b8d1777ebeeb7f2f59cd3b6e3125bb5d70a5172a5960d73b527699ae78554f1e"
+    },
+    {
+      "match_id": "4ba05e6f-241d-461c-a286-0a3733302a94",
+      "hands": 240,
+      "all_decisions": 1592,
+      "teacher_decisions": 259,
+      "teacher_ranks": [
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-4ba05e6f-241d-461c-a286-0a3733302a94.json",
+      "source_sha256": "64c6dbc4fd78ee1fd0435a333f8671f525dccbd5075e73ac991274d3104dfebe"
+    },
+    {
+      "match_id": "a426b0d7-1b21-4447-b9e4-a38143d816ee",
+      "hands": 240,
+      "all_decisions": 1773,
+      "teacher_decisions": 607,
+      "teacher_ranks": [
+        13,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-a426b0d7-1b21-4447-b9e4-a38143d816ee.json",
+      "source_sha256": "7af952c6685c5e0082da0ee56679b2652813264b603726ed4a1773e304618205"
+    },
+    {
+      "match_id": "72aa93ab-76ec-464a-b7a6-12b3094093fa",
+      "hands": 240,
+      "all_decisions": 1798,
+      "teacher_decisions": 612,
+      "teacher_ranks": [
+        4,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-72aa93ab-76ec-464a-b7a6-12b3094093fa.json",
+      "source_sha256": "5d4b52e1895c8dc68eb71f484c8e4035a5f1c2130df671e45b2dd81b9b65934f"
+    },
+    {
+      "match_id": "e1f8caa3-5b26-4ab3-9cea-5a55a8052a58",
+      "hands": 240,
+      "all_decisions": 1829,
+      "teacher_decisions": 606,
+      "teacher_ranks": [
+        11,
+        16
+      ],
+      "split": "test",
+      "source_file": "replay-e1f8caa3-5b26-4ab3-9cea-5a55a8052a58.json",
+      "source_sha256": "19fd7783cf2a54d2ffe205e00c7fea83725a606a3173ef43a6a9c73ba847ea52"
+    },
+    {
+      "match_id": "fa96a089-e0bc-45d8-a441-7895487d249f",
+      "hands": 240,
+      "all_decisions": 1879,
+      "teacher_decisions": 990,
+      "teacher_ranks": [
+        1,
+        7,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-fa96a089-e0bc-45d8-a441-7895487d249f.json",
+      "source_sha256": "245fd7d77cfdc9d1fed175c2fb31b00fe70134e3d7f681ef5903db70cbdbca59"
+    },
+    {
+      "match_id": "8683c780-9091-43e2-b7aa-7c7df632d306",
+      "hands": 240,
+      "all_decisions": 1788,
+      "teacher_decisions": 937,
+      "teacher_ranks": [
+        3,
+        5,
+        8
+      ],
+      "split": "test",
+      "source_file": "replay-8683c780-9091-43e2-b7aa-7c7df632d306.json",
+      "source_sha256": "a8d985f302b1f171ac986fa1498b9401d78840cb81f7770af23e97149847997a"
+    },
+    {
+      "match_id": "80953a05-d4d3-4fc3-9f0e-c938cc64bc90",
+      "hands": 240,
+      "all_decisions": 1538,
+      "teacher_decisions": 790,
+      "teacher_ranks": [
+        10,
+        11,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-80953a05-d4d3-4fc3-9f0e-c938cc64bc90.json",
+      "source_sha256": "3088d4c1aaedfef55e755a6fbdd5f2edb68294e0d824a2cbc60db2ca343706f1"
+    },
+    {
+      "match_id": "b66674bc-954c-40a5-bedf-dbf05fddfb5d",
+      "hands": 240,
+      "all_decisions": 1693,
+      "teacher_decisions": 285,
+      "teacher_ranks": [
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-b66674bc-954c-40a5-bedf-dbf05fddfb5d.json",
+      "source_sha256": "0c81e1039cca12fd26384bfcc9ded4513a9330f54b4dc1e2402d4110f37066ce"
+    },
+    {
+      "match_id": "e8ff5430-ef4d-4aed-90ca-4e654b0ec696",
+      "hands": 240,
+      "all_decisions": 1748,
+      "teacher_decisions": 314,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-e8ff5430-ef4d-4aed-90ca-4e654b0ec696.json",
+      "source_sha256": "d517724efe06815c5fe0781e85f47e821607c2b32333db3689c70f84fe730d1b"
+    },
+    {
+      "match_id": "606ed286-35fa-484f-97f7-ac3816c38e58",
+      "hands": 240,
+      "all_decisions": 1725,
+      "teacher_decisions": 309,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-606ed286-35fa-484f-97f7-ac3816c38e58.json",
+      "source_sha256": "18e88b04f5029245f2358d36eb57116c3d41e052bdd6cc970d289377085656fe"
+    },
+    {
+      "match_id": "f92eb38a-f296-4a96-8c77-9780ec5b379b",
+      "hands": 240,
+      "all_decisions": 1726,
+      "teacher_decisions": 553,
+      "teacher_ranks": [
+        2,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-f92eb38a-f296-4a96-8c77-9780ec5b379b.json",
+      "source_sha256": "5bc14bac154d01923c739e5bab629fde9bf0c75c3189ced8a03cab099ebf4714"
+    },
+    {
+      "match_id": "b9b519ee-2c78-464c-a270-eb5e575d33f1",
+      "hands": 240,
+      "all_decisions": 1782,
+      "teacher_decisions": 626,
+      "teacher_ranks": [
+        4,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-b9b519ee-2c78-464c-a270-eb5e575d33f1.json",
+      "source_sha256": "b7ee0f9bf5fa4197dfb6cec72e05bb321b0d767cf36054ac225ac867f16b9d1c"
+    },
+    {
+      "match_id": "0bc35c81-4c30-488a-9e36-163d04819991",
+      "hands": 240,
+      "all_decisions": 1811,
+      "teacher_decisions": 614,
+      "teacher_ranks": [
+        15,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-0bc35c81-4c30-488a-9e36-163d04819991.json",
+      "source_sha256": "fc24a74331a9778bdec80c25a7740ba6248e81f659665afffaba2b6f7e824248"
+    },
+    {
+      "match_id": "cdfdc6bc-9c80-4083-b47c-ab4f4db69cc2",
+      "hands": 240,
+      "all_decisions": 1899,
+      "teacher_decisions": 636,
+      "teacher_ranks": [
+        9,
+        12
+      ],
+      "split": "validation",
+      "source_file": "replay-cdfdc6bc-9c80-4083-b47c-ab4f4db69cc2.json",
+      "source_sha256": "6fa7bf8c12b0c47fcf56bf7298678a367d634585652dd3fdf93ad0d7ad1b823f"
+    },
+    {
+      "match_id": "ed4e8be3-7cd6-48d7-8095-63ea46d234dc",
+      "hands": 240,
+      "all_decisions": 1841,
+      "teacher_decisions": 964,
+      "teacher_ranks": [
+        1,
+        3,
+        8
+      ],
+      "split": "train",
+      "source_file": "replay-ed4e8be3-7cd6-48d7-8095-63ea46d234dc.json",
+      "source_sha256": "9200fda0ce0f311280872191a7ec306cf69d83b8e91f37564f578227eabfaf8b"
+    },
+    {
+      "match_id": "9b65deeb-f052-47c7-9b55-7ecb34598c54",
+      "hands": 240,
+      "all_decisions": 2005,
+      "teacher_decisions": 1013,
+      "teacher_ranks": [
+        4,
+        6,
+        7
+      ],
+      "split": "train",
+      "source_file": "replay-9b65deeb-f052-47c7-9b55-7ecb34598c54.json",
+      "source_sha256": "7e649bb0c6753294296943ebc5de3f8b52010643382b8bff13f35be0e1f3668f"
+    },
+    {
+      "match_id": "70fb312d-b1d8-4736-a701-9736f9cb2229",
+      "hands": 240,
+      "all_decisions": 1962,
+      "teacher_decisions": 1016,
+      "teacher_ranks": [
+        5,
+        10,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-70fb312d-b1d8-4736-a701-9736f9cb2229.json",
+      "source_sha256": "bb3bd9f8e7b2c53554bfffaa0e9cb6649a60904209589f5b506aaa7d4e97de87"
+    },
+    {
+      "match_id": "dffb8d49-c5f9-4362-ae9f-cf7d313fd0ca",
+      "hands": 240,
+      "all_decisions": 1835,
+      "teacher_decisions": 347,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-dffb8d49-c5f9-4362-ae9f-cf7d313fd0ca.json",
+      "source_sha256": "863a00801eaec04b2c5ebf9d1a2e749ffbe1981658ac1a332fcb1a514ee81f13"
+    },
+    {
+      "match_id": "b4f2d209-22bc-4b84-b870-c4ab8ef0d0a7",
+      "hands": 240,
+      "all_decisions": 1777,
+      "teacher_decisions": 305,
+      "teacher_ranks": [
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-b4f2d209-22bc-4b84-b870-c4ab8ef0d0a7.json",
+      "source_sha256": "86e88ee9d94cde86d8160cbfe3dc6f0bcf42bb0408dea11d10c5e3bbaae5ebbd"
+    },
+    {
+      "match_id": "e260f5f9-4304-465b-bf0e-5446d0a074b6",
+      "hands": 240,
+      "all_decisions": 1697,
+      "teacher_decisions": 571,
+      "teacher_ranks": [
+        14,
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-e260f5f9-4304-465b-bf0e-5446d0a074b6.json",
+      "source_sha256": "5513fae33aed57fb344a5dedcda1cfd212c99027b1fff48a39584353d1093be6"
+    },
+    {
+      "match_id": "b969df7b-7e70-4f45-aac4-ea3e4e3b005a",
+      "hands": 240,
+      "all_decisions": 1732,
+      "teacher_decisions": 578,
+      "teacher_ranks": [
+        11,
+        20
+      ],
+      "split": "test",
+      "source_file": "replay-b969df7b-7e70-4f45-aac4-ea3e4e3b005a.json",
+      "source_sha256": "b84d2fbe4630648b360e1b7207d0669db35c2676894bda3f6f209f0d272dcb40"
+    },
+    {
+      "match_id": "1715933c-782b-4d5b-b308-fea66ba96f20",
+      "hands": 240,
+      "all_decisions": 1863,
+      "teacher_decisions": 617,
+      "teacher_ranks": [
+        13,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-1715933c-782b-4d5b-b308-fea66ba96f20.json",
+      "source_sha256": "921eece397185b74057f9afc161ec45fe90574a65e5f198f85889fef0c30ee03"
+    },
+    {
+      "match_id": "73b8faf6-fc3a-4036-85bc-0dbe12f0595b",
+      "hands": 240,
+      "all_decisions": 1760,
+      "teacher_decisions": 599,
+      "teacher_ranks": [
+        2,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-73b8faf6-fc3a-4036-85bc-0dbe12f0595b.json",
+      "source_sha256": "d6781ed851065df2000e03ab6c0d5afe28c25acffeec5ee38c0e19aadb87db9b"
+    },
+    {
+      "match_id": "2e50fef4-cbfc-4cfb-bf24-77361b784c11",
+      "hands": 240,
+      "all_decisions": 2018,
+      "teacher_decisions": 660,
+      "teacher_ranks": [
+        9,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-2e50fef4-cbfc-4cfb-bf24-77361b784c11.json",
+      "source_sha256": "3bb5d6492c88dc0504937023ff7c7cb1a2c874217dde4991716273c19d4441cf"
+    },
+    {
+      "match_id": "b2fc7286-c201-49f4-86b0-0d5a6849e410",
+      "hands": 240,
+      "all_decisions": 1888,
+      "teacher_decisions": 1000,
+      "teacher_ranks": [
+        5,
+        6,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-b2fc7286-c201-49f4-86b0-0d5a6849e410.json",
+      "source_sha256": "f46a064502496f2a0e9e98e6e4ff38b13821688d9b2affaf9e00c6d8e5d931cc"
+    },
+    {
+      "match_id": "9efed19d-4d3c-44a8-a8c3-71f2caf4e224",
+      "hands": 240,
+      "all_decisions": 1862,
+      "teacher_decisions": 925,
+      "teacher_ranks": [
+        1,
+        3,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-9efed19d-4d3c-44a8-a8c3-71f2caf4e224.json",
+      "source_sha256": "48c7978b25f0d41afd0a9de7609e614574d04e2ef1cabbf0d306881ab04e9afa"
+    },
+    {
+      "match_id": "67017b9a-7530-4523-8872-a16b1e499570",
+      "hands": 240,
+      "all_decisions": 1729,
+      "teacher_decisions": 888,
+      "teacher_ranks": [
+        7,
+        14,
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-67017b9a-7530-4523-8872-a16b1e499570.json",
+      "source_sha256": "25d429c361d00f867fbd4927eb35660849031460900beb7865ec70538651bd0d"
+    },
+    {
+      "match_id": "bf3665fc-3d39-4639-9956-3e13f24e63cb",
+      "hands": 240,
+      "all_decisions": 1697,
+      "teacher_decisions": 849,
+      "teacher_ranks": [
+        6,
+        10,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-bf3665fc-3d39-4639-9956-3e13f24e63cb.json",
+      "source_sha256": "792ba8afe47a09d4524e9ae53e7e8c49c63633be5ec8612790e0fc3058deb29d"
+    },
+    {
+      "match_id": "0d8b05fb-2f95-4c98-aeed-3d8711cfed79",
+      "hands": 240,
+      "all_decisions": 1736,
+      "teacher_decisions": 310,
+      "teacher_ranks": [
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-0d8b05fb-2f95-4c98-aeed-3d8711cfed79.json",
+      "source_sha256": "f36d151b40a86a76c43ef102cee20bc66677b016378910ddc0f53498a285f988"
+    },
+    {
+      "match_id": "d254cb7b-5570-487b-8f92-81210332bbbd",
+      "hands": 240,
+      "all_decisions": 1681,
+      "teacher_decisions": 553,
+      "teacher_ranks": [
+        13,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-d254cb7b-5570-487b-8f92-81210332bbbd.json",
+      "source_sha256": "271336c0e97634415c9c93a2e79cc564e68c033074b0a5b4deea220967a2235d"
+    },
+    {
+      "match_id": "f0c1d0b9-f39b-46c0-b570-c4f4397d4d1c",
+      "hands": 240,
+      "all_decisions": 1661,
+      "teacher_decisions": 575,
+      "teacher_ranks": [
+        11,
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-f0c1d0b9-f39b-46c0-b570-c4f4397d4d1c.json",
+      "source_sha256": "9a6c14bbb6eb9ecd477641988628dac18d467337433142000bbf2d6d70478872"
+    },
+    {
+      "match_id": "430fe974-f311-456a-a3eb-cef972a65dc5",
+      "hands": 240,
+      "all_decisions": 1585,
+      "teacher_decisions": 524,
+      "teacher_ranks": [
+        8,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-430fe974-f311-456a-a3eb-cef972a65dc5.json",
+      "source_sha256": "40bbb15d474ea41cdd9c871208555f47c628ecea798b767c9021a1b75398c0cc"
+    },
+    {
+      "match_id": "d27af8af-1121-467f-aba5-c116d2ba2dac",
+      "hands": 240,
+      "all_decisions": 1773,
+      "teacher_decisions": 579,
+      "teacher_ranks": [
+        2,
+        19
+      ],
+      "split": "train",
+      "source_file": "replay-d27af8af-1121-467f-aba5-c116d2ba2dac.json",
+      "source_sha256": "68f5ec001260a677c58290888ee875ff62708720e91f4d6b7f59b767c5439530"
+    },
+    {
+      "match_id": "876ae299-be33-4426-92b4-c1735c404a06",
+      "hands": 240,
+      "all_decisions": 1894,
+      "teacher_decisions": 657,
+      "teacher_ranks": [
+        4,
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-876ae299-be33-4426-92b4-c1735c404a06.json",
+      "source_sha256": "b6b5b484784ddffab61d2b388b3863fa869d79fc61ddb46cc7cf2bf0e436efef"
+    },
+    {
+      "match_id": "041c0b46-93b6-4a22-bb79-a017f276e3c5",
+      "hands": 240,
+      "all_decisions": 1741,
+      "teacher_decisions": 874,
+      "teacher_ranks": [
+        3,
+        9,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-041c0b46-93b6-4a22-bb79-a017f276e3c5.json",
+      "source_sha256": "4af2ef8c96ce549611e53e7ae67cf00aa799c4bf761603985fac234c5fc9dcfa"
+    },
+    {
+      "match_id": "ead528d2-b949-4d69-9ef1-7eeae829a7f6",
+      "hands": 240,
+      "all_decisions": 1899,
+      "teacher_decisions": 989,
+      "teacher_ranks": [
+        1,
+        7,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-ead528d2-b949-4d69-9ef1-7eeae829a7f6.json",
+      "source_sha256": "3a680a6ca41a8fa6021ea5c9f7201a2d677b8eae15b72858afaadffc0f8780c8"
+    },
+    {
+      "match_id": "6a26e3fe-c526-4493-a955-9e3ccea43cd7",
+      "hands": 240,
+      "all_decisions": 1804,
+      "teacher_decisions": 865,
+      "teacher_ranks": [
+        6,
+        10,
+        15
+      ],
+      "split": "train",
+      "source_file": "replay-6a26e3fe-c526-4493-a955-9e3ccea43cd7.json",
+      "source_sha256": "dbda01494c85f06db62fb63ece5e48f70ccc1a7e714d447c0a8b42a0539b5839"
+    },
+    {
+      "match_id": "c0601bd2-2acc-4a0e-94a6-f98f3ad6a703",
+      "hands": 240,
+      "all_decisions": 1937,
+      "teacher_decisions": 1016,
+      "teacher_ranks": [
+        3,
+        5,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-c0601bd2-2acc-4a0e-94a6-f98f3ad6a703.json",
+      "source_sha256": "f3a6c717818a2ab52fdcb82c2394021345571c654ad118ec3e0179767f22c887"
+    },
+    {
+      "match_id": "c6323bf0-e3ba-4570-8a8f-5246f2a573bf",
+      "hands": 240,
+      "all_decisions": 1757,
+      "teacher_decisions": 589,
+      "teacher_ranks": [
+        12,
+        16
+      ],
+      "split": "train",
+      "source_file": "replay-c6323bf0-e3ba-4570-8a8f-5246f2a573bf.json",
+      "source_sha256": "930624deb17a9081a61b9b8e502fddc08faef9482a1b5c951de2d64ce5481edd"
+    },
+    {
+      "match_id": "c475d335-0a86-434f-8130-2380fa4eeb51",
+      "hands": 240,
+      "all_decisions": 1806,
+      "teacher_decisions": 610,
+      "teacher_ranks": [
+        14,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-c475d335-0a86-434f-8130-2380fa4eeb51.json",
+      "source_sha256": "d68d87480e3f125f2c689a505a04ffdcebc7b0f547932ed55ef0ecb334e9ba6b"
+    },
+    {
+      "match_id": "a4eac6ff-d0eb-48ec-99ad-f7c9ccfbafcc",
+      "hands": 240,
+      "all_decisions": 1691,
+      "teacher_decisions": 565,
+      "teacher_ranks": [
+        2,
+        19
+      ],
+      "split": "validation",
+      "source_file": "replay-a4eac6ff-d0eb-48ec-99ad-f7c9ccfbafcc.json",
+      "source_sha256": "f6af5beb4ab8825e5290894bcd88fee7f018dffae54f55f12e6b1c71afae76f7"
+    },
+    {
+      "match_id": "e4bae7ab-9335-4b94-8277-f8bf718610cf",
+      "hands": 240,
+      "all_decisions": 2004,
+      "teacher_decisions": 1041,
+      "teacher_ranks": [
+        1,
+        4,
+        9
+      ],
+      "split": "train",
+      "source_file": "replay-e4bae7ab-9335-4b94-8277-f8bf718610cf.json",
+      "source_sha256": "7766724ebc6bda27e779d6b9ef4403193efa86faca4bb9478c1ddb0ff6d556da"
+    },
+    {
+      "match_id": "ee6e538e-2e6f-4e79-944b-19811e712a7b",
+      "hands": 240,
+      "all_decisions": 1712,
+      "teacher_decisions": 877,
+      "teacher_ranks": [
+        7,
+        8,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-ee6e538e-2e6f-4e79-944b-19811e712a7b.json",
+      "source_sha256": "3110579a50a5fab378db866ddad2fd804a6cecdffb0556bb9ddd1bd5a4306d92"
+    },
+    {
+      "match_id": "aaebdf85-054e-4d9f-9d2f-df65e49d9348",
+      "hands": 240,
+      "all_decisions": 1769,
+      "teacher_decisions": 901,
+      "teacher_ranks": [
+        5,
+        8,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-aaebdf85-054e-4d9f-9d2f-df65e49d9348.json",
+      "source_sha256": "12392bb725325c9f0e528f35242f464ac36f76b20af76fa7218118deb63fe167"
+    },
+    {
+      "match_id": "6c648110-b97a-4c13-b4dd-1c60ebba0edc",
+      "hands": 240,
+      "all_decisions": 1884,
+      "teacher_decisions": 913,
+      "teacher_ranks": [
+        10,
+        15,
+        16
+      ],
+      "split": "validation",
+      "source_file": "replay-6c648110-b97a-4c13-b4dd-1c60ebba0edc.json",
+      "source_sha256": "79e3af71761c710340d410cb330640deab3e5a9e1c05a50ba611ceede51367d5"
+    },
+    {
+      "match_id": "c6781e18-bd33-454e-ab6c-0b67b3d481ec",
+      "hands": 240,
+      "all_decisions": 1566,
+      "teacher_decisions": 529,
+      "teacher_ranks": [
+        13,
+        17
+      ],
+      "split": "train",
+      "source_file": "replay-c6781e18-bd33-454e-ab6c-0b67b3d481ec.json",
+      "source_sha256": "e40b96baee35fbc0c5aedc5cd0a4f5d60f895f1271409670ee1c734ef0a37efb"
+    },
+    {
+      "match_id": "e448832f-837c-4286-bd09-e69e4dd8876e",
+      "hands": 240,
+      "all_decisions": 1744,
+      "teacher_decisions": 585,
+      "teacher_ranks": [
+        2,
+        18
+      ],
+      "split": "train",
+      "source_file": "replay-e448832f-837c-4286-bd09-e69e4dd8876e.json",
+      "source_sha256": "b4ae3989940457587cbf2bfab3ca7b26de800fe36e46c2e1d16ca2daf049afa3"
+    },
+    {
+      "match_id": "9cb3db91-f339-4107-b154-7f74d83ee82c",
+      "hands": 240,
+      "all_decisions": 1669,
+      "teacher_decisions": 864,
+      "teacher_ranks": [
+        6,
+        9,
+        12
+      ],
+      "split": "train",
+      "source_file": "replay-9cb3db91-f339-4107-b154-7f74d83ee82c.json",
+      "source_sha256": "4de033c612a95ccdfe5832be918668700bcf6dd2d02eca990cfd71fffe47d2f7"
+    },
+    {
+      "match_id": "25f64362-5e03-46d0-b574-63bd123a5dfb",
+      "hands": 240,
+      "all_decisions": 1789,
+      "teacher_decisions": 905,
+      "teacher_ranks": [
+        3,
+        4,
+        15
+      ],
+      "split": "test",
+      "source_file": "replay-25f64362-5e03-46d0-b574-63bd123a5dfb.json",
+      "source_sha256": "44d65640018f12e04830cf4480e417e37dc6c3488b01326810a1db676222cef8"
+    },
+    {
+      "match_id": "4139bf7c-ddb1-4d15-b12e-040a46a59bfb",
+      "hands": 240,
+      "all_decisions": 1856,
+      "teacher_decisions": 1018,
+      "teacher_ranks": [
+        5,
+        7,
+        11
+      ],
+      "split": "train",
+      "source_file": "replay-4139bf7c-ddb1-4d15-b12e-040a46a59bfb.json",
+      "source_sha256": "c71b39d92e3634a07261f971e2892d6129d1b7ee7567b8aac41f39a8aa9f61e1"
+    },
+    {
+      "match_id": "6b9da17c-ee8c-46f4-9ee6-e2b373571aad",
+      "hands": 240,
+      "all_decisions": 1922,
+      "teacher_decisions": 1017,
+      "teacher_ranks": [
+        1,
+        2,
+        13
+      ],
+      "split": "train",
+      "source_file": "replay-6b9da17c-ee8c-46f4-9ee6-e2b373571aad.json",
+      "source_sha256": "cd511ef4d350eb3145e04b105ca717a85fbbaf97016f743d3b9605996de343f2"
+    },
+    {
+      "match_id": "2b041f5e-fe8e-49c1-81b0-5f6bac8f9458",
+      "hands": 240,
+      "all_decisions": 1817,
+      "teacher_decisions": 923,
+      "teacher_ranks": [
+        4,
+        10,
+        14
+      ],
+      "split": "train",
+      "source_file": "replay-2b041f5e-fe8e-49c1-81b0-5f6bac8f9458.json",
+      "source_sha256": "8ef0cbea48e834ec07aec9e8187e064d40e9a9f6dc349401c6b10a92deccd0e6"
+    },
+    {
+      "match_id": "b1c524c3-fcdf-4712-be90-7bec27057e11",
+      "hands": 240,
+      "all_decisions": 1743,
+      "teacher_decisions": 594,
+      "teacher_ranks": [
+        16,
+        17
+      ],
+      "split": "validation",
+      "source_file": "replay-b1c524c3-fcdf-4712-be90-7bec27057e11.json",
+      "source_sha256": "7bebbfb2ea7b1343abbe7ff75dcb5403f7213262db6f4dace9099a64b969b3b9"
+    },
+    {
+      "match_id": "7275fcb3-829c-415c-a50b-dba2a446faca",
+      "hands": 240,
+      "all_decisions": 1948,
+      "teacher_decisions": 645,
+      "teacher_ranks": [
+        19,
+        20
+      ],
+      "split": "train",
+      "source_file": "replay-7275fcb3-829c-415c-a50b-dba2a446faca.json",
+      "source_sha256": "a7b64ea99218af357d147304d8765d827ddeeaf8f5b5ef79180182cd0459cf7e"
+    },
+    {
+      "match_id": "586d2ae8-030a-4099-acb9-3dafa87e7562",
+      "hands": 240,
+      "all_decisions": 1921,
+      "teacher_decisions": 992,
+      "teacher_ranks": [
+        5,
+        8,
+        9
+      ],
+      "split": "validation",
+      "source_file": "replay-586d2ae8-030a-4099-acb9-3dafa87e7562.json",
+      "source_sha256": "03c0112a7f09f8b2bda262168697a17adac2282bdcb0eb5ef3db65fc3adc9a21"
+    }
+  ],
+  "elapsed_seconds": 904.062
+}
