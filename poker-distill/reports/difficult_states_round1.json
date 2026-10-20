@@ -1,0 +1,24 @@
+{
+  "schema": "agx.difficult-state-mining.v1",
+  "input": "poker-distill/data/parsed-decisions/top20/train.jsonl",
+  "input_sha256": "c74782c8471736b07e4ff32c45a30ad5f5aa36ae2329ab726ca19d7d646c11b1",
+  "model": "neural/artifacts/behavior-v3b-top20-unweighted/model.json",
+  "model_sha256": "eb899a9bb1edeee9a57f21b1d19faa637a43e76752ddf342da692c60cf05f733",
+  "postflop_only": true,
+  "device": "cuda",
+  "scanned": 122860,
+  "eligible": 23359,
+  "model_incorrect": 6011,
+  "selected": 10000,
+  "selected_observed_families": {
+    "fold": 1707,
+    "call": 2343,
+    "raise": 2663,
+    "allin": 407,
+    "check": 2880
+  },
+  "score_min": 0.99394146,
+  "score_max": 2.99474729,
+  "output": "poker-distill/data/dagger/round_1/mined_top10000.jsonl",
+  "output_sha256": "e32b4195a990efe26aa80a5fca46fbf140d6bcb378b0822e034f3a818fc3e1d2"
+}

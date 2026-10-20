@@ -1,0 +1,27 @@
+{
+  "schema": "agx.equity-ev-proxy-labels.v1",
+  "teacher_version": "equity-ev-proxy-v1",
+  "warning": "This is a range-constrained Monte Carlo EV proxy, not a solved equilibrium or MCCFR teacher.",
+  "input": "poker-distill/data/dagger/round_1/mined_top10000.jsonl",
+  "input_sha256": "e32b4195a990efe26aa80a5fca46fbf140d6bcb378b0822e034f3a818fc3e1d2",
+  "trials": 128,
+  "seed": 7607,
+  "temperature_bb": 4.0,
+  "include_preflop": false,
+  "labeled": 1000,
+  "skipped_preflop": 0,
+  "best_action_counts": {
+    "raise_0.33": 255,
+    "allin": 38,
+    "raise_1.00": 148,
+    "raise_0.75": 494,
+    "raise_0.50": 40,
+    "call": 12,
+    "check": 10,
+    "fold": 3
+  },
+  "mean_observed_regret": 933.552676,
+  "mean_confidence": 0.60425234,
+  "output": "poker-distill/data/solver-labels/ev_proxy_round1_1000.jsonl",
+  "output_sha256": "86bfe1d490f038c1baf14f00848550568ed90d80f515967cabd8119f2c58850c"
+}
