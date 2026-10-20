@@ -61,6 +61,46 @@ for item in rotated["history"]:
     item["player"] = "changed-history-account"
 assert decision_features_v2(rotated) == features_v2
 
+# Python training features and the exported QuickJS runtime must stay exactly
+# aligned; a zero-weight fixture also exercises legality-masked runtime action.
+with tempfile.TemporaryDirectory(prefix="agx-bc-v2-runtime-") as temporary:
+    folder = Path(temporary)
+    model_path, output_path = folder / "model.json", folder / "submission.js"
+    model = {
+        "format": "agx-poker-bc-v2", "data_version": "public-replay-bc-v1",
+        "feature_version": "public-replay-features-v2", "input_size": INPUT_SIZE_V2,
+        "hidden1_size": 2, "hidden2_size": 2,
+        "family_actions": list(FAMILY_ACTIONS), "size_actions": list(SIZE_ACTIONS),
+        "trunk_w1": [[0.0] * INPUT_SIZE_V2 for _ in range(2)], "trunk_b1": [0.0, 0.0],
+        "trunk_w2": [[0.0, 0.0], [0.0, 0.0]], "trunk_b2": [0.0, 0.0],
+        "family_w": [[0.0, 0.0] for _ in FAMILY_ACTIONS], "family_b": [0.0, 1.0, 0.0, 0.0, 0.0],
+        "size_w": [[0.0, 0.0] for _ in SIZE_ACTIONS], "size_b": [0.0] * len(SIZE_ACTIONS),
+    }
+    model_path.write_text(json.dumps(model), encoding="utf-8")
+    exported = subprocess.run([
+        sys.executable, str(ROOT / "neural" / "export_behavior_v2.py"),
+        "--model", str(model_path), "--output", str(output_path),
+    ], cwd=ROOT, text=True, capture_output=True)
+    assert exported.returncode == 0, exported.stderr + exported.stdout
+    runtime_view = {
+        "rules": "rsi-poker-4.0", "street": BASE["street"], "board": BASE["board"],
+        "pot": BASE["pot"], "toCall": BASE["to_call"], "minRaiseTo": BASE["min_raise_to"],
+        "maxRaiseTo": BASE["max_raise_to"], "canRaise": BASE["can_raise"], "legal": BASE["legal"],
+        "me": {"seat": BASE["seat"], "cards": BASE["hole"], "position": BASE["position"],
+               "stack": BASE["stack"], "bet": BASE["me_bet"], "invested": BASE["invested"]},
+        "players": BASE["players"], "actions": BASE["history"],
+    }
+    script = (
+        f"const policy=require({json.dumps(str(output_path))});"
+        f"const view={json.dumps(runtime_view)};"
+        "console.log(JSON.stringify({features:policy.features(view),action:policy.act(view)}));"
+    )
+    runtime = subprocess.run(["node", "-e", script], cwd=ROOT, text=True, capture_output=True)
+    assert runtime.returncode == 0, runtime.stderr
+    runtime_result = json.loads(runtime.stdout)
+    assert max(abs(left - right) for left, right in zip(runtime_result["features"], features_v2)) < 1e-12
+    assert runtime_result["action"] == {"type": "check"}
+
 label, projection = action_bucket(BASE)
 assert ACTIONS[label] == "raise_0.50" and projection["error"] == 0
 assert ACTIONS[action_bucket(dict(BASE, action={"type": "fold"}))[0]] == "fold"
