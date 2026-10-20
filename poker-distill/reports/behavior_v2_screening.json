@@ -1,0 +1,68 @@
+{
+  "schema": "agx.behavior-v2-screening.v1",
+  "dataset": {
+    "version": "public-replay-bc-v1",
+    "matches": 100,
+    "hands": 24000,
+    "decisions": 202480,
+    "leaderboard_snapshot_date": "2026-10-20",
+    "top_10_participant_match_seats": 45,
+    "top_30_participant_match_seats": 144,
+    "total_participant_match_seats": 600,
+    "matches_with_no_top_30_participant": 53,
+    "selection_finding": "The first dataset is a broad population sample, not a Top-K teacher dataset."
+  },
+  "candidates": {
+    "sqrt_weight_cap_3": {
+      "model_json_sha256": "fec8f78fe3f656175161be3ac031ce316e4100a38961e20c964d877d22540036",
+      "training_report_sha256": "297df0d00748d2743d6013c5073df674629dd3e48e4acceb72782a2d270656f1",
+      "best_epoch": 26,
+      "test_family_accuracy": 0.7836780054116738,
+      "test_family_macro_f1": 0.6523012348614092,
+      "test_raise_size_accuracy": 0.6160130718954249,
+      "test_combined_10_action_accuracy": 0.762127947429455,
+      "quick_match_screen": {
+        "opponent": "baselines/submission_v1.js",
+        "matches": 30,
+        "seed": 7607,
+        "net": -352606,
+        "mean_net_per_match": -11753.53,
+        "approximate_95_percent_interval": [-17505.47, -6001.60],
+        "mbb_per_hand": -489.731,
+        "first_place_share": 0.0,
+        "invalid": 0,
+        "timeouts": 0,
+        "p99_action_ms": 0.497
+      }
+    },
+    "unweighted": {
+      "model_json_sha256": "1b149d14753474d2eeead4e595df78f83f91b2fc48a7bf524ce84423317f743a",
+      "training_report_sha256": "96fdfaa02c8b1e99d8bb83dbdcbe5817ad1e87485501315579ae31f0bc1bed24",
+      "best_epoch": 13,
+      "test_family_accuracy": 0.7933900270583688,
+      "test_family_macro_f1": 0.6479975943012081,
+      "test_raise_size_accuracy": 0.6418300653594772,
+      "test_combined_10_action_accuracy": 0.7702937765751836,
+      "quick_match_screen": {
+        "opponent": "baselines/submission_v1.js",
+        "matches": 30,
+        "seed": 7607,
+        "net": -129366,
+        "mean_net_per_match": -4312.2,
+        "approximate_95_percent_interval": [-9141.89, 517.49],
+        "mbb_per_hand": -179.675,
+        "first_place_share": 0.0667,
+        "invalid": 0,
+        "timeouts": 0,
+        "p99_action_ms": 0.496
+      }
+    }
+  },
+  "runtime": {
+    "source_bytes": 1477926,
+    "competition_source_limit_bytes": 4194304,
+    "observation_rules_regression_fixed": "simulator now emits rsi-poker-4.0 while the competition contract remains rsi-poker-4.1"
+  },
+  "decision": "Reject both population behavior clones as standalone deployment candidates.",
+  "next_step": "Build a leaderboard-snapshotted Top-K teacher dataset, then compare Top-K clone and a safety-gated hybrid against the heuristic baseline."
+}

@@ -18,6 +18,7 @@ from urllib.request import Request, urlopen
 
 
 API = "https://agx.cool/api/v1"
+DEFAULT_COMPETITION_ID = "b70f410e-2e0b-5136-8883-2e81f340cb7e"
 
 
 def request_bytes(url: str, api_key: str, attempts: int = 6) -> bytes:
@@ -36,9 +37,10 @@ def request_bytes(url: str, api_key: str, attempts: int = 6) -> bytes:
     raise AssertionError("unreachable")
 
 
-def list_jobs(api_key: str, limit: int, offset: int) -> tuple[list[dict], int]:
+def list_jobs(api_key: str, limit: int, offset: int, competition_id: str) -> tuple[list[dict], int]:
     query = urlencode({
         "game_id": "poker",
+        "competition_id": competition_id,
         "status": "succeeded",
         "public_only": "true",
         "limit": limit,
@@ -116,6 +118,7 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=100)
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--workers", type=int, default=3)
+    parser.add_argument("--competition-id", default=DEFAULT_COMPETITION_ID)
     args = parser.parse_args()
     if not 1 <= args.limit <= 100 or not 1 <= args.workers <= 8:
         raise SystemExit("limit must be 1..100 and workers must be 1..8")
@@ -127,12 +130,13 @@ def main() -> None:
     if free < 5 * 1024 ** 3:
         raise SystemExit(f"less than 5 GiB free: {free} bytes")
 
-    jobs, total = list_jobs(api_key, args.limit, args.offset)
+    jobs, total = list_jobs(api_key, args.limit, args.offset, args.competition_id)
     selection = {
         "selected_at_unix": int(time.time()),
         "available_total": total,
         "limit": args.limit,
         "offset": args.offset,
+        "competition_id": args.competition_id,
         "job_ids": [item["id"] for item in jobs],
     }
     write_json_atomic(args.output_dir / "selection.json", selection)
@@ -140,11 +144,18 @@ def main() -> None:
     completed: list[dict] = []
     failures: list[dict] = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
-        futures = {executor.submit(download_one, args.output_dir, item["id"], api_key): item["id"] for item in jobs}
+        futures = {executor.submit(download_one, args.output_dir, item["id"], api_key): item for item in jobs}
         for future in as_completed(futures):
-            job_id = futures[future]
+            item = futures[future]
+            job_id = item["id"]
             try:
                 row = future.result()
+                row["competition_id"] = item.get("competition_id")
+                row["created_at"] = item.get("created_at")
+                row["participants"] = [
+                    {"team": participant.get("team"), "display_name": participant.get("display_name")}
+                    for participant in item.get("participants", [])
+                ]
                 completed.append(row)
                 print(f"[{len(completed)}/{args.limit}] {row['status']} {job_id} {row['bytes']} bytes", flush=True)
             except Exception as exc:  # keep other downloads running and persist failures

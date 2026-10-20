@@ -389,6 +389,8 @@ No private opponent traces or hidden execution data were used.
 - [ ] 只用公开强手行为训练学生。
 - [ ] 衡量行为数据本身带来的提升。
 
+当前结论：第一批 100 场回放是广泛天梯人群样本，不是 Top-K 教师集。分层行为克隆 v2 已解决 v1 的罕见大注过度预测，并通过单文件、延迟和合法性校验；但在种子 7607 的 30 局快速筛查中，加权版与无权重版对 `baselines/submission_v1.js` 分别为 -489.731 和 -179.675 mbb/hand，均不允许晋级。详细证据见 `poker-distill/reports/behavior_v2_screening.json`。下一轮必须按排行榜快照筛选 Top-K 决策，不再用全人群硬标签平均。
+
 ### E3：求解器蒸馏
 
 - [ ] 只用求解器软标签训练。

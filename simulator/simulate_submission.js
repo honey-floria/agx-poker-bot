@@ -202,7 +202,9 @@ function publicView(game, seat) {
   const player = game.players[seat];
   const legal = legalState(game, seat);
   return {
-    rules: RULES.rulesVersion,
+    // Strategy observations use the simulator/observation schema version,
+    // which is intentionally distinct from the competition rules document.
+    rules: RULES.observationRules,
     hand: game.globalHand,
     rotation: game.rotation,
     rotationHand: game.rotationHand + 1,

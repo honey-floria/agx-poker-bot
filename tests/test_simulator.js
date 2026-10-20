@@ -23,6 +23,19 @@ assert.match(result.stdout, /候选上下文初始化：6（每局6次）/);
 assert.match(result.stdout, /mbb\/手：-?\d+\.\d{3}/);
 assert.match(result.stdout, /第一名份额：\d+\.\d{2}%/);
 
+const rulesProbe = spawnSync(process.execPath, [
+  path.join(root, "simulator", "simulate_submission.js"),
+  "--matches", "1",
+  "--seed", "99173",
+  "--candidate", path.join(root, "tests", "fixtures", "rules_probe_submission.js"),
+], {
+  cwd: root,
+  encoding: "utf8",
+  timeout: 30000,
+});
+assert.strictEqual(rulesProbe.status, 0, rulesProbe.stderr || rulesProbe.stdout);
+assert.match(rulesProbe.stdout, /非法\/异常：0；超预算：0；整局CPU超限：0/);
+
 const slow = spawnSync(process.execPath, [
   path.join(root, "simulator", "simulate_submission.js"),
   "--matches", "1",
