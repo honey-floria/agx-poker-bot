@@ -178,6 +178,11 @@ def main() -> None:
             "split_matches": {name: len(ids) for name, ids in split_ids.items()},
             "split_decisions": dict(split_decisions),
             "action_counts": {action: action_counts[action] for action in ACTIONS},
+            "teacher_match_appearances_by_rank": {
+                str(item["rank"]): selection.get("teacher_match_appearances", {}).get(item.get("display_name"), 0)
+                for item in selection.get("leaderboard", [])
+                if int(item.get("rank", args.top_k + 1)) <= args.top_k
+            },
             "teacher_rank_decisions": {str(rank): rank_counts[rank] for rank in range(1, args.top_k + 1)},
             "mean_raise_projection_error": round(projection_error_sum / max(1, projected_raises), 6),
             "files": {
