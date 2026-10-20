@@ -6,6 +6,7 @@ var STREETS=["preflop","flop","turn","river"];
 var POSITIONS=["BTN","SB","BB","UTG","HJ","CO"];
 var FAMILY=["fold","check","call","raise","allin"];
 var SIZES=[0.33,0.50,0.75,1.00,1.50,2.00];
+var COMPETITION_RULES_VERSION="rsi-poker-4.1";
 var OBSERVATION_RULES="rsi-poker-4.0";
 
 function clamp(x,lo,hi){return Math.max(lo,Math.min(hi,Number(x)||0));}

@@ -82,6 +82,10 @@ with tempfile.TemporaryDirectory(prefix="agx-bc-v2-runtime-") as temporary:
         "--model", str(model_path), "--output", str(output_path),
     ], cwd=ROOT, text=True, capture_output=True)
     assert exported.returncode == 0, exported.stderr + exported.stdout
+    validated = subprocess.run([
+        sys.executable, str(ROOT / "tools" / "validate.py"), str(output_path),
+    ], cwd=ROOT, text=True, capture_output=True)
+    assert validated.returncode == 0, validated.stderr + validated.stdout
     runtime_view = {
         "rules": "rsi-poker-4.0", "street": BASE["street"], "board": BASE["board"],
         "pot": BASE["pot"], "toCall": BASE["to_call"], "minRaiseTo": BASE["min_raise_to"],
