@@ -2,6 +2,35 @@
 
 本目录实现一条独立于现有启发式 `submission.js` 的神经网络路线。训练不会覆盖原模型；只有执行导出命令后，才会在根目录生成实验文件 `submission_nn.js`。
 
+## 公开回放行为克隆 v2
+
+`train_behavior_clone_v2.py` 是当前公开回放主训练入口。它使用 232 维、整桌旋转不变的公开状态特征，共享 MLP 主干后分为两个任务：先预测 `fold/check/call/raise/all-in` 动作族，只在普通加注样本上预测六个下注尺度。动作族在训练和评估时都应用合法动作硬掩码；类别权重采用上限为 3 的平方根反频率，避免 v1 严重过度预测罕见大尺度加注。
+
+服务器 GPU 环境中先运行两轮冒烟：
+
+```bash
+.venv/bin/python neural/train_behavior_clone_v2.py \
+  --device cuda \
+  --epochs 2 \
+  --patience 2 \
+  --loader-workers 0 \
+  --output-dir neural/artifacts/behavior-v2-smoke
+```
+
+通过后运行正式训练：
+
+```bash
+.venv/bin/python neural/train_behavior_clone_v2.py \
+  --device cuda \
+  --epochs 60 \
+  --patience 8 \
+  --batch-size 2048 \
+  --loader-workers 0 \
+  --output-dir neural/artifacts/behavior-v2
+```
+
+报告同时包含验证集和一次性测试集的动作族准确率、宏平均 F1、加注尺度准确率、组合十动作准确率及完整混淆矩阵。实验配置固定在 `poker-distill/experiments/behavior_v2.json`。
+
 ## 模型与算法
 
 模型是一个适合嵌入 QuickJS 的小型多层感知机：

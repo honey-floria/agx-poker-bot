@@ -1,0 +1,34 @@
+{
+  "description": "Legality-masked hierarchical replay behavior clone with rotation-invariant public-state features",
+  "dataset": {
+    "name": "public-replay-bc-v1",
+    "filters": {
+      "verified_complete_matches": 100,
+      "outcome_features": false,
+      "account_identity_features": false
+    },
+    "split": "match_id seed=7607 train=80 validation=10 test=10"
+  },
+  "teacher": {
+    "version": "public-replay-actions-v1",
+    "weights": {}
+  },
+  "student": {
+    "architecture": "232-192-128 shared trunk; 5-family head; 6-raise-size head",
+    "loss_weights": {
+      "family": 1.0,
+      "raise_size": 0.5,
+      "class_weighting": "sqrt_inverse_frequency",
+      "max_class_weight": 3.0,
+      "label_smoothing": 0.03
+    },
+    "quantization": "float32"
+  },
+  "training": {
+    "seed": 7607,
+    "epochs": 60,
+    "batch_size": 2048,
+    "patience": 8,
+    "selection_metric": "0.50*family_macro_f1 + 0.30*family_accuracy + 0.20*raise_size_accuracy"
+  }
+}

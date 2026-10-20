@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+from copy import deepcopy
 from pathlib import Path
 import subprocess
 import sys
@@ -12,6 +13,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "neural"))
 sys.path.insert(0, str(ROOT / "tools"))
 from replay_data import ACTIONS, INPUT_SIZE, action_bucket, decision_features
+from replay_data_v2 import (
+    FAMILY_ACTIONS, INPUT_SIZE_V2, SIZE_ACTIONS,
+    decision_features_v2, hierarchical_target, legal_family_mask,
+)
 from build_replay_dataset import assign_splits
 
 
@@ -33,6 +38,28 @@ no_outcome = dict(BASE, final_net=-9999, match_net=-9999, final_rank=6)
 assert decision_features(no_outcome) == features
 suit_swapped = dict(BASE, hole=["Ah", "Ks"], board=["Qc", "Jd", "2h"])
 assert decision_features(suit_swapped) == features
+
+features_v2 = decision_features_v2(BASE)
+assert len(features_v2) == INPUT_SIZE_V2 and all(0 <= value <= 1 for value in features_v2)
+assert decision_features_v2(no_outcome) == features_v2
+assert decision_features_v2(suit_swapped) == features_v2
+family, size = hierarchical_target(BASE)
+assert FAMILY_ACTIONS[family] == "raise" and SIZE_ACTIONS[size] == "0.50"
+assert legal_family_mask(BASE) == [False, True, False, True, True]
+
+# Rotating every physical seat while keeping relative position unchanged must
+# not change v2 input. Account display names are deliberately changed too.
+rotated = deepcopy(BASE)
+rotated["seat"] = (BASE["seat"] + 1) % 6
+rotated["button"] = (BASE["button"] + 1) % 6
+rotated["player"] = "different-account"
+for item in rotated["players"]:
+    item["seat"] = (item["seat"] + 1) % 6
+    item["player"] = f"changed-{item['player']}"
+for item in rotated["history"]:
+    item["seat"] = (item["seat"] + 1) % 6
+    item["player"] = "changed-history-account"
+assert decision_features_v2(rotated) == features_v2
 
 label, projection = action_bucket(BASE)
 assert ACTIONS[label] == "raise_0.50" and projection["error"] == 0
