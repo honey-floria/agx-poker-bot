@@ -1,0 +1,89 @@
+{
+  "schema": "agx.behavior-v3-top20-screening.v1",
+  "dataset": {
+    "version": "public-replay-top20-v1",
+    "matches": 300,
+    "hands": 72000,
+    "decisions": 151570,
+    "split_matches": {"train": 240, "validation": 30, "test": 30},
+    "split_decisions": {"train": 122860, "validation": 15753, "test": 12957},
+    "teacher_match_appearances_min": 24,
+    "teacher_match_appearances_max": 26,
+    "failed_replays": 0
+  },
+  "training": {
+    "unweighted": {
+      "model_json_sha256": "90f7f29f3a3feb22421bd6bac9431f0bb49d1cecc33a981a2b4fa6a774821c36",
+      "training_report_sha256": "9a7774bcd9203388789159f5b94dd0ef535c015eed98c8ac3fd9fd916047b887",
+      "best_epoch": 31,
+      "test_family_accuracy": 0.8217951686347148,
+      "test_family_macro_f1": 0.6152602452567655,
+      "test_raise_size_accuracy": 0.7035222052067381,
+      "test_combined_10_action_accuracy": 0.7659180365825422
+    },
+    "sqrt_weight_cap_3": {
+      "model_json_sha256": "a49b376caf98ed1e9c028b9ff55d7918ffa6ab1dd6adfe22b066bd63732e90f8",
+      "training_report_sha256": "da213bc9eb25efb8bdf5ac91b5ce54d3a0a14105cb320c6bd4ebc4ffefe58a32",
+      "best_epoch": 33,
+      "test_family_accuracy": 0.8006482982171799,
+      "test_family_macro_f1": 0.6289958042905505,
+      "test_raise_size_accuracy": 0.7007656967840735,
+      "test_combined_10_action_accuracy": 0.7528748938797561
+    }
+  },
+  "paired_screen": {
+    "opponent": "baselines/submission_v1.js",
+    "matches": 30,
+    "seed": 7607,
+    "reference_heuristic": {
+      "net": 381434,
+      "mean_net_per_match": 12714.47,
+      "approximate_95_percent_interval": [7160.47, 18268.46],
+      "mbb_per_hand": 529.769,
+      "first_place_share": 0.5667
+    },
+    "standalone_unweighted": {
+      "net": -225241,
+      "mean_net_per_match": -7508.03,
+      "approximate_95_percent_interval": [-11727.38, -3288.69],
+      "mbb_per_hand": -312.835,
+      "first_place_share": 0.0333,
+      "invalid": 0,
+      "timeouts": 0,
+      "p99_action_ms": 0.493
+    },
+    "standalone_sqrt": {
+      "net": -495316,
+      "mean_net_per_match": -16510.53,
+      "approximate_95_percent_interval": [-23104.96, -9916.10],
+      "mbb_per_hand": -687.939,
+      "first_place_share": 0.0333,
+      "invalid": 0,
+      "timeouts": 0,
+      "p99_action_ms": 0.491
+    },
+    "hybrid_family_agreement": {
+      "net": 330486,
+      "mbb_per_hand": 459.008,
+      "first_place_share": 0.4333,
+      "invalid": 0,
+      "timeouts": 0
+    },
+    "hybrid_postflop_confidence_0_95": {
+      "net": 364599,
+      "mbb_per_hand": 506.387,
+      "first_place_share": 0.4667,
+      "invalid": 0,
+      "timeouts": 0
+    },
+    "hybrid_postflop_confidence_0_99": {
+      "net": 369923,
+      "mbb_per_hand": 513.782,
+      "first_place_share": 0.5333,
+      "invalid": 0,
+      "timeouts": 0
+    }
+  },
+  "decision": "Reject both standalone clones and all three tested hybrid gates; every hybrid trails the reference heuristic on identical deals.",
+  "next_step": "Keep the verified Top-20 corpus for opponent modeling, but move policy improvement to EV/regret labels and difficult-state sampling rather than additional hard-label behavior-clone epochs."
+}

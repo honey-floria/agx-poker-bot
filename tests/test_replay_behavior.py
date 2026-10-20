@@ -67,7 +67,7 @@ assert decision_features_v2(rotated) == features_v2
 # aligned; a zero-weight fixture also exercises legality-masked runtime action.
 with tempfile.TemporaryDirectory(prefix="agx-bc-v2-runtime-") as temporary:
     folder = Path(temporary)
-    model_path, output_path = folder / "model.json", folder / "submission.js"
+    model_path, output_path, hybrid_path = folder / "model.json", folder / "submission.js", folder / "hybrid.js"
     model = {
         "format": "agx-poker-bc-v2", "data_version": "public-replay-bc-v1",
         "feature_version": "public-replay-features-v2", "input_size": INPUT_SIZE_V2,
@@ -88,6 +88,16 @@ with tempfile.TemporaryDirectory(prefix="agx-bc-v2-runtime-") as temporary:
         sys.executable, str(ROOT / "tools" / "validate.py"), str(output_path),
     ], cwd=ROOT, text=True, capture_output=True)
     assert validated.returncode == 0, validated.stderr + validated.stdout
+    hybrid = subprocess.run([
+        sys.executable, str(ROOT / "neural" / "export_behavior_hybrid.py"),
+        "--neural", str(output_path), "--output", str(hybrid_path),
+        "--min-confidence", "0.99",
+    ], cwd=ROOT, text=True, capture_output=True)
+    assert hybrid.returncode == 0, hybrid.stderr + hybrid.stdout
+    hybrid_validated = subprocess.run([
+        sys.executable, str(ROOT / "tools" / "validate.py"), str(hybrid_path),
+    ], cwd=ROOT, text=True, capture_output=True)
+    assert hybrid_validated.returncode == 0, hybrid_validated.stderr + hybrid_validated.stdout
     runtime_view = {
         "rules": "rsi-poker-4.0", "street": BASE["street"], "board": BASE["board"],
         "pot": BASE["pot"], "toCall": BASE["to_call"], "minRaiseTo": BASE["min_raise_to"],
