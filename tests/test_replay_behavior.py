@@ -20,6 +20,8 @@ from replay_data_v2 import (
 )
 from build_replay_dataset import assign_splits
 from download_agx_top_teacher_replays import balanced_selection
+from label_ev_proxy import decision_state, proxy_label
+from mine_difficult_states import difficulty_score
 
 
 BASE = {
@@ -48,6 +50,16 @@ assert decision_features_v2(suit_swapped) == features_v2
 family, size = hierarchical_target(BASE)
 assert FAMILY_ACTIONS[family] == "raise" and SIZE_ACTIONS[size] == "0.50"
 assert legal_family_mask(BASE) == [False, True, False, True, True]
+assert difficulty_score(False, 0.5, 0.2, 1000) > difficulty_score(True, 0.9, 0.8, 100)
+proxy_state = decision_state(BASE)
+assert proxy_state["opponents"] == 5 and proxy_state["street"] == 1
+proxy = proxy_label(BASE, trials=8, seed=7607, temperature_bb=4.0)
+assert proxy["version"] == "equity-ev-proxy-v1"
+assert len(proxy["action_evs"]) == len(ACTIONS) == len(proxy["policy"])
+assert abs(sum(proxy["policy"]) - 1.0) < 1e-6
+assert proxy["action_evs"][0] is None and proxy["action_evs"][1] is not None
+assert proxy["observed_regret"] >= 0 and 0 <= proxy["confidence"] <= 1
+assert abs(sum(proxy["fusion_weights"].values()) - 1.0) < 1e-8
 
 # Rotating every physical seat while keeping relative position unchanged must
 # not change v2 input. Account display names are deliberately changed too.
