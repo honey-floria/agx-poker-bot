@@ -50,6 +50,9 @@ assert decision_features_v2(suit_swapped) == features_v2
 family, size = hierarchical_target(BASE)
 assert FAMILY_ACTIONS[family] == "raise" and SIZE_ACTIONS[size] == "0.50"
 assert legal_family_mask(BASE) == [False, True, False, True, True]
+missing_can_raise = dict(BASE)
+missing_can_raise.pop("can_raise")
+assert decision_features_v2(missing_can_raise) == features_v2
 assert difficulty_score(False, 0.5, 0.2, 1000) > difficulty_score(True, 0.9, 0.8, 100)
 proxy_state = decision_state(BASE)
 assert proxy_state["opponents"] == 5 and proxy_state["street"] == 1
@@ -198,6 +201,7 @@ with tempfile.TemporaryDirectory(prefix="agx-dataset-") as temporary:
     rows = [json.loads(line) for line in (output / "all.jsonl").read_text().splitlines()]
     assert len(rows) == 6 and all(row["match_id"] == "fixture-public" for row in rows)
     assert all("action_bucket" in row and "players" in row for row in rows)
+    assert all(isinstance(row["can_raise"], bool) for row in rows)
     manifest = json.loads((reports / "dataset.json").read_text())
     assert manifest["matches"] == 1 and manifest["decisions"] == 6
 

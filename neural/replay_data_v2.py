@@ -82,6 +82,9 @@ def decision_features_v2(decision: dict) -> list[float]:
     invested = max(0, int(decision.get("invested", 0)))
     minimum = max(0, int(decision.get("min_raise_to", 0)))
     maximum = max(0, int(decision.get("max_raise_to", 0)))
+    can_raise_value = decision.get("can_raise")
+    if can_raise_value is None:
+        can_raise_value = "raise" in decision.get("legal", []) or "bet" in decision.get("legal", [])
     players = list(decision.get("players", []))
     active_players = [item for item in players if item.get("state") in ("in", "allin")]
     opponent_stacks = [max(0, int(item.get("stack", 0))) for item in active_players if item.get("seat") != decision.get("seat")]
@@ -96,7 +99,7 @@ def decision_features_v2(decision: dict) -> list[float]:
         _clamp(to_call / max(1, pot + to_call)), _clamp(stack / max(1, pot) / 20),
         _clamp(effective / 10_000), _clamp(effective / max(1, pot) / 20),
         _clamp(active / 6), _clamp(all_in / 6), _clamp(folded / 6),
-        float(bool(decision.get("can_raise"))),
+        float(bool(can_raise_value)),
     ])
 
     # Physical seat numbers are arbitrary.  Arrange all players relative to

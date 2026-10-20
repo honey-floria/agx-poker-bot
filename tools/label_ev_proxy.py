@@ -46,7 +46,11 @@ def decision_state(row: dict) -> dict:
             item.get("street") == row["street"] and item.get("type") in ("bet", "raise", "allin") for item in history
         ),
         "callers": sum(item.get("street") == row["street"] and item.get("type") == "call" for item in history),
-        "can_raise": bool(row.get("can_raise")),
+        "can_raise": bool(
+            row.get("can_raise")
+            if row.get("can_raise") is not None
+            else ("raise" in row.get("legal", []) or "bet" in row.get("legal", []))
+        ),
     }
 
 

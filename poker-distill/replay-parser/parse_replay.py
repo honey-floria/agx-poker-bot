@@ -199,6 +199,7 @@ def parse_match(match: dict) -> tuple[list[dict], dict]:
                     "legal": view["legal"],
                     "min_raise_to": view["minRaiseTo"],
                     "max_raise_to": view["maxRaiseTo"],
+                    "can_raise": view["canRaise"],
                     "history": view["actions"],
                     "players": view["players"],
                     "action": actual,
