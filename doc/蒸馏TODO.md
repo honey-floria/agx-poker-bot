@@ -115,7 +115,7 @@ poker-distill/
 
 ### 2.3 一致性测试
 
-- [ ] 使用公开回放逐动作重放至少 100 局。
+- [x] 使用公开回放逐动作重放至少 100 局。
 - [x] 每个事件后核对底池、筹码、投入和玩家状态。
 - [x] 验证每手六名玩家净收益之和为 0。
 - [x] 验证任意时刻桌面筹码加底池总额为 60,000。
@@ -125,13 +125,15 @@ poker-distill/
 
 ### 2.4 回放就绪与第一版行为克隆
 
-- [ ] 批量逐动作验证 100 场完整公开回放，失败时保持门禁关闭。
-- [ ] 合并统一决策 JSONL，并记录来源哈希、动作分布和投影误差。
-- [ ] 用可复核的验证报告与数据清单自动更新环境门禁至 `100/100`。
-- [ ] 按完整 `match_id` 做确定性 train/validation/test 切分，禁止同局泄漏。
-- [ ] 建立无账户身份、无赛后结果泄漏的特征编码和 10 动作桶行为克隆训练入口。
+- [x] 批量逐动作验证 100 场完整公开回放，失败时保持门禁关闭。
+- [x] 合并统一决策 JSONL，并记录来源哈希、动作分布和投影误差。
+- [x] 用可复核的验证报告与数据清单自动更新环境门禁至 `100/100`。
+- [x] 按完整 `match_id` 做确定性 train/validation/test 切分，禁止同局泄漏。
+- [x] 建立无账户身份、无赛后结果泄漏的特征编码和 10 动作桶行为克隆训练入口。
 
-实现状态：精确引擎位于 `poker-distill/simulator/engine.py`，回放解析器位于 `poker-distill/replay-parser/parse_replay.py`。固定种子 7607 的 100,000 手压力测试已通过，报告为 `poker-distill/reports/engine_stress_100k.json`。当前环境无法连接 AGX 规则/回放 API，且没有本地公开回放样本，因此“下载公开回放”和“逐动作重放至少 100 局”仍保持未完成；`tools/environment_gate.py` 已在训练入口强制阻止大规模蒸馏，只允许显式的最多 10,000 样本流程冒烟。底牌字段只接受有权限的完整轨迹，解析器不会从公开信息猜测私有底牌。
+实现状态：精确引擎位于 `poker-distill/simulator/engine.py`，回放解析器位于 `poker-distill/replay-parser/parse_replay.py`。固定种子 7607 的 100,000 手压力测试已通过，报告为 `poker-distill/reports/engine_stress_100k.json`。`tools/build_replay_dataset.py` 已对 100 场、24,000 手完整回放逐事件验证，全部通过并生成 202,480 个决策；验证报告为 `poker-distill/reports/replay_validation_100.json`，数据清单为 `poker-distill/reports/replay_dataset_manifest.json`。
+
+数据以完整对局为单位，用种子 7607 确定性分为 80/10/10 场，对应 163,629/18,155/20,696 个 train/validation/test 决策，不存在 `match_id` 交叉。统一 JSONL 保存于服务器 `poker-distill/data/parsed-decisions/`（已被 Git 忽略）。`neural/replay_data.py` 提供 104 维身份无关、结果无关的特征和 10 动作桶；`neural/train_behavior_clone.py` 提供带类别权重、标签平滑和早停的训练入口。`tools/environment_gate.py require` 已校验证据文件哈希并正式放行大规模训练。底牌字段只接受有权限的完整轨迹，解析器不会从公开信息猜测私有底牌。
 
 ---
 

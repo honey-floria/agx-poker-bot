@@ -17,12 +17,15 @@ from environment_gate import require_training_allowed
 HOLES = [["As", "Ah"], ["Ks", "Kh"], ["Qs", "Qh"], ["Js", "Jh"], ["Ts", "Th"], ["9s", "9h"]]
 
 assert evaluate(["As", "Ah", "Ad", "Ks", "Kh", "Kd", "2c"])[:3] == (6, 14, 13)
-require_training_allowed(10_000, pipeline_smoke=True)
-try:
-    require_training_allowed(10_001, pipeline_smoke=True)
-    raise AssertionError("large-scale environment gate did not block training")
-except RuntimeError:
-    pass
+gate_status = require_training_allowed(10_000, pipeline_smoke=True)
+if gate_status["ready_for_large_scale_distillation"]:
+    assert require_training_allowed(10_001, pipeline_smoke=True) == gate_status
+else:
+    try:
+        require_training_allowed(10_001, pipeline_smoke=True)
+        raise AssertionError("large-scale environment gate did not block training")
+    except RuntimeError:
+        pass
 
 
 def fold_to_winner(hand: PokerHand) -> None:
