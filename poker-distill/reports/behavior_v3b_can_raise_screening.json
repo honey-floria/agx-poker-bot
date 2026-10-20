@@ -1,0 +1,77 @@
+{
+  "schema": "agx.behavior-v3b-can-raise-screening.v1",
+  "fix": {
+    "cause": "The replay parser omitted can_raise. Training encoded the missing value as false while the QuickJS runtime encoded the live canRaise value, causing train/deploy feature drift.",
+    "parser_change": "Persist view.canRaise in every parsed decision.",
+    "backward_compatibility": "For existing JSONL, infer can_raise from the presence of legal raise/bet actions.",
+    "regression_test": "A decision with omitted can_raise must encode identically to the same decision with can_raise=true when raise is legal."
+  },
+  "dataset": {
+    "version": "public-replay-top20-v1",
+    "matches": 300,
+    "decisions": 151570,
+    "reused_without_rebuild": true
+  },
+  "training": {
+    "unweighted": {
+      "model_json_sha256": "eb899a9bb1edeee9a57f21b1d19faa637a43e76752ddf342da692c60cf05f733",
+      "training_report_sha256": "494f655124db437f5c3c334c4b6d339975027bcfc32f6b8af2eb73eb7952dad5",
+      "best_epoch": 37,
+      "test_family_accuracy": 0.8262715134676237,
+      "test_family_macro_f1": 0.6018013792156338,
+      "test_raise_size_accuracy": 0.6970903522205206,
+      "test_combined_10_action_accuracy": 0.769391062746006
+    },
+    "sqrt_weight_cap_3": {
+      "model_json_sha256": "3eaf798d4e6da95e45ea76ef10c70bc885b0445438c4b6f1045cd5d3ddd4799c",
+      "training_report_sha256": "42530de15ba662ced26f8ea21cc31119896038a1770e3bd19879266715e6d50a",
+      "best_epoch": 33,
+      "test_family_accuracy": 0.8014200818090608,
+      "test_family_macro_f1": 0.6314291468242714,
+      "test_raise_size_accuracy": 0.7004594180704441,
+      "test_combined_10_action_accuracy": 0.7551130662962106
+    }
+  },
+  "paired_screen": {
+    "opponent": "baselines/submission_v1.js",
+    "matches": 30,
+    "seed": 7607,
+    "reference_heuristic_mbb_per_hand": 529.769,
+    "standalone_unweighted": {
+      "net": 11437,
+      "mean_net_per_match": 381.23,
+      "approximate_95_percent_interval": [-5054.20, 5816.67],
+      "mbb_per_hand": 15.885,
+      "first_place_share": 0.10,
+      "invalid": 0,
+      "timeouts": 0,
+      "p99_action_ms": 0.490
+    },
+    "standalone_sqrt": {
+      "net": -448590,
+      "mean_net_per_match": -14953.00,
+      "approximate_95_percent_interval": [-21193.10, -8712.90],
+      "mbb_per_hand": -623.042,
+      "first_place_share": 0.1333,
+      "invalid": 0,
+      "timeouts": 0,
+      "p99_action_ms": 0.475
+    },
+    "hybrid_postflop_confidence_0_95": {
+      "net": 365207,
+      "mbb_per_hand": 507.232,
+      "first_place_share": 0.5667,
+      "invalid": 0,
+      "timeouts": 0
+    },
+    "hybrid_postflop_confidence_0_99": {
+      "net": 373513,
+      "mbb_per_hand": 518.768,
+      "first_place_share": 0.5333,
+      "invalid": 0,
+      "timeouts": 0
+    }
+  },
+  "decision": "The feature-drift fix changes unweighted standalone performance from -312.835 to +15.885 mbb/hand, confirming the defect was material. Do not promote: standalone remains far below the heuristic, and both corrected hybrids trail the heuristic on identical deals.",
+  "next_step": "Use the corrected unweighted model only for difficult-state mining. Calibrate or replace the aggressive equity EV proxy before training any value/regret student."
+}

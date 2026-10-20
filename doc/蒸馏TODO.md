@@ -189,7 +189,7 @@ poker-distill/
 
 实现状态：已固定一次 Top-20 排行榜快照，从最近 2,000 场可用比赛中均衡选择并验证 300/300 场完整回放，共 72,000 手、151,570 条强手决策；每个名次覆盖 24–26 场、约 6,700–9,200 条决策。完整比赛按种子 7607 划分为 240/30/30 场，账户名称只存在于 Git 忽略的原始清单，训练数据只保留匿名身份和教师名次。审计文件为 `poker-distill/reports/top20_replay_validation_300.json` 与 `poker-distill/reports/top20_dataset_manifest.json`。
 
-Top-20 硬标签行为克隆的离线分类指标合格，但固定牌序对战失败：unweighted 与 sqrt-weighted 独立策略分别为 -312.835 和 -687.939 mbb/手。以现有启发式为安全回退的动作族一致、翻后置信度 0.95、0.99 三种混合均未超过启发式参考（459.008、506.387、513.782 对 529.769 mbb/手），因此全部拒绝晋级。完整结果见 `poker-distill/reports/behavior_v3_top20_screening.json`；下一步保留该语料用于对手建模，策略提升转向 EV/regret 教师和困难状态采样，不再增加纯硬标签训练轮数。
+首次 Top-20 筛选随后被判定为无效诊断：回放解析器漏写 `can_raise`，训练时该特征恒为 0，而部署时读取实时 `canRaise`，造成训练/部署漂移。解析器现已保存该字段，旧 JSONL 则从合法 `raise/bet` 动作向后兼容推导，并有特征一致性回归测试。修复后 unweighted 独立策略由 -312.835 提升到 +15.885 mbb/手，证明缺陷影响重大；sqrt-weighted 为 -623.042。翻后置信度 0.95/0.99 混合为 507.232/518.768 mbb/手，仍低于同牌序启发式 529.769，因此没有替换正式提交。旧结果保留在 `behavior_v3_top20_screening.json` 并标为 superseded，修复后报告为 `poker-distill/reports/behavior_v3b_can_raise_screening.json`。
 
 ---
 
@@ -320,13 +320,17 @@ L = 1.00 * policy_KL
 
 - [ ] 用学生 `S0` 对战完整本地对手池。
 - [ ] 收集学生实际到达的状态。
-- [ ] 标记低置信度、教师冲突和高损失状态。
+- [x] 标记低置信度、教师冲突和高损失状态。
 - [ ] 让求解器重新标注这些状态。
-- [ ] 将状态加入 `data/dagger/round_1`。
+- [x] 将状态加入 `data/dagger/round_1`。
 - [ ] 训练 `S1` 并重复评测。
 - [ ] 至少完成 3 轮 DAgger。
 - [ ] 比较每轮 OOD 状态比例和平均动作 regret。
 - [ ] 当新增一轮带来的离线收益低于门槛时停止。
+
+实现状态：使用修复后的 Top-20 unweighted 模型扫描 122,860 条训练决策，其中 23,359 条为翻后状态、6,011 条动作族预测错误。`tools/mine_difficult_states.py` 结合错误、低置信度、低 margin 和大底池权重，确定性选出 10,000 条困难状态并保存到服务器 `poker-distill/data/dagger/round_1/`；审计报告为 `poker-distill/reports/difficult_states_round1.json`。
+
+`tools/label_ev_proxy.py` 已为最高难度的 1,000 条状态生成 `equity-ev-proxy-v1` 诊断标签，包括 10 动作 EV、软策略、state value、观察动作 regret、教师置信度和融合权重。该代理明确不是 MCCFR/均衡求解器。首轮审计中 937/1,000 个最佳动作是加注，平均观察 regret 为 933.553 筹码，暴露出被跟注后权益折损建模不足、明显过度进攻，因此这些标签尚未通过训练门禁，也不勾选“让求解器重新标注”。报告为 `poker-distill/reports/ev_proxy_round1_1000.json`；下一步先校准对手响应与 conditional equity，再重新审计动作分布和 regret。
 
 ---
 

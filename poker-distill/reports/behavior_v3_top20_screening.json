@@ -1,5 +1,7 @@
 {
   "schema": "agx.behavior-v3-top20-screening.v1",
+  "superseded_by": "poker-distill/reports/behavior_v3b_can_raise_screening.json",
+  "validity": "Historical diagnostic only: these models were trained with missing can_raise encoded as false while runtime observations used the live value.",
   "dataset": {
     "version": "public-replay-top20-v1",
     "matches": 300,
