@@ -1,0 +1,43 @@
+{
+  "description": "Leaderboard-snapshotted Top-20 behavior clone; only teacher decisions are labels while all six public states remain context",
+  "dataset": {
+    "name": "public-replay-top20-v1",
+    "filters": {
+      "verified_complete_matches": 300,
+      "leaderboard_top_k": 20,
+      "teacher_actions_only": true,
+      "outcome_features": false,
+      "account_identity_features": false
+    },
+    "split": "match_id seed=7607 train=80% validation=10% test=10%"
+  },
+  "teacher": {
+    "version": "leaderboard-top20-public-actions-v1",
+    "weights": {
+      "ranking": "none",
+      "outcome": "none"
+    }
+  },
+  "student": {
+    "architecture": "232-192-128 shared trunk; 5-family head; 6-raise-size head",
+    "loss_weights": {
+      "family": 1.0,
+      "raise_size": 0.5,
+      "class_weighting_candidates": ["none", "sqrt_inverse_frequency"],
+      "max_class_weight": 3.0,
+      "label_smoothing": 0.03
+    },
+    "quantization": "float32"
+  },
+  "training": {
+    "seed": 7607,
+    "epochs": 60,
+    "batch_size": 2048,
+    "patience": 8,
+    "selection_metric": "0.50*family_macro_f1 + 0.30*family_accuracy + 0.20*raise_size_accuracy"
+  },
+  "promotion_gate": {
+    "standalone": "must beat baselines/submission_v1.js in paired local matches",
+    "hybrid": "compare confidence-gated integration if standalone does not pass"
+  }
+}

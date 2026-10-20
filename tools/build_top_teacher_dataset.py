@@ -89,7 +89,9 @@ def main() -> None:
                 rank_by_anon = {anon_for[team]: rank for team, rank in rank_by_team.items() if team in anon_for}
                 if not rank_by_anon:
                     raise ValueError("replay participant mapping does not match job metadata")
-                decisions, parsed = parse_match(document)
+                # Reuse the already validated normalization so the 30 MB-class
+                # aggregate is not traversed and allocated a second time.
+                decisions, parsed = parse_match(normalized)
                 split = split_for[job_id]
                 selected_count = 0
                 for decision in decisions:

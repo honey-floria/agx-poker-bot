@@ -31,6 +31,43 @@
 
 报告同时包含验证集和一次性测试集的动作族准确率、宏平均 F1、加注尺度准确率、组合十动作准确率及完整混淆矩阵。实验配置固定在 `poker-distill/experiments/behavior_v2.json`。
 
+## Top-20 教师数据
+
+第一批 100 场回放是总体玩家样本，不能视为强手教师。Top-20 路线先固定排行榜快照，从最近比赛中均衡选择含第 1–20 名的 300 场完整回放；构建数据集时仅把这些强手的动作当作监督标签，但保留同桌所有玩家的公开状态作为输入上下文。教师姓名只保存在 Git 忽略的原始下载清单中，训练 JSONL 只含匿名玩家和教师名次档位。
+
+服务器上下载并构建数据：
+
+```bash
+set -a
+source .env.local
+set +a
+python3 tools/download_agx_top_teacher_replays.py \
+  --output-dir poker-distill/data/raw-replays/top20 \
+  --top-k 20 --matches 300 --scan-jobs 2000 --workers 3
+python3 tools/build_top_teacher_dataset.py \
+  --raw-dir poker-distill/data/raw-replays/top20 \
+  --output-dir poker-distill/data/parsed-decisions/top20 \
+  --top-k 20 --required 300
+```
+
+训练器会从 JSONL 自动读取并校验 `data_version`。先训练不加类别权重版本；随后用相同划分训练平方根反频率版本作对照：
+
+```bash
+.venv/bin/python neural/train_behavior_clone_v2.py \
+  --data-dir poker-distill/data/parsed-decisions/top20 \
+  --device cuda --epochs 60 --patience 8 --batch-size 2048 \
+  --loader-workers 0 --class-weighting none \
+  --output-dir neural/artifacts/behavior-v3-top20-unweighted
+
+.venv/bin/python neural/train_behavior_clone_v2.py \
+  --data-dir poker-distill/data/parsed-decisions/top20 \
+  --device cuda --epochs 60 --patience 8 --batch-size 2048 \
+  --loader-workers 0 --class-weighting sqrt --max-class-weight 3 \
+  --output-dir neural/artifacts/behavior-v3-top20-sqrt
+```
+
+实验配置固定在 `poker-distill/experiments/behavior_v3_top20.json`。离线准确率只用于选检查点，是否晋级仍以固定牌序对战收益、非法动作、超时和运行预算为准。
+
 ## 模型与算法
 
 模型是一个适合嵌入 QuickJS 的小型多层感知机：
