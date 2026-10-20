@@ -49,7 +49,18 @@ class HierarchicalBehaviorMLP(nn.Module):
         return self.family_head(hidden), self.size_head(hidden)
 
 
-def dataset(path: Path) -> tuple[TensorDataset, Counter[int], Counter[int]]:
+def detected_data_version(path: Path) -> str:
+    with path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if line.strip():
+                version = json.loads(line).get("data_version")
+                if not isinstance(version, str) or not version:
+                    raise RuntimeError(f"missing data_version: {path}")
+                return version
+    raise RuntimeError(f"empty dataset: {path}")
+
+
+def dataset(path: Path, expected_data_version: str) -> tuple[TensorDataset, Counter[int], Counter[int]]:
     with path.open("r", encoding="utf-8") as handle:
         count = sum(1 for line in handle if line.strip())
     if count == 0:
@@ -66,6 +77,11 @@ def dataset(path: Path) -> tuple[TensorDataset, Counter[int], Counter[int]]:
             if not line.strip():
                 continue
             row = json.loads(line)
+            if row.get("data_version") != expected_data_version:
+                raise RuntimeError(
+                    f"data_version mismatch in {path}:{line_number}: "
+                    f"expected {expected_data_version!r}, got {row.get('data_version')!r}"
+                )
             family, size = hierarchical_target(row)
             mask = legal_family_mask(row)
             if not mask[family]:
@@ -199,7 +215,7 @@ def export_model(model: HierarchicalBehaviorMLP, args, path: Path) -> None:
     trunk_layers = [layer for layer in model.trunk if isinstance(layer, nn.Linear)]
     value = {
         "format": "agx-poker-bc-v2",
-        "data_version": "public-replay-bc-v1",
+        "data_version": args.data_version,
         "feature_version": "public-replay-features-v2",
         "input_size": INPUT_SIZE_V2,
         "hidden1_size": args.hidden1,
@@ -234,6 +250,7 @@ def compact_metrics(value: dict) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description="训练合法动作掩码与分层动作头的公开回放行为克隆 v2")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "poker-distill" / "data" / "parsed-decisions")
+    parser.add_argument("--data-version", help="预期的数据版本；默认从训练集首行读取并校验全部划分")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "neural" / "artifacts" / "behavior-v2")
     parser.add_argument("--epochs", type=int, default=60)
     parser.add_argument("--batch-size", type=int, default=2048)
@@ -251,6 +268,7 @@ def main() -> None:
     parser.add_argument("--device", choices=("auto", "cuda", "cpu"), default="auto")
     parser.add_argument("--skip-test", action="store_true")
     args = parser.parse_args()
+    args.data_version = args.data_version or detected_data_version(args.data_dir / "train.jsonl")
 
     load_and_check_rules()
     status = load_status()
@@ -266,8 +284,8 @@ def main() -> None:
         raise RuntimeError("CUDA requested but unavailable")
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    train_set, train_family_counts, train_size_counts = dataset(args.data_dir / "train.jsonl")
-    validation_set, validation_family_counts, validation_size_counts = dataset(args.data_dir / "validation.jsonl")
+    train_set, train_family_counts, train_size_counts = dataset(args.data_dir / "train.jsonl", args.data_version)
+    validation_set, validation_family_counts, validation_size_counts = dataset(args.data_dir / "validation.jsonl", args.data_version)
     options = {"batch_size": args.batch_size, "num_workers": args.loader_workers, "pin_memory": device.type == "cuda"}
     train_loader = DataLoader(train_set, shuffle=True, **options)
     validation_loader = DataLoader(validation_set, shuffle=False, **options)
@@ -325,7 +343,7 @@ def main() -> None:
     test_metrics = None
     test_counts = None
     if not args.skip_test:
-        test_set, test_family_counts, test_size_counts = dataset(args.data_dir / "test.jsonl")
+        test_set, test_family_counts, test_size_counts = dataset(args.data_dir / "test.jsonl", args.data_version)
         test_loader = DataLoader(test_set, shuffle=False, **options)
         test_metrics = evaluate(model, test_loader, device, family_criterion, size_criterion, args.size_loss_weight)
         test_counts = {
@@ -336,6 +354,7 @@ def main() -> None:
 
     checkpoint = {
         "format": "agx-poker-bc-v2",
+        "data_version": args.data_version,
         "feature_version": "public-replay-features-v2",
         "model_state": model.state_dict(),
         "input_size": INPUT_SIZE_V2,
@@ -349,6 +368,7 @@ def main() -> None:
     export_model(model, args, args.output_dir / "model.json")
     report = {
         "format": "agx-poker-bc-training-v2",
+        "data_version": args.data_version,
         "device": str(device),
         "gpu": torch.cuda.get_device_name(0) if device.type == "cuda" else None,
         "seed": args.seed,

@@ -19,6 +19,7 @@ from replay_data_v2 import (
     decision_features_v2, hierarchical_target, legal_family_mask,
 )
 from build_replay_dataset import assign_splits
+from download_agx_top_teacher_replays import balanced_selection
 
 
 BASE = {
@@ -120,6 +121,19 @@ assert list(splits.values()).count("train") == 80
 assert list(splits.values()).count("validation") == 10
 assert list(splits.values()).count("test") == 10
 
+# Targeted replay selection should prefer the least represented teacher while
+# remaining deterministic when several candidates are equally useful.
+teacher_ranks = {"top-1": 1, "top-2": 2}
+candidate_jobs = [
+    {"id": "j1", "participants": [{"team": 0, "display_name": "top-1"}]},
+    {"id": "j2", "participants": [{"team": 1, "display_name": "top-1"}]},
+    {"id": "j3", "participants": [{"team": 2, "display_name": "top-2"}]},
+    {"id": "j4", "participants": [{"team": 3, "display_name": "top-2"}]},
+]
+selected_jobs, teacher_appearances = balanced_selection(candidate_jobs, teacher_ranks, 3)
+assert [job["id"] for job in selected_jobs] == ["j1", "j3", "j2"]
+assert teacher_appearances == {"top-1": 2, "top-2": 1}
+
 
 holes = [["As", "Ah"], ["Ks", "Kh"], ["Qs", "Qh"], ["Js", "Jh"], ["Ts", "Th"], ["9s", "9h"]]
 public = {
@@ -164,5 +178,44 @@ with tempfile.TemporaryDirectory(prefix="agx-dataset-") as temporary:
     assert all("action_bucket" in row and "players" in row for row in rows)
     manifest = json.loads((reports / "dataset.json").read_text())
     assert manifest["matches"] == 1 and manifest["decisions"] == 6
+
+with tempfile.TemporaryDirectory(prefix="agx-top-teacher-dataset-") as temporary:
+    folder = Path(temporary)
+    raw, output, reports = folder / "raw", folder / "parsed", folder / "reports"
+    raw.mkdir()
+    source = raw / "replay-fixture-public.json"
+    source.write_text(json.dumps(public), encoding="utf-8")
+    digest = hashlib.sha256(source.read_bytes()).hexdigest()
+    download_manifest = {
+        "selection": {
+            "competition_id": "fixture-competition", "selected_at_unix": 1,
+            "top_k": 20, "job_ids": ["fixture-public"],
+        },
+        "failures": [],
+        "completed": [{
+            "job_id": "fixture-public", "file": source.name, "sha256": digest,
+            "participants": [
+                {"team": team, "display_name": f"player-{team}",
+                 "leaderboard_rank": 1 if team == 0 else None}
+                for team in range(6)
+            ],
+        }],
+    }
+    (raw / "manifest.json").write_text(json.dumps(download_manifest), encoding="utf-8")
+    result = subprocess.run([
+        sys.executable, str(ROOT / "tools" / "build_top_teacher_dataset.py"),
+        "--raw-dir", str(raw), "--output-dir", str(output), "--required", "1",
+        "--report", str(reports / "validation.json"),
+        "--dataset-manifest", str(reports / "dataset.json"),
+    ], cwd=ROOT, text=True, capture_output=True)
+    assert result.returncode == 0, result.stderr + result.stdout
+    rows = [json.loads(line) for line in (output / "all.jsonl").read_text().splitlines()]
+    assert len(rows) == 1
+    assert rows[0]["player"] == "anon_1" and rows[0]["teacher_rank"] == 1
+    assert rows[0]["teacher_tier"] == "top5"
+    assert "display_name" not in rows[0]
+    manifest = json.loads((reports / "dataset.json").read_text())
+    assert manifest["matches"] == 1 and manifest["decisions"] == 1
+    assert manifest["teacher_rank_decisions"]["1"] == 1
 
 print("replay behavior dataset tests: ok")
