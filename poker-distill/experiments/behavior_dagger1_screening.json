@@ -1,0 +1,27 @@
+{
+  "schema": "agx.dagger1-screening-config.v1",
+  "description": "Paired 200-match screening of all DAgger round-1 candidates against the current submission and TAG",
+  "evaluation_seed": 68607,
+  "matches_per_pair": 200,
+  "hands_per_match": 240,
+  "bootstrap_samples": 10000,
+  "candidates": {
+    "seed7607_standalone": "neural/artifacts/behavior-dagger1-heuristic-seed-7607/submission.js",
+    "seed7607_hybrid095": "neural/artifacts/behavior-dagger1-heuristic-seed-7607/hybrid-postflop-095.js",
+    "seed7607_hybrid099": "neural/artifacts/behavior-dagger1-heuristic-seed-7607/hybrid-postflop-099.js",
+    "seed17607_standalone": "neural/artifacts/behavior-dagger1-heuristic-seed-17607/submission.js",
+    "seed17607_hybrid095": "neural/artifacts/behavior-dagger1-heuristic-seed-17607/hybrid-postflop-095.js",
+    "seed17607_hybrid099": "neural/artifacts/behavior-dagger1-heuristic-seed-17607/hybrid-postflop-099.js",
+    "seed27607_standalone": "neural/artifacts/behavior-dagger1-heuristic-seed-27607/submission.js",
+    "seed27607_hybrid095": "neural/artifacts/behavior-dagger1-heuristic-seed-27607/hybrid-postflop-095.js",
+    "seed27607_hybrid099": "neural/artifacts/behavior-dagger1-heuristic-seed-27607/hybrid-postflop-099.js"
+  },
+  "opponents": {
+    "current_submission": "submission.js",
+    "tag": "baselines/tag.js"
+  },
+  "maximum_invalid_actions": 0,
+  "maximum_timeouts": 0,
+  "promotion_gate": "zero failures and positive match-bootstrap 95% lower bound versus current submission",
+  "notes": "All candidates and the current-vs-TAG reference use the same physical deal seed and six-seat rotation. TAG deltas are paired by match against the current-submission reference. Passing this quick screen permits formal evaluation only; it does not replace submission.js."
+}

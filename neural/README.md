@@ -78,6 +78,8 @@ sbatch tools/run_dagger1_heuristic.sbatch
 
 输出数据位于 `poker-distill/data/dagger/round_1/dataset-heuristic/`，模型位于 `neural/artifacts/behavior-dagger1-heuristic-seed-*/`。这一步属于安全困难状态重标注，不勾选“求解器重新标注”；候选仍须通过固定牌序 paired evaluation 才能晋级。
 
+三种子训练完成后，使用 `tools/run_dagger1_screening.sbatch` 启动可恢复的 round-1 快速筛选。它对 9 个候选（每个种子的独立策略、0.95 与 0.99 翻后门控策略）分别运行 200 个完整 match，对手为当前正式策略和 TAG；另以相同牌序运行当前正式策略对 TAG 作为配对参考。报告采用整局 bootstrap 95% 区间，只有零非法动作、零超时且对当前正式策略的区间下界为正的候选，才允许进入更高样本量的正式评测。
+
 ## 模型与算法
 
 模型是一个适合嵌入 QuickJS 的小型多层感知机：
