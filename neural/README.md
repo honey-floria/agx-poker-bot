@@ -68,6 +68,16 @@ python3 tools/build_top_teacher_dataset.py \
 
 实验配置固定在 `poker-distill/experiments/behavior_v3_top20.json`。离线准确率只用于选检查点，是否晋级仍以固定牌序对战收益、非法动作、超时和运行预算为准。
 
+## 困难状态安全重标注（round 1）
+
+`tools/label_policy_states.js` 为每个困难状态创建隔离的 JavaScript 上下文，并使用当前正式 `submission.js` 生成冷启动安全标签；它不会伪装成求解器标签，也不会使用跨手对手统计。`tools/build_dagger_dataset.py` 只替换 Top-20 训练 split 中匹配的 10,000 条标签，validation/test 保持原始 Top-20 标签。完整三种子 GPU 作业入口为：
+
+```bash
+sbatch tools/run_dagger1_heuristic.sbatch
+```
+
+输出数据位于 `poker-distill/data/dagger/round_1/dataset-heuristic/`，模型位于 `neural/artifacts/behavior-dagger1-heuristic-seed-*/`。这一步属于安全困难状态重标注，不勾选“求解器重新标注”；候选仍须通过固定牌序 paired evaluation 才能晋级。
+
 ## 模型与算法
 
 模型是一个适合嵌入 QuickJS 的小型多层感知机：

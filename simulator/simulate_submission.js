@@ -8,6 +8,8 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const readline = require("readline");
+const { spawn } = require("child_process");
 const RULES = require("../config/competition.json");
 
 const START = RULES.table.startingStack;
@@ -37,7 +39,73 @@ const options = {
   budgetMs: Math.min(ACTION_BUDGET_MS, Math.max(1, Math.floor(Number(argument("--budget-ms", String(ACTION_BUDGET_MS)))) || ACTION_BUDGET_MS)),
   candidate: path.resolve(process.cwd(), argument("--candidate", path.join(root, "submission.js"))),
   opponent: path.resolve(process.cwd(), argument("--opponent", path.join(root, "baselines/submission_v1.js"))),
+  noregretsBin: argument("--noregrets-bin", ""),
+  noregretsBlueprint: argument("--noregrets-blueprint", ""),
+  noregretsStreets: argument("--noregrets-streets", STREETS.join(",")),
+  jsonOut: argument("--json-out", ""),
 };
+const externalStreets = new Set(options.noregretsStreets.split(",").map((value) => value.trim()).filter(Boolean));
+
+class NoRegretsPolicy {
+  constructor(binary, blueprint, seed) {
+    this.nextId = 1;
+    this.pending = new Map();
+    this.ready = new Promise((resolve, reject) => {
+      this.resolveReady = resolve;
+      this.rejectReady = reject;
+    });
+    this.child = spawn(binary, ["serve-agx", "--blueprint", blueprint, "--seed", String(seed)], {
+      stdio: ["pipe", "pipe", "pipe"],
+    });
+    this.stderr = "";
+    this.child.stderr.on("data", (chunk) => { this.stderr += chunk.toString(); });
+    this.child.on("error", (error) => this.failAll(error));
+    this.child.on("exit", (code, signal) => {
+      if (code !== 0) this.failAll(new Error(`NoRegrets query process exited ${code || signal}: ${this.stderr}`));
+    });
+    const lines = readline.createInterface({ input: this.child.stdout });
+    lines.on("line", (line) => {
+      let message;
+      try { message = JSON.parse(line); } catch (_) { return; }
+      if (message.ready) {
+        this.resolveReady();
+        return;
+      }
+      if (!Object.prototype.hasOwnProperty.call(message, "request_id")) return;
+      const waiter = this.pending.get(message.request_id);
+      if (!waiter) return;
+      this.pending.delete(message.request_id);
+      if (message.ok) waiter.resolve(message.action);
+      else waiter.reject(new Error(message.error || "NoRegrets query failed"));
+    });
+  }
+
+  failAll(error) {
+    this.rejectReady(error);
+    for (const waiter of this.pending.values()) waiter.reject(error);
+    this.pending.clear();
+  }
+
+  async act(view) {
+    await this.ready;
+    const requestId = this.nextId++;
+    return new Promise((resolve, reject) => {
+      this.pending.set(requestId, { resolve, reject });
+      this.child.stdin.write(JSON.stringify({ request_id: requestId, view }) + "\n", (error) => {
+        if (error) {
+          this.pending.delete(requestId);
+          reject(error);
+        }
+      });
+    });
+  }
+
+  close() {
+    if (this.child && !this.child.killed) this.child.kill("SIGTERM");
+  }
+}
+
+let activeExternalPolicy = null;
 
 function mulberry32(seed) {
   let value = seed >>> 0;
@@ -321,7 +389,25 @@ function nextActor(game, fromSeat) {
   return -1;
 }
 
-function runBettingRound(game, bots, metrics, startSeat, budgetMs) {
+function recordDecisionMetrics(metrics, participant, view, action) {
+  const type = action.type;
+  metrics.actionTypes[participant][type] = (metrics.actionTypes[participant][type] || 0) + 1;
+  const street = metrics.actionTypesByStreet[participant][view.street];
+  street[type] = (street[type] || 0) + 1;
+  const active = view.players.filter((player) => player.state === "in" || player.state === "allin").length;
+  const pool = active <= 2 ? "heads_up" : "multiway";
+  const split = metrics.actionTypesByPool[participant][pool];
+  split[type] = (split[type] || 0) + 1;
+  if (type === "bet" || type === "raise" || type === "allin") {
+    const target = type === "allin" ? view.maxRaiseTo : Number(action.to);
+    if (Number.isFinite(target)) {
+      const fraction = (target - view.me.bet - view.toCall) / Math.max(1, view.pot + view.toCall);
+      metrics.raisePotFractions[participant][view.street].push(fraction);
+    }
+  }
+}
+
+async function runBettingRound(game, bots, metrics, startSeat, budgetMs, externalCandidate) {
   let cursor = startSeat;
   let actions = 0;
   while (!roundComplete(game) && activePlayers(game).length > 1) {
@@ -330,13 +416,15 @@ function runBettingRound(game, bots, metrics, startSeat, budgetMs) {
     if (seat < 0) break;
     const view = publicView(game, seat);
     const participant = game.players[seat].id;
+    const externalAction = externalCandidate && participant === 0 && externalStreets.has(view.street);
     let action;
     let failed = false;
+    let failureReason = "";
     let hardTimeout = false;
-    if (metrics.cpuMs[participant] >= SEAT_CPU_BUDGET_MS) {
+    if (!externalAction && metrics.cpuMs[participant] >= SEAT_CPU_BUDGET_MS) {
       metrics.cpuExceeded[participant]++;
       action = fallbackAction(view);
-      metrics.actionTypes[participant][action.type] = (metrics.actionTypes[participant][action.type] || 0) + 1;
+      recordDecisionMetrics(metrics, participant, view, action);
       applyAction(game, seat, action);
       cursor = (seat + 1) % 6;
       continue;
@@ -344,9 +432,12 @@ function runBettingRound(game, bots, metrics, startSeat, budgetMs) {
     const started = process.hrtime.bigint();
     const cpuStarted = process.cpuUsage();
     try {
-      action = bots[participant].act(view, budgetMs);
+      action = externalAction
+        ? await externalCandidate.act(view)
+        : bots[participant].act(view, budgetMs);
     } catch (error) {
       failed = true;
+      failureReason = error && error.message ? error.message : String(error);
       hardTimeout = Boolean(error && error.code === "ERR_SCRIPT_EXECUTION_TIMEOUT");
       action = fallbackAction(view);
     }
@@ -357,14 +448,18 @@ function runBettingRound(game, bots, metrics, startSeat, budgetMs) {
     metrics.cpuMs[participant] += cpuMs;
     if (failed || !action || typeof action !== "object" || !view.legal.includes(action.type)) {
       metrics.invalid[participant]++;
+      const reason = failed
+        ? failureReason
+        : (!action || typeof action !== "object" ? "non-object action" : `illegal action type: ${action.type}`);
+      metrics.invalidReasons[participant][reason] = (metrics.invalidReasons[participant][reason] || 0) + 1;
       action = fallbackAction(view);
     }
-    if (hardTimeout || elapsedMs > budgetMs || metrics.cpuMs[participant] > SEAT_CPU_BUDGET_MS) {
+    if (!externalAction && (hardTimeout || elapsedMs > budgetMs || metrics.cpuMs[participant] > SEAT_CPU_BUDGET_MS)) {
       metrics.timeouts[participant]++;
       if (metrics.cpuMs[participant] > SEAT_CPU_BUDGET_MS) metrics.cpuExceeded[participant]++;
       action = fallbackAction(view);
     }
-    metrics.actionTypes[participant][action.type] = (metrics.actionTypes[participant][action.type] || 0) + 1;
+    recordDecisionMetrics(metrics, participant, view, action);
     applyAction(game, seat, action);
     cursor = (seat + 1) % 6;
   }
@@ -419,7 +514,7 @@ function settle(game) {
   return net;
 }
 
-function playHand({ deck, button, rotation, rotationHand, bots, metrics, budgetMs }) {
+async function playHand({ deck, button, rotation, rotationHand, bots, metrics, budgetMs, externalCandidate }) {
   const players = Array.from({ length: 6 }, (_, seat) => {
     const id = (seat + rotation) % 6;
     return {
@@ -459,7 +554,7 @@ function playHand({ deck, button, rotation, rotationHand, bots, metrics, budgetM
       game.lastRaise = BB;
     }
     const startSeat = street === 0 ? (button + 3) % 6 : (button + 1) % 6;
-    runBettingRound(game, bots, metrics, startSeat, budgetMs);
+    await runBettingRound(game, bots, metrics, startSeat, budgetMs, externalCandidate);
   }
   return settle(game);
 }
@@ -470,22 +565,37 @@ function percentile(values, fraction) {
   return sorted[Math.min(sorted.length - 1, Math.floor((sorted.length - 1) * fraction))];
 }
 
-function runMatch(matchIndex, deals, buttons) {
+function sampleSummary(values) {
+  if (!values.length) return { count: 0, mean: 0, p50: 0, p95: 0 };
+  return {
+    count: values.length,
+    mean: values.reduce((sum, value) => sum + value, 0) / values.length,
+    p50: percentile(values, 0.50),
+    p95: percentile(values, 0.95),
+  };
+}
+
+async function runMatch(matchIndex, deals, buttons, externalPolicy) {
   const metrics = {
     latencies: Array.from({ length: 6 }, () => []),
     invalid: Array(6).fill(0),
+    invalidReasons: Array.from({ length: 6 }, () => ({})),
     timeouts: Array(6).fill(0),
     cpuMs: Array(6).fill(0),
     cpuExceeded: Array(6).fill(0),
     initializationMs: Array.from({ length: 6 }, () => []),
     contextInitializations: Array(6).fill(0),
     actionTypes: Array.from({ length: 6 }, () => ({})),
+    actionTypesByStreet: Array.from({ length: 6 }, () => Object.fromEntries(STREETS.map((street) => [street, {}]))),
+    actionTypesByPool: Array.from({ length: 6 }, () => ({ heads_up: {}, multiway: {} })),
+    raisePotFractions: Array.from({ length: 6 }, () => Object.fromEntries(STREETS.map((street) => [street, []]))),
   };
   const totals = Array(6).fill(0);
   for (let rotation = 0; rotation < ROTATIONS; rotation++) {
     // The platform destroys policy state at every 40-hand boundary. Reloading all
     // policies here prevents accidental cross-rotation opponent statistics.
     const bots = Array.from({ length: 6 }, (_, id) => {
+      if (id === 0 && externalPolicy && externalStreets.size === STREETS.length) return externalPolicy;
       const policy = loadPolicy(
         id === 0 ? options.candidate : options.opponent,
         options.seed + matchIndex * 1009 + rotation * 193 + id * 97
@@ -496,7 +606,7 @@ function runMatch(matchIndex, deals, buttons) {
       return policy;
     });
     for (let hand = 0; hand < HANDS_PER_ROTATION; hand++) {
-      const net = playHand({
+      const net = await playHand({
         deck: deals[hand],
         button: buttons[hand],
         rotation,
@@ -504,6 +614,7 @@ function runMatch(matchIndex, deals, buttons) {
         bots,
         metrics,
         budgetMs: options.budgetMs,
+        externalCandidate: externalPolicy,
       });
       for (let id = 0; id < 6; id++) totals[id] += net[id];
     }
@@ -512,32 +623,56 @@ function runMatch(matchIndex, deals, buttons) {
   return { totals, metrics };
 }
 
-function main() {
-  for (const filename of [options.candidate, options.opponent]) {
+async function main() {
+  const hybridCandidate = Boolean(options.noregretsBin) && externalStreets.size < STREETS.length;
+  const policyFiles = options.noregretsBin && !hybridCandidate
+    ? [options.opponent]
+    : [options.candidate, options.opponent];
+  for (const filename of policyFiles) {
     if (!fs.existsSync(filename)) throw new Error(`文件不存在：${filename}`);
   }
+  if (Boolean(options.noregretsBin) !== Boolean(options.noregretsBlueprint)) {
+    throw new Error("--noregrets-bin 和 --noregrets-blueprint 必须同时提供");
+  }
+  if (options.noregretsBin && (externalStreets.size === 0 || [...externalStreets].some((street) => !STREETS.includes(street)))) {
+    throw new Error(`--noregrets-streets 必须是 ${STREETS.join(",")} 的非空子集`);
+  }
+  for (const filename of [options.noregretsBin, options.noregretsBlueprint].filter(Boolean)) {
+    if (!fs.existsSync(filename)) throw new Error(`文件不存在：${filename}`);
+  }
+  const externalPolicy = options.noregretsBin
+    ? new NoRegretsPolicy(options.noregretsBin, options.noregretsBlueprint, options.seed)
+    : null;
+  activeExternalPolicy = externalPolicy;
+  if (externalPolicy) await externalPolicy.ready;
   const random = mulberry32(options.seed);
   let candidateNet = 0;
   let winShare = 0;
   let outrightWins = 0;
   const matchNets = [];
+  const matchRanks = [];
   const candidateLatencies = [];
   let invalid = 0;
+  const invalidReasons = {};
   let timeouts = 0;
   let cpuExceeded = 0;
   let candidateCpuMs = 0;
   const initializationLatencies = [];
   let contextInitializations = 0;
   const actionTypes = {};
+  const actionTypesByStreet = Object.fromEntries(STREETS.map((street) => [street, {}]));
+  const actionTypesByPool = { heads_up: {}, multiway: {} };
+  const raisePotFractions = Object.fromEntries(STREETS.map((street) => [street, []]));
 
   for (let match = 0; match < options.matches; match++) {
     const deals = Array.from({ length: HANDS_PER_ROTATION }, () => shuffledDeck(random));
     const offset = Math.floor(random() * 6);
     const buttons = Array.from({ length: HANDS_PER_ROTATION }, (_, hand) => (hand + offset) % 6);
-    const result = runMatch(match, deals, buttons);
+    const result = await runMatch(match, deals, buttons, externalPolicy);
     const net = result.totals[0];
     const best = Math.max(...result.totals);
     const tiedFirst = result.totals.filter((value) => value === best).length;
+    matchRanks.push(1 + result.totals.filter((value) => value > net).length);
     candidateNet += net;
     matchNets.push(net);
     if (net === best) {
@@ -546,12 +681,26 @@ function main() {
     }
     candidateLatencies.push(...result.metrics.latencies[0]);
     invalid += result.metrics.invalid[0];
+    for (const [reason, count] of Object.entries(result.metrics.invalidReasons[0])) {
+      invalidReasons[reason] = (invalidReasons[reason] || 0) + count;
+    }
     timeouts += result.metrics.timeouts[0];
     cpuExceeded += result.metrics.cpuExceeded[0];
     candidateCpuMs += result.metrics.cpuMs[0];
     initializationLatencies.push(...result.metrics.initializationMs[0]);
     contextInitializations += result.metrics.contextInitializations[0];
     for (const [type, count] of Object.entries(result.metrics.actionTypes[0])) actionTypes[type] = (actionTypes[type] || 0) + count;
+    for (const street of STREETS) {
+      for (const [type, count] of Object.entries(result.metrics.actionTypesByStreet[0][street])) {
+        actionTypesByStreet[street][type] = (actionTypesByStreet[street][type] || 0) + count;
+      }
+      raisePotFractions[street].push(...result.metrics.raisePotFractions[0][street]);
+    }
+    for (const pool of ["heads_up", "multiway"]) {
+      for (const [type, count] of Object.entries(result.metrics.actionTypesByPool[0][pool])) {
+        actionTypesByPool[pool][type] = (actionTypesByPool[pool][type] || 0) + count;
+      }
+    }
     process.stdout.write(`比赛 ${match + 1}/${options.matches}：候选净额 ${net >= 0 ? "+" : ""}${net}，名次 ${1 + result.totals.filter((value) => value > net).length}\n`);
   }
 
@@ -561,7 +710,8 @@ function main() {
   const standardError = Math.sqrt(variance / options.matches);
   console.log("\n=== 汇总 ===");
   console.log(`规则：${RULES.rulesVersion}；${RULES.table.players}人；${SB}/${BB}；${START / BB}BB；${ROTATIONS}×${HANDS_PER_ROTATION}手`);
-  console.log(`候选：${options.candidate}`);
+  console.log(`候选：${options.noregretsBlueprint || options.candidate}`);
+  if (externalPolicy) console.log(`NoRegrets 街道：${[...externalStreets].join(",")}`);
   console.log(`对手：${options.opponent}`);
   console.log(`完整比赛：${options.matches}；候选手数：${hands}`);
   console.log(`累计净额：${candidateNet >= 0 ? "+" : ""}${candidateNet}`);
@@ -574,6 +724,43 @@ function main() {
   console.log(`候选动作分布：${Object.entries(actionTypes).map(([type, count]) => `${type}=${count}`).join("，")}`);
   const averageLatency = candidateLatencies.reduce((sum, value) => sum + value, 0) / Math.max(1, candidateLatencies.length);
   console.log(`耗时ms 平均/P50/P95/P99/最大：${averageLatency.toFixed(3)} / ${percentile(candidateLatencies, 0.50).toFixed(3)} / ${percentile(candidateLatencies, 0.95).toFixed(3)} / ${percentile(candidateLatencies, 0.99).toFixed(3)} / ${Math.max(0, ...candidateLatencies).toFixed(3)}`);
+  const summary = {
+    schema: "agx.paired-policy-evaluation.v1",
+    seed: options.seed,
+    matches: options.matches,
+    hands,
+    candidate: options.noregretsBlueprint || options.candidate,
+    opponent: options.opponent,
+    candidate_net: candidateNet,
+    match_nets: matchNets,
+    match_ranks: matchRanks,
+    mbb_per_hand: 10 * candidateNet / hands,
+    mean_match_net: mean,
+    ci95_match_net: 1.96 * standardError,
+    first_place_share: winShare / options.matches,
+    average_rank: matchRanks.reduce((sum, value) => sum + value, 0) / matchRanks.length,
+    worst_5pct_match_net: percentile(matchNets, 0.05),
+    outright_wins: outrightWins,
+    invalid_actions: invalid,
+    invalid_action_reasons: invalidReasons,
+    timeouts,
+    action_types: actionTypes,
+    action_types_by_street: actionTypesByStreet,
+    action_types_by_pool: actionTypesByPool,
+    raise_pot_fraction_by_street: Object.fromEntries(
+      STREETS.map((street) => [street, sampleSummary(raisePotFractions[street])])
+    ),
+    external_noregrets: Boolean(externalPolicy),
+    noregrets_streets: externalPolicy ? STREETS.filter((street) => externalStreets.has(street)) : [],
+    javascript_candidate: hybridCandidate ? options.candidate : null,
+  };
+  if (options.jsonOut) fs.writeFileSync(options.jsonOut, JSON.stringify(summary, null, 2) + "\n");
+  if (externalPolicy) externalPolicy.close();
+  activeExternalPolicy = null;
 }
 
-main();
+main().catch((error) => {
+  if (activeExternalPolicy) activeExternalPolicy.close();
+  console.error(error && error.stack ? error.stack : String(error));
+  process.exitCode = 1;
+});

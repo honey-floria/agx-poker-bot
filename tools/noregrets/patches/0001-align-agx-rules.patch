@@ -1,0 +1,62 @@
+diff --git a/src/engine.rs b/src/engine.rs
+index 8a6f15b..4f7491f 100644
+--- a/src/engine.rs
++++ b/src/engine.rs
+@@ -202,6 +202,7 @@ impl Hand {
+     pub fn utilities(&self) -> [i64; MAX_PLAYERS] {
+         debug_assert!(self.terminal);
+         let mut winnings = [0u64; MAX_PLAYERS];
++        let mut awards = std::collections::BTreeMap::<Vec<usize>, u64>::new();
+ 
+         let live: Vec<usize> = (0..self.n).filter(|&p| !self.folded[p]).collect();
+         if live.len() == 1 {
+@@ -239,8 +240,16 @@ impl Hand {
+                     .into_iter()
+                     .filter(|&p| strength[p] == best)
+                     .collect();
+-                let share = layer / winners.len() as u64;
+-                let mut rem = layer - share * winners.len() as u64;
++                let mut winners = winners;
++                winners.sort_by_key(|&p| (p + self.n - self.button - 1) % self.n);
++                *awards.entry(winners).or_default() += layer;
++                prev = level;
++            }
++            // AGX coalesces layers with the same winner set before dividing
++            // odd chips, then awards remainders left of the button.
++            for (winners, amount) in awards {
++                let share = amount / winners.len() as u64;
++                let mut rem = amount - share * winners.len() as u64;
+                 for &w in &winners {
+                     winnings[w] += share;
+                     if rem > 0 {
+@@ -248,7 +257,6 @@ impl Hand {
+                         rem -= 1;
+                     }
+                 }
+-                prev = level;
+             }
+         }
+ 
+@@ -520,6 +528,14 @@ impl Hand {
+         if max_to <= self.current_bet {
+             return None;
+         }
++        // A short all-in makes an already-acted player respond, but does not
++        // reopen raising until the cumulative increase faced reaches the
++        // previous full-raise increment.  AGX exposes the same canRaise rule.
++        if self.acted[p]
++            && self.current_bet.saturating_sub(self.street_commit[p]) < self.min_raise_inc
++        {
++            return None;
++        }
+         let min_to = (self.current_bet + self.min_raise_inc).min(max_to);
+         Some((min_to, max_to))
+     }
+@@ -725,6 +741,7 @@ mod tests {
+         assert!(!h.is_terminal(), "p0 must get to call the extra 50");
+         assert_eq!(h.to_act(), 0);
+         assert_eq!(h.to_call(), 50);
++        assert_eq!(h.raise_bounds(), None, "short all-in must not reopen raising");
+         h.apply(CheckCall);
+         assert!(h.is_terminal()); // runout: p2's aces win
+         let u = h.utilities();

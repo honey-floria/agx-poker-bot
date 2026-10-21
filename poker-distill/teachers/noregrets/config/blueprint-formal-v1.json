@@ -1,0 +1,36 @@
+{
+  "schema": "agx.noregrets-formal-training-config.v1",
+  "upstream_commit": "757f7692738069522195d2b486eec60a8b010c0c",
+  "binary_sha256": "b514f128ad5dfeeba14f0800b392fff9016d345fb23a2aa4322f99ee7cae5bd6",
+  "purpose": "formal-blueprint-training",
+  "players": 6,
+  "stack": 10000,
+  "small_blind": 50,
+  "big_blind": 100,
+  "ante": 0,
+  "iterations_per_seed": 100000000,
+  "checkpoint_interval": 20000000,
+  "seeds": [7607, 17607, 27607],
+  "buckets": 12,
+  "menu": "pluribus",
+  "rollouts": 200,
+  "runouts": 24,
+  "kmeans_samples": 30000,
+  "threads": 4,
+  "validation_hands": 1000,
+  "eval_hands_per_baseline": 10000,
+  "eval_seed": 7607,
+  "checkpoint_compression": {
+    "program": "zstd",
+    "level": 3,
+    "threads": 4
+  },
+  "retained_checkpoints_per_seed": 3,
+  "resume_compatible_config_sha256": [
+    "6a2db840098bf772cd6e0b7c0917ddb79607126c37b999e36ee6199c55ee56c0"
+  ],
+  "minimum_free_gib": 8,
+  "estimated_wall_hours_total": 8,
+  "eligible_for_student_queries_before_ng4": false,
+  "notes": "Resource-constrained v1: the upstream README parameters remain explicit, but each of three independent seeds is capped at 100M iterations after the 200M plan exceeded available memory/storage. The latest three compressed checkpoints per seed are retained. No online search is mixed into blueprint training."
+}

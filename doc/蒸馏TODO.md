@@ -332,6 +332,8 @@ L = 1.00 * policy_KL
 
 `tools/label_ev_proxy.py` 已为最高难度的 1,000 条状态生成 `equity-ev-proxy-v1` 诊断标签，包括 10 动作 EV、软策略、state value、观察动作 regret、教师置信度和融合权重。该代理明确不是 MCCFR/均衡求解器。首轮审计中 937/1,000 个最佳动作是加注，平均观察 regret 为 933.553 筹码，暴露出被跟注后权益折损建模不足、明显过度进攻，因此这些标签尚未通过训练门禁，也不勾选“让求解器重新标注”。报告为 `poker-distill/reports/ev_proxy_round1_1000.json`；下一步先校准对手响应与 conditional equity，再重新审计动作分布和 regret。
 
+round-1 安全重标注代码已就绪：`tools/label_policy_states.js` 以每状态独立上下文调用当前正式策略，`tools/build_dagger_dataset.py` 在原 Top-20 train split 中原位替换匹配标签，validation/test 零替换，`tools/run_dagger1_heuristic.sbatch` 顺序训练 7607、17607、27607 三个学生种子并导出 0.95/0.99 翻后置信门控候选。该方案属于启发式安全伪标签，不冒充求解器或均衡标签；服务器产出与审计报告完成前不勾选“训练 S1”。
+
 ---
 
 ## 9. 当前换座阶段内的对手适应

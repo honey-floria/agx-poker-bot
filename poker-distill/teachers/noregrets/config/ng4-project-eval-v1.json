@@ -1,0 +1,25 @@
+{
+  "schema": "agx.noregrets-ng4-project-eval-config.v1",
+  "query_binary_sha256": "eec2c25a2c3bab87855a06b1b6a06989e88e8010a74a47689212935542c91a8c",
+  "formal_training_config_sha256": "f35e5938e72b3551162c602c6eab8e1487e8ea6489de5ad8461d3fa4aead5c1a",
+  "seeds": [7607, 17607, 27607],
+  "evaluation_seed": 58607,
+  "matches_per_pair": 30,
+  "hands_per_match": 240,
+  "opponents": {
+    "calling_station": "baselines/calling_station.js",
+    "tag": "baselines/tag.js",
+    "mixed": "baselines/mixed.js",
+    "current_submission": "submission.js"
+  },
+  "required_positive_ci95_lower_bound": [
+    "calling_station",
+    "tag",
+    "mixed",
+    "current_submission"
+  ],
+  "maximum_invalid_actions": 0,
+  "maximum_timeouts": 0,
+  "eligible_for_student_queries_before_pass": false,
+  "notes": "Full NG-4 project-domain paired evaluation. Each 240-hand match repeats 40 physical deals over six seat rotations. Every seed uses the same evaluation seed against each isolated opponent population."
+}

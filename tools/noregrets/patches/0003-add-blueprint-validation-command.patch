@@ -1,0 +1,167 @@
+diff --git a/src/main.rs b/src/main.rs
+index 3c163ca..ceca84e 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -34,6 +34,9 @@ use clap::{Parser, Subcommand};
+ use abstraction::MenuShape;
+ use engine::HandConfig;
+ use indicatif::{ProgressBar, ProgressStyle};
++use rand::rngs::SmallRng;
++use rand::seq::SliceRandom;
++use rand::SeedableRng;
+ use std::sync::Arc;
+ use table::Baseline;
+ 
+@@ -485,6 +488,16 @@ enum Cmd {
+         #[arg(long, default_value_t = 0.1)]
+         holdout: f64,
+     },
++    /// Deterministically audit a blueprint's action distributions on
++    /// seeded self-play states. Intended for training-pipeline smoke tests.
++    ValidateBlueprint {
++        #[arg(long, default_value = "blueprint.bin")]
++        blueprint: String,
++        #[arg(long, default_value_t = 1_000)]
++        hands: u64,
++        #[arg(long, default_value_t = 7_607)]
++        seed: u64,
++    },
+     /// Print blueprint statistics.
+     Inspect {
+         #[arg(long, default_value = "blueprint.bin")]
+@@ -1279,6 +1292,15 @@ fn main() {
+             println!("saved clone to {out}");
+         }
+ 
++        Cmd::ValidateBlueprint { blueprint, hands, seed } => {
++            let policy = load_policy(&blueprint);
++            let report = validate_blueprint(&policy, hands, seed);
++            println!("{}", serde_json::to_string(&report).unwrap());
++            if report["gate"] != "passed" {
++                std::process::exit(2);
++            }
++        }
++
+         Cmd::Inspect { blueprint } => {
+             let bp = Blueprint::load(&blueprint)
+                 .unwrap_or_else(|e| die(&format!("cannot load {blueprint}: {e}")));
+@@ -1387,6 +1409,119 @@ fn load_policy(path: &str) -> Policy {
+     load_policy_strat(path, None)
+ }
+ 
++/// Exercise raw-blueprint queries only (no online search), checking that the
++/// returned menu is legal, probabilities are finite/normalised, and repeated
++/// queries of an identical state with an identical seed are bit-for-bit
++/// deterministic. The action-mass summary also catches trivial one-action
++/// policies before an expensive training run is launched.
++fn validate_blueprint(policy: &Policy, hands: u64, seed: u64) -> serde_json::Value {
++    use abstraction::AbsAction;
++
++    let cfg = HandConfig {
++        num_players: policy.blueprint.num_players,
++        ..HandConfig::default()
++    };
++    let mut decisions = 0u64;
++    let mut street_decisions = [0u64; 4];
++    let mut mass = [0.0f64; 4]; // fold, call/check, non-all-in raise, all-in
++    let mut selected = [0u64; 4];
++    let mut invalid_values = 0u64;
++    let mut deterministic_mismatches = 0u64;
++    let mut illegal_mass = 0.0f64;
++    let mut max_sum_error = 0.0f64;
++
++    for hand_i in 0..hands {
++        let hand_seed = seed ^ hand_i.wrapping_mul(0x9E37_79B9_7F4A_7C15);
++        let mut play_rng = SmallRng::seed_from_u64(hand_seed);
++        let mut deck = cards::fresh_deck();
++        deck.shuffle(&mut play_rng);
++        let mut table = table::Table::new(&cfg, hand_i as usize % cfg.num_players, deck);
++        let mut guard = 0u32;
++        while !table.real.is_terminal() {
++            guard += 1;
++            assert!(guard < 500, "validation hand did not terminate");
++            let query_seed = seed ^ decisions.wrapping_mul(0xD1B5_4A32_D192_ED03);
++            let mut q1 = SmallRng::seed_from_u64(query_seed);
++            let mut q2 = SmallRng::seed_from_u64(query_seed);
++            let (acts, probs) = policy.blueprint_dist(&table.shadow, &table.hist, &mut q1);
++            let (acts2, probs2) = policy.blueprint_dist(&table.shadow, &table.hist, &mut q2);
++            if acts != acts2 || probs != probs2 {
++                deterministic_mismatches += 1;
++            }
++            let legal = policy.abs.abstract_actions(&table.shadow);
++            let sum: f64 = probs.iter().sum();
++            max_sum_error = max_sum_error.max((sum - 1.0).abs());
++            if acts.is_empty()
++                || acts.len() != probs.len()
++                || probs.iter().any(|p| !p.is_finite() || *p < 0.0)
++            {
++                invalid_values += 1;
++                break;
++            }
++            for (action, probability) in acts.iter().zip(&probs) {
++                let category = match action {
++                    AbsAction::Fold => 0,
++                    AbsAction::CheckCall => 1,
++                    AbsAction::Bet(_) => 2,
++                    AbsAction::AllIn => 3,
++                };
++                mass[category] += probability;
++                if !legal.contains(action) {
++                    illegal_mass += probability;
++                }
++            }
++            street_decisions[table.real.street() as usize] += 1;
++            decisions += 1;
++            let chosen = cfr::sample_index(&probs, &mut play_rng);
++            let category = match acts[chosen] {
++                AbsAction::Fold => 0,
++                AbsAction::CheckCall => 1,
++                AbsAction::Bet(_) => 2,
++                AbsAction::AllIn => 3,
++            };
++            selected[category] += 1;
++            table.apply_abs(acts[chosen], &policy.abs);
++        }
++    }
++
++    let total_mass: f64 = mass.iter().sum();
++    let shares: Vec<f64> = mass
++        .iter()
++        .map(|x| if total_mass > 0.0 { x / total_mass } else { 0.0 })
++        .collect();
++    let max_share = shares.iter().copied().fold(0.0f64, f64::max);
++    let nondegenerate = decisions > 0 && shares[2] > 0.001 && max_share < 0.995;
++    let passed = invalid_values == 0
++        && deterministic_mismatches == 0
++        && illegal_mass <= 1e-12
++        && max_sum_error <= 1e-9
++        && nondegenerate;
++    serde_json::json!({
++        "schema": "noregrets.blueprint-validation.v1",
++        "gate": if passed { "passed" } else { "failed" },
++        "hands": hands,
++        "seed": seed,
++        "decisions": decisions,
++        "street_decisions": {
++            "preflop": street_decisions[0], "flop": street_decisions[1],
++            "turn": street_decisions[2], "river": street_decisions[3]
++        },
++        "action_probability_share": {
++            "fold": shares[0], "check_call": shares[1],
++            "raise": shares[2], "all_in": shares[3]
++        },
++        "selected_actions": {
++            "fold": selected[0], "check_call": selected[1],
++            "raise": selected[2], "all_in": selected[3]
++        },
++        "invalid_probability_vectors": invalid_values,
++        "deterministic_mismatches": deterministic_mismatches,
++        "illegal_action_probability_mass": illegal_mass,
++        "max_probability_sum_error": max_sum_error,
++        "nondegenerate": nondegenerate
++    })
++}
++
+ fn load_policy_strat(path: &str, strat_prev: Option<&str>) -> Policy {
+     let bp = Blueprint::load(path).unwrap_or_else(|e| {
+         die(&format!(

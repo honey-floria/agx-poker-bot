@@ -1,14 +1,18 @@
 "use strict";
 
 const assert = require("assert");
+const fs = require("fs");
+const os = require("os");
 const path = require("path");
 const { spawnSync } = require("child_process");
 
 const root = path.resolve(__dirname, "..");
+const jsonOut = path.join(os.tmpdir(), `agx-simulator-${process.pid}.json`);
 const result = spawnSync(process.execPath, [
   path.join(root, "simulator", "simulate_submission.js"),
   "--matches", "1",
   "--seed", "99173",
+  "--json-out", jsonOut,
 ], {
   cwd: root,
   encoding: "utf8",
@@ -22,6 +26,15 @@ assert.match(result.stdout, /非法\/异常：0；超预算：0；整局CPU超�
 assert.match(result.stdout, /候选上下文初始化：6（每局6次）/);
 assert.match(result.stdout, /mbb\/手：-?\d+\.\d{3}/);
 assert.match(result.stdout, /第一名份额：\d+\.\d{2}%/);
+const summary = JSON.parse(fs.readFileSync(jsonOut, "utf8"));
+assert.strictEqual(summary.schema, "agx.paired-policy-evaluation.v1");
+assert.strictEqual(summary.hands, 240);
+assert.strictEqual(summary.match_nets.length, 1);
+assert.strictEqual(summary.invalid_actions, 0);
+assert.deepStrictEqual(summary.invalid_action_reasons, {});
+assert.deepStrictEqual(summary.noregrets_streets, []);
+assert.strictEqual(summary.javascript_candidate, null);
+fs.unlinkSync(jsonOut);
 
 const rulesProbe = spawnSync(process.execPath, [
   path.join(root, "simulator", "simulate_submission.js"),

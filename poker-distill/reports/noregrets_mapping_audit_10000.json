@@ -1,0 +1,46 @@
+{
+  "schema": "agx.noregrets-mapping-audit.v1",
+  "upstream_commit": "757f7692738069522195d2b486eec60a8b010c0c",
+  "source": "/userhome/cs5/u3680889/agx-poker-bot/poker-distill/data/parsed-decisions/top20/all.jsonl",
+  "source_sha256": "c5d69f6fca975aa5b9b3b3272396839a33afdce640c5c7fc9a1e0df569b930f4",
+  "source_rows": 151570,
+  "sample_seed": 7607,
+  "sample_rows": 10000,
+  "stratification": "street x heads-up/multiway",
+  "mapping_quality": {
+    "exact": 1709,
+    "projected": 8162,
+    "unsupported": 129
+  },
+  "by_stratum": {
+    "flop:hu": {"exact": 102, "projected": 1416, "unsupported": 18},
+    "flop:multi": {"exact": 105, "projected": 1427, "unsupported": 4},
+    "preflop:hu": {"exact": 456, "projected": 1071, "unsupported": 9},
+    "preflop:multi": {"exact": 961, "projected": 575},
+    "river:hu": {"exact": 21, "projected": 1455, "unsupported": 60},
+    "river:multi": {"exact": 11, "projected": 271, "unsupported": 1},
+    "turn:hu": {"exact": 27, "projected": 1476, "unsupported": 32},
+    "turn:multi": {"exact": 26, "projected": 471, "unsupported": 5}
+  },
+  "unsupported_reasons": {
+    "history_raise_without_noregrets_raise": 18,
+    "real_shadow_raise_legality_divergence": 97,
+    "shadow_structural_divergence": 85
+  },
+  "coverage": {
+    "allin": 156,
+    "call": 5280,
+    "cannot_raise": 187,
+    "check": 4720,
+    "multiway": 3857,
+    "normal_raise": 9813,
+    "short_allin": 9
+  },
+  "max_projection_error_chips": 9200,
+  "max_projection_error_log": 8.493719835,
+  "crashes": 0,
+  "failure_examples": [],
+  "nan_count": 0,
+  "exact_legal_mismatches": 0,
+  "gate_ng2_mapping_integrity": "passed"
+}

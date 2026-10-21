@@ -1,0 +1,31 @@
+{
+  "schema": "agx.behavior-dagger-experiment.v1",
+  "description": "Top-20 behavior clone with 10,000 postflop hard states relabeled by the stateless current submission safety teacher",
+  "base_data_version": "public-replay-top20-v1",
+  "data_version": "public-replay-top20-dagger1-heuristic-v1",
+  "teacher": {
+    "name": "current-submission-stateless",
+    "memory": "isolated context per state; no cross-hand adaptation",
+    "scope": "mined Top-20 training states only",
+    "claim": "safety pseudo-labels, not solver or equilibrium labels"
+  },
+  "dataset": {
+    "replacement_policy": "replace matching train labels in place",
+    "validation_replacements": 0,
+    "test_replacements": 0,
+    "expected_replacements": 10000
+  },
+  "training": {
+    "seeds": [7607, 17607, 27607],
+    "epochs": 60,
+    "batch_size": 2048,
+    "patience": 8,
+    "class_weighting": "none",
+    "device": "cuda"
+  },
+  "promotion_gate": {
+    "offline": "must not regress untouched validation/test metrics materially",
+    "runtime": "zero illegal actions and zero timeouts",
+    "paired": "confidence-gated hybrid must beat the current submission with a positive 95% lower bound"
+  }
+}

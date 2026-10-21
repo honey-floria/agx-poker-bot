@@ -1,0 +1,18 @@
+{
+  "schema": "agx.noregrets-ng4-eval-config.v1",
+  "binary_sha256": "b514f128ad5dfeeba14f0800b392fff9016d345fb23a2aa4322f99ee7cae5bd6",
+  "formal_training_config_sha256": "f35e5938e72b3551162c602c6eab8e1487e8ea6489de5ad8461d3fa4aead5c1a",
+  "seeds": [7607, 17607, 27607],
+  "players": 6,
+  "evaluation_seed": 47607,
+  "validation_hands_per_blueprint": 10000,
+  "duplicate_hands_per_baseline": 120000,
+  "crossplay_hands_per_direction": 100000,
+  "baselines": ["random", "caller"],
+  "minimum_baseline_ci95_lower_bound_mbb_per_hand": 0.0,
+  "minimum_action_probability_share": 0.01,
+  "maximum_illegal_action_probability_mass": 0.0,
+  "crossplay_is_diagnostic_only": true,
+  "eligible_for_student_queries": false,
+  "notes": "NG-4 phase A: high-sample duplicate weak-baseline evaluation, deterministic legality audit, checkpoint curves, and all ordered cross-seed blueprint crossplay. Project TAG/Mixed/current-JS opponents remain a separate required phase before full NG-4 approval."
+}

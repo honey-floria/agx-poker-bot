@@ -244,4 +244,43 @@ with tempfile.TemporaryDirectory(prefix="agx-top-teacher-dataset-") as temporary
     assert manifest["matches"] == 1 and manifest["decisions"] == 1
     assert manifest["teacher_rank_decisions"]["1"] == 1
 
+# Hard-state policy labeling uses a fresh JS context for every state, and the
+# DAgger builder replaces training labels without touching validation/test.
+if shutil.which("node"):
+    with tempfile.TemporaryDirectory(prefix="agx-dagger-policy-") as temporary:
+        folder = Path(temporary)
+        base_dir, output_dir = folder / "base", folder / "dagger"
+        base_dir.mkdir()
+        train_row = dict(BASE, data_version="public-replay-top20-v1", split="train")
+        validation_row = dict(BASE, match_id="m-validation", data_version="public-replay-top20-v1", split="validation")
+        test_row = dict(BASE, match_id="m-test", data_version="public-replay-top20-v1", split="test")
+        for split, row in (("train", train_row), ("validation", validation_row), ("test", test_row)):
+            (base_dir / f"{split}.jsonl").write_text(json.dumps(row) + "\n", encoding="utf-8")
+        mined = folder / "mined.jsonl"
+        mined.write_text(json.dumps(dict(train_row, mining={"score": 2.0})) + "\n", encoding="utf-8")
+        labels, label_report = folder / "labels.jsonl", folder / "label-report.json"
+        labeled = subprocess.run([
+            "node", str(ROOT / "tools/label_policy_states.js"),
+            "--input", str(mined), "--policy", str(ROOT / "submission.js"),
+            "--output", str(labels), "--report", str(label_report),
+        ], cwd=ROOT, text=True, capture_output=True)
+        assert labeled.returncode == 0, labeled.stderr + labeled.stdout
+        label_row = json.loads(labels.read_text(encoding="utf-8"))
+        assert label_row["action"]["type"] in label_row["legal"]
+        assert label_row["dagger_label"]["original_action"] == BASE["action"]
+        built = subprocess.run([
+            sys.executable, str(ROOT / "tools/build_dagger_dataset.py"),
+            "--base-dir", str(base_dir), "--labels", str(labels),
+            "--output-dir", str(output_dir), "--report", str(folder / "dataset-report.json"),
+        ], cwd=ROOT, text=True, capture_output=True)
+        assert built.returncode == 0, built.stderr + built.stdout
+        report = json.loads((folder / "dataset-report.json").read_text(encoding="utf-8"))
+        assert report["replaced_train_labels"] == 1
+        assert report["validation_labels_replaced"] == report["test_labels_replaced"] == 0
+        assert len((output_dir / "all.jsonl").read_text().splitlines()) == 3
+        assert all(
+            json.loads(line)["data_version"] == "public-replay-top20-dagger1-heuristic-v1"
+            for line in (output_dir / "all.jsonl").read_text().splitlines()
+        )
+
 print("replay behavior dataset tests: ok")

@@ -1,0 +1,97 @@
+{
+  "schema": "agx.noregrets-smoke-summary.v1",
+  "gate": "passed",
+  "blockers": [],
+  "completed_at": "2026-10-20",
+  "purpose": "pipeline-smoke-only",
+  "eligible_for_student_training": false,
+  "server_artifact_root": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/smoke/job-137774-ng3",
+  "source_commit": "757f7692738069522195d2b486eec60a8b010c0c",
+  "binary_sha256": "b514f128ad5dfeeba14f0800b392fff9016d345fb23a2aa4322f99ee7cae5bd6",
+  "config_sha256": "49009b6861ce363be5dc72d2508cf9545c66e28f0bbfaa7f0029636433aef92e",
+  "host": {
+    "hostname": "gpu-4080-401",
+    "slurm_job_id": "137774",
+    "slurm_cpus_per_task": 4,
+    "gpu_used": false
+  },
+  "training": {
+    "initial_iterations": 1000000,
+    "initial_wall_seconds": 84.01266115205362,
+    "iterations_per_second": 13384.0,
+    "peak_rss_kib": 4412920,
+    "checkpoint_reload_passed": true,
+    "resumed_iterations": 1100000,
+    "resume_wall_seconds": 17.321109572891146
+  },
+  "validation": {
+    "hands": 1000,
+    "decisions": 8903,
+    "cross_process_deterministic": true,
+    "deterministic_mismatches": 0,
+    "invalid_probability_vectors": 0,
+    "illegal_action_probability_mass": 0.0,
+    "max_probability_sum_error": 3.3306690738754696e-16,
+    "nondegenerate": true,
+    "action_probability_share": {
+      "fold": 0.36509573130176737,
+      "check_call": 0.36500249673891944,
+      "raise": 0.16720412208287155,
+      "all_in": 0.10269764987644166
+    },
+    "street_decisions": {
+      "preflop": 7764,
+      "flop": 601,
+      "turn": 278,
+      "river": 260
+    }
+  },
+  "baseline_eval": {
+    "warning": "Only an engineering sanity check; 3000 hands has a very wide confidence interval and is not evidence of teacher strength.",
+    "random": {"hands": 3000, "mbb_per_hand": 6128.5, "ci95": 4076.8},
+    "caller": {"hands": 3000, "mbb_per_hand": 1163.8, "ci95": 3244.1}
+  },
+  "artifacts": {
+    "blueprint_initial": {
+      "bytes": 367652176,
+      "sha256": "a4c6a3717da0e701f75ebc8b6f3290d3f1446fa0f6cfd9962122ce71eaf846da"
+    },
+    "blueprint_resumed": {
+      "bytes": 388826666,
+      "sha256": "1bcc77ff4a5d2e3980d98f7bbae359a3d3f2d0c58832a72f96cc0d5a9601b45c"
+    },
+    "checkpoint_initial": {
+      "bytes": 876078985,
+      "sha256": "1996028357d393ded29a62ed8fa234164b15fc748525fe27a0745535a347a580"
+    },
+    "checkpoint_resumed": {
+      "bytes": 926360278,
+      "sha256": "72812372be6d12c543383488d4a1662652c1d867975b2a0bb13472fc4165edc1"
+    }
+  },
+  "formal_training_estimate": {
+    "target_iterations": 200000000,
+    "estimated_wall_hours_at_observed_rate": 4.150893272232184,
+    "estimated_cpu_hours": 16.603573088928737,
+    "observed_peak_rss_gib": 4.208488464355469,
+    "observed_smoke_artifact_bytes": 2558918105,
+    "recommended_request": {
+      "cpus": 4,
+      "memory_gib": 16,
+      "wall_hours": 8,
+      "disk_gib_per_seed": 12
+    },
+    "storage_capacity": {
+      "home_free_gib_observed_before_smoke": 22,
+      "minimum_free_gib_before_three_seed_plan": 40,
+      "formal_training_ready": false,
+      "blocker": "The three-seed plan needs more free persistent storage or a larger approved artifact filesystem. Do not delete the audited smoke run until its required logs and hashes are preserved."
+    },
+    "caveat": "Linear smoke extrapolation; run a longer pilot before reserving three formal seeds."
+  },
+  "logs": {
+    "stdout_stderr_and_time_v": "Stored under server_artifact_root; every step has separate stdout, stderr and resource logs.",
+    "runner_report": "report.json",
+    "runner_summary": "summary.json"
+  }
+}

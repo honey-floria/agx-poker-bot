@@ -1,0 +1,282 @@
+diff --git a/src/main.rs b/src/main.rs
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -27,7 +27,7 @@ mod valuenet;
+ #[global_allocator]
+ static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
+ 
+-use abstraction::{AbsConfig, Abstraction, Centroids};
++use abstraction::{AbsAction, AbsConfig, Abstraction, Centroids};
+ use bot::{Policy, SearchParams};
+ use cfr::{Blueprint, TrainConfig, Trainer};
+ use clap::{Parser, Subcommand};
+@@ -37,6 +37,8 @@ use indicatif::{ProgressBar, ProgressStyle};
+ use rand::rngs::SmallRng;
+ use rand::seq::SliceRandom;
+ use rand::SeedableRng;
++use serde::Deserialize;
++use std::io::{BufRead, Write};
+ use std::sync::Arc;
+ use table::Baseline;
+ 
+@@ -498,6 +500,14 @@ enum Cmd {
+         #[arg(long, default_value_t = 7_607)]
+         seed: u64,
+     },
++    /// Serve raw blueprint actions for AGX public states over JSON Lines.
++    /// The blueprint is loaded once; each stdin request produces one stdout response.
++    ServeAgx {
++        #[arg(long, default_value = "blueprint.bin")]
++        blueprint: String,
++        #[arg(long, default_value_t = 7_607)]
++        seed: u64,
++    },
+     /// Print blueprint statistics.
+     Inspect {
+         #[arg(long, default_value = "blueprint.bin")]
+@@ -1301,6 +1311,11 @@ fn main() {
+             }
+         }
+ 
++        Cmd::ServeAgx { blueprint, seed } => {
++            let policy = load_policy(&blueprint);
++            serve_agx(&policy, seed);
++        }
++
+         Cmd::Inspect { blueprint } => {
+             let bp = Blueprint::load(&blueprint)
+                 .unwrap_or_else(|e| die(&format!("cannot load {blueprint}: {e}")));
+@@ -1520,8 +1535,210 @@ fn validate_blueprint(policy: &Policy, hands: u64, seed: u64) -> serde_json::Value {
+         "max_probability_sum_error": max_sum_error,
+         "nondegenerate": nondegenerate
+     })
++}
++
++#[derive(Deserialize)]
++struct AgxQueryRequest {
++    request_id: u64,
++    view: AgxView,
++}
++
++#[derive(Deserialize)]
++struct AgxView {
++    button: usize,
++    seat: usize,
++    street: String,
++    board: Vec<String>,
++    pot: u32,
++    me: AgxMe,
++    players: Vec<AgxPlayer>,
++    actions: Vec<AgxHistoryAction>,
++    #[serde(rename = "toCall")]
++    to_call: u32,
++    #[serde(rename = "canRaise")]
++    can_raise: bool,
+ }
+ 
++#[derive(Deserialize)]
++struct AgxMe {
++    cards: Vec<String>,
++}
++
++#[derive(Deserialize)]
++struct AgxPlayer {
++    seat: usize,
++    stack: u32,
++    bet: u32,
++    invested: u32,
++    state: String,
++}
++
++#[derive(Deserialize)]
++struct AgxHistoryAction {
++    seat: usize,
++    #[serde(rename = "type")]
++    kind: String,
++    #[serde(default)]
++    to: Option<u32>,
++}
++
++fn agx_deck(view: &AgxView) -> Result<[cards::Card; 52], String> {
++    if view.seat >= 6 || view.me.cards.len() != 2 || view.board.len() > 5 {
++        return Err("invalid seat, hole cards, or board length".to_string());
++    }
++    let mut deck = [u8::MAX; 52];
++    let mut used = [false; 52];
++    let mut place = |index: usize, text: &str| -> Result<(), String> {
++        let card = cards::parse_card(text).ok_or_else(|| format!("invalid card '{text}'"))?;
++        if used[card as usize] {
++            return Err(format!("duplicate card '{text}'"));
++        }
++        deck[index] = card;
++        used[card as usize] = true;
++        Ok(())
++    };
++    place(2 * view.seat, &view.me.cards[0])?;
++    place(2 * view.seat + 1, &view.me.cards[1])?;
++    for (offset, card) in view.board.iter().enumerate() {
++        place(12 + offset, card)?;
++    }
++    let mut remaining = (0u8..52).filter(|&card| !used[card as usize]);
++    for card in &mut deck {
++        if *card == u8::MAX {
++            *card = remaining.next().expect("52-card fill must be exact");
++        }
++    }
++    Ok(deck)
++}
++
++fn agx_table(view: &AgxView, policy: &Policy) -> Result<table::Table, String> {
++    if view.players.len() != 6 || view.button >= 6 {
++        return Err("AGX query requires six players and a valid button".to_string());
++    }
++    let cfg = HandConfig::default();
++    let mut table = table::Table::new(&cfg, view.button, agx_deck(view)?);
++    for action in &view.actions {
++        if table.real.is_terminal() || table.real.to_act() != action.seat {
++            return Err(format!(
++                "history actor mismatch: expected {}, got {}",
++                table.real.to_act(), action.seat
++            ));
++        }
++        let concrete = match action.kind.as_str() {
++            "fold" => engine::PlayerAction::Fold,
++            "check" | "call" => engine::PlayerAction::CheckCall,
++            "bet" | "raise" => engine::PlayerAction::RaiseTo(
++                action.to.ok_or_else(|| "raise/bet is missing 'to'".to_string())?,
++            ),
++            // An all-in can either be a raise or a short-stack call.  AGX records
++            // both forms as `allin`, while NoRegrets represents the latter as
++            // CheckCall because no legal raise interval exists.
++            "allin" => match table.real.raise_bounds() {
++                Some(bounds) => engine::PlayerAction::RaiseTo(bounds.1),
++                None if table.real.to_call() > 0 => engine::PlayerAction::CheckCall,
++                None => return Err("all-in is not legal in replay state".to_string()),
++            },
++            other => return Err(format!("unsupported history action '{other}'")),
++        };
++        table.apply_concrete(concrete, &policy.abs);
++    }
++    if table.real.is_terminal() || table.real.to_act() != view.seat {
++        return Err(format!(
++            "query actor mismatch: engine {}, view {}",
++            table.real.to_act(), view.seat
++        ));
++    }
++    let street = match table.real.street() {
++        engine::Street::Preflop => "preflop",
++        engine::Street::Flop => "flop",
++        engine::Street::Turn => "turn",
++        engine::Street::River => "river",
++    };
++    if street != view.street
++        || table.real.pot() != view.pot
++        || table.real.to_call() != view.to_call
++        || table.real.can_full_raise() != view.can_raise
++    {
++        return Err(format!(
++            "public state mismatch: engine {street}/pot {}/call {}/raise {}, view {}/pot {}/call {}/raise {}",
++            table.real.pot(), table.real.to_call(), table.real.can_full_raise(),
++            view.street, view.pot, view.to_call, view.can_raise
++        ));
++    }
++    for player in &view.players {
++        if player.seat >= 6
++            || table.real.stack(player.seat) != player.stack
++            || table.real.street_commit(player.seat) != player.bet
++            || table.real.hand_commit(player.seat) != player.invested
++            || table.real.folded(player.seat) != (player.state == "folded")
++            || table.real.all_in(player.seat) != (player.state == "allin")
++        {
++            return Err(format!("player {} snapshot mismatch", player.seat));
++        }
++    }
++    let actual_board: Vec<String> = table.real.board().iter().map(|&c| cards::card_str(c)).collect();
++    if actual_board != view.board {
++        return Err("board snapshot mismatch".to_string());
++    }
++    Ok(table)
++}
++
++fn serve_agx(policy: &Policy, seed: u64) {
++    let stdin = std::io::stdin();
++    let mut stdout = std::io::BufWriter::new(std::io::stdout().lock());
++    writeln!(stdout, "{}", serde_json::json!({
++        "schema": "noregrets.agx-query-ready.v1", "ready": true
++    })).unwrap();
++    stdout.flush().unwrap();
++    for line in stdin.lock().lines() {
++        let line = match line {
++            Ok(line) => line,
++            Err(error) => {
++                writeln!(stdout, "{}", serde_json::json!({"ok": false, "error": error.to_string()})).unwrap();
++                stdout.flush().unwrap();
++                continue;
++            }
++        };
++        let parsed: Result<AgxQueryRequest, _> = serde_json::from_str(&line);
++        let response = match parsed {
++            Err(error) => serde_json::json!({"ok": false, "error": error.to_string()}),
++            Ok(request) => match agx_table(&request.view, policy) {
++                Err(error) => serde_json::json!({
++                    "request_id": request.request_id, "ok": false, "error": error
++                }),
++                Ok(table) => {
++                    let mut rng = SmallRng::seed_from_u64(
++                        seed ^ request.request_id.wrapping_mul(0x9E37_79B9_7F4A_7C15)
++                    );
++                    let (actions, probabilities) =
++                        policy.blueprint_dist(&table.shadow, &table.hist, &mut rng);
++                    let selected = cfr::sample_index(&probabilities, &mut rng);
++                    let action = actions[selected];
++                    let payload = match action {
++                        AbsAction::Fold => serde_json::json!({"type": "fold"}),
++                        AbsAction::CheckCall => serde_json::json!({
++                            "type": if table.real.can_check() { "check" } else { "call" }
++                        }),
++                        AbsAction::Bet(_) => match policy.abs.concrete(&table.real, action) {
++                            engine::PlayerAction::RaiseTo(target) => serde_json::json!({
++                                "type": if table.real.current_bet() == 0 { "bet" } else { "raise" },
++                                "to": target
++                            }),
++                            _ => unreachable!(),
++                        },
++                        AbsAction::AllIn => serde_json::json!({"type": "allin"}),
++                    };
++                    serde_json::json!({
++                        "request_id": request.request_id,
++                        "ok": true,
++                        "action": payload,
++                        "abstract_actions": actions.iter().map(|a| format!("{a:?}")).collect::<Vec<_>>(),
++                        "probabilities": probabilities
++                    })
++                }
++            },
++        };
++        writeln!(stdout, "{response}").unwrap();
++        stdout.flush().unwrap();
++    }
++}
++
+ fn load_policy_strat(path: &str, strat_prev: Option<&str>) -> Policy {
+     let bp = Blueprint::load(path).unwrap_or_else(|e| {
+         die(&format!(
+diff --git a/src/engine.rs b/src/engine.rs
+--- a/src/engine.rs
++++ b/src/engine.rs
+@@ -538,6 +538,15 @@ impl Hand {
+         let min_to = (self.current_bet + self.min_raise_inc).min(max_to);
+         Some((min_to, max_to))
+     }
++
++    /// Whether the player to act can make at least a full minimum raise.
++    /// `raise_bounds` also returns a singleton interval for a short all-in;
++    /// AGX exposes that case as legal `allin` with `canRaise = false`.
++    pub fn can_full_raise(&self) -> bool {
++        self.raise_bounds()
++            .map(|(_, max_to)| max_to >= self.current_bet + self.min_raise_inc)
++            .unwrap_or(false)
++    }
+ }
+ 
+ // ---------------------------------------------------------------------------

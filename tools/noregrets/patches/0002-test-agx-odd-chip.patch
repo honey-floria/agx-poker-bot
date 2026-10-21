@@ -1,0 +1,35 @@
+diff --git a/src/engine.rs b/src/engine.rs
+index 4f7491f..d3e9680 100644
+--- a/src/engine.rs
++++ b/src/engine.rs
+@@ -750,6 +750,30 @@ mod tests {
+         assert_eq!(u[1], -50);
+     }
+ 
++    #[test]
++    fn odd_chip_goes_left_of_button_after_coalescing() {
++        // p0 and p1 tie with six-high straights; p2's wheel loses.  A 101-chip
++        // flop bet and two calls make a 603-chip pot, so the odd chip goes to
++        // p1, the first tied winner left of button 0, matching AGX.
++        let deck = deck_with_front("6c Kd 6d Qh As Ah 2c 3d 4h 5s 9c");
++        let mut h = Hand::new(&cfg(3), 0, deck);
++        h.apply(CheckCall); // BTN calls 100
++        h.apply(CheckCall); // SB completes
++        h.apply(CheckCall); // BB checks
++        h.apply(RaiseTo(101));
++        h.apply(CheckCall);
++        h.apply(CheckCall);
++        for _ in 0..6 {
++            h.apply(CheckCall); // check down turn and river
++        }
++        assert!(h.is_terminal());
++        let u = h.utilities();
++        assert_eq!(u[0], 100);
++        assert_eq!(u[1], 101);
++        assert_eq!(u[2], -201);
++        assert_eq!(u.iter().sum::<i64>(), 0);
++    }
++
+     #[test]
+     fn resample_hidden_keeps_hero_and_board_no_duplicates() {
+         let mut rng = rand::rngs::SmallRng::seed_from_u64(5);

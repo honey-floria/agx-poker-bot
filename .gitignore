@@ -6,6 +6,7 @@ benchmark-output/
 .venv/
 .nodeenv/
 .env.local
+third_party/
 neural/artifacts/*
 !neural/artifacts/.gitkeep
 poker-distill/data/raw-replays/*
@@ -19,5 +20,7 @@ poker-distill/data/solver-labels/*
 !poker-distill/data/solver-labels/.gitkeep
 poker-distill/data/dagger/*
 !poker-distill/data/dagger/.gitkeep
+poker-distill/data/noregrets-blueprints/
+poker-distill/data/noregrets-queries/
 
 .idea

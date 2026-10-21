@@ -1,0 +1,2161 @@
+{
+  "artifacts": {
+    "blueprints": {
+      "17607": {
+        "bytes": 3269332347,
+        "path": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin",
+        "sha256": "a4af594fcd3ae249dd2110fff17b934f84bab8db1fa41b93113fffdb8a1a6276"
+      },
+      "27607": {
+        "bytes": 3272338929,
+        "path": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin",
+        "sha256": "9a89f1c26cd36fafbd1b9b26488d8c9117fee399cb2ceda26315853ec95963b3"
+      },
+      "7607": {
+        "bytes": 3254063556,
+        "path": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin",
+        "sha256": "ccca3923975cefaaccdd58ff6ff2f595d0d310dd943a105b636de0168bfbf958"
+      }
+    },
+    "opponents": {
+      "calling_station": {
+        "path": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/calling_station.js",
+        "sha256": "e66bebfea2f3c2998e303a6814f32cdc91cdfb67cb71b4f83d160b5c9a5076fa"
+      },
+      "current_submission": {
+        "path": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/submission.js",
+        "sha256": "5752bc878bef99a4c58f6ef2daf15b942146104646327685d9c97a7424d2e521"
+      },
+      "mixed": {
+        "path": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/mixed.js",
+        "sha256": "70457481a5c2d6192252fb946e5ce55de74c47d53691a4f47f9340426beea83c"
+      },
+      "tag": {
+        "path": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/tag.js",
+        "sha256": "e46c983d48791b63a2976e2625ad3b3303b0b59a283e8a1ef46b7d0c98d284d5"
+      }
+    },
+    "query_binary": {
+      "path": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query",
+      "sha256": "eec2c25a2c3bab87855a06b1b6a06989e88e8010a74a47689212935542c91a8c"
+    },
+    "simulator": {
+      "path": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js",
+      "sha256": "300119476e4feb84e6c61893c2567cf462ffe658b484f9607d26d4614d7c8026"
+    }
+  },
+  "blockers": [
+    "7607-vs-tag does not have a positive 95% lower bound",
+    "7607-vs-current_submission does not have a positive 95% lower bound",
+    "17607-vs-tag does not have a positive 95% lower bound",
+    "17607-vs-current_submission does not have a positive 95% lower bound",
+    "27607-vs-tag does not have a positive 95% lower bound",
+    "27607-vs-current_submission does not have a positive 95% lower bound"
+  ],
+  "completed_at_epoch": 1792586551.4449005,
+  "config": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/poker-distill/teachers/noregrets/config/ng4-project-eval-v1.json",
+  "config_sha256": "4f0cd96a19155cfe09f4becc134cbf42368274a199d97c7a3c7afea0babdc33d",
+  "eligible_for_student_queries": false,
+  "error": null,
+  "full_ng4_approved": false,
+  "gate": "failed",
+  "hostname": "gpu-4080-401",
+  "results": {
+    "17607-vs-calling_station": {
+      "action_types": {
+        "allin": 930,
+        "bet": 598,
+        "call": 588,
+        "check": 8738,
+        "fold": 3265,
+        "raise": 2337
+      },
+      "action_types_by_pool": {
+        "heads_up": {},
+        "multiway": {
+          "allin": 930,
+          "bet": 598,
+          "call": 588,
+          "check": 8738,
+          "fold": 3265,
+          "raise": 2337
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 233,
+          "bet": 592,
+          "check": 2417
+        },
+        "preflop": {
+          "allin": 693,
+          "call": 588,
+          "check": 317,
+          "fold": 3265,
+          "raise": 2337
+        },
+        "river": {
+          "check": 3005
+        },
+        "turn": {
+          "allin": 4,
+          "bet": 6,
+          "check": 2999
+        }
+      },
+      "average_rank": 2.466666666666667,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin",
+      "candidate_net": 2608685,
+      "ci95_lower_bound_mbb_per_hand": 1526.5426790906427,
+      "ci95_match_net": 50319.142368491244,
+      "ci95_mbb_per_hand": 2096.6309320204687,
+      "external_noregrets": true,
+      "first_place_share": 0.36666666666666664,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        108430,
+        91867,
+        13401,
+        3381,
+        -27654,
+        221605,
+        -5474,
+        220847,
+        275112,
+        64861,
+        56668,
+        -29185,
+        69067,
+        35195,
+        56033,
+        36071,
+        464044,
+        208832,
+        -249732,
+        321704,
+        -45712,
+        101553,
+        123643,
+        -13766,
+        267544,
+        224890,
+        -57807,
+        82673,
+        -34101,
+        24695
+      ],
+      "match_ranks": [
+        1,
+        2,
+        2,
+        3,
+        4,
+        1,
+        3,
+        1,
+        1,
+        2,
+        1,
+        5,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        6,
+        1,
+        5,
+        3,
+        1,
+        4,
+        1,
+        1,
+        6,
+        2,
+        4,
+        2
+      ],
+      "matches": 30,
+      "mbb_per_hand": 3623.1736111111113,
+      "mean_match_net": 86956.16666666667,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/calling_station.js",
+      "opponent_name": "calling_station",
+      "outright_wins": 11,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 825,
+          "mean": 3.8798585029557744,
+          "p50": 1,
+          "p95": 16.5
+        },
+        "preflop": {
+          "count": 3030,
+          "mean": 4.883990698117419,
+          "p50": 0.75,
+          "p95": 22
+        },
+        "river": {
+          "count": 0,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0
+        },
+        "turn": {
+          "count": 10,
+          "mean": 1.742857142857143,
+          "p50": 1,
+          "p95": 4
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -57807
+    },
+    "17607-vs-current_submission": {
+      "action_types": {
+        "allin": 653,
+        "bet": 988,
+        "call": 866,
+        "check": 1699,
+        "fold": 4729,
+        "raise": 1494
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 353,
+          "bet": 767,
+          "call": 418,
+          "check": 1370,
+          "fold": 750,
+          "raise": 365
+        },
+        "multiway": {
+          "allin": 300,
+          "bet": 221,
+          "call": 448,
+          "check": 329,
+          "fold": 3979,
+          "raise": 1129
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 127,
+          "bet": 505,
+          "call": 116,
+          "check": 587,
+          "fold": 169,
+          "raise": 37
+        },
+        "preflop": {
+          "allin": 318,
+          "call": 583,
+          "check": 364,
+          "fold": 4382,
+          "raise": 1428
+        },
+        "river": {
+          "allin": 89,
+          "bet": 171,
+          "call": 87,
+          "check": 318,
+          "fold": 60,
+          "raise": 6
+        },
+        "turn": {
+          "allin": 119,
+          "bet": 312,
+          "call": 80,
+          "check": 430,
+          "fold": 118,
+          "raise": 23
+        }
+      },
+      "average_rank": 5.033333333333333,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin",
+      "candidate_net": -1164130,
+      "ci95_lower_bound_mbb_per_hand": -2264.6328993319003,
+      "ci95_match_net": 15546.856250632274,
+      "ci95_mbb_per_hand": 647.7856771096781,
+      "external_noregrets": true,
+      "first_place_share": 0.13333333333333333,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        -24959,
+        -22542,
+        -29940,
+        -20963,
+        -94140,
+        -36189,
+        -40646,
+        -3523,
+        -75037,
+        49815,
+        -30061,
+        16551,
+        37982,
+        -110467,
+        -53496,
+        6141,
+        -39819,
+        -33044,
+        -32751,
+        -130590,
+        -60934,
+        -42600,
+        -23975,
+        15659,
+        -94410,
+        262,
+        -70471,
+        -33230,
+        -83380,
+        -103373
+      ],
+      "match_ranks": [
+        6,
+        6,
+        6,
+        5,
+        6,
+        5,
+        6,
+        5,
+        6,
+        1,
+        6,
+        1,
+        1,
+        6,
+        6,
+        2,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        1,
+        6,
+        4,
+        6,
+        6,
+        6,
+        6
+      ],
+      "matches": 30,
+      "mbb_per_hand": -1616.8472222222222,
+      "mean_match_net": -38804.333333333336,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/submission.js",
+      "opponent_name": "current_submission",
+      "outright_wins": 4,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 669,
+          "mean": 2.879873919410333,
+          "p50": 1,
+          "p95": 14.710843373493976
+        },
+        "preflop": {
+          "count": 1746,
+          "mean": 5.555305110386581,
+          "p50": 0.748,
+          "p95": 39.6
+        },
+        "river": {
+          "count": 266,
+          "mean": 3.15393551090807,
+          "p50": 1,
+          "p95": 13.619718309859154
+        },
+        "turn": {
+          "count": 454,
+          "mean": 2.9187250238981983,
+          "p50": 1,
+          "p95": 13.892857142857142
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -110467
+    },
+    "17607-vs-mixed": {
+      "action_types": {
+        "allin": 1335,
+        "bet": 420,
+        "call": 3386,
+        "check": 1825,
+        "fold": 4571,
+        "raise": 1963
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 150,
+          "bet": 125,
+          "call": 529,
+          "check": 656,
+          "fold": 120,
+          "raise": 48
+        },
+        "multiway": {
+          "allin": 1185,
+          "bet": 295,
+          "call": 2857,
+          "check": 1169,
+          "fold": 4451,
+          "raise": 1915
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 341,
+          "bet": 327,
+          "call": 882,
+          "check": 605,
+          "fold": 252,
+          "raise": 64
+        },
+        "preflop": {
+          "allin": 917,
+          "call": 1440,
+          "check": 161,
+          "fold": 4280,
+          "raise": 1883
+        },
+        "river": {
+          "allin": 13,
+          "bet": 13,
+          "call": 423,
+          "check": 493,
+          "fold": 13,
+          "raise": 2
+        },
+        "turn": {
+          "allin": 64,
+          "bet": 80,
+          "call": 641,
+          "check": 566,
+          "fold": 26,
+          "raise": 14
+        }
+      },
+      "average_rank": 1.3666666666666667,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin",
+      "candidate_net": 6334606,
+      "ci95_lower_bound_mbb_per_hand": 6783.818798549585,
+      "ci95_match_net": 48341.88216814331,
+      "ci95_mbb_per_hand": 2014.2450903393046,
+      "external_noregrets": true,
+      "first_place_share": 0.8,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        93047,
+        310461,
+        202140,
+        295683,
+        148430,
+        524854,
+        451019,
+        161196,
+        180605,
+        176623,
+        228459,
+        248878,
+        194925,
+        298200,
+        207760,
+        161339,
+        -98600,
+        278391,
+        29405,
+        243827,
+        444985,
+        414783,
+        38014,
+        274006,
+        36380,
+        175219,
+        157304,
+        235579,
+        138730,
+        82964
+      ],
+      "match_ranks": [
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        6,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "matches": 30,
+      "mbb_per_hand": 8798.06388888889,
+      "mean_match_net": 211153.53333333333,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/mixed.js",
+      "opponent_name": "mixed",
+      "outright_wins": 24,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 732,
+          "mean": 3.2565693029994707,
+          "p50": 1,
+          "p95": 12.789473684210526
+        },
+        "preflop": {
+          "count": 2800,
+          "mean": 4.7210785364927785,
+          "p50": 1,
+          "p95": 22
+        },
+        "river": {
+          "count": 28,
+          "mean": 2.7143872816546204,
+          "p50": 1,
+          "p95": 6.2
+        },
+        "turn": {
+          "count": 158,
+          "mean": 2.100612182333895,
+          "p50": 1,
+          "p95": 7.7351746547522335
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": 29405
+    },
+    "17607-vs-tag": {
+      "action_types": {
+        "allin": 561,
+        "bet": 1088,
+        "call": 692,
+        "check": 1828,
+        "fold": 4397,
+        "raise": 1438
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 224,
+          "bet": 748,
+          "call": 241,
+          "check": 1370,
+          "fold": 456,
+          "raise": 309
+        },
+        "multiway": {
+          "allin": 337,
+          "bet": 340,
+          "call": 451,
+          "check": 458,
+          "fold": 3941,
+          "raise": 1129
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 102,
+          "bet": 634,
+          "call": 4,
+          "check": 741,
+          "fold": 8,
+          "raise": 3
+        },
+        "preflop": {
+          "allin": 349,
+          "call": 626,
+          "check": 302,
+          "fold": 4350,
+          "raise": 1429
+        },
+        "river": {
+          "allin": 52,
+          "bet": 132,
+          "call": 38,
+          "check": 343,
+          "fold": 29,
+          "raise": 2
+        },
+        "turn": {
+          "allin": 58,
+          "bet": 322,
+          "call": 24,
+          "check": 442,
+          "fold": 10,
+          "raise": 4
+        }
+      },
+      "average_rank": 4.833333333333333,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin",
+      "candidate_net": -816681,
+      "ci95_lower_bound_mbb_per_hand": -1658.3071134218815,
+      "ci95_match_net": 12576.670722125153,
+      "ci95_mbb_per_hand": 524.0279467552148,
+      "external_noregrets": true,
+      "first_place_share": 0.06666666666666667,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        -26764,
+        38854,
+        -3658,
+        -53028,
+        -94570,
+        -51238,
+        -26314,
+        -25895,
+        23588,
+        -19316,
+        -25658,
+        -20687,
+        -1396,
+        -29253,
+        11362,
+        -34254,
+        -11838,
+        -64409,
+        -62124,
+        -65211,
+        19916,
+        -27639,
+        -27648,
+        37544,
+        -75174,
+        6471,
+        -42059,
+        -69395,
+        -8519,
+        -88369
+      ],
+      "match_ranks": [
+        6,
+        2,
+        4,
+        6,
+        6,
+        6,
+        6,
+        5,
+        2,
+        6,
+        6,
+        6,
+        3,
+        6,
+        1,
+        6,
+        4,
+        6,
+        6,
+        6,
+        2,
+        6,
+        6,
+        1,
+        6,
+        2,
+        6,
+        6,
+        5,
+        6
+      ],
+      "matches": 30,
+      "mbb_per_hand": -1134.2791666666667,
+      "mean_match_net": -27222.7,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/tag.js",
+      "opponent_name": "tag",
+      "outright_wins": 2,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 739,
+          "mean": 2.763268435086317,
+          "p50": 0.5,
+          "p95": 15.076923076923077
+        },
+        "preflop": {
+          "count": 1778,
+          "mean": 6.064203812697582,
+          "p50": 0.7485714285714286,
+          "p95": 39.6
+        },
+        "river": {
+          "count": 186,
+          "mean": 4.298258741597841,
+          "p50": 1,
+          "p95": 28.285714285714285
+        },
+        "turn": {
+          "count": 384,
+          "mean": 3.027782400843266,
+          "p50": 0.5,
+          "p95": 18.778846153846153
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -88369
+    },
+    "27607-vs-calling_station": {
+      "action_types": {
+        "allin": 934,
+        "bet": 532,
+        "call": 475,
+        "check": 8512,
+        "fold": 3336,
+        "raise": 2418
+      },
+      "action_types_by_pool": {
+        "heads_up": {},
+        "multiway": {
+          "allin": 934,
+          "bet": 532,
+          "call": 475,
+          "check": 8512,
+          "fold": 3336,
+          "raise": 2418
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 215,
+          "bet": 528,
+          "check": 2403
+        },
+        "preflop": {
+          "allin": 718,
+          "call": 475,
+          "check": 253,
+          "fold": 3336,
+          "raise": 2418
+        },
+        "river": {
+          "check": 2930
+        },
+        "turn": {
+          "allin": 1,
+          "bet": 4,
+          "check": 2926
+        }
+      },
+      "average_rank": 2.433333333333333,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin",
+      "candidate_net": 2486478,
+      "ci95_lower_bound_mbb_per_hand": 1548.6702904345152,
+      "ci95_match_net": 45714.51302957164,
+      "ci95_mbb_per_hand": 1904.7713762321514,
+      "external_noregrets": true,
+      "first_place_share": 0.36666666666666664,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        191162,
+        376192,
+        63058,
+        80895,
+        -139780,
+        229725,
+        -117958,
+        -1464,
+        254280,
+        279758,
+        20595,
+        226865,
+        110131,
+        177466,
+        -10693,
+        244255,
+        -77119,
+        104010,
+        99297,
+        17562,
+        -66315,
+        88231,
+        -30836,
+        14884,
+        66664,
+        50013,
+        111006,
+        182880,
+        47140,
+        -105426
+      ],
+      "match_ranks": [
+        1,
+        1,
+        3,
+        1,
+        6,
+        1,
+        6,
+        3,
+        1,
+        1,
+        3,
+        1,
+        2,
+        1,
+        3,
+        1,
+        4,
+        2,
+        2,
+        3,
+        6,
+        2,
+        4,
+        3,
+        1,
+        2,
+        2,
+        1,
+        2,
+        4
+      ],
+      "matches": 30,
+      "mbb_per_hand": 3453.4416666666666,
+      "mean_match_net": 82882.6,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/calling_station.js",
+      "opponent_name": "calling_station",
+      "outright_wins": 11,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 743,
+          "mean": 3.865306146508752,
+          "p50": 1,
+          "p95": 16.5
+        },
+        "preflop": {
+          "count": 3136,
+          "mean": 4.8324225205774844,
+          "p50": 0.75,
+          "p95": 22
+        },
+        "river": {
+          "count": 0,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0
+        },
+        "turn": {
+          "count": 5,
+          "mean": 1.4,
+          "p50": 1,
+          "p95": 1
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -117958
+    },
+    "27607-vs-current_submission": {
+      "action_types": {
+        "allin": 669,
+        "bet": 929,
+        "call": 846,
+        "check": 1726,
+        "fold": 4724,
+        "raise": 1478
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 362,
+          "bet": 720,
+          "call": 397,
+          "check": 1346,
+          "fold": 736,
+          "raise": 361
+        },
+        "multiway": {
+          "allin": 307,
+          "bet": 209,
+          "call": 449,
+          "check": 380,
+          "fold": 3988,
+          "raise": 1117
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 148,
+          "bet": 465,
+          "call": 95,
+          "check": 609,
+          "fold": 173,
+          "raise": 30
+        },
+        "preflop": {
+          "allin": 331,
+          "call": 582,
+          "check": 367,
+          "fold": 4391,
+          "raise": 1421
+        },
+        "river": {
+          "allin": 92,
+          "bet": 168,
+          "call": 80,
+          "check": 327,
+          "fold": 62,
+          "raise": 7
+        },
+        "turn": {
+          "allin": 98,
+          "bet": 296,
+          "call": 89,
+          "check": 423,
+          "fold": 98,
+          "raise": 20
+        }
+      },
+      "average_rank": 4.9,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin",
+      "candidate_net": -1169888,
+      "ci95_lower_bound_mbb_per_hand": -2230.5050587769806,
+      "ci95_match_net": 14535.854743980868,
+      "ci95_mbb_per_hand": 605.660614332536,
+      "external_noregrets": true,
+      "first_place_share": 0.13333333333333333,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        11769,
+        26546,
+        -79113,
+        3063,
+        -29587,
+        -137030,
+        1112,
+        -9085,
+        26801,
+        16059,
+        -28301,
+        -51833,
+        20473,
+        -76526,
+        -27605,
+        -34888,
+        -35094,
+        -37465,
+        -71839,
+        -77503,
+        -32654,
+        -51719,
+        -59232,
+        -1521,
+        -75924,
+        -44657,
+        -61641,
+        -87462,
+        -86080,
+        -78952
+      ],
+      "match_ranks": [
+        1,
+        1,
+        6,
+        4,
+        6,
+        6,
+        3,
+        4,
+        1,
+        1,
+        6,
+        6,
+        2,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        5,
+        6,
+        6,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "matches": 30,
+      "mbb_per_hand": -1624.8444444444444,
+      "mean_match_net": -38996.26666666667,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/submission.js",
+      "opponent_name": "current_submission",
+      "outright_wins": 4,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 643,
+          "mean": 3.5659424441404663,
+          "p50": 1,
+          "p95": 19.6
+        },
+        "preflop": {
+          "count": 1752,
+          "mean": 5.740978379018165,
+          "p50": 0.748,
+          "p95": 39.6
+        },
+        "river": {
+          "count": 267,
+          "mean": 3.3487987337191436,
+          "p50": 1,
+          "p95": 13.892857142857142
+        },
+        "turn": {
+          "count": 414,
+          "mean": 2.761168577959517,
+          "p50": 1,
+          "p95": 13
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -87462
+    },
+    "27607-vs-mixed": {
+      "action_types": {
+        "allin": 1325,
+        "bet": 418,
+        "call": 3302,
+        "check": 1731,
+        "fold": 4589,
+        "raise": 2064
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 150,
+          "bet": 137,
+          "call": 572,
+          "check": 637,
+          "fold": 107,
+          "raise": 54
+        },
+        "multiway": {
+          "allin": 1175,
+          "bet": 281,
+          "call": 2730,
+          "check": 1094,
+          "fold": 4482,
+          "raise": 2010
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 356,
+          "bet": 320,
+          "call": 877,
+          "check": 618,
+          "fold": 230,
+          "raise": 79
+        },
+        "preflop": {
+          "allin": 877,
+          "call": 1350,
+          "check": 128,
+          "fold": 4324,
+          "raise": 1973
+        },
+        "river": {
+          "allin": 16,
+          "bet": 17,
+          "call": 428,
+          "check": 433,
+          "fold": 7,
+          "raise": 4
+        },
+        "turn": {
+          "allin": 76,
+          "bet": 81,
+          "call": 647,
+          "check": 552,
+          "fold": 28,
+          "raise": 8
+        }
+      },
+      "average_rank": 1.6666666666666667,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin",
+      "candidate_net": 5649537,
+      "ci95_lower_bound_mbb_per_hand": 5943.6915564153205,
+      "ci95_match_net": 45669.302646032316,
+      "ci95_mbb_per_hand": 1902.8876102513464,
+      "external_noregrets": true,
+      "first_place_share": 0.6333333333333333,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        179462,
+        246103,
+        395015,
+        381659,
+        103771,
+        64222,
+        263609,
+        47857,
+        150660,
+        174109,
+        149984,
+        282125,
+        19073,
+        154098,
+        69480,
+        188727,
+        269636,
+        401342,
+        55992,
+        24739,
+        120522,
+        186523,
+        255155,
+        489041,
+        178537,
+        33735,
+        347476,
+        193253,
+        -6997,
+        230629
+      ],
+      "match_ranks": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        3,
+        1,
+        1,
+        1,
+        2,
+        4,
+        1,
+        2,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        4,
+        1
+      ],
+      "matches": 30,
+      "mbb_per_hand": 7846.579166666666,
+      "mean_match_net": 188317.9,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/mixed.js",
+      "opponent_name": "mixed",
+      "outright_wins": 19,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 755,
+          "mean": 3.1210304909070694,
+          "p50": 1,
+          "p95": 12.30817610062893
+        },
+        "preflop": {
+          "count": 2850,
+          "mean": 4.435034307752102,
+          "p50": 1,
+          "p95": 22
+        },
+        "river": {
+          "count": 37,
+          "mean": 2.3140920285246476,
+          "p50": 1,
+          "p95": 9.095238095238095
+        },
+        "turn": {
+          "count": 165,
+          "mean": 2.751376900211445,
+          "p50": 1,
+          "p95": 12.125
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": 19073
+    },
+    "27607-vs-tag": {
+      "action_types": {
+        "allin": 561,
+        "bet": 1109,
+        "call": 711,
+        "check": 1879,
+        "fold": 4411,
+        "raise": 1433
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 219,
+          "bet": 785,
+          "call": 221,
+          "check": 1402,
+          "fold": 478,
+          "raise": 305
+        },
+        "multiway": {
+          "allin": 342,
+          "bet": 324,
+          "call": 490,
+          "check": 477,
+          "fold": 3933,
+          "raise": 1128
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 117,
+          "bet": 623,
+          "call": 3,
+          "check": 777,
+          "fold": 9
+        },
+        "preflop": {
+          "allin": 331,
+          "call": 642,
+          "check": 322,
+          "fold": 4355,
+          "raise": 1425
+        },
+        "river": {
+          "allin": 46,
+          "bet": 168,
+          "call": 42,
+          "check": 328,
+          "fold": 28,
+          "raise": 3
+        },
+        "turn": {
+          "allin": 67,
+          "bet": 318,
+          "call": 24,
+          "check": 452,
+          "fold": 19,
+          "raise": 5
+        }
+      },
+      "average_rank": 4.266666666666667,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin",
+      "candidate_net": -565106,
+      "ci95_lower_bound_mbb_per_hand": -1384.2840794506435,
+      "ci95_match_net": 14385.951240148781,
+      "ci95_mbb_per_hand": 599.4146350061991,
+      "external_noregrets": true,
+      "first_place_share": 0.16666666666666666,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        -19465,
+        -11613,
+        -23761,
+        -45248,
+        -29742,
+        -75240,
+        -21499,
+        -64384,
+        -7902,
+        33108,
+        32439,
+        1614,
+        45082,
+        -16474,
+        -37971,
+        -10999,
+        -5158,
+        2567,
+        -44640,
+        -2758,
+        6348,
+        -86925,
+        -12419,
+        215,
+        -86042,
+        -83084,
+        56481,
+        -92596,
+        -1085,
+        36045
+      ],
+      "match_ranks": [
+        6,
+        3,
+        5,
+        6,
+        6,
+        6,
+        4,
+        6,
+        5,
+        1,
+        1,
+        4,
+        1,
+        6,
+        6,
+        5,
+        3,
+        3,
+        6,
+        4,
+        3,
+        6,
+        5,
+        3,
+        6,
+        6,
+        1,
+        6,
+        4,
+        1
+      ],
+      "matches": 30,
+      "mbb_per_hand": -784.8694444444444,
+      "mean_match_net": -18836.866666666665,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/tag.js",
+      "opponent_name": "tag",
+      "outright_wins": 5,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 740,
+          "mean": 3.0903242550625505,
+          "p50": 0.5,
+          "p95": 16.333333333333332
+        },
+        "preflop": {
+          "count": 1756,
+          "mean": 5.552986465694312,
+          "p50": 0.7485714285714286,
+          "p95": 39.6
+        },
+        "river": {
+          "count": 217,
+          "mean": 3.494923272191966,
+          "p50": 1,
+          "p95": 19.55
+        },
+        "turn": {
+          "count": 390,
+          "mean": 3.2137188016441764,
+          "p50": 0.5,
+          "p95": 18.63167938931298
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -86925
+    },
+    "7607-vs-calling_station": {
+      "action_types": {
+        "allin": 862,
+        "bet": 425,
+        "call": 516,
+        "check": 8909,
+        "fold": 3314,
+        "raise": 2505
+      },
+      "action_types_by_pool": {
+        "heads_up": {},
+        "multiway": {
+          "allin": 862,
+          "bet": 425,
+          "call": 516,
+          "check": 8909,
+          "fold": 3314,
+          "raise": 2505
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 259,
+          "bet": 420,
+          "check": 2604
+        },
+        "preflop": {
+          "allin": 603,
+          "call": 516,
+          "check": 262,
+          "fold": 3314,
+          "raise": 2505
+        },
+        "river": {
+          "check": 3024
+        },
+        "turn": {
+          "bet": 5,
+          "check": 3019
+        }
+      },
+      "average_rank": 2.9,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin",
+      "candidate_net": 1809199,
+      "ci95_lower_bound_mbb_per_hand": 525.359918541498,
+      "ci95_match_net": 47697.995288337384,
+      "ci95_mbb_per_hand": 1987.416470347391,
+      "external_noregrets": true,
+      "first_place_share": 0.23333333333333334,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        108500,
+        -81775,
+        71818,
+        17042,
+        -164429,
+        274991,
+        45434,
+        52825,
+        -30559,
+        -64605,
+        412770,
+        -59552,
+        63606,
+        -180174,
+        148187,
+        58786,
+        167723,
+        24548,
+        24349,
+        75977,
+        14945,
+        31777,
+        56119,
+        8458,
+        46960,
+        122885,
+        114414,
+        320810,
+        -124714,
+        252083
+      ],
+      "match_ranks": [
+        1,
+        5,
+        2,
+        4,
+        6,
+        1,
+        2,
+        3,
+        4,
+        5,
+        1,
+        4,
+        2,
+        6,
+        1,
+        3,
+        2,
+        3,
+        4,
+        3,
+        3,
+        3,
+        2,
+        4,
+        3,
+        2,
+        1,
+        1,
+        5,
+        1
+      ],
+      "matches": 30,
+      "mbb_per_hand": 2512.776388888889,
+      "mean_match_net": 60306.63333333333,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/calling_station.js",
+      "opponent_name": "calling_station",
+      "outright_wins": 7,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 679,
+          "mean": 5.049504474767167,
+          "p50": 1,
+          "p95": 16.5
+        },
+        "preflop": {
+          "count": 3108,
+          "mean": 4.288407529050382,
+          "p50": 0.7490909090909091,
+          "p95": 22
+        },
+        "river": {
+          "count": 0,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0
+        },
+        "turn": {
+          "count": 5,
+          "mean": 0.6,
+          "p50": 0.5,
+          "p95": 0.5
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -164429
+    },
+    "7607-vs-current_submission": {
+      "action_types": {
+        "allin": 660,
+        "bet": 977,
+        "call": 796,
+        "check": 1632,
+        "fold": 4703,
+        "raise": 1495
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 368,
+          "bet": 725,
+          "call": 383,
+          "check": 1343,
+          "fold": 730,
+          "raise": 339
+        },
+        "multiway": {
+          "allin": 292,
+          "bet": 252,
+          "call": 413,
+          "check": 289,
+          "fold": 3973,
+          "raise": 1156
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 144,
+          "bet": 500,
+          "call": 86,
+          "check": 574,
+          "fold": 153,
+          "raise": 39
+        },
+        "preflop": {
+          "allin": 328,
+          "call": 547,
+          "check": 344,
+          "fold": 4411,
+          "raise": 1430
+        },
+        "river": {
+          "allin": 87,
+          "bet": 152,
+          "call": 95,
+          "check": 316,
+          "fold": 47,
+          "raise": 7
+        },
+        "turn": {
+          "allin": 101,
+          "bet": 325,
+          "call": 68,
+          "check": 398,
+          "fold": 92,
+          "raise": 19
+        }
+      },
+      "average_rank": 5.166666666666667,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin",
+      "candidate_net": -1308285,
+      "ci95_lower_bound_mbb_per_hand": -2391.3297475612344,
+      "ci95_match_net": 13782.413941469633,
+      "ci95_mbb_per_hand": 574.2672475612346,
+      "external_noregrets": true,
+      "first_place_share": 0.03333333333333333,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        -78020,
+        -95066,
+        -31581,
+        -78530,
+        -74963,
+        -42072,
+        -116620,
+        -9821,
+        -6571,
+        -10771,
+        4238,
+        -80349,
+        -21540,
+        -23330,
+        -113953,
+        34374,
+        -54563,
+        -5395,
+        -73136,
+        -87119,
+        8731,
+        -50281,
+        -46518,
+        -44251,
+        -11830,
+        -36446,
+        -3515,
+        -55968,
+        -18117,
+        -85302
+      ],
+      "match_ranks": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        4,
+        5,
+        4,
+        3,
+        6,
+        5,
+        5,
+        6,
+        1,
+        6,
+        5,
+        6,
+        6,
+        3,
+        6,
+        6,
+        6,
+        4,
+        6,
+        3,
+        6,
+        5,
+        6
+      ],
+      "matches": 30,
+      "mbb_per_hand": -1817.0625,
+      "mean_match_net": -43609.5,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/submission.js",
+      "opponent_name": "current_submission",
+      "outright_wins": 1,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 683,
+          "mean": 2.8470037070356313,
+          "p50": 1,
+          "p95": 13.892857142857142
+        },
+        "preflop": {
+          "count": 1758,
+          "mean": 5.744775148731192,
+          "p50": 0.748,
+          "p95": 39.6
+        },
+        "river": {
+          "count": 246,
+          "mean": 3.2622051875333287,
+          "p50": 1,
+          "p95": 16.25
+        },
+        "turn": {
+          "count": 445,
+          "mean": 2.9129894065946953,
+          "p50": 1,
+          "p95": 13.892857142857142
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -113953
+    },
+    "7607-vs-mixed": {
+      "action_types": {
+        "allin": 1288,
+        "bet": 395,
+        "call": 3222,
+        "check": 1764,
+        "fold": 4651,
+        "raise": 2031
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 165,
+          "bet": 141,
+          "call": 541,
+          "check": 627,
+          "fold": 112,
+          "raise": 67
+        },
+        "multiway": {
+          "allin": 1123,
+          "bet": 254,
+          "call": 2681,
+          "check": 1137,
+          "fold": 4539,
+          "raise": 1964
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 351,
+          "bet": 318,
+          "call": 865,
+          "check": 589,
+          "fold": 236,
+          "raise": 80
+        },
+        "preflop": {
+          "allin": 853,
+          "call": 1329,
+          "check": 140,
+          "fold": 4370,
+          "raise": 1930
+        },
+        "river": {
+          "allin": 14,
+          "bet": 16,
+          "call": 405,
+          "check": 458,
+          "fold": 7,
+          "raise": 3
+        },
+        "turn": {
+          "allin": 70,
+          "bet": 61,
+          "call": 623,
+          "check": 577,
+          "fold": 38,
+          "raise": 18
+        }
+      },
+      "average_rank": 1.3333333333333333,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin",
+      "candidate_net": 5482079,
+      "ci95_lower_bound_mbb_per_hand": 6219.16783174708,
+      "ci95_match_net": 33475.93870473677,
+      "ci95_mbb_per_hand": 1394.830779364032,
+      "external_noregrets": true,
+      "first_place_share": 0.7666666666666667,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        119212,
+        130179,
+        220247,
+        192279,
+        257856,
+        176435,
+        143383,
+        321599,
+        91776,
+        116622,
+        246333,
+        75091,
+        293061,
+        226289,
+        69060,
+        114405,
+        99794,
+        366936,
+        96214,
+        -81943,
+        145914,
+        198090,
+        206310,
+        276005,
+        268686,
+        286200,
+        236843,
+        124006,
+        246816,
+        218381
+      ],
+      "match_ranks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        5,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "matches": 30,
+      "mbb_per_hand": 7613.998611111111,
+      "mean_match_net": 182735.96666666667,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/mixed.js",
+      "opponent_name": "mixed",
+      "outright_wins": 23,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 749,
+          "mean": 3.3061094873776296,
+          "p50": 1,
+          "p95": 13.134228187919463
+        },
+        "preflop": {
+          "count": 2783,
+          "mean": 4.409097194106766,
+          "p50": 1,
+          "p95": 22
+        },
+        "river": {
+          "count": 33,
+          "mean": 1.1678129844179088,
+          "p50": 0.7509699321047527,
+          "p95": 3.51
+        },
+        "turn": {
+          "count": 149,
+          "mean": 2.760683273333728,
+          "p50": 1,
+          "p95": 9.7
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": 69060
+    },
+    "7607-vs-tag": {
+      "action_types": {
+        "allin": 560,
+        "bet": 1081,
+        "call": 661,
+        "check": 1851,
+        "fold": 4397,
+        "raise": 1462
+      },
+      "action_types_by_pool": {
+        "heads_up": {
+          "allin": 206,
+          "bet": 737,
+          "call": 196,
+          "check": 1364,
+          "fold": 469,
+          "raise": 319
+        },
+        "multiway": {
+          "allin": 354,
+          "bet": 344,
+          "call": 465,
+          "check": 487,
+          "fold": 3928,
+          "raise": 1143
+        }
+      },
+      "action_types_by_street": {
+        "flop": {
+          "allin": 123,
+          "bet": 646,
+          "call": 3,
+          "check": 746,
+          "fold": 8,
+          "raise": 2
+        },
+        "preflop": {
+          "allin": 335,
+          "call": 619,
+          "check": 305,
+          "fold": 4341,
+          "raise": 1452
+        },
+        "river": {
+          "allin": 42,
+          "bet": 155,
+          "call": 27,
+          "check": 333,
+          "fold": 24,
+          "raise": 4
+        },
+        "turn": {
+          "allin": 60,
+          "bet": 280,
+          "call": 12,
+          "check": 467,
+          "fold": 24,
+          "raise": 4
+        }
+      },
+      "average_rank": 4.7,
+      "candidate": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin",
+      "candidate_net": -655722,
+      "ci95_lower_bound_mbb_per_hand": -1437.2592303512115,
+      "ci95_match_net": 12636.821528429078,
+      "ci95_mbb_per_hand": 526.5342303512116,
+      "external_noregrets": true,
+      "first_place_share": 0.03333333333333333,
+      "hands": 7200,
+      "invalid_action_reasons": {},
+      "invalid_actions": 0,
+      "match_nets": [
+        -6407,
+        1042,
+        -8696,
+        5493,
+        -29792,
+        -95591,
+        17515,
+        -108504,
+        9737,
+        -10030,
+        -59071,
+        -21054,
+        50769,
+        -41590,
+        -6712,
+        -35362,
+        3861,
+        -22057,
+        -1531,
+        -63750,
+        -29966,
+        -17420,
+        477,
+        2271,
+        9033,
+        1346,
+        -17703,
+        -73886,
+        -31324,
+        -76820
+      ],
+      "match_ranks": [
+        5,
+        3,
+        4,
+        3,
+        6,
+        6,
+        2,
+        6,
+        3,
+        5,
+        6,
+        6,
+        1,
+        6,
+        6,
+        6,
+        3,
+        6,
+        4,
+        6,
+        6,
+        6,
+        3,
+        3,
+        3,
+        4,
+        5,
+        6,
+        6,
+        6
+      ],
+      "matches": 30,
+      "mbb_per_hand": -910.725,
+      "mean_match_net": -21857.4,
+      "opponent": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/tag.js",
+      "opponent_name": "tag",
+      "outright_wins": 1,
+      "raise_pot_fraction_by_street": {
+        "flop": {
+          "count": 771,
+          "mean": 2.7735951552346,
+          "p50": 0.5,
+          "p95": 16.25
+        },
+        "preflop": {
+          "count": 1787,
+          "mean": 5.707613436925442,
+          "p50": 0.748,
+          "p95": 39.6
+        },
+        "river": {
+          "count": 201,
+          "mean": 4.208636813729822,
+          "p50": 1,
+          "p95": 28.285714285714285
+        },
+        "turn": {
+          "count": 344,
+          "mean": 3.2850363375345015,
+          "p50": 1,
+          "p95": 16.870689655172413
+        }
+      },
+      "schema": "agx.paired-policy-evaluation.v1",
+      "seed": 58607,
+      "timeouts": 0,
+      "worst_5pct_match_net": -95591
+    }
+  },
+  "schema": "agx.noregrets-ng4-project-progress.v1",
+  "slurm_job_id": "137870",
+  "steps": {
+    "17607-vs-calling_station": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/calling_station.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/17607-vs-calling_station.json",
+      "exit_code": 0,
+      "stderr": "logs/17607-vs-calling_station.stderr.log",
+      "stdout": "logs/17607-vs-calling_station.stdout.log",
+      "wall_seconds": 72.53292342275381
+    },
+    "17607-vs-current_submission": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/submission.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/17607-vs-current_submission.json",
+      "exit_code": 0,
+      "stderr": "logs/17607-vs-current_submission.stderr.log",
+      "stdout": "logs/17607-vs-current_submission.stdout.log",
+      "wall_seconds": 239.3418695437722
+    },
+    "17607-vs-mixed": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/mixed.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/17607-vs-mixed.json",
+      "exit_code": 0,
+      "stderr": "logs/17607-vs-mixed.stderr.log",
+      "stdout": "logs/17607-vs-mixed.stdout.log",
+      "wall_seconds": 57.18032384477556
+    },
+    "17607-vs-tag": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/tag.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/17607-vs-tag.json",
+      "exit_code": 0,
+      "stderr": "logs/17607-vs-tag.stderr.log",
+      "stdout": "logs/17607-vs-tag.stdout.log",
+      "wall_seconds": 50.97736220341176
+    },
+    "27607-vs-calling_station": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/calling_station.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/27607-vs-calling_station.json",
+      "exit_code": 0,
+      "stderr": "logs/27607-vs-calling_station.stderr.log",
+      "stdout": "logs/27607-vs-calling_station.stdout.log",
+      "wall_seconds": 71.28024207707494
+    },
+    "27607-vs-current_submission": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/submission.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/27607-vs-current_submission.json",
+      "exit_code": 0,
+      "stderr": "logs/27607-vs-current_submission.stderr.log",
+      "stdout": "logs/27607-vs-current_submission.stdout.log",
+      "wall_seconds": 252.74662726419047
+    },
+    "27607-vs-mixed": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/mixed.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/27607-vs-mixed.json",
+      "exit_code": 0,
+      "stderr": "logs/27607-vs-mixed.stderr.log",
+      "stdout": "logs/27607-vs-mixed.stdout.log",
+      "wall_seconds": 59.090722331777215
+    },
+    "27607-vs-tag": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/tag.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/27607-vs-tag.json",
+      "exit_code": 0,
+      "stderr": "logs/27607-vs-tag.stderr.log",
+      "stdout": "logs/27607-vs-tag.stdout.log",
+      "wall_seconds": 49.869217155035585
+    },
+    "7607-vs-calling_station": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/calling_station.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/7607-vs-calling_station.json",
+      "exit_code": 0,
+      "stderr": "logs/7607-vs-calling_station.stderr.log",
+      "stdout": "logs/7607-vs-calling_station.stdout.log",
+      "wall_seconds": 82.71689988020808
+    },
+    "7607-vs-current_submission": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/submission.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/7607-vs-current_submission.json",
+      "exit_code": 0,
+      "stderr": "logs/7607-vs-current_submission.stderr.log",
+      "stdout": "logs/7607-vs-current_submission.stdout.log",
+      "wall_seconds": 250.18119862070307
+    },
+    "7607-vs-mixed": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/mixed.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/7607-vs-mixed.json",
+      "exit_code": 0,
+      "stderr": "logs/7607-vs-mixed.stderr.log",
+      "stdout": "logs/7607-vs-mixed.stdout.log",
+      "wall_seconds": 57.508398657198995
+    },
+    "7607-vs-tag": {
+      "command": "/userhome/cs5/u3680889/agx-poker-bot/.nodeenv/bin/node /userhome/cs5/u3680889/noregrets-smoke-tools/repo/simulator/simulate_submission.js --matches 30 --seed 58607 --noregrets-bin /userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus-agx-query --noregrets-blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --opponent /userhome/cs5/u3680889/noregrets-smoke-tools/repo/baselines/tag.js --json-out /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/evaluations/ng4-project-v1/raw/7607-vs-tag.json",
+      "exit_code": 0,
+      "stderr": "logs/7607-vs-tag.stderr.log",
+      "stdout": "logs/7607-vs-tag.stdout.log",
+      "wall_seconds": 49.07628253195435
+    }
+  }
+}

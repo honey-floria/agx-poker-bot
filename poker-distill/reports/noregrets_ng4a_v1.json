@@ -1,0 +1,1029 @@
+{
+  "artifacts": {
+    "17607": {
+      "bytes": 3269332347,
+      "path": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin",
+      "sha256": "a4af594fcd3ae249dd2110fff17b934f84bab8db1fa41b93113fffdb8a1a6276",
+      "training_curve": [
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1814.3,
+              "hands": 10000,
+              "mbb_per_hand": 3142.0,
+              "wall_seconds": 0.4
+            },
+            "random": {
+              "ci95": 1844.3,
+              "hands": 10000,
+              "mbb_per_hand": 5297.2,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 20000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.09204420081768637,
+              "check_call": 0.21597825903499523,
+              "fold": 0.508649308943701,
+              "raise": 0.18332823120361733
+            },
+            "decisions": 8159,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 758,
+              "check_call": 1784,
+              "fold": 4139,
+              "raise": 1478
+            },
+            "street_decisions": {
+              "flop": 472,
+              "preflop": 7476,
+              "river": 58,
+              "turn": 153
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1802.3,
+              "hands": 10000,
+              "mbb_per_hand": 3421.9,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1773.8,
+              "hands": 10000,
+              "mbb_per_hand": 5480.2,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 40000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.08088993717730072,
+              "check_call": 0.2034084527536181,
+              "fold": 0.5402878195067415,
+              "raise": 0.17541379056233955
+            },
+            "decisions": 7992,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 627,
+              "check_call": 1622,
+              "fold": 4316,
+              "raise": 1427
+            },
+            "street_decisions": {
+              "flop": 595,
+              "preflop": 7177,
+              "river": 60,
+              "turn": 160
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1810.0,
+              "hands": 10000,
+              "mbb_per_hand": 4579.7,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1719.2,
+              "hands": 10000,
+              "mbb_per_hand": 5385.7,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 60000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.07082671434151865,
+              "check_call": 0.1921873113957147,
+              "fold": 0.5653647822743458,
+              "raise": 0.1716211919884208
+            },
+            "decisions": 7853,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 553,
+              "check_call": 1458,
+              "fold": 4448,
+              "raise": 1394
+            },
+            "street_decisions": {
+              "flop": 589,
+              "preflop": 6997,
+              "river": 73,
+              "turn": 194
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1744.4,
+              "hands": 10000,
+              "mbb_per_hand": 3859.9,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1692.5,
+              "hands": 10000,
+              "mbb_per_hand": 5447.0,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 80000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.06417020889526905,
+              "check_call": 0.18307371529877517,
+              "fold": 0.5855371432474615,
+              "raise": 0.16721893255849415
+            },
+            "decisions": 7733,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 500,
+              "check_call": 1390,
+              "fold": 4529,
+              "raise": 1314
+            },
+            "street_decisions": {
+              "flop": 622,
+              "preflop": 6820,
+              "river": 92,
+              "turn": 199
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1743.9,
+              "hands": 10000,
+              "mbb_per_hand": 3930.5,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1673.0,
+              "hands": 10000,
+              "mbb_per_hand": 5544.9,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 100000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.05840927015486776,
+              "check_call": 0.1832377467493467,
+              "fold": 0.5964577923656119,
+              "raise": 0.16189519073017367
+            },
+            "decisions": 7677,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 466,
+              "check_call": 1346,
+              "fold": 4586,
+              "raise": 1279
+            },
+            "street_decisions": {
+              "flop": 588,
+              "preflop": 6746,
+              "river": 113,
+              "turn": 230
+            }
+          }
+        }
+      ]
+    },
+    "27607": {
+      "bytes": 3272338929,
+      "path": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin",
+      "sha256": "9a89f1c26cd36fafbd1b9b26488d8c9117fee399cb2ceda26315853ec95963b3",
+      "training_curve": [
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1773.8,
+              "hands": 10000,
+              "mbb_per_hand": 3490.3,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1846.2,
+              "hands": 10000,
+              "mbb_per_hand": 5596.4,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 20000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.09261711411653796,
+              "check_call": 0.2235500171656051,
+              "fold": 0.5033673062969183,
+              "raise": 0.18046556242093864
+            },
+            "decisions": 8224,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 767,
+              "check_call": 1852,
+              "fold": 4106,
+              "raise": 1499
+            },
+            "street_decisions": {
+              "flop": 462,
+              "preflop": 7605,
+              "river": 53,
+              "turn": 104
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1783.5,
+              "hands": 10000,
+              "mbb_per_hand": 4297.6,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1799.0,
+              "hands": 10000,
+              "mbb_per_hand": 6302.7,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 40000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.07941850574364252,
+              "check_call": 0.19991495103875204,
+              "fold": 0.5460642173331504,
+              "raise": 0.17460232588445504
+            },
+            "decisions": 7931,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 628,
+              "check_call": 1534,
+              "fold": 4374,
+              "raise": 1395
+            },
+            "street_decisions": {
+              "flop": 526,
+              "preflop": 7168,
+              "river": 60,
+              "turn": 177
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1711.9,
+              "hands": 10000,
+              "mbb_per_hand": 3622.7,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1740.0,
+              "hands": 10000,
+              "mbb_per_hand": 6406.7,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 60000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.0711747309905008,
+              "check_call": 0.19213101521488835,
+              "fold": 0.5619929089446661,
+              "raise": 0.17470134484994482
+            },
+            "decisions": 7918,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 558,
+              "check_call": 1520,
+              "fold": 4455,
+              "raise": 1385
+            },
+            "street_decisions": {
+              "flop": 582,
+              "preflop": 7009,
+              "river": 92,
+              "turn": 235
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1661.0,
+              "hands": 10000,
+              "mbb_per_hand": 3421.1,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1699.3,
+              "hands": 10000,
+              "mbb_per_hand": 6231.8,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 80000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.06299554965510824,
+              "check_call": 0.18769351645284701,
+              "fold": 0.581744226150908,
+              "raise": 0.1675667077411366
+            },
+            "decisions": 7793,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 496,
+              "check_call": 1434,
+              "fold": 4540,
+              "raise": 1323
+            },
+            "street_decisions": {
+              "flop": 608,
+              "preflop": 6838,
+              "river": 100,
+              "turn": 247
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1637.0,
+              "hands": 10000,
+              "mbb_per_hand": 3039.9,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1684.4,
+              "hands": 10000,
+              "mbb_per_hand": 6255.4,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 100000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.059914872635195536,
+              "check_call": 0.18609003307957744,
+              "fold": 0.5920881360589889,
+              "raise": 0.16190695822623813
+            },
+            "decisions": 7734,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 464,
+              "check_call": 1421,
+              "fold": 4557,
+              "raise": 1292
+            },
+            "street_decisions": {
+              "flop": 640,
+              "preflop": 6784,
+              "river": 79,
+              "turn": 231
+            }
+          }
+        }
+      ]
+    },
+    "7607": {
+      "bytes": 3254063556,
+      "path": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin",
+      "sha256": "ccca3923975cefaaccdd58ff6ff2f595d0d310dd943a105b636de0168bfbf958",
+      "training_curve": [
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1741.0,
+              "hands": 10000,
+              "mbb_per_hand": 3796.6,
+              "wall_seconds": 0.6
+            },
+            "random": {
+              "ci95": 1828.5,
+              "hands": 10000,
+              "mbb_per_hand": 4898.5,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 20000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.0926452286246637,
+              "check_call": 0.22198364224310815,
+              "fold": 0.503646547441116,
+              "raise": 0.18172458169111208
+            },
+            "decisions": 8113,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 754,
+              "check_call": 1783,
+              "fold": 4108,
+              "raise": 1468
+            },
+            "street_decisions": {
+              "flop": 490,
+              "preflop": 7452,
+              "river": 51,
+              "turn": 120
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1769.1,
+              "hands": 10000,
+              "mbb_per_hand": 4551.2,
+              "wall_seconds": 0.4
+            },
+            "random": {
+              "ci95": 1738.2,
+              "hands": 10000,
+              "mbb_per_hand": 4601.2,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 40000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.07867826806840192,
+              "check_call": 0.19519115043486848,
+              "fold": 0.5505225748069178,
+              "raise": 0.17560800668981177
+            },
+            "decisions": 7826,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 623,
+              "check_call": 1485,
+              "fold": 4369,
+              "raise": 1349
+            },
+            "street_decisions": {
+              "flop": 502,
+              "preflop": 7127,
+              "river": 50,
+              "turn": 147
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1742.6,
+              "hands": 10000,
+              "mbb_per_hand": 4533.0,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1726.2,
+              "hands": 10000,
+              "mbb_per_hand": 5531.9,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 60000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.07095383745278619,
+              "check_call": 0.19504807452700126,
+              "fold": 0.5620485141083861,
+              "raise": 0.17194957391182644
+            },
+            "decisions": 7916,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 577,
+              "check_call": 1526,
+              "fold": 4451,
+              "raise": 1362
+            },
+            "street_decisions": {
+              "flop": 590,
+              "preflop": 7039,
+              "river": 75,
+              "turn": 212
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1758.5,
+              "hands": 10000,
+              "mbb_per_hand": 4666.1,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1685.3,
+              "hands": 10000,
+              "mbb_per_hand": 5272.8,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 80000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.06383359792290183,
+              "check_call": 0.19166423652495704,
+              "fold": 0.5773321715239995,
+              "raise": 0.16716999402814167
+            },
+            "decisions": 7846,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 505,
+              "check_call": 1501,
+              "fold": 4519,
+              "raise": 1321
+            },
+            "street_decisions": {
+              "flop": 650,
+              "preflop": 6851,
+              "river": 106,
+              "turn": 239
+            }
+          }
+        },
+        {
+          "evaluations": {
+            "caller": {
+              "ci95": 1712.2,
+              "hands": 10000,
+              "mbb_per_hand": 4185.4,
+              "wall_seconds": 0.3
+            },
+            "random": {
+              "ci95": 1644.6,
+              "hands": 10000,
+              "mbb_per_hand": 4385.6,
+              "wall_seconds": 0.0
+            }
+          },
+          "iterations": 100000000,
+          "validation": {
+            "action_probability_share": {
+              "all_in": 0.05996847992540081,
+              "check_call": 0.1878719651539594,
+              "fold": 0.5867413077911365,
+              "raise": 0.16541824712950323
+            },
+            "decisions": 7789,
+            "deterministic_mismatches": 0,
+            "gate": "passed",
+            "hands": 1000,
+            "illegal_action_probability_mass": 0.0,
+            "invalid_probability_vectors": 0,
+            "max_probability_sum_error": 2.220446049250313e-16,
+            "nondegenerate": true,
+            "schema": "noregrets.blueprint-validation.v1",
+            "seed": 7607,
+            "selected_actions": {
+              "all_in": 466,
+              "check_call": 1442,
+              "fold": 4568,
+              "raise": 1313
+            },
+            "street_decisions": {
+              "flop": 640,
+              "preflop": 6795,
+              "river": 129,
+              "turn": 225
+            }
+          }
+        }
+      ]
+    }
+  },
+  "blockers": [],
+  "completed_at_epoch": 1792579615.003151,
+  "config": "/userhome/cs5/u3680889/noregrets-smoke-tools/repo/poker-distill/teachers/noregrets/config/ng4-eval-v1.json",
+  "config_sha256": "839af082f13039de88e11dd758df1e6346f899b978632a682c9cb663daaf6a81",
+  "crossplay": {
+    "17607-vs-27607": {
+      "ci95": 275.2,
+      "hands": 100000,
+      "mbb_per_hand": -16.9
+    },
+    "17607-vs-7607": {
+      "ci95": 275.0,
+      "hands": 100000,
+      "mbb_per_hand": -72.2
+    },
+    "27607-vs-17607": {
+      "ci95": 276.6,
+      "hands": 100000,
+      "mbb_per_hand": 121.1
+    },
+    "27607-vs-7607": {
+      "ci95": 276.2,
+      "hands": 100000,
+      "mbb_per_hand": 18.5
+    },
+    "7607-vs-17607": {
+      "ci95": 276.3,
+      "hands": 100000,
+      "mbb_per_hand": 75.3
+    },
+    "7607-vs-27607": {
+      "ci95": 274.3,
+      "hands": 100000,
+      "mbb_per_hand": -55.2
+    }
+  },
+  "duplicate_baselines": {
+    "17607": {
+      "caller": {
+        "ci95": 439.8,
+        "ci95_lower_bound": 2570.0,
+        "command_wall_seconds": 2.3,
+        "hands": 120000,
+        "mbb_per_hand": 3009.8
+      },
+      "random": {
+        "ci95": 439.6,
+        "ci95_lower_bound": 4790.2,
+        "command_wall_seconds": 0.2,
+        "hands": 120000,
+        "mbb_per_hand": 5229.8
+      }
+    },
+    "27607": {
+      "caller": {
+        "ci95": 435.5,
+        "ci95_lower_bound": 2400.3,
+        "command_wall_seconds": 2.3,
+        "hands": 120000,
+        "mbb_per_hand": 2835.8
+      },
+      "random": {
+        "ci95": 439.5,
+        "ci95_lower_bound": 4780.0,
+        "command_wall_seconds": 0.1,
+        "hands": 120000,
+        "mbb_per_hand": 5219.5
+      }
+    },
+    "7607": {
+      "caller": {
+        "ci95": 424.5,
+        "ci95_lower_bound": 2051.1,
+        "command_wall_seconds": 2.3,
+        "hands": 120000,
+        "mbb_per_hand": 2475.6
+      },
+      "random": {
+        "ci95": 439.5,
+        "ci95_lower_bound": 4679.7,
+        "command_wall_seconds": 0.1,
+        "hands": 120000,
+        "mbb_per_hand": 5119.2
+      }
+    }
+  },
+  "error": null,
+  "formal_root": "/userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1",
+  "full_ng4_approved": false,
+  "gate": "phase_a_passed_pending_project_baselines",
+  "hostname": "gpu-4080-402",
+  "remaining_required_evaluation": [
+    "AGX TAG baseline",
+    "AGX Calling Station baseline",
+    "AGX Mixed baseline",
+    "current official JavaScript policy",
+    "paired seat-rotation comparison"
+  ],
+  "schema": "agx.noregrets-ng4-progress.v1",
+  "slurm_job_id": "137850",
+  "steps": {
+    "crossplay-17607-vs-27607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus crossplay --focal /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --field /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --hands 100000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/crossplay-17607-vs-27607.stderr.log",
+      "stdout": "logs/crossplay-17607-vs-27607.stdout.log",
+      "wall_seconds": 75.39732481678948
+    },
+    "crossplay-17607-vs-7607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus crossplay --focal /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --field /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --hands 100000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/crossplay-17607-vs-7607.stderr.log",
+      "stdout": "logs/crossplay-17607-vs-7607.stdout.log",
+      "wall_seconds": 76.06174612930045
+    },
+    "crossplay-27607-vs-17607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus crossplay --focal /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --field /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --hands 100000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/crossplay-27607-vs-17607.stderr.log",
+      "stdout": "logs/crossplay-27607-vs-17607.stdout.log",
+      "wall_seconds": 74.77748127188534
+    },
+    "crossplay-27607-vs-7607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus crossplay --focal /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --field /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --hands 100000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/crossplay-27607-vs-7607.stderr.log",
+      "stdout": "logs/crossplay-27607-vs-7607.stdout.log",
+      "wall_seconds": 74.8946996848099
+    },
+    "crossplay-7607-vs-17607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus crossplay --focal /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --field /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --hands 100000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/crossplay-7607-vs-17607.stderr.log",
+      "stdout": "logs/crossplay-7607-vs-17607.stdout.log",
+      "wall_seconds": 76.68850729893893
+    },
+    "crossplay-7607-vs-27607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus crossplay --focal /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --field /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --hands 100000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/crossplay-7607-vs-27607.stderr.log",
+      "stdout": "logs/crossplay-7607-vs-27607.stdout.log",
+      "wall_seconds": 74.63560264604166
+    },
+    "duplicate-caller-17607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus eval --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --hands 120000 --baseline caller --players 6 --seed 47607 --duplicate",
+      "exit_code": 0,
+      "stderr": "logs/duplicate-caller-17607.stderr.log",
+      "stdout": "logs/duplicate-caller-17607.stdout.log",
+      "wall_seconds": 39.20620750403032
+    },
+    "duplicate-caller-27607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus eval --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --hands 120000 --baseline caller --players 6 --seed 47607 --duplicate",
+      "exit_code": 0,
+      "stderr": "logs/duplicate-caller-27607.stderr.log",
+      "stdout": "logs/duplicate-caller-27607.stdout.log",
+      "wall_seconds": 38.75472689094022
+    },
+    "duplicate-caller-7607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus eval --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --hands 120000 --baseline caller --players 6 --seed 47607 --duplicate",
+      "exit_code": 0,
+      "stderr": "logs/duplicate-caller-7607.stderr.log",
+      "stdout": "logs/duplicate-caller-7607.stdout.log",
+      "wall_seconds": 39.83361301990226
+    },
+    "duplicate-random-17607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus eval --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --hands 120000 --baseline random --players 6 --seed 47607 --duplicate",
+      "exit_code": 0,
+      "stderr": "logs/duplicate-random-17607.stderr.log",
+      "stdout": "logs/duplicate-random-17607.stdout.log",
+      "wall_seconds": 37.348228690214455
+    },
+    "duplicate-random-27607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus eval --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --hands 120000 --baseline random --players 6 --seed 47607 --duplicate",
+      "exit_code": 0,
+      "stderr": "logs/duplicate-random-27607.stderr.log",
+      "stdout": "logs/duplicate-random-27607.stdout.log",
+      "wall_seconds": 36.75593167496845
+    },
+    "duplicate-random-7607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus eval --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --hands 120000 --baseline random --players 6 --seed 47607 --duplicate",
+      "exit_code": 0,
+      "stderr": "logs/duplicate-random-7607.stderr.log",
+      "stdout": "logs/duplicate-random-7607.stdout.log",
+      "wall_seconds": 36.70058171497658
+    },
+    "validate-17607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus validate-blueprint --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-17607/blueprint-final.bin --hands 10000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/validate-17607.stderr.log",
+      "stdout": "logs/validate-17607.stdout.log",
+      "wall_seconds": 38.16915898909792
+    },
+    "validate-27607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus validate-blueprint --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-27607/blueprint-final.bin --hands 10000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/validate-27607.stderr.log",
+      "stdout": "logs/validate-27607.stdout.log",
+      "wall_seconds": 37.88369189761579
+    },
+    "validate-7607": {
+      "command": "/userhome/cs5/u3680889/third_party/noregrets/target/release/pluribus validate-blueprint --blueprint /userhome/cs5/u3680889/poker-distill/data/noregrets-blueprints/formal-v1/seed-7607/blueprint-final.bin --hands 10000 --seed 47607",
+      "exit_code": 0,
+      "stderr": "logs/validate-7607.stderr.log",
+      "stdout": "logs/validate-7607.stdout.log",
+      "wall_seconds": 38.302723318338394
+    }
+  },
+  "validation": {
+    "17607": {
+      "action_probability_share": {
+        "all_in": 0.060551416079780485,
+        "check_call": 0.19148333290842495,
+        "fold": 0.5824947152018262,
+        "raise": 0.16547053580996846
+      },
+      "decisions": 77862,
+      "deterministic_mismatches": 0,
+      "gate": "passed",
+      "hands": 10000,
+      "illegal_action_probability_mass": 0.0,
+      "invalid_probability_vectors": 0,
+      "max_probability_sum_error": 2.220446049250313e-16,
+      "nondegenerate": true,
+      "schema": "noregrets.blueprint-validation.v1",
+      "seed": 47607,
+      "selected_actions": {
+        "all_in": 4724,
+        "check_call": 14872,
+        "fold": 45404,
+        "raise": 12862
+      },
+      "street_decisions": {
+        "flop": 6357,
+        "preflop": 67819,
+        "river": 1167,
+        "turn": 2519
+      }
+    },
+    "27607": {
+      "action_probability_share": {
+        "all_in": 0.060852704210463404,
+        "check_call": 0.18988940284023367,
+        "fold": 0.582280013539826,
+        "raise": 0.16697787940947692
+      },
+      "decisions": 77959,
+      "deterministic_mismatches": 0,
+      "gate": "passed",
+      "hands": 10000,
+      "illegal_action_probability_mass": 0.0,
+      "invalid_probability_vectors": 0,
+      "max_probability_sum_error": 2.220446049250313e-16,
+      "nondegenerate": true,
+      "schema": "noregrets.blueprint-validation.v1",
+      "seed": 47607,
+      "selected_actions": {
+        "all_in": 4703,
+        "check_call": 14773,
+        "fold": 45459,
+        "raise": 13024
+      },
+      "street_decisions": {
+        "flop": 6543,
+        "preflop": 67790,
+        "river": 1106,
+        "turn": 2520
+      }
+    },
+    "7607": {
+      "action_probability_share": {
+        "all_in": 0.06074758609374492,
+        "check_call": 0.18906449995342625,
+        "fold": 0.5829947473181202,
+        "raise": 0.16719316663470876
+      },
+      "decisions": 77806,
+      "deterministic_mismatches": 0,
+      "gate": "passed",
+      "hands": 10000,
+      "illegal_action_probability_mass": 0.0,
+      "invalid_probability_vectors": 0,
+      "max_probability_sum_error": 3.3306690738754696e-16,
+      "nondegenerate": true,
+      "schema": "noregrets.blueprint-validation.v1",
+      "seed": 47607,
+      "selected_actions": {
+        "all_in": 4663,
+        "check_call": 14686,
+        "fold": 45432,
+        "raise": 13025
+      },
+      "street_decisions": {
+        "flop": 6308,
+        "preflop": 67920,
+        "river": 1105,
+        "turn": 2473
+      }
+    }
+  }
+}

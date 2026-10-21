@@ -7,6 +7,7 @@
 - [项目结构说明](doc/PROJECT_STRUCTURE.md)：用树形结构说明每个目录和文件的用途。
 - [完成情况与待办事项](doc/TODO.md)：记录已经完成的工作、当前限制和后续开发顺序。
 - [蒸馏与冲榜计划](doc/蒸馏TODO.md)：记录冻结的比赛约束和蒸馏路线。
+- [NoRegrets 教师路线](doc/NoRegrets蒸馏TODO.md)与[方法说明](doc/NoRegrets方法说明.md)：记录公开六人蓝图教师的审计、门禁和披露。
 - [网页牌桌说明](web/README.md)：介绍本地启动方法和当前网页能力。
 - [神经网络训练说明](neural/README.md)：介绍 GPU 训练、导出、校验和对战命令。
 
@@ -96,6 +97,10 @@ node simulator/simulate_submission.js --matches 10 --seed 7607
 ```
 
 直接模拟器会为六名固定参赛者创建相互隔离的 AI 运行环境，复用40组牌序并完成六轮换座，同时输出净额、mbb/手、第一名份额、动作分布、非法动作、超预算次数，以及平均、P50、P95、P99和最坏决策耗时。
+
+NoRegrets 蓝图可通过 `--noregrets-bin` 与 `--noregrets-blueprint` 接入同一模拟器。正式 NG-4 项目域评测及其可恢复 Slurm 入口位于 `tools/noregrets/run_ng4_project_evaluation.py` 和 `tools/noregrets/noregrets_ng4_project_eval.sbatch`；当前 v1 报告未通过 TAG 与正式版本门禁，因此尚未授权生成学生标签。
+
+诊断时可用 `--noregrets-streets preflop` 或 `--noregrets-streets flop,turn,river` 在同一候选中按街切换 NoRegrets 与 JavaScript 策略。NG-4C 的基线矩阵与按街消融同样未发现可安全晋级的组合，v1 路线已经停止在教师门禁之前。
 
 两个模拟器都属于本项目的开发基准，并不声称与 AGX 私有比赛引擎逐字节一致。
 
